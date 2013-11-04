@@ -9,6 +9,6 @@
 #include <iostream>
 
 int main() {
-	std::cout << "This is going to be awesome!" << std::endl; // prints This is going to be awesome!
+	std::cout << "This is going to be awesome!" << std::endl;
 	return 0;
 }
