@@ -139,69 +139,20 @@ CNF_CFG::CNF_CFG() : CFG() {}
 
 CNF_CFG::CNF_CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s) : CFG(v, t, r, s)
 {
-	/*
-	 * Check if rules are of the correct form:
-	 */
-
-	for (std::map<std::string, std::vector<std::string> >::iterator r_it = rules.begin(); r_it != rules.end(); r_it++)
-	{
-		if (r_it->second.size() == 1)
-		{
-			bool ter = false;
-			for (std::vector<std::string>::iterator t_it = terminals.begin(); t_it != terminals.end(); t_it++)
-			{
-				if (r_it->second.at(0) == *t_it)
-				{
-					ter = true;
-					break;
-				}
-			}
-			if (ter == false)
-			{
-				std::string errorMessage = "Because in rule " + r_it->first + " → " + r_it->second.at(0) + " WHERE "+ r_it->second.at(0) + "IS NOT A TERMINAL. \n THIS CFG IS NOT IN CHOMSKY NORMAL FORM";
-				throw (errorMessage);
-			}
-		}
-		else if (r_it->second.size() == 2)
-		{
-			bool r1 = false;
-			bool r2 = false;
-			for (std::vector<std::string>::iterator v_it = variables.begin(); v_it != variables.end(); v_it++)
-			{
-				if (r_it->second.at(0) == *v_it)
-				{
-					r1 = true;
-				}
-				else if (r_it->second.at(1) == *v_it)
-				{
-					r2 = true;
-				}
-				if ((r1 == true) && (r2 == true))
-				{
-					break;
-				}
-			}
-			if ((r1 == false) && (r2 == false))
-			{
-				std::string errorMessage = "Because in rule " + r_it->first + " → " + r_it->second.at(0)+r_it->second.at(1) + " WHERE "+ r_it->second.at(0) + " AND " +r_it->second.at(1) + "ARE NO VARIABLEs. \n THIS CFG IS NOT IN CHOMSKY NORMAL FORM";
-				throw (errorMessage);
-			}
-			else if (r1 == false)
-			{
-				std::string errorMessage = "Because in rule " + r_it->first + " → " + r_it->second.at(0) +r_it->second.at(1)+ " WHERE "+ r_it->second.at(0) + "IS NOT A VARIABLE. \n THIS CFG IS NOT IN CHOMSKY NORMAL FORM";
-				throw (errorMessage);
-			}
-			else if (r2 == false)
-			{
-				std::string errorMessage = "Because in rule " + r_it->first + " → " + r_it->second.at(0) +r_it->second.at(1)+ " WHERE "+ r_it->second.at(1) + "IS NOT A VARIABLE. \n THIS CFG IS NOT IN CHOMSKY NORMAL FORM";
-				throw (errorMessage);
-			}
-		}
-	}
+	checkRules();
 }
 
 CNF_CFG::CNF_CFG(CFG& cfg) : CFG(cfg)
 {
+	checkRules();
+}
+
+CNF_CFG::CNF_CFG(std::string file) : CFG(file)
+{
+	checkRules();
+}
+
+void CNF_CFG::checkRules() {
 	/*
 	 * Check if rules are of the correct form:
 	 */
@@ -262,4 +213,3 @@ CNF_CFG::CNF_CFG(CFG& cfg) : CFG(cfg)
 		}
 	}
 }
-
