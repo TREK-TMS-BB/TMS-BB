@@ -15,7 +15,7 @@
 
 
 class CFG {
-
+public:
 	/*
 	 * Constructs a default CFG with no Rules, 1 Variable : S (= start symbol) and no terminals
 	 */
@@ -42,8 +42,13 @@ class CFG {
 	 */
 	void toCNF();
 
+	std::vector<std::string> getVariables() const;
+	std::vector<std::string> getTerminals() const;
+	std::map<std::string, std::vector<std::string> > getRules() const;
+	std::string getStart() const;
+
 	virtual ~CFG();
-private:
+protected:
 	std::vector<std::string> variables;
 	std::vector<std::string> terminals;
 	std::map<std::string, std::vector<std::string> > rules;
@@ -79,7 +84,7 @@ public:
 	 * using the CYK algorythm
 	 */
 	bool check_string(std::string w);
-private:
+protected:
 	std::map<std::string, bool> checked;	// keeps track of all the strings that have already been checked on this CFG
 	bool checkRules();
 };
