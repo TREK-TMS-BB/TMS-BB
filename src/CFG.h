@@ -23,7 +23,7 @@ class CFG {
 	/*
 	 * Constructs a CFG with the given parameters
 	 */
-	CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string>> &r, std::string s );
+	CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s );
 	/*
 	 * TODO Constructs a CFG by parsing the description written in the file
 	 */
@@ -32,7 +32,7 @@ class CFG {
 private:
 	std::vector<std::string> variables;
 	std::vector<std::string> terminals;
-	std::map<std::string, std::vector<std::string>> rules;
+	std::map<std::string, std::vector<std::string> > rules;
 	std::string startSymbol;
 
 };

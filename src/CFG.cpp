@@ -7,11 +7,12 @@
 
 #include "CFG.h"
 
-CFG::CFG() : variables("S"), startSymbol("S") {
-
+CFG::CFG() {
+	variables.push_back("S");
+	startSymbol= "S";
 }
 
-CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string>> &r, std::string s )
+CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s )
 : variables(v), terminals(t), rules(r), startSymbol(s)
 {
 	/*
@@ -53,7 +54,7 @@ CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std:
 	 * all variables and terminals in rules can also be found in the variables and terminals vector.
 	 */
 
-	for (std::map<std::string, std::vector<std::string>>::iterator it = rules.begin(); it != rules.end(); it++)
+	for (std::map<std::string, std::vector<std::string> >::iterator it = rules.begin(); it != rules.end(); it++)
 	{
 		// Checking Left variable
 		bool Lvar = false;
@@ -100,8 +101,11 @@ CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std:
 			}
 		}
 	}
+}
 
-
+CFG::CFG(std::string file)
+{
+	//TODO: Read File and construct the parameters
 }
 
 CFG::~CFG() {
