@@ -13,6 +13,10 @@ typedef std::vector<std::vector<std::vector<std::string> > > Table;
 class CYKTable {
 public:
 	CYKTable();
+	/*
+	 * access item at column i and row j - i + 1
+	 */
+	std::vector<std::string> at(int i, int j);
 	virtual ~CYKTable();
 private:
 	Table table;
