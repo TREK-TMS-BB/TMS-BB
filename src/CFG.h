@@ -95,7 +95,6 @@ protected:
 	 * does nothing when the rules are ok
 	 */
 	void checkRules();
-
 };
 
 #endif /* CFG_H_ */
