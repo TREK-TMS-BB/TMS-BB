@@ -10,7 +10,11 @@
 
 #include <vector>
 #include <string>
+#include <utility>
+
 #include "CFG.h"
+
+enum EAction {shift, reduction, blank};
 
 class ParseTable {
 public:
@@ -19,6 +23,9 @@ public:
 
 	ParseTable(CFG);
 	// Our parsetable will be constructed using the CFG provided as parameter.
+
+	std::pair<EAction, std::string> operator() (int, std::string) const;
+	// Returns the contents of the parse table (and what action should happen) depending on the input.
 
 	virtual ~ParseTable();
 

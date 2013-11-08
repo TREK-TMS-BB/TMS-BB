@@ -19,3 +19,6 @@ ParseTable::~ParseTable() {
 	// TODO Auto-generated destructor stub
 }
 
+std::pair<EAction, std::string> ParseTable::operator() (int token, std::string symbol) const {
+
+}
