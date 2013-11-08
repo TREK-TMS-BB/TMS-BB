@@ -24,7 +24,7 @@ public:
 	std::vector<std::string> at(unsigned int i, unsigned int j) const;
 	virtual ~CYKTable();
 
-	friend std::ostream& operator<<(std::ostream& out, const CYKTable& c);
+	friend std::ostream& operator<<(std::ostream& out, CYKTable& c);
 private:
 	Table table;
 };

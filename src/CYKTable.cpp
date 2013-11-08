@@ -23,8 +23,7 @@ CYKTable::~CYKTable() {
 	// TODO Auto-generated destructor stub
 }
 
-std::ostream& operator<<(std::ostream& out, const CYKTable& c) {
-	/*Table::iterator it = c.table.begin();
+std::ostream& operator<<(std::ostream& out, CYKTable& c) {
 	for (Table::iterator it = c.table.begin(); it != c.table.end(); it++)
 	{
 		for (Collumn::iterator c_it = it->begin(); c_it != it->end(); c_it++ )
@@ -37,7 +36,7 @@ std::ostream& operator<<(std::ostream& out, const CYKTable& c) {
 			out << "}" << "\t";
 		}
 		out << std::endl;
-	}*/
+	}
 	return out;
 }
 
