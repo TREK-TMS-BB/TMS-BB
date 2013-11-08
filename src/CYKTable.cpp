@@ -8,15 +8,23 @@
 #include "CYKTable.h"
 
 CYKTable::CYKTable() {
-	Collumn temp;
+	Collumn tC1, tC2, tC3;
+
 	std::vector<std::string> temp2;
 
 	temp2.push_back("A");
-	temp.push_back(temp2);
 	temp2.push_back("B");
-	temp.push_back(temp2);
 	temp2.push_back("C");
-	temp.push_back(temp2);
+
+	tC1.push_back(temp2);
+	tC2.push_back(temp2);
+	tC2.push_back(temp2);
+	tC3.push_back(temp2);
+	tC3.push_back(temp2);
+	tC3.push_back(temp2);
+	table.push_back(tC1);
+	table.push_back(tC2);
+	table.push_back(tC3);
 }
 
 CYKTable::~CYKTable() {
@@ -24,14 +32,14 @@ CYKTable::~CYKTable() {
 }
 
 std::ostream& operator<<(std::ostream& out, CYKTable& c) {
-	for (Table::iterator it = c.table.begin(); it != c.table.end(); it++)
+	for (int row = 0; row < c.table.size(); row++)
 	{
-		for (Collumn::iterator c_it = it->begin(); c_it != it->end(); c_it++ )
+		for (int collumn = 0; collumn < c.table.at(row).size(); collumn++)
 		{
 			out << "{";
-			for (TableEntry::iterator e_it = c_it->begin(); e_it != c_it->end(); e_it++)
+			for (int var = 0; var < c.table.at(row).at(collumn).size(); var++)
 			{
-				out << *e_it << ", ";
+				out << c.table.at(row).at(collumn).at(var) << ", ";
 			}
 			out << "}" << "\t";
 		}
