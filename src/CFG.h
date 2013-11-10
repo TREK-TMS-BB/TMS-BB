@@ -55,6 +55,14 @@ protected:
 	std::map<std::string, std::vector<std::string> > rules;
 	std::string startSymbol;
 
+	/*
+	 * checks whether all attributes are ok
+	 * - the StartSymbol can be found in variables
+	 * - variable and terminal vector are fully distinct
+	 * - left side of a rule has to be a variable
+	 * - variables and terminals in the right side have to be found in corresponding vectors
+	 * - All variables have a replacement rule
+	 */
 	void checkAttributes();
 };
 

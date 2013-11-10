@@ -66,7 +66,7 @@ void CFG::checkAttributes()
 			break;
 		}
 	}
-	if (start == true)
+	if (start == false)
 	{
 		throw("INVALID START SYMBOL");
 	}
