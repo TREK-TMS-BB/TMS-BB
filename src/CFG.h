@@ -88,7 +88,11 @@ public:
 	 */
 	bool check_string(std::string w);
 protected:
-	std::map<std::string, bool> checked;	// keeps track of all the strings that have already been checked on this CFG
+	/*
+	 * keeps track of all the strings that have already been checked on this CFG with the CYK algorithm
+	 * TODO: integrate CYK in this class
+	 */
+	// std::map<std::string, bool> checked;
 	/*
 	 * checks the rules of the CFG to see if they are in CNF form
 	 * throws exception if they do not

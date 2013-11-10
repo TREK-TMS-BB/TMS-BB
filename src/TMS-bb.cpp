@@ -18,7 +18,7 @@ int main() {
 	rules["B"].push_back("AA");
 	rules["C"].push_back("AB");
 	rules["D"].push_back("AA");
-	CYKTable c("aaaaaa", rules);
-	std::cout << c << std::endl;
+	CYKTable c( rules, "C");
+	std::cout << c("aaaa") << std::endl;
 	return 0;
 }
