@@ -54,6 +54,8 @@ protected:
 	std::vector<std::string> terminals;
 	std::map<std::string, std::vector<std::string> > rules;
 	std::string startSymbol;
+
+	void checkAttributes();
 };
 
 class CNF_CFG : public CFG {

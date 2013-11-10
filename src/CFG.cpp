@@ -15,14 +15,52 @@ CFG::CFG() {
 CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s )
 : variables(v), terminals(t), rules(r), startSymbol(s)
 {
+	checkAttributes();
+}
+
+CFG::CFG(std::string file){
+	//TODO: Read File and construct the parameters
+}
+
+CFG::CFG(CFG& copy)
+{
+	variables = copy.getVariables();
+	terminals= copy.getTerminals();
+	rules = copy.getRules();
+	startSymbol = copy.getStart();
+}
+
+void CFG::toCNF(){
+	 //TODO: @Erkki: Transform given function to CNF
+}
+std::vector<std::string> CFG::getVariables() const {
+	return variables;
+}
+std::vector<std::string> CFG::getTerminals() const {
+	return terminals;
+}
+std::map<std::string, std::vector<std::string> > CFG::getRules() const {
+	return rules;
+}
+std::string CFG::getStart() const {
+	return startSymbol;
+}
+
+CFG::~CFG() {
+}
+
+void CFG::checkAttributes()
+{
 	/*
 	 * Is this a valid CFG?
-	 * the startSymbol can be found in variables
+	 */
+	/*
+	 * - the startSymbol can be found in variables
 	 */
 	bool start = false;
 	for (std::vector<std::string>::iterator it = variables.begin(); it != variables.end(); it++)
 	{
-		if (*it == s)
+		if (*it == startSymbol)
 		{
 			start = true;
 			break;
@@ -34,7 +72,7 @@ CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std:
 	}
 
 	/*
-	 * Variable and terminal vector are fully distinct
+	 * - Variable and terminal vector are fully distinct
 	 */
 
 	for (std::vector<std::string>::iterator v_it = variables.begin(); v_it != variables.end(); v_it++)
@@ -50,8 +88,8 @@ CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std:
 	}
 
 	/*
-	 * Left side of rule has to be a variable
-	 * all variables and terminals in rules can also be found in the variables and terminals vector.
+	 * - Left side of rule has to be a variable
+	 * - all variables and terminals in rules can also be found in the variables and terminals vector.
 	 */
 
 	for (std::map<std::string, std::vector<std::string> >::iterator it = rules.begin(); it != rules.end(); it++)
@@ -101,39 +139,27 @@ CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std:
 			}
 		}
 	}
+	/*
+	 * - all variables have a replacement rule
+	 */
+	std::map<std::string , int> ruleMatched;	// second gives the nr of rules for certain variable
+	for (std::vector<std::string>::iterator it = variables.begin(); it != variables.end(); it++)
+	{
+		ruleMatched[*it]=0;
+	}
+	for (std::map<std::string, std::vector<std::string> >::iterator it = rules.begin(); it != rules.end(); it++)
+	{
+		ruleMatched[it->first] = it->second.size();
+	}
+	for (std::vector<std::string>::iterator it = variables.begin(); it != variables.end(); it++)
+	{
+		if (ruleMatched[*it] == 0)
+		{
+			std::string errorMess = "VARIABLE " + *it + "HAS NO MATCHING RULE";
+			throw(errorMess);
+		}
+	}
 }
-
-CFG::CFG(std::string file){
-	//TODO: Read File and construct the parameters
-}
-
-CFG::CFG(CFG& copy)
-{
-	variables = copy.getVariables();
-	terminals= copy.getTerminals();
-	rules = copy.getRules();
-	startSymbol = copy.getStart();
-}
-
-void CFG::toCNF(){
-	 //TODO: @Erkki: Transform given function to CNF
-}
-std::vector<std::string> CFG::getVariables() const {
-	return variables;
-}
-std::vector<std::string> CFG::getTerminals() const {
-	return terminals;
-}
-std::map<std::string, std::vector<std::string> > CFG::getRules() const {
-	return rules;
-}
-std::string CFG::getStart() const {
-	return startSymbol;
-}
-
-CFG::~CFG() {
-}
-
 
 CNF_CFG::CNF_CFG() : CFG() {}
 
