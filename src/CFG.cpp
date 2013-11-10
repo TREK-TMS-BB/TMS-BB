@@ -137,17 +137,17 @@ CFG::~CFG() {
 
 CNF_CFG::CNF_CFG() : CFG() {}
 
-CNF_CFG::CNF_CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s) : CFG(v, t, r, s)
+CNF_CFG::CNF_CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s) : CFG(v, t, r, s), cyk(rules, startSymbol)
 {
 	checkRules();
 }
 
-CNF_CFG::CNF_CFG(CFG& cfg) : CFG(cfg)
+CNF_CFG::CNF_CFG(CFG& cfg) : CFG(cfg), cyk(rules, startSymbol)
 {
 	checkRules();
 }
 
-CNF_CFG::CNF_CFG(std::string file) : CFG(file)
+CNF_CFG::CNF_CFG(std::string file) : CFG(file), cyk(rules, startSymbol)
 {
 	checkRules();
 }
@@ -212,4 +212,9 @@ void CNF_CFG::checkRules() {
 			}
 		}
 	}
+}
+
+bool CNF_CFG::check_string(std::string w)
+{
+	return cyk(w);
 }

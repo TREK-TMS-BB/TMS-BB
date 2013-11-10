@@ -9,6 +9,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include "CYKTable.h"
 
 #ifndef CFG_H_
 #define CFG_H_
@@ -53,7 +54,6 @@ protected:
 	std::vector<std::string> terminals;
 	std::map<std::string, std::vector<std::string> > rules;
 	std::string startSymbol;
-
 };
 
 class CNF_CFG : public CFG {
@@ -88,6 +88,12 @@ public:
 	 */
 	bool check_string(std::string w);
 protected:
+
+	/*
+	 * used to check if given string is in CFG
+	 */
+	CYKTable cyk;
+
 	/*
 	 * keeps track of all the strings that have already been checked on this CFG with the CYK algorithm
 	 * TODO: integrate CYK in this class
