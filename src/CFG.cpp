@@ -19,7 +19,12 @@ CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std:
 }
 
 CFG::CFG(std::string file){
-	//TODO: Read File and construct the parameters
+	CFGParser CFGP(file);
+	variables = CFGP.getVariables();
+	terminals = CFGP.getTerminals();
+	startSymbol = CFGP.getStart();
+	rules = CFGP.getRules();
+	checkAttributes();
 }
 
 CFG::CFG(CFG& copy)
@@ -84,7 +89,7 @@ std::ostream operator<< (std::ostream& out, CFG& c) {
 		}
 		out << std::endl;
 	}
-	out << " }" << std::endl << std::endl;
+	out << "}" << std::endl << std::endl;
 }
 
 CFG::~CFG() {

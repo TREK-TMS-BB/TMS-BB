@@ -64,7 +64,7 @@ int main() {
 		std::cout << "\t test unsuccessful" <<std::endl;
 	}*/
 
-	CFGParser CFGP("XML-Files/LR1-1.xml");
+	CFGParser CFGP("./../XML-Files/LR1-1.xml");
 
 	std::vector<std::string> v = CFGP.getVariables();
 	std::vector<std::string> t = CFGP.getTerminals();
@@ -72,6 +72,11 @@ int main() {
 	std::string s = CFGP.getStart();
 
 	CFG k(v, t , r, s);
+
+	CFG q("./../XML-Files/LR1-1.xml");
+	std::cout << q << std::endl;
+
+	std::cout << "end" << std::endl;
 
 	std::cout << "END OF PROGRAM" << std::endl;
 }

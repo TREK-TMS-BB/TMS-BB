@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include "CYKTable.h"
+#include "Parser.h"
 
 #ifndef CFG_H_
 #define CFG_H_
