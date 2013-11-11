@@ -63,6 +63,6 @@ int main() {
 		std::cout << "\t test unsuccessful" <<std::endl;
 	}*/
 
-	CFGParser CFGP("cfg.xml");
+	CFGParser CFGP("XML-Files/cfg.xml");
 }
 

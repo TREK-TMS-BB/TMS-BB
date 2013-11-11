@@ -10,8 +10,8 @@
 		<t>y</t>
 	</terminals>
 	<rules>
-		<r var="A" body="xy">
-		<r var="B" body="xA">
+		<r var="A" body="xy"/>
+		<r var="B" body="xA"/>
 	</rules>
 	<start>S</start>
 </CFG>
