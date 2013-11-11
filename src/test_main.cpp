@@ -14,5 +14,8 @@ int main() {
 	std::cout << "TESTS FOR CFG" << std::endl;
 
 	std::cout << "TESTS FOR CYK" << std::endl;
+	// test empty string
+	// test strings in the language
+	// test strings not in the language
 }
 
