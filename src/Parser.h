@@ -27,6 +27,15 @@ public:
 	// Default constructor: will parse the entire CFG.
 
 	virtual ~CFGParser();
+
+	std::vector<std::string> getVariables() const;
+
+	std::vector<std::string> getTerminals() const;
+
+	std::map<std::string, std::vector<std::string> > getRules() const;
+
+	std::string getStart() const;
+
 private:
 	std::vector<std::string> variables;
 	std::vector<std::string> terminals;

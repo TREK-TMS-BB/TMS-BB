@@ -101,3 +101,19 @@ void CFGParser::parseRules(TiXmlElement* g) {
 void CFGParser::parseStart(TiXmlElement* g) {
 	startSymbol = g->Value();
 }
+
+std::vector<std::string> CFGParser::getVariables() const {
+	return variables;
+}
+
+std::vector<std::string> CFGParser::getTerminals() const {
+	return terminals;
+}
+
+std::map<std::string, std::vector<std::string> > CFGParser::getRules() const {
+	return rules;
+}
+
+std::string CFGParser::getStart() const {
+	return startSymbol;
+}
