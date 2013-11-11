@@ -46,6 +46,47 @@ std::string CFG::getStart() const {
 	return startSymbol;
 }
 
+std::ostream operator<< (std::ostream& out, CFG& c) {
+	out << "variables: " << std::endl;
+	out << "{ " << c.variables.at(0);
+	for (std::vector<std::string>::iterator it = c.variables.begin()+1; it != c.variables.end(); it++)
+	{
+		out<< ", " << *it;
+	}
+	out << " }" << std::endl << std::endl;
+
+	out << "terminals: " << std::endl;
+	out << "{ " << c.terminals.at(0);
+	for (std::vector<std::string>::iterator it = c.terminals.begin()+1; it != c.terminals.end(); it++)
+	{
+		out<< ", " << *it;
+	}
+	out << " }" << std::endl << std::endl;
+
+	out << " start symbol: " << c.startSymbol << std::endl;
+
+	out << "rules: " << std::endl;
+	out << "{ "  << std::endl;
+	out << c.rules.begin()->first << " → ";
+	for (std::vector<std::string>::iterator it = c.rules.begin()->second.begin(); it != c.rules.begin()->second.end(); it++)
+	{
+		out << *it << "| ";
+	}
+	out << std::endl;
+	std::map< std::string, std::vector<std::string> >::iterator it = c.rules.begin();
+	it++;
+	for ( it ; it != c.rules.end(); ++it)
+	{
+		out << it->first << " → ";
+		for (std::vector<std::string>::iterator r_it = it->second.begin(); r_it != it->second.end(); r_it++)
+		{
+			out << *r_it << "| ";
+		}
+		out << std::endl;
+	}
+	out << " }" << std::endl << std::endl;
+}
+
 CFG::~CFG() {
 }
 
@@ -54,6 +95,17 @@ void CFG::checkAttributes()
 	/*
 	 * Is this a valid CFG?
 	 */
+	/*
+	 * - terminals and variables may not be empty
+	 */
+	if (variables.size() == 0)
+	{
+		throw("VARIABLES SHOULD NOT BE EMPTY");
+	}
+	if (terminals.size() == 0)
+	{
+		throw("TERMINALS SHOULD NOT BE EMPTY");
+	}
 	/*
 	 * - the startSymbol can be found in variables
 	 */

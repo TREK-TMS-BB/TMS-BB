@@ -43,6 +43,8 @@ public:
 	 */
 	void toCNF();
 
+	friend std::ostream operator<< (std::ostream& out, CFG& c);
+
 	std::vector<std::string> getVariables() const;
 	std::vector<std::string> getTerminals() const;
 	std::map<std::string, std::vector<std::string> > getRules() const;
