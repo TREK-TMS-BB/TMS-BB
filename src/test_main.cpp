@@ -72,5 +72,7 @@ int main() {
 	std::string s = CFGP.getStart();
 
 	CFG k(v, t , r, s);
+
+	std::cout << "END OF PROGRAM" << std::endl;
 }
 

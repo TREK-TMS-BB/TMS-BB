@@ -36,7 +36,6 @@ CFGParser::CFGParser(std::string filename) {
 
     for(TiXmlElement* g = CFG->FirstChildElement(); g != NULL; g = g->NextSiblingElement()) {
     	std::string gPart = g->Value();
-    	std::cout << gPart <<std::endl;
     	if (gPart == "variables") {
     		parseVariables(g);
     	}
@@ -66,7 +65,6 @@ void CFGParser::parseVariables(TiXmlElement* g) {
 		std::string fieldName = var->Value();
 		if(fieldName == "var") {
 			 TiXmlText* text = var->FirstChild()->ToText();
-			 std::cout << text->Value() << std::endl;
 			 if (text == NULL) {
 				 continue;
 			 }
@@ -80,7 +78,6 @@ void CFGParser::parseTerminals(TiXmlElement* g) {
 		std::string fieldName = ter->Value();
 		if(fieldName == "t") {
 			 TiXmlText* text = ter->FirstChild()->ToText();
-			 std::cout << text->Value() << std::endl;
 			 if (text == NULL) {
 				 continue;
 			 }
@@ -95,7 +92,6 @@ void CFGParser::parseRules(TiXmlElement* g) {
 		if(fieldName == "r") {
 			 std::string head = r->Attribute("var");
 			 std::string body = r->Attribute("body");
-			 std::cout << head << " " << body << std::endl;
 			 rules[head].push_back(body);
 		}
 	}
@@ -104,7 +100,6 @@ void CFGParser::parseRules(TiXmlElement* g) {
 void CFGParser::parseStart(TiXmlElement* g) {
 	TiXmlText* text = g->FirstChild()->ToText();
 	startSymbol = text->Value();
-	std::cout << startSymbol << std::endl;
 }
 
 std::vector<std::string> CFGParser::getVariables() const {
