@@ -8,10 +8,11 @@
 #include <iostream>
 #include "CYKTable.h"
 #include "CFG.h"
+#include "Parser.h"
 
 
 int main() {
-	std::cout << "TESTS FOR CFG" << std::endl;
+	/*std::cout << "TESTS FOR CFG" << std::endl;
 
 	std::map<std::string, std::vector<std::string> > rules;
 	std::vector<std::string> temp;
@@ -60,6 +61,8 @@ int main() {
 	else
 	{
 		std::cout << "\t test unsuccessful" <<std::endl;
-	}
+	}*/
+
+	CFGParser CFGP("cfg.xml");
 }
 

@@ -9,8 +9,10 @@
 #include <iostream>
 #include "CYKTable.h"
 #include "CFG.h"
+#include "Parser.h"
+
 int main() {
-	std::cout << "This is going to be awesome! Haha. Test #3" << std::endl;
+	/*std::cout << "This is going to be awesome! Haha. Test #3" << std::endl;
 	std::map<std::string, std::vector<std::string> > rules;
 	std::vector<std::string> temp;
 	temp.push_back("a");
@@ -20,5 +22,8 @@ int main() {
 	rules["D"].push_back("AA");
 	CYKTable c( rules, "C");
 	std::cout << c("aaaa") << std::endl;
+	*/
+
+	CFGParser CFGP("cfg.xml");
 	return 0;
 }
