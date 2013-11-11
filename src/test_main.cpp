@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <string>
 #include "CYKTable.h"
 #include "CFG.h"
 #include "Parser.h"
@@ -63,6 +64,13 @@ int main() {
 		std::cout << "\t test unsuccessful" <<std::endl;
 	}*/
 
-	CFGParser CFGP("XML-Files/cfg.xml");
+	CFGParser CFGP("XML-Files/LR1-1.xml");
+
+	std::vector<std::string> v = CFGP.getVariables();
+	std::vector<std::string> t = CFGP.getTerminals();
+	std::map<std::string, std::vector<std::string> > r = CFGP.getRules();
+	std::string s = CFGP.getStart();
+
+	CFG k(v, t , r, s);
 }
 
