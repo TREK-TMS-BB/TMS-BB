@@ -51,7 +51,7 @@ std::string CFG::getStart() const {
 	return startSymbol;
 }
 
-std::ostream operator<< (std::ostream& out, CFG& c) {
+std::ostream& operator<< (std::ostream& out, CFG& c) {
 	out << "variables: " << std::endl;
 	out << "{ " << c.variables.at(0);
 	for (std::vector<std::string>::iterator it = c.variables.begin()+1; it != c.variables.end(); it++)
@@ -90,6 +90,7 @@ std::ostream operator<< (std::ostream& out, CFG& c) {
 		out << std::endl;
 	}
 	out << "}" << std::endl << std::endl;
+	return out;
 }
 
 CFG::~CFG() {
