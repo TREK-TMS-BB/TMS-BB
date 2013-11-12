@@ -233,6 +233,11 @@ CNF_CFG::CNF_CFG(CFG& cfg) : CFG(cfg), cyk(rules, startSymbol)
 
 CNF_CFG::CNF_CFG(std::string file) : CFG(file), cyk(rules, startSymbol)
 {
+	CFGParser CFGP(file);
+	variables = CFGP.getVariables();
+	terminals = CFGP.getTerminals();
+	startSymbol = CFGP.getStart();
+	rules = CFGP.getRules();
 	checkRules();
 }
 
