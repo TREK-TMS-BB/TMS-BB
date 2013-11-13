@@ -8,13 +8,13 @@
 #include "LRParser.h"
 
 LRParser::LRParser()
-	: p_table()
-	  //stack()
+	: p_table(),
+	  stack()
 {}
 
 LRParser::LRParser(CFG grammar)
-	: p_table(grammar)
-	 //stack()
+	: p_table(grammar),
+	 stack()
 
 {}
 

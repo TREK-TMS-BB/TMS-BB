@@ -9,6 +9,7 @@
 #define LRPARSER_H_
 
 #include <stack>
+#include <string>
 
 #include "CFG.h"
 #include "ParseTable.h"
@@ -28,7 +29,7 @@ public:
 
 private:
 	ParseTable p_table;
-	//std::stack stack;
+	std::stack<std::string> stack;
 };
 
 #endif /* LRPARSER_H_ */

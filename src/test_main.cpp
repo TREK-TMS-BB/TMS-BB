@@ -11,6 +11,7 @@
 #include "CFG.h"
 #include "Parser.h"
 #include "Exception.h"
+#include "ParseTable.h"
 
 
 int main() {
@@ -66,16 +67,9 @@ int main() {
 	}*/
 
 	try {
-	CFGParser CFGP("./../XML-Files/LR1-1.xml");
-
-	std::vector<std::string> v = CFGP.getVariables();
-	std::vector<std::string> t = CFGP.getTerminals();
-	std::map<std::string, std::vector<std::string> > r = CFGP.getRules();
-	std::string s = CFGP.getStart();
-
-	CFG k(v, t , r, s);
-	CFG q("./../XML-Files/LR1-1.xml");
-	std::cout << q << std::endl;
+	CFG grammar("XML-Files/LR1-1.xml");
+	std::cout << grammar << std::endl;
+	ParseTable t(grammar);
 
 	std::cout << "END OF PROGRAM" << std::endl;
 	}
@@ -83,5 +77,7 @@ int main() {
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+
 }
 
