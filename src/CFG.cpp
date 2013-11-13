@@ -106,11 +106,11 @@ void CFG::checkAttributes()
 	 */
 	if (variables.size() == 0)
 	{
-		throw("VARIABLES SHOULD NOT BE EMPTY");
+		throw(Exception("VARIABLES SHOULD NOT BE EMPTY"));
 	}
 	if (terminals.size() == 0)
 	{
-		throw("TERMINALS SHOULD NOT BE EMPTY");
+		throw(Exception("TERMINALS SHOULD NOT BE EMPTY"));
 	}
 	/*
 	 * - the startSymbol can be found in variables
@@ -126,7 +126,7 @@ void CFG::checkAttributes()
 	}
 	if (start == false)
 	{
-		throw("INVALID START SYMBOL");
+		throw(Exception("INVALID START SYMBOL"));
 	}
 
 	/*
@@ -140,7 +140,7 @@ void CFG::checkAttributes()
 			if (*t_it == *v_it)
 			{
 				std::string errorMess = "TERMINAL " + *t_it + " IS ALSO FOUND IN VARIABLES";
-				throw (errorMess);
+				throw (Exception(errorMess));
 			}
 		}
 	}
@@ -165,7 +165,7 @@ void CFG::checkAttributes()
 		if (Lvar == false)
 		{
 			std::string errorMess = "SYMBOL " + it->first + " NOT FOUND IN VARIABLES VECTOR";
-			throw (errorMess);
+			throw (Exception(errorMess));
 		}
 
 		// checking right side of rule
@@ -193,7 +193,7 @@ void CFG::checkAttributes()
 			if (Rvar == false)
 			{
 				std::string errorMess = "SYMBOL " + it->first + " NOT FOUND IN VARIABLES NOR TERMINALS VECTOR";
-				throw (errorMess);
+				throw (Exception(errorMess));
 			}
 		}
 	}
@@ -214,7 +214,7 @@ void CFG::checkAttributes()
 		if (ruleMatched[*it] == 0)
 		{
 			std::string errorMess = "VARIABLE " + *it + "HAS NO MATCHING RULE";
-			throw(errorMess);
+			throw(Exception(errorMess));
 		}
 	}
 }
@@ -262,7 +262,7 @@ void CNF_CFG::checkRules() {
 			if (ter == false)
 			{
 				std::string errorMessage = "Because in rule " + r_it->first + " → " + r_it->second.at(0) + " WHERE "+ r_it->second.at(0) + "IS NOT A TERMINAL. \n THIS CFG IS NOT IN CHOMSKY NORMAL FORM";
-				throw (errorMessage);
+				throw (Exception(errorMessage));
 			}
 		}
 		else if (r_it->second.size() == 2)
@@ -287,17 +287,17 @@ void CNF_CFG::checkRules() {
 			if ((r1 == false) && (r2 == false))
 			{
 				std::string errorMessage = "Because in rule " + r_it->first + " → " + r_it->second.at(0)+r_it->second.at(1) + " WHERE "+ r_it->second.at(0) + " AND " +r_it->second.at(1) + "ARE NO VARIABLEs. \n THIS CFG IS NOT IN CHOMSKY NORMAL FORM";
-				throw (errorMessage);
+				throw (Exception(errorMessage));
 			}
 			else if (r1 == false)
 			{
 				std::string errorMessage = "Because in rule " + r_it->first + " → " + r_it->second.at(0) +r_it->second.at(1)+ " WHERE "+ r_it->second.at(0) + "IS NOT A VARIABLE. \n THIS CFG IS NOT IN CHOMSKY NORMAL FORM";
-				throw (errorMessage);
+				throw (Exception(errorMessage));
 			}
 			else if (r2 == false)
 			{
 				std::string errorMessage = "Because in rule " + r_it->first + " → " + r_it->second.at(0) +r_it->second.at(1)+ " WHERE "+ r_it->second.at(1) + "IS NOT A VARIABLE. \n THIS CFG IS NOT IN CHOMSKY NORMAL FORM";
-				throw (errorMessage);
+				throw (Exception(errorMessage));
 			}
 		}
 	}

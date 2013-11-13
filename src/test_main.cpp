@@ -10,6 +10,7 @@
 #include "CYKTable.h"
 #include "CFG.h"
 #include "Parser.h"
+#include "Exception.h"
 
 
 int main() {
@@ -64,6 +65,7 @@ int main() {
 		std::cout << "\t test unsuccessful" <<std::endl;
 	}*/
 
+	try {
 	CFGParser CFGP("./../XML-Files/LR1-1.xml");
 
 	std::vector<std::string> v = CFGP.getVariables();
@@ -72,12 +74,14 @@ int main() {
 	std::string s = CFGP.getStart();
 
 	CFG k(v, t , r, s);
-
 	CFG q("./../XML-Files/LR1-1.xml");
 	std::cout << q << std::endl;
 
-	std::cout << "end" << std::endl;
-
 	std::cout << "END OF PROGRAM" << std::endl;
+	}
+	catch(Exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 

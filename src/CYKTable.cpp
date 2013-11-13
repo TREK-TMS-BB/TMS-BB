@@ -71,11 +71,11 @@ std::vector<std::string> CYKTable::at(unsigned int i, unsigned int j) const{
 
 	if (row >= table.size())
 	{
-		throw ("ARGUMENT J IS OUT OF BOUNDS");
+		throw (Exception("ARGUMENT J IS OUT OF BOUNDS"));
 	}
 	else if (collumn >= table.at(row).size())
 	{
-		throw ("ARGUMENT I IS OUT OF BOUNDS");
+		throw (Exception("ARGUMENT I IS OUT OF BOUNDS"));
 	}
 	return table.at(row).at(collumn);
 }
@@ -86,11 +86,11 @@ void CYKTable::add(unsigned int i, unsigned int j, std::string var) {
 
 	if (row >= table.size())
 	{
-		throw ("ARGUMENT J IS OUT OF BOUNDS");
+		throw (Exception("ARGUMENT J IS OUT OF BOUNDS"));
 	}
 	else if (collumn >= table.at(row).size())
 	{
-		throw ("ARGUMENT I IS OUT OF BOUNDS");
+		throw (Exception("ARGUMENT I IS OUT OF BOUNDS"));
 	}
 
 	/*

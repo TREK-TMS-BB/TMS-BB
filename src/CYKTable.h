@@ -12,6 +12,7 @@
 #include <map>
 #include <iostream>
 #include <utility>
+#include "Exception.h"
 
 typedef std::vector<std::string> TableEntry;
 typedef std::vector<TableEntry > Collumn;
