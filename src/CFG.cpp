@@ -8,79 +8,79 @@
 #include "CFG.h"
 
 CFG::CFG() {
-	variables.push_back("S");
-	startSymbol= "S";
+	variables_.push_back("S");
+	startSymbol_= "S";
 }
 
 CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s )
-: variables(v), terminals(t), rules(r), startSymbol(s)
+: variables_(v), terminals_(t), rules_(r), startSymbol_(s)
 {
 	checkAttributes();
 }
 
 CFG::CFG(std::string file){
 	CFGParser CFGP(file);
-	variables = CFGP.getVariables();
-	terminals = CFGP.getTerminals();
-	startSymbol = CFGP.getStart();
-	rules = CFGP.getRules();
+	variables_ = CFGP.getVariables();
+	terminals_ = CFGP.getTerminals();
+	startSymbol_ = CFGP.getStart();
+	rules_ = CFGP.getRules();
 	checkAttributes();
 }
 
 CFG::CFG(CFG& copy)
 {
-	variables = copy.getVariables();
-	terminals= copy.getTerminals();
-	rules = copy.getRules();
-	startSymbol = copy.getStart();
+	variables_ = copy.getVariables();
+	terminals_= copy.getTerminals();
+	rules_ = copy.getRules();
+	startSymbol_ = copy.getStart();
 }
 
 void CFG::toCNF(){
 	 //TODO: @Erkki: Transform given function to CNF
 }
 std::vector<std::string> CFG::getVariables() const {
-	return variables;
+	return variables_;
 }
 std::vector<std::string> CFG::getTerminals() const {
-	return terminals;
+	return terminals_;
 }
 std::map<std::string, std::vector<std::string> > CFG::getRules() const {
-	return rules;
+	return rules_;
 }
 std::string CFG::getStart() const {
-	return startSymbol;
+	return startSymbol_;
 }
 
 std::ostream& operator<< (std::ostream& out, CFG& c) {
 	out << "variables: " << std::endl;
-	out << "{ " << c.variables.at(0);
-	for (std::vector<std::string>::iterator it = c.variables.begin()+1; it != c.variables.end(); it++)
+	out << "{ " << c.variables_.at(0);
+	for (std::vector<std::string>::iterator it = c.variables_.begin()+1; it != c.variables_.end(); it++)
 	{
 		out<< ", " << *it;
 	}
 	out << " }" << std::endl << std::endl;
 
 	out << "terminals: " << std::endl;
-	out << "{ " << c.terminals.at(0);
-	for (std::vector<std::string>::iterator it = c.terminals.begin()+1; it != c.terminals.end(); it++)
+	out << "{ " << c.terminals_.at(0);
+	for (std::vector<std::string>::iterator it = c.terminals_.begin()+1; it != c.terminals_.end(); it++)
 	{
 		out<< ", " << *it;
 	}
 	out << " }" << std::endl << std::endl;
 
-	out << " start symbol: " << c.startSymbol << std::endl;
+	out << " start symbol: " << c.startSymbol_ << std::endl;
 
 	out << "rules: " << std::endl;
 	out << "{ "  << std::endl;
-	out << c.rules.begin()->first << " → ";
-	for (std::vector<std::string>::iterator it = c.rules.begin()->second.begin(); it != c.rules.begin()->second.end(); it++)
+	out << c.rules_.begin()->first << " → ";
+	for (std::vector<std::string>::iterator it = c.rules_.begin()->second.begin(); it != c.rules_.begin()->second.end(); it++)
 	{
 		out << *it << "| ";
 	}
 	out << std::endl;
-	std::map< std::string, std::vector<std::string> >::iterator it = c.rules.begin();
+	std::map< std::string, std::vector<std::string> >::iterator it = c.rules_.begin();
 	it++;
-	for ( it ; it != c.rules.end(); ++it)
+	for ( it ; it != c.rules_.end(); ++it)
 	{
 		out << it->first << " → ";
 		for (std::vector<std::string>::iterator r_it = it->second.begin(); r_it != it->second.end(); r_it++)
@@ -104,11 +104,11 @@ void CFG::checkAttributes()
 	/*
 	 * - terminals and variables may not be empty
 	 */
-	if (variables.size() == 0)
+	if (variables_.size() == 0)
 	{
 		throw(Exception("VARIABLES SHOULD NOT BE EMPTY"));
 	}
-	if (terminals.size() == 0)
+	if (terminals_.size() == 0)
 	{
 		throw(Exception("TERMINALS SHOULD NOT BE EMPTY"));
 	}
@@ -116,9 +116,9 @@ void CFG::checkAttributes()
 	 * - the startSymbol can be found in variables
 	 */
 	bool start = false;
-	for (std::vector<std::string>::iterator it = variables.begin(); it != variables.end(); it++)
+	for (std::vector<std::string>::iterator it = variables_.begin(); it != variables_.end(); it++)
 	{
-		if (*it == startSymbol)
+		if (*it == startSymbol_)
 		{
 			start = true;
 			break;
@@ -133,9 +133,9 @@ void CFG::checkAttributes()
 	 * - Variable and terminal vector are fully distinct
 	 */
 
-	for (std::vector<std::string>::iterator v_it = variables.begin(); v_it != variables.end(); v_it++)
+	for (std::vector<std::string>::iterator v_it = variables_.begin(); v_it != variables_.end(); v_it++)
 	{
-		for (std::vector<std::string>::iterator t_it = terminals.begin(); t_it != terminals.end(); t_it++)
+		for (std::vector<std::string>::iterator t_it = terminals_.begin(); t_it != terminals_.end(); t_it++)
 		{
 			if (*t_it == *v_it)
 			{
@@ -150,11 +150,11 @@ void CFG::checkAttributes()
 	 * - all variables and terminals in rules can also be found in the variables and terminals vector.
 	 */
 
-	for (std::map<std::string, std::vector<std::string> >::iterator it = rules.begin(); it != rules.end(); it++)
+	for (std::map<std::string, std::vector<std::string> >::iterator it = rules_.begin(); it != rules_.end(); it++)
 	{
 		// Checking Left variable
 		bool Lvar = false;
-		for (std::vector<std::string>::iterator v_it = variables.begin(); v_it != variables.end(); v_it++)
+		for (std::vector<std::string>::iterator v_it = variables_.begin(); v_it != variables_.end(); v_it++)
 		{
 			if (it->first == *v_it)
 			{
@@ -173,7 +173,7 @@ void CFG::checkAttributes()
 		{
 			bool Rvar = false;
 			// check for variables
-			for (std::vector<std::string>::iterator v_it = variables.begin(); v_it != variables.end(); v_it++)
+			for (std::vector<std::string>::iterator v_it = variables_.begin(); v_it != variables_.end(); v_it++)
 			{
 				if (it->first == *v_it)
 				{
@@ -182,7 +182,7 @@ void CFG::checkAttributes()
 				}
 			}
 			// check for terminals
-			for (std::vector<std::string>::iterator t_it = terminals.begin(); t_it != terminals.end(); t_it++)
+			for (std::vector<std::string>::iterator t_it = terminals_.begin(); t_it != terminals_.end(); t_it++)
 			{
 				if (it->first == *t_it)
 				{
@@ -201,15 +201,15 @@ void CFG::checkAttributes()
 	 * - all variables have a replacement rule
 	 */
 	std::map<std::string , int> ruleMatched;	// second gives the nr of rules for certain variable
-	for (std::vector<std::string>::iterator it = variables.begin(); it != variables.end(); it++)
+	for (std::vector<std::string>::iterator it = variables_.begin(); it != variables_.end(); it++)
 	{
 		ruleMatched[*it]=0;
 	}
-	for (std::map<std::string, std::vector<std::string> >::iterator it = rules.begin(); it != rules.end(); it++)
+	for (std::map<std::string, std::vector<std::string> >::iterator it = rules_.begin(); it != rules_.end(); it++)
 	{
 		ruleMatched[it->first] = it->second.size();
 	}
-	for (std::vector<std::string>::iterator it = variables.begin(); it != variables.end(); it++)
+	for (std::vector<std::string>::iterator it = variables_.begin(); it != variables_.end(); it++)
 	{
 		if (ruleMatched[*it] == 0)
 		{
@@ -221,23 +221,23 @@ void CFG::checkAttributes()
 
 CNF_CFG::CNF_CFG() : CFG() {}
 
-CNF_CFG::CNF_CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s) : CFG(v, t, r, s), cyk(rules, startSymbol)
+CNF_CFG::CNF_CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std::string, std::vector<std::string> > &r, std::string s) : CFG(v, t, r, s), cyk_(rules_, startSymbol_)
 {
 	checkRules();
 }
 
-CNF_CFG::CNF_CFG(CFG& cfg) : CFG(cfg), cyk(rules, startSymbol)
+CNF_CFG::CNF_CFG(CFG& cfg) : CFG(cfg), cyk_(rules_, startSymbol_)
 {
 	checkRules();
 }
 
-CNF_CFG::CNF_CFG(std::string file) : CFG(file), cyk(rules, startSymbol)
+CNF_CFG::CNF_CFG(std::string file) : CFG(file), cyk_(rules_, startSymbol_)
 {
 	CFGParser CFGP(file);
-	variables = CFGP.getVariables();
-	terminals = CFGP.getTerminals();
-	startSymbol = CFGP.getStart();
-	rules = CFGP.getRules();
+	variables_ = CFGP.getVariables();
+	terminals_ = CFGP.getTerminals();
+	startSymbol_ = CFGP.getStart();
+	rules_ = CFGP.getRules();
 	checkRules();
 }
 
@@ -246,12 +246,12 @@ void CNF_CFG::checkRules() {
 	 * Check if rules are of the correct form:
 	 */
 
-	for (std::map<std::string, std::vector<std::string> >::iterator r_it = rules.begin(); r_it != rules.end(); r_it++)
+	for (std::map<std::string, std::vector<std::string> >::iterator r_it = rules_.begin(); r_it != rules_.end(); r_it++)
 	{
 		if (r_it->second.size() == 1)
 		{
 			bool ter = false;
-			for (std::vector<std::string>::iterator t_it = terminals.begin(); t_it != terminals.end(); t_it++)
+			for (std::vector<std::string>::iterator t_it = terminals_.begin(); t_it != terminals_.end(); t_it++)
 			{
 				if (r_it->second.at(0) == *t_it)
 				{
@@ -269,7 +269,7 @@ void CNF_CFG::checkRules() {
 		{
 			bool r1 = false;
 			bool r2 = false;
-			for (std::vector<std::string>::iterator v_it = variables.begin(); v_it != variables.end(); v_it++)
+			for (std::vector<std::string>::iterator v_it = variables_.begin(); v_it != variables_.end(); v_it++)
 			{
 				if (r_it->second.at(0) == *v_it)
 				{
@@ -305,5 +305,5 @@ void CNF_CFG::checkRules() {
 
 bool CNF_CFG::check_string(std::string w)
 {
-	return cyk(w);
+	return cyk_(w);
 }

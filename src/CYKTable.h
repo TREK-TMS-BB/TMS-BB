@@ -47,14 +47,14 @@ private:
 	/*
 	 * Table in which the information is stored
 	 */
-	Table table;
+	Table table_;
 
 	/*
 	 * used to create the table
 	 */
-	std::map<std::string, std::vector<std::string> > rules;
+	std::map<std::string, std::vector<std::string> > rules_;
 
-	std::string startSymbol;
+	std::string startSymbol_;
 
 	/*
 	 * create table for given string

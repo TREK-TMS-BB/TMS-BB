@@ -54,10 +54,10 @@ public:
 
 	virtual ~CFG();
 protected:
-	std::vector<std::string> variables;
-	std::vector<std::string> terminals;
-	std::map<std::string, std::vector<std::string> > rules;
-	std::string startSymbol;
+	std::vector<std::string> variables_;
+	std::vector<std::string> terminals_;
+	std::map<std::string, std::vector<std::string> > rules_;
+	std::string startSymbol_;
 
 	/*
 	 * checks whether all attributes are ok
@@ -106,7 +106,7 @@ protected:
 	/*
 	 * used to check if given string is in CFG
 	 */
-	CYKTable cyk;
+	CYKTable cyk_;
 
 	/*
 	 * keeps track of all the strings that have already been checked on this CFG with the CYK algorithm

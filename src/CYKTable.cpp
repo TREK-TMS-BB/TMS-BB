@@ -7,13 +7,13 @@
 
 #include "CYKTable.h"
 
-CYKTable::CYKTable():startSymbol("S") {
+CYKTable::CYKTable():startSymbol_("S") {
 }
 CYKTable::CYKTable(std::map<std::string, std::vector<std::string> > &r, std::string stS)
-: rules(r), startSymbol(stS)
+: rules_(r), startSymbol_(stS)
 {}
 CYKTable::CYKTable(std::string w, std::map<std::string, std::vector<std::string> > &r, std::string stS)
-: rules (r), startSymbol(stS)
+: rules_ (r), startSymbol_(stS)
 {
 	createTable(w);
 }
@@ -28,7 +28,7 @@ bool CYKTable::operator() (std::string w)
 	std::vector<std::string> top = this->at(1, w.size());
 	for (int i = 0; i < top.size(); i++)
 	{
-		if (startSymbol == top.at(i))
+		if (startSymbol_ == top.at(i))
 		{
 			return true;
 		}
@@ -37,25 +37,25 @@ bool CYKTable::operator() (std::string w)
 }
 
 std::ostream& operator<<(std::ostream& out, CYKTable& c) {
-	for (int row = c.table.size()-1; row >= 0; row--)
+	for (int row = c.table_.size()-1; row >= 0; row--)
 	{
-		for (int collumn = 0; collumn < c.table.at(row).size(); collumn++)
+		for (int collumn = 0; collumn < c.table_.at(row).size(); collumn++)
 		{
 			out << "{";
-			if (c.table.at(row).at(collumn).size() == 0)
+			if (c.table_.at(row).at(collumn).size() == 0)
 			{
 				out << " ";
 			}
-			else if (c.table.at(row).at(collumn).size() == 1)
+			else if (c.table_.at(row).at(collumn).size() == 1)
 			{
-				out << c.table.at(row).at(collumn).at(0);
+				out << c.table_.at(row).at(collumn).at(0);
 			}
 			else
 			{
-				out << c.table.at(row).at(collumn).at(0);
-				for (int var = 1; var < c.table.at(row).at(collumn).size(); var++)
+				out << c.table_.at(row).at(collumn).at(0);
+				for (int var = 1; var < c.table_.at(row).at(collumn).size(); var++)
 				{
-					out << ", "<< c.table.at(row).at(collumn).at(var) ;
+					out << ", "<< c.table_.at(row).at(collumn).at(var) ;
 				}
 			}
 			out << "}" << "\t";
@@ -69,26 +69,26 @@ std::vector<std::string> CYKTable::at(unsigned int i, unsigned int j) const{
 	int collumn = i-1;
 	int row = (j-i);
 
-	if (row >= table.size())
+	if (row >= table_.size())
 	{
 		throw (Exception("ARGUMENT J IS OUT OF BOUNDS"));
 	}
-	else if (collumn >= table.at(row).size())
+	else if (collumn >= table_.at(row).size())
 	{
 		throw (Exception("ARGUMENT I IS OUT OF BOUNDS"));
 	}
-	return table.at(row).at(collumn);
+	return table_.at(row).at(collumn);
 }
 
 void CYKTable::add(unsigned int i, unsigned int j, std::string var) {
 	int collumn = i-1;
 	int row = (j-i);
 
-	if (row >= table.size())
+	if (row >= table_.size())
 	{
 		throw (Exception("ARGUMENT J IS OUT OF BOUNDS"));
 	}
-	else if (collumn >= table.at(row).size())
+	else if (collumn >= table_.at(row).size())
 	{
 		throw (Exception("ARGUMENT I IS OUT OF BOUNDS"));
 	}
@@ -96,7 +96,7 @@ void CYKTable::add(unsigned int i, unsigned int j, std::string var) {
 	/*
 	 * check if variable already in the given vector
 	 */
-	for (std::vector<std::string>::iterator it = this->table.at(row).at(collumn).begin(); it != this->table.at(row).at(collumn).end(); it++)
+	for (std::vector<std::string>::iterator it = this->table_.at(row).at(collumn).begin(); it != this->table_.at(row).at(collumn).end(); it++)
 	{
 		std::string temp = *it;
 		if (var == temp)
@@ -107,7 +107,7 @@ void CYKTable::add(unsigned int i, unsigned int j, std::string var) {
 	/*
 	 * Add variable to given vector
 	 */
-	this->table.at(row).at(collumn).push_back(var);
+	this->table_.at(row).at(collumn).push_back(var);
 }
 
 std::vector<std::pair<std::string, std::string> > CYKTable::calculateCombinations(unsigned int i, unsigned int k, unsigned int j) {
@@ -138,7 +138,7 @@ std::vector<std::pair<std::string, std::string> > CYKTable::calculateCombination
 
 void CYKTable::createTable(std::string w)
 {
-	table.clear();
+	table_.clear();
 	/*
 	 * Setup table with empty vectors for size of w
 	 */
@@ -151,7 +151,7 @@ void CYKTable::createTable(std::string w)
 	}
 	for (int j = 0; j < size ; j++)
 	{
-		table.push_back(tempRow);
+		table_.push_back(tempRow);
 		tempRow.pop_back();
 	}
 
@@ -165,7 +165,7 @@ void CYKTable::createTable(std::string w)
 		t_temp << *w_it;
 		std::string terminal;
 		t_temp >> terminal;
-		for (std::map<std::string, std::vector<std::string> >::iterator r_it = rules.begin(); r_it != rules.end(); r_it++)
+		for (std::map<std::string, std::vector<std::string> >::iterator r_it = rules_.begin(); r_it != rules_.end(); r_it++)
 		{
 			std::string var = r_it->first;
 			for (std::vector<std::string>::iterator it = r_it->second.begin(); it != r_it->second.end(); it++)
@@ -183,9 +183,9 @@ void CYKTable::createTable(std::string w)
 	/*
 	 * Fill Table
 	 */
-	for (int row = 1; row < table.size(); row++)
+	for (int row = 1; row < table_.size(); row++)
 	{
-		for (int collumn = 0; collumn < table.at(row).size(); collumn++)
+		for (int collumn = 0; collumn < table_.at(row).size(); collumn++)
 		{
 			int i = collumn+1;
 			int j = row+i;
@@ -201,7 +201,7 @@ void CYKTable::createTable(std::string w)
 					/*
 					 * Check all rules if any of the pairs can be found
 					 */
-					for (std::map<std::string, std::vector<std::string> >::iterator r_it = rules.begin(); r_it != rules.end(); r_it++)
+					for (std::map<std::string, std::vector<std::string> >::iterator r_it = rules_.begin(); r_it != rules_.end(); r_it++)
 					{
 						std::string var = r_it->first;
 						for (std::vector<std::string>::iterator it = r_it->second.begin(); it != r_it->second.end(); it++)

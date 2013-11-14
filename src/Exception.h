@@ -18,7 +18,7 @@ public:
 	std::string what();
 	~Exception() throw();
 private:
-	std::string text;
+	std::string text_;
 };
 
 #endif /* EXCEPTION_H_ */

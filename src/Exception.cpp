@@ -8,13 +8,13 @@
 #include "Exception.h"
 
 Exception::Exception() {
-	text = "exception thrown without parameters";
+	text_ = "exception thrown without parameters";
 }
 Exception::Exception(std::string s) {
-	text = s;
+	text_ = s;
 }
 std::string Exception::what() {
-	return text;
+	return text_;
 }
 Exception::~Exception() throw() {
 
