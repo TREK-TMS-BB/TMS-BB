@@ -13,6 +13,7 @@
 #include <utility>
 #include <map>
 #include <cctype>
+#include <sstream>
 
 #include "CFG.h"
 

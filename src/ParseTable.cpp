@@ -175,7 +175,6 @@ ParseTable::ParseTable(CFG grammar) {
 		std::cout << table.at(0).at(i) << " " << i << std::endl;
 		lookup[table.at(0).at(i)] = i;
 	}
-	std::cout << "Hello" << std::endl;
 }
 
 ParseTable::~ParseTable() {
@@ -184,26 +183,28 @@ ParseTable::~ParseTable() {
 
 std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) const {
 	std::string::iterator it;
-	std::string number;
+	std::stringstream ss;
 
 	// Check if entry was blank.
 	if (entry == "") {
-		return std::pair<EAction, std::string>(blank, "");
+		return std::pair<EAction, std::string>(blank, "blank");
 	}
 
 	// Check if entry was accept
 	if (entry.find("accept") != std::string::npos) {
-		return std::pair<EAction, std::string>(accept, "");
+		return std::pair<EAction, std::string>(accept, "accept");
 	}
 
 	// Check if only stack symbol
+	std::string number;
 	for (it = entry.begin(); it != entry.end(); it++) {
-		if (isdigit(*it)) {
+		if (isdigit(*it) && (it == entry.end()-1)) {
+			number += *it;
+			return std::pair<EAction, std::string>(symbol, number);
+		}
+		else if (isdigit(*it)) {
 			number += *it;
 			continue;
-		}
-		else if (isdigit(*it) && (it == entry.end()-1)) {
-			return std::pair<EAction, std::string>(symbol, number);
 		}
 		else {
 			break;
@@ -216,7 +217,12 @@ std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) const
 		found += 6;
 		it = entry.begin() + found;
 		if (isdigit(*it)) {
-			return (std::pair<EAction, std::string>(shift, std::to_string(*it)));
+			// Flush the stringstream & convert chars to string
+			ss.str("");
+			for (it; it != entry.end(); it++) {
+				ss << *it;
+			}
+			return (std::pair<EAction, std::string>(shift, ss.str()));
 		}
 		else {
 			// Wrong entry
@@ -226,23 +232,26 @@ std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) const
 	// Check if reduction operation
 	if (isupper(*(entry.begin()))) {
 		std::string body;
-		std::string head = std::to_string(*(entry.begin()));
+		// Flush ss & convert char to string
+		ss.str("");
+		ss << *(entry.begin());
+		std::string head = ss.str();
 		bool readingBody = false;
 		while (it != entry.end()) {
 			if (readingBody) {
 				body += *it;
 			}
-			if ((*it == '-') && (*(++it) == '>')) {
+			else if ((*it == '-') && (*(++it) == '>')) {
 				readingBody = true;
-				it += 2;
 			}
+			it++;
 		}
 		std::string rule = head + body;
 		return (std::pair<EAction, std::string>(reduction, rule));
 	}
 
 	// Return error
-	return std::pair<EAction, std::string>(error, "");
+	return std::pair<EAction, std::string>(error, "error");
 }
 
 std::pair<EAction, std::string> ParseTable::operator() (int token, std::string symbol) const{
