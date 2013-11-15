@@ -13,8 +13,9 @@
 
 #include "CFG.h"
 #include "ParseTable.h"
+#include "Parser.h"
 
-class LRParser {
+class LRParser : public Parser{
 public:
 	LRParser();
 	// Default constructor for LRParser. This won't be able to do anything as it has no parse table.

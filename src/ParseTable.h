@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <map>
 
 #include "CFG.h"
 
@@ -31,6 +32,13 @@ public:
 
 private:
 	std::vector<std::vector<std::string> > table;
+	// Parsetable
+
+	std::map<std::string, int> lookup;
+	// Maps column index and input string.
+
+	std::pair<EAction, std::string> extractInfo(std::string);
+
 };
 
 #endif /* PARSETABLE_H_ */
