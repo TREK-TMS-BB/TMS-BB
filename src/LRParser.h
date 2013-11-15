@@ -10,7 +10,9 @@
 
 #include <stack>
 #include <string>
-
+#include <utility>
+#include <sstream>
+#include "utilities.h"
 #include "CFG.h"
 #include "ParseTable.h"
 #include "Parser.h"
@@ -26,18 +28,25 @@ public:
 	LRParser(ParseTable);
 	// The parameter ParseTable will be directly used.
 
+	bool parse(std::string);
+
 	virtual ~LRParser();
 
 private:
 	ParseTable p_table_;
 	std::stack<std::string> stack_;
 	std::string input_;
+	unsigned int counter_;
 
-	std::pair<EAction, std::string> readSymbol();
+	std::pair<EAction, std::string> processSymbol();
 	// Reads a symbol from the input and returns what to do. (from parsetable)
+	// Also pushes the read symbol on the stack.
 
 	bool performAction(std::pair<EAction, std::string>);
 	// Performs action. If this evaluates to true the function it means that input_ was valid.
+
+	bool handleReduction(std::string);
+	// Handles the reduction action.
 
 };
 

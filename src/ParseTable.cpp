@@ -195,12 +195,12 @@ std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) const
 		return std::pair<EAction, std::string>(accept, "accept");
 	}
 
-	// Check if only stack symbol
+	// Check if only stack token
 	std::string number;
 	for (it = entry.begin(); it != entry.end(); it++) {
 		if (isdigit(*it) && (it == entry.end()-1)) {
 			number += *it;
-			return std::pair<EAction, std::string>(symbol, number);
+			return std::pair<EAction, std::string>(jump, number);
 		}
 		else if (isdigit(*it)) {
 			number += *it;

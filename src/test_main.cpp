@@ -7,12 +7,13 @@
 
 #include <iostream>
 #include <string>
+#include "utilities.h"
 #include "CYKTable.h"
 #include "CFG.h"
 #include "Parser.h"
 #include "Exception.h"
 #include "ParseTable.h"
-
+#include "LRParser.h"
 
 int main() {
 	/*std::cout << "TESTS FOR CFG" << std::endl;
@@ -70,6 +71,15 @@ int main() {
 	CFG grammar("./../XML-Files/LR1-1.xml");
 	std::cout << grammar << std::endl;
 	ParseTable t(grammar);
+	LRParser lrp(grammar);
+
+	std::string input = "xxyy";
+	if (lrp.parse(input)) {
+		std::cout << "Inputstring " << input << " has been accepted!" << std::endl;
+	}
+	else {
+		std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
+	}
 
 	std::cout << "END OF PROGRAM" << std::endl;
 	}

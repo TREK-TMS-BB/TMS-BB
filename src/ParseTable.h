@@ -17,7 +17,7 @@
 
 #include "CFG.h"
 
-enum EAction {shift, reduction, blank, accept, symbol, error};
+enum EAction {shift, reduction, accept, jump, blank, error};
 
 class ParseTable {
 public:
