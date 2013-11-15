@@ -45,7 +45,7 @@ std::pair<EAction, std::string> LRParser::processSymbol() {
 }
 
 bool LRParser::handleReduction(std::string rule) {
-	std::string head = rule.substr(0, 0);
+	std::string head = rule.substr(0, 1);
 	std::string body = rule.substr(1, rule.size());
 	std::cout << "Applying production rule -> head = " << head << " | body = " << body << std::endl;
 
@@ -54,9 +54,11 @@ bool LRParser::handleReduction(std::string rule) {
 	for (it = body.rbegin(); it != body.rend(); it++) {
 		std::string top = stack_.top();
 		stack_.pop();
+		std::cout << top << " == TOP 1" << std::endl;
 		if (utilities::isNumber(top)) {
 			// Popped a token, next symbol can not be a token.
 			top = stack_.top();
+			std::cout << top << " == TOP 2 | compare with " << *it << std::endl;
 			stack_.pop();
 			if (top.at(0) == *it) {
 				// All is good, matching stack symbol and rule body character.
@@ -96,7 +98,6 @@ bool LRParser::performAction(std::pair<EAction, std::string> action) {
 		return true;
 		break;
 	case jump:
-		std::cout << "JUMP!" << std::endl;
 		stack_.push(action.second);
 		break;
 	case error:
@@ -125,7 +126,6 @@ bool LRParser::parse(std::string input) {
 		// Read the symbol
 		std::pair<EAction, std::string> theAction = processSymbol();
 		// Perform the action
-		std::cout << "ACTION STRING == " << theAction.second << std::endl;
 		bool accept = performAction(theAction);
 
 		counter_++;
