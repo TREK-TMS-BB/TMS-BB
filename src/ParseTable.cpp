@@ -182,28 +182,70 @@ ParseTable::~ParseTable() {
 	// TODO Auto-generated destructor stub
 }
 
-std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) {
-	std::string::iterator found;
+std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) const {
 	std::string::iterator it;
 	std::string number;
-	EAction action;
-	/*found = entry.find("shift ");
+
+	// Check if entry was blank.
+	if (entry == "") {
+		return std::pair<EAction, std::string>(blank, "");
+	}
+
+	// Check if entry was accept
+	if (entry.find("accept") != std::string::npos) {
+		return std::pair<EAction, std::string>(accept, "");
+	}
+
+	// Check if only stack symbol
+	for (it = entry.begin(); it != entry.end(); it++) {
+		if (isdigit(*it)) {
+			number += *it;
+			continue;
+		}
+		else if (isdigit(*it) && (it == entry.end()-1)) {
+			return std::pair<EAction, std::string>(symbol, number);
+		}
+		else {
+			break;
+		}
+	}
+
+	// Check if shift operation
+	std::size_t found = entry.find("shift ");
 	if (found != std::string::npos) {
 		found += 6;
+		it = entry.begin() + found;
 		if (isdigit(*it)) {
-			return (shift, *it);
+			return (std::pair<EAction, std::string>(shift, std::to_string(*it)));
 		}
 		else {
 			// Wrong entry
 		}
-	}*/
-	//if ()
+	}
+
+	// Check if reduction operation
+	if (isupper(*(entry.begin()))) {
+		std::string body;
+		std::string head = std::to_string(*(entry.begin()));
+		bool readingBody = false;
+		while (it != entry.end()) {
+			if (readingBody) {
+				body += *it;
+			}
+			if ((*it == '-') && (*(++it) == '>')) {
+				readingBody = true;
+				it += 2;
+			}
+		}
+		std::string rule = head + body;
+		return (std::pair<EAction, std::string>(reduction, rule));
+	}
+
+	// Return error
+	return std::pair<EAction, std::string>(error, "");
 }
 
-std::pair<EAction, std::string> ParseTable::operator() (int token, std::string symbol) const {
+std::pair<EAction, std::string> ParseTable::operator() (int token, std::string symbol) const{
 	std::string entry = table.at(token).at(lookup.at(symbol));
-
-
-	std::pair<EAction, std::string> test(shift, "hello");
-	return test;
+	return extractInfo(entry);
 }

@@ -12,10 +12,11 @@
 #include <string>
 #include <utility>
 #include <map>
+#include <cctype>
 
 #include "CFG.h"
 
-enum EAction {shift, reduction, blank};
+enum EAction {shift, reduction, blank, accept, symbol, error};
 
 class ParseTable {
 public:
@@ -37,7 +38,7 @@ private:
 	std::map<std::string, int> lookup;
 	// Maps column index and input string.
 
-	std::pair<EAction, std::string> extractInfo(std::string);
+	std::pair<EAction, std::string> extractInfo(std::string) const;
 
 };
 
