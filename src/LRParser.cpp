@@ -8,18 +8,18 @@
 #include "LRParser.h"
 
 LRParser::LRParser()
-	: p_table(),
-	  stack()
+	: p_table_(),
+	  stack_()
 {}
 
 LRParser::LRParser(CFG grammar)
-	: p_table(grammar),
-	 stack()
+	: p_table_(grammar),
+	 stack_()
 
 {}
 
 LRParser::LRParser(ParseTable pt)
-	: p_table(pt)
+	: p_table_(pt)
 {}
 
 LRParser::~LRParser() {

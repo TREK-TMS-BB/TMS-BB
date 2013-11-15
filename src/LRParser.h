@@ -29,8 +29,16 @@ public:
 	virtual ~LRParser();
 
 private:
-	ParseTable p_table;
-	std::stack<std::string> stack;
+	ParseTable p_table_;
+	std::stack<std::string> stack_;
+	std::string input_;
+
+	std::pair<EAction, std::string> readSymbol();
+	// Reads a symbol from the input and returns what to do. (from parsetable)
+
+	bool performAction(std::pair<EAction, std::string>);
+	// Performs action. If this evaluates to true the function it means that input_ was valid.
+
 };
 
 #endif /* LRPARSER_H_ */
