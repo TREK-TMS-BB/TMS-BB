@@ -13,22 +13,21 @@ ParseTable::ParseTable()
 
 ParseTable::ParseTable(CFG grammar) {
 	// Not final yet. This is the hardcoded construction of LR1-1's parsetable.
-	std::vector<std::string>::iterator it;
 	std::vector<std::vector<std::string> > p_table;
 	std::vector<std::string> row1;
-
+	std::vector<std::string> terminals = grammar.getTerminals();
+	std::vector<std::string> variables = grammar.getVariables();
 	// Construct Row1 and push it in our table.
-	for (it = grammar.getTerminals().begin(); it != grammar.getVariables().end(); it++) {
-		std::cout << *it << "OVER HERE" << std::endl;
-		// Why does this return capital letters?
-		row1.push_back(*it);
-	}
 
+	for (unsigned int i = 0; i < terminals.size(); i++) {
+		row1.push_back(terminals.at(i));
+	}
 	row1.push_back("EOS");
-	for (it = grammar.getVariables().begin(); it != grammar.getVariables().end(); it++) {
-		row1.push_back(*it);
+	for (unsigned int i = 0; i < variables.size(); i++) {
+		row1.push_back(variables.at(i));
 	}
 	p_table.push_back(row1);
+
 	// Construct the rest
 	std::vector<std::string> row2;
 	for (int i = 0; i < 6; i++) {
@@ -170,13 +169,41 @@ ParseTable::ParseTable(CFG grammar) {
 	p_table.push_back(row10);
 
 	table = p_table;
-}
 
+	// Construct lookup map
+	for (unsigned int i = 0; i < table.at(0).size(); i++	) {
+		std::cout << table.at(0).at(i) << " " << i << std::endl;
+		lookup[table.at(0).at(i)] = i;
+	}
+	std::cout << "Hello" << std::endl;
+}
 
 ParseTable::~ParseTable() {
 	// TODO Auto-generated destructor stub
 }
 
-std::pair<EAction, std::string> ParseTable::operator() (int token, std::string symbol) const {
+std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) {
+	std::string::iterator found;
+	std::string::iterator it;
+	std::string number;
+	EAction action;
+	/*found = entry.find("shift ");
+	if (found != std::string::npos) {
+		found += 6;
+		if (isdigit(*it)) {
+			return (shift, *it);
+		}
+		else {
+			// Wrong entry
+		}
+	}*/
+	//if ()
+}
 
+std::pair<EAction, std::string> ParseTable::operator() (int token, std::string symbol) const {
+	std::string entry = table.at(token).at(lookup.at(symbol));
+
+
+	std::pair<EAction, std::string> test(shift, "hello");
+	return test;
 }

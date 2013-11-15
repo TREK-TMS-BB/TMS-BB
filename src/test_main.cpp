@@ -67,9 +67,10 @@ int main() {
 	}*/
 
 	try {
-	CFG grammar("XML-Files/LR1-1.xml");
+	CFG grammar("./../XML-Files/LR1-1.xml");
 	std::cout << grammar << std::endl;
 	ParseTable t(grammar);
+	t(1, "x");
 
 	std::cout << "END OF PROGRAM" << std::endl;
 	}
