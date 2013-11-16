@@ -72,9 +72,9 @@ int main() {
 	ParseTable t(grammar);
 	LRParser lrp(grammar);
 
-	std::string input = "xxYyy";
+	std::string input = "xxxYyyy";
 	if (lrp.parse(input)) {
-		std::cout << "Inputstring " << input << " has been accepted!" << std::endl;
+		std::cout << "Inputstring \"" << input << "\" has been accepted!" << std::endl;
 	}
 	else {
 		std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
