@@ -92,6 +92,7 @@ void CFGParser::parseRules(TiXmlElement* g) {
 		if(fieldName == "r") {
 			 std::string head = r->Attribute("var");
 			 std::string body = r->Attribute("body");
+			 if (body == "empty") body = "";
 			 rules[head].push_back(body);
 		}
 	}

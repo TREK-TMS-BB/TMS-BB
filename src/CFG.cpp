@@ -213,7 +213,7 @@ void CFG::checkAttributes()
 	{
 		if (ruleMatched[*it] == 0)
 		{
-			std::string errorMess = "VARIABLE " + *it + "HAS NO MATCHING RULE";
+			std::string errorMess = "VARIABLE " + *it + " HAS NO MATCHING RULE";
 			throw(Exception(errorMess));
 		}
 	}
