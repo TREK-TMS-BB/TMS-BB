@@ -40,7 +40,7 @@ private:
 	// Maps column index and input string.
 
 	std::pair<EAction, std::string> extractInfo(std::string) const;
-
+	// Returns a pair of what needs to be done (EAction) and a string with info needed to perform the action.
 };
 
 #endif /* PARSETABLE_H_ */

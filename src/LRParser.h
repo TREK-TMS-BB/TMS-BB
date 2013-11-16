@@ -30,8 +30,10 @@ public:
 	// The parameter ParseTable will be directly used.
 
 	bool parse(std::string);
+	// Parses the given input string and returns true if it is valid, false if it is invalid.
 
 	friend std::ostream& operator<<(std::ostream&, LRParser&);
+	// Overloaded output operator: shows the stack contents;
 
 	virtual ~LRParser();
 
