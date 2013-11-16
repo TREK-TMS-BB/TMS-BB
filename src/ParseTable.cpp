@@ -36,7 +36,7 @@ ParseTable::ParseTable(CFG grammar) {
 			row1.push_back("shift 2");
 			break;
 		case 2:
-			row1.push_back("S->epsilon");
+			row1.push_back("S->");
 			break;
 		case 3:
 			row1.push_back("9");
