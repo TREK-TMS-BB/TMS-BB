@@ -6,16 +6,21 @@
  */
 
 #include <iostream>
-#include <string>
+
+#include "gtest/gtest.h"
+#include "tests/fileTest.h"
+#include "tests/CFG_test.h"
+
+/*#include <string>
 #include "utilities.h"
 #include "CYKTable.h"
 #include "CFG.h"
 #include "Parser.h"
 #include "Exception.h"
 #include "ParseTable.h"
-#include "LRParser.h"
+#include "LRParser.h"*/
 
-int main() {
+int main(int argc, char **argv) {
 	/*std::cout << "TESTS FOR CFG" << std::endl;
 
 	std::map<std::string, std::vector<std::string> > rules;
@@ -67,7 +72,7 @@ int main() {
 		std::cout << "\t test unsuccessful" <<std::endl;
 	}*/
 
-	try {
+	/*try {
 	CFG grammar("./../XML-Files/LR1-1.xml");
 	ParseTable t(grammar);
 	LRParser lrp(grammar);
@@ -85,7 +90,9 @@ int main() {
 	catch(Exception &e)
 	{
 		std::cerr << e.what() << std::endl;
-	}
+	}*/
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 
 
 }
