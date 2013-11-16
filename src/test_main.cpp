@@ -69,7 +69,6 @@ int main() {
 
 	try {
 	CFG grammar("./../XML-Files/LR1-1.xml");
-	std::cout << grammar << std::endl;
 	ParseTable t(grammar);
 	LRParser lrp(grammar);
 

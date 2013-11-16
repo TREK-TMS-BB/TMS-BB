@@ -29,6 +29,17 @@ LRParser::~LRParser() {
 	// TODO Auto-generated destructor stub
 }
 
+std::ostream& operator<<(std::ostream& o, LRParser& parser) {
+	std::stack<std::string> stackCopy = parser.stack_;
+	o << "LRParser stack contents: ";
+	 while (!stackCopy.empty()) {
+	     o << stackCopy.top() << " ";
+	     stackCopy.pop();
+	 }
+	 o << std::endl;
+	 return o;
+}
+
 std::pair<EAction, std::string> LRParser::processSymbol() {
 	// Determine our symbol (the counter_'th character of input_)
 	std::stringstream ss;
@@ -38,20 +49,29 @@ std::pair<EAction, std::string> LRParser::processSymbol() {
 	// Determine our token (this is the top of the stack)
 	int token = std::stoi(stack_.top());
 
-	// Push our symbol to the stack.
-	stack_.push(symbol);
+	// Get our parsetable entry
+	std::pair<EAction, std::string> action = p_table_(token, symbol);
+
+	// Push our symbol to the stack. (as long as it is not a reduction)
+	if (action.first != reduction) {
+		counter_++;
+		stack_.push(symbol);
+	}
 	// Get information from parseTable
-	return p_table_(token, symbol);
+	std::cout << *this << std::endl;
+	std::cout << token << " " << symbol << std::endl;
+	return action;
 }
 
 bool LRParser::handleReduction(std::string rule) {
 	std::string head = rule.substr(0, 1);
 	std::string body = rule.substr(1, rule.size());
 	std::cout << "Applying production rule -> head = " << head << " | body = " << body << std::endl;
-
+	//std::cout << *this << std::endl;
 	// match stack content and rule body
 	std::string::reverse_iterator it;
 	for (it = body.rbegin(); it != body.rend(); it++) {
+		std::cout << *this << std::endl;
 		std::string top = stack_.top();
 		stack_.pop();
 		std::cout << top << " == TOP 1" << std::endl;
@@ -70,16 +90,17 @@ bool LRParser::handleReduction(std::string rule) {
 			}
 		}
 	}
+	std::cout << "YES! ==> " << *this << std::endl;
 
 	// Top of stack should now be another token. We should check in our parsetable what we should do on input of our head.
 	int token = std::stoi(stack_.top());
 	// First we push our head on the stack.
 	stack_.push(head);
 	// Now we need to check what token we need after our head. (Check our parsetable)
-	std::pair<EAction, std::string> jump = p_table_(token, head);
+	std::pair<EAction, std::string> nextAction = p_table_(token, head);
 	// This is a jump (-> push the token on the stack.)
-	stack_.push(jump.second);
-
+	stack_.push(nextAction.second);
+	std::cout << "DIS IS IT! " << *this << std::endl;
 	// Everything did what it had to do. We can return true to let our caller know the reduction operation was successful.
 	return true;
 }
@@ -128,9 +149,9 @@ bool LRParser::parse(std::string input) {
 		// Perform the action
 		bool accept = performAction(theAction);
 
-		counter_++;
-
 		if (accept && (counter_ == input_.length())) {
+			std::cout << "ABOUT TO END: " << *this << std::endl;
+			// TODO: WE MUSTN'T get in here when there's still stuff that has to be done!
 			// If we have our startsymbol and we have consumed our whole input: our input is valid.
 			return true;
 		}

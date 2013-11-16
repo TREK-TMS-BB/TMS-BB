@@ -12,6 +12,7 @@
 #include <string>
 #include <utility>
 #include <sstream>
+#include <iostream>
 #include "utilities.h"
 #include "CFG.h"
 #include "ParseTable.h"
@@ -29,6 +30,8 @@ public:
 	// The parameter ParseTable will be directly used.
 
 	bool parse(std::string);
+
+	friend std::ostream& operator<<(std::ostream&, LRParser&);
 
 	virtual ~LRParser();
 
