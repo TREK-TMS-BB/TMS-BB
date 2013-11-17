@@ -372,12 +372,19 @@ void CNF_CFG::checkRules() {
 	}
 }
 
-bool CNF_CFG::check_string(std::string w)
-{
+bool CNF_CFG::check_string(std::string w) {
 	if (checked.find(w) != checked.end())
 	{
 		return checked[w];
 	}
 	checked[w] = cyk_(w);
 	return cyk_(w);
+}
+
+bool CNF_CFG::already_checked(std::string w) {
+	if (checked.find(w) != checked.end())
+	{
+		return true;
+	}
+	return false;
 }

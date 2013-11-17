@@ -99,9 +99,14 @@ public:
 
 	/*
 	 * Check if a given string w is in the CFG
-	 * using the CYK algorythm
+	 * 1st check if the string has already been checked
+	 * 2nd using the CYK algorythm
 	 */
 	bool check_string(std::string w);
+	/*
+	 * returns true if given string has already been checked;
+	 */
+	bool already_checked(std::string w);
 protected:
 
 	/*

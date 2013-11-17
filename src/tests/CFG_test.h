@@ -417,6 +417,19 @@ namespace tests {
 		check = c.check_string("xyx");
 		EXPECT_FALSE(check);
 	}
+
+	TEST_F(CNF_CFGTest, CNF_CFG_already_checkedTest) {
+		CNF_CFG c("XML-Files/cnf.xml");
+		bool check = c.check_string("xxyy");
+		check = c.check_string("xxxyy");
+		check = c.check_string("xyx");
+
+		EXPECT_TRUE(c.already_checked("xxyy"));
+		EXPECT_TRUE(c.already_checked("xxxyy"));
+		EXPECT_TRUE(c.already_checked("xyx"));
+		EXPECT_FALSE(c.already_checked("xx"));
+		EXPECT_FALSE(c.already_checked("xxxyyy"));
+	}
 }
 
 
