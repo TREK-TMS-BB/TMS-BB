@@ -238,7 +238,7 @@ namespace tests {
 
 	}
 
-	TEST_F(CNF_CFGTest, CNF_CFG_ConstructorTest) {		//TODO
+	TEST_F(CNF_CFGTest, CNF_CFG_ConstructorTest) {
 		/*
 		 * Test all the constructors for CNF_CFG
 		 */
@@ -396,8 +396,29 @@ namespace tests {
 			errorMessage = e.what();
 		}
 		EXPECT_EQ(errorMessage, "BECAUSE OF RULE: S -> XYXY WHERE SIZE OF RIGHT SIZE > 2. THIS CFG IS NOT IN CHOMSKY NORMAL FORM");
+	}
 
+	TEST_F(CFGTest, CFG_OutputTest) {
+		std::ofstream testFile;
+		testFile.open("testOutput/CFG_output.txt");
+		CFG g("XML-Files/LR1-1.xml");
+		testFile << g;
+		testFile.close();
+		EXPECT_TRUE(FileCompare("testOutput/CFG_output.txt", "testOutput/CFG_outputComp.txt"));
+	}
+
+	TEST_F(CNF_CFGTest, CNF_CFG_check_stringTest) {
+
+		CNF_CFG c("XML-Files/cnf.xml");
+		bool check = c.check_string("xxyy");
+		EXPECT_TRUE(check);
+		check = c.check_string("xxxyy");
+		EXPECT_TRUE(check);
+		check = c.check_string("xyx");
+		EXPECT_FALSE(check);
 	}
 }
+
+
 
 #endif /* BASICCLASSESTEST_H_ */

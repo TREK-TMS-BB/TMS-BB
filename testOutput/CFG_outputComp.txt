@@ -1,0 +1,14 @@
+variables: 
+{ S, X, Y }
+
+terminals: 
+{ x, y }
+
+Start symbol: S
+rules: 
+{ 
+	S → X | Y | epsilon
+	X → xX | x
+	Y → xYy | xy
+}
+

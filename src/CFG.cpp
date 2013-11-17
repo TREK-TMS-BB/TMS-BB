@@ -68,24 +68,56 @@ std::ostream& operator<< (std::ostream& out, CFG& c) {
 	}
 	out << " }" << std::endl << std::endl;
 
-	out << " start symbol: " << c.startSymbol_ << std::endl;
+	out << "Start symbol: " << c.startSymbol_ << std::endl;
 
 	out << "rules: " << std::endl;
 	out << "{ "  << std::endl;
-	out << c.rules_.begin()->first << " → ";
-	for (std::vector<std::string>::iterator it = c.rules_.begin()->second.begin(); it != c.rules_.begin()->second.end(); it++)
+	out << "\t" << c.rules_.begin()->first << " → ";
+	std::vector<std::string>::iterator s_it;
+	for (s_it = c.rules_.begin()->second.begin(); s_it != c.rules_.begin()->second.end()-1; s_it++)
 	{
-		out << *it << "| ";
+		if (*s_it == "")
+		{
+			out << "epsilon" << " | ";
+		}
+		else
+		{
+			out << *s_it << " | ";
+		}
+	}
+	if (*s_it == "")
+	{
+		out << "epsilon";
+	}
+	else
+	{
+		out << *s_it;
 	}
 	out << std::endl;
 	std::map< std::string, std::vector<std::string> >::iterator it = c.rules_.begin();
 	it++;
 	for ( it ; it != c.rules_.end(); ++it)
 	{
-		out << it->first << " → ";
-		for (std::vector<std::string>::iterator r_it = it->second.begin(); r_it != it->second.end(); r_it++)
+		out << "\t" << it->first << " → ";
+		std::vector<std::string>::iterator r_it;
+		for ( r_it = it->second.begin(); r_it != it->second.end()-1; r_it++)
 		{
-			out << *r_it << "| ";
+			if (*r_it == "")
+			{
+				out << "epsilon" << " | ";
+			}
+			else
+			{
+				out << *r_it << " | ";
+			}
+		}
+		if (*r_it == "")
+		{
+			out << "epsilon";
+		}
+		else
+		{
+			out << *r_it;
 		}
 		out << std::endl;
 	}
