@@ -55,7 +55,7 @@ std::ostream& operator<<(std::ostream& out, CYKTable& c) {
 				out << c.table_.at(row).at(collumn).at(0);
 				for (int var = 1; var < c.table_.at(row).at(collumn).size(); var++)
 				{
-					out << ", "<< c.table_.at(row).at(collumn).at(var) ;
+					out << ","<< c.table_.at(row).at(collumn).at(var) ;
 				}
 			}
 			out << "}" << "\t";
@@ -63,6 +63,17 @@ std::ostream& operator<<(std::ostream& out, CYKTable& c) {
 		out << std::endl;
 	}
 	return out;
+}
+
+std::map<std::string, std::vector<std::string> > CYKTable::getRules() const {
+	return rules_;
+}
+std::string CYKTable::getStartSymbol() const {
+	return startSymbol_;
+}
+
+Table CYKTable::getTable() const {
+	return table_;
 }
 
 std::vector<std::string> CYKTable::at(unsigned int i, unsigned int j) const{

@@ -43,6 +43,10 @@ public:
 	virtual ~CYKTable();
 
 	friend std::ostream& operator<<(std::ostream& out, CYKTable& c);
+
+	std::map<std::string, std::vector<std::string> > getRules() const;
+	std::string getStartSymbol() const;
+	Table getTable() const;
 private:
 	/*
 	 * Table in which the information is stored

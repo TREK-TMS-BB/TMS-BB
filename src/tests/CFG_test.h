@@ -4,8 +4,8 @@
  *      Author: Robin
  */
 
-#ifndef BASICCLASSESTEST_H_
-#define BASICCLASSESTEST_H_
+#ifndef CFGTEST_H_
+#define CFGTEST_H_
 
 #include <iostream>
 
@@ -434,4 +434,4 @@ namespace tests {
 
 
 
-#endif /* BASICCLASSESTEST_H_ */
+#endif /* CFGTEST_H_ */
