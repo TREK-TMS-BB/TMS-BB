@@ -10,6 +10,7 @@
 #include "gtest/gtest.h"
 #include "tests/fileTest.h"
 #include "tests/CFG_test.h"
+#include "tests/CYK_test.h"
 
 /*#include <string>
 #include "utilities.h"
