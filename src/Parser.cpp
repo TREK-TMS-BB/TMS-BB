@@ -23,7 +23,9 @@ CFGParser::CFGParser(std::string filename) {
 	TiXmlDocument doc;
 	if(!doc.LoadFile(filename.c_str())) {
 		std::cout << doc.ErrorDesc() << std::endl;
-		exit(EXIT_FAILURE);
+		std::string errorMessage = doc.ErrorDesc();
+		errorMessage += " " + filename;
+		throw(Exception(errorMessage));
 	}
 
 	TiXmlElement* CFG = doc.FirstChildElement();

@@ -39,6 +39,7 @@ namespace tests {
 		/*
 		 * Test all the constructors for CFG
 		 */
+//Tests with correct input
 	// DEFAULT
 		std::vector<std::string> var = cfg.getVariables();
 		EXPECT_EQ(var.size(), 1);
@@ -105,6 +106,134 @@ namespace tests {
 		EXPECT_EQ(q2.getTerminals(), q.getTerminals());
 		EXPECT_EQ(q2.getRules(), q.getRules());
 		EXPECT_EQ(q2.getStart(), q.getStart());
+
+// TESTS WITH BAD INPUT
+	// 	all tests using file, is the same as with arguments;
+		std::string errorMessage;
+		// Bad_CFG.xml = file with empty variables
+		try
+		{
+			if (DirectoryExists("XML-Files"))
+			{
+				CFG q("XML-Files/Bad_CFG.xml");
+			}
+			else if (DirectoryExists("./../XML-Files"))
+			{
+				CFG q("./../XML-Files/Bad_CFG.xml");
+			}
+		}
+		catch (Exception &e)
+		{
+			errorMessage = e.what();
+		}
+		EXPECT_EQ(errorMessage, "VARIABLES SHOULD NOT BE EMPTY");
+
+		// Bad_CFG0.xml = file with empty terminals
+		try
+		{
+			if (DirectoryExists("XML-Files"))
+			{
+				CFG q("XML-Files/Bad_CFG0.xml");
+			}
+			else if (DirectoryExists("./../XML-Files"))
+			{
+				CFG q("./../XML-Files/Bad_CFG0.xml");
+			}
+		}
+		catch (Exception &e)
+		{
+			errorMessage = e.what();
+		}
+		EXPECT_EQ(errorMessage, "TERMINALS SHOULD NOT BE EMPTY");
+		// Bad_CFG1.xml = file with startSymbol that is not found in the variables
+		try
+		{
+			if (DirectoryExists("XML-Files"))
+			{
+				CFG q("XML-Files/Bad_CFG1.xml");
+			}
+			else if (DirectoryExists("./../XML-Files"))
+			{
+				CFG q("./../XML-Files/Bad_CFG1.xml");
+			}
+		}
+		catch (Exception &e)
+		{
+			errorMessage = e.what();
+		}
+		EXPECT_EQ(errorMessage, "INVALID START SYMBOL");
+
+		// Bad_CFG2.xml = file with non distinct variables and terminals
+		try
+		{
+			if (DirectoryExists("XML-Files"))
+			{
+				CFG q("XML-Files/Bad_CFG2.xml");
+			}
+			else if (DirectoryExists("./../XML-Files"))
+			{
+				CFG q("./../XML-Files/Bad_CFG2.xml");
+			}
+		}
+		catch (Exception &e)
+		{
+			errorMessage = e.what();
+		}
+		EXPECT_EQ(errorMessage, "TERMINAL X IS ALSO FOUND IN VARIABLES");
+
+		// Bad_CFG3.xml = file with a rule with a terminal on right side of transition
+		try
+		{
+			if (DirectoryExists("XML-Files"))
+			{
+				CFG q("XML-Files/Bad_CFG3.xml");
+			}
+			else if (DirectoryExists("./../XML-Files"))
+			{
+				CFG q("./../XML-Files/Bad_CFG3.xml");
+			}
+		}
+		catch (Exception &e)
+		{
+			errorMessage = e.what();
+		}
+		EXPECT_EQ(errorMessage, "SYMBOL x NOT FOUND IN VARIABLES VECTOR");
+
+		// Bad_CFG4.xml = file with an invalid symbol on the right side
+		try
+		{
+			if (DirectoryExists("XML-Files"))
+			{
+				CFG q("XML-Files/Bad_CFG4.xml");
+			}
+			else if (DirectoryExists("./../XML-Files"))
+			{
+				CFG q("./../XML-Files/Bad_CFG4.xml");
+			}
+		}
+		catch (Exception &e)
+		{
+			errorMessage = e.what();
+		}
+		EXPECT_EQ(errorMessage, "SYMBOL Q NOT FOUND IN VARIABLES NOR TERMINALS VECTOR");
+
+		// Bad_CFG5.xml = file with a variable with no corresponding rules
+		try
+		{
+			if (DirectoryExists("XML-Files"))
+			{
+				CFG q("XML-Files/Bad_CFG5.xml");
+			}
+			else if (DirectoryExists("./../XML-Files"))
+			{
+				CFG q("./../XML-Files/Bad_CFG5.xml");
+			}
+		}
+		catch (Exception &e)
+		{
+			errorMessage = e.what();
+		}
+		EXPECT_EQ(errorMessage, "VARIABLE X HAS NO MATCHING RULE");
 
 
 	}

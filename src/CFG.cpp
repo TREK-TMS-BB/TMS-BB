@@ -171,29 +171,40 @@ void CFG::checkAttributes()
 		// checking right side of rule
 		for (std::vector<std::string>::iterator r_it = it->second.begin(); r_it != it->second.end(); r_it++)
 		{
-			bool Rvar = false;
-			// check for variables
-			for (std::vector<std::string>::iterator v_it = variables_.begin(); v_it != variables_.end(); v_it++)
+			for (std::string::iterator s_it = r_it->begin(); s_it != r_it->end(); s_it++)
 			{
-				if (it->first == *v_it)
+				bool Rvar = false;
+				std::stringstream ss;
+				std::string s;
+				ss << *s_it;
+				ss >> s;
+
+				// check for variables
+				for (std::vector<std::string>::iterator v_it = variables_.begin(); v_it != variables_.end(); v_it++)
 				{
-					Rvar = true;
-					break;
+					std::string v = *v_it;
+					if (s == v)
+					{
+						Rvar = true;
+						break;
+					}
 				}
-			}
-			// check for terminals
-			for (std::vector<std::string>::iterator t_it = terminals_.begin(); t_it != terminals_.end(); t_it++)
-			{
-				if (it->first == *t_it)
+				// check for terminals
+				for (std::vector<std::string>::iterator t_it = terminals_.begin(); t_it != terminals_.end(); t_it++)
 				{
-					Rvar = true;
-					break;
+					std::string t = *t_it;
+
+					if (s == t)
+					{
+						Rvar = true;
+						break;
+					}
 				}
-			}
-			if (Rvar == false)
-			{
-				std::string errorMess = "SYMBOL " + it->first + " NOT FOUND IN VARIABLES NOR TERMINALS VECTOR";
-				throw (Exception(errorMess));
+				if (Rvar == false)
+				{
+					std::string errorMess = "SYMBOL " + s + " NOT FOUND IN VARIABLES NOR TERMINALS VECTOR";
+					throw (Exception(errorMess));
+				}
 			}
 		}
 	}

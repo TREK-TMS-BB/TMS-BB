@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<CFG>
+	<variables>
+	</variables>
+	<terminals>
+		<t>x</t>
+		<t>y</t>
+	</terminals>
+	<rules>
+		<r var="S" body="X"/>
+		<r var="S" body="Y"/>
+		<r var="S" body="empty"/>
+		<r var="X" body="xX"/>
+		<r var="X" body="x"/>
+		<r var="Y" body="xYy"/>
+		<r var="Y" body="xy"/>
+	</rules>
+	<start>S</start>
+</CFG>

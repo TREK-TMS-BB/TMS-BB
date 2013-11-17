@@ -12,6 +12,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include "Exception.h"
 
 #include "tinyXML/tinyxml.h"
 

@@ -1,8 +1,7 @@
 /*
  * fileTest.h
  *
- *  Created on: Mar 3, 2013
- *      Author: stijn, Serge Demeyer
+ *      Author: Serge Demeyer
  */
 
 #ifndef FILETEST_H_
@@ -64,9 +63,22 @@ namespace tests {
 
 	// Tests the compare files
 	TEST_F(FileTest, FileCompare) {
-		ASSERT_TRUE(DirectoryExists("testOutput"));
-		std::string out1 = "testOutput/file1.txt";
-		std::string out2 = "testOutput/file2.txt";
+		ASSERT_TRUE(DirectoryExists("testOutput") || DirectoryExists("./../testOutput"));	// Can now also be run from debug dir in terminal
+
+		std::string out1;
+		std::string out2;
+		if (DirectoryExists("testOutput"))
+		{
+			out1 = "testOutput/file1.txt";
+			out2 = "testOutput/file2.txt";
+		}
+		else if (DirectoryExists("./../testOutput"))
+		{
+			out1 = "./../testOutput/file1.txt";
+			out2 = "./../testOutput/file2.txt";
+		}
+
+
 		ofstream myfile;
 		myfile.open(out1.c_str());
 		myfile.close();

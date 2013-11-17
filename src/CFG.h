@@ -12,6 +12,7 @@
 #include "CYKTable.h"
 #include "Parser.h"
 #include "Exception.h"
+#include <sstream>
 
 #ifndef CFG_H_
 #define CFG_H_
