@@ -35,22 +35,6 @@ void State::add_transition(char input, std::string top_of_stack, std::string sta
 			std::pair<std::string, std::vector<std::string>>>(input_pair, output_pair));
 }
 
-std::vector<std::pair<std::string, std::vector<std::string>>> State::simulate(char input, std::string top_of_stack){
-	std::vector<std::pair<std::string, std::vector<std::string>>> solutions;
-	std::multimap<std::pair<char, std::string>, std::pair<std::string, std::vector<std::string>>>::iterator it;
-
-	std::pair<char, std::string> input_pair;
-	input_pair.first = input;
-	input_pair.second = top_of_stack;
-
-	for(it = this->transitions.begin(); it != this->transitions.end(); it++){
-		if(it->first == input_pair){
-			solutions.push_back(it->second);
-		}
-	}
-	return solutions;
-}
-
 void State::print_transitions() {
 	std::multimap<std::pair<char, std::string>, std::pair<std::string, std::vector<std::string>>>::iterator it;
 	for (it = this->transitions.begin(); it != this->transitions.end(); it++) {
@@ -62,8 +46,20 @@ void State::print_transitions() {
 		std::cout << std::endl << std::endl;
 	}
 }
+
 std::multimap<std::pair<char, std::string>, std::pair<std::string, std::vector<std::string>>> State::get_transitions() {
 	return this->transitions;
+}
+
+std::vector<std::pair<std::string, std::vector<std::string>>> State::simulate(char input, std::string top_of_stack) {
+	std::vector<std::pair<std::string, std::vector<std::string>>> return_vec;
+	std::multimap<std::pair<char, std::string>, std::pair<std::string, std::vector<std::string>>>::iterator it;
+	for (it = this->transitions.begin(); it != this->transitions.end(); it++) {
+		if (input == it->first.first && top_of_stack == it->first.second) {
+			return_vec.push_back(it->second);
+		}
+	}
+	return return_vec;
 }
 
 

@@ -51,6 +51,9 @@ public:
 	//! A function to print the complete current status of the PDA.
 	void print_status();
 
+	bool containsString(std::string input);
+
+
 private:
 	CFG* cfg; //! A pointer to the CFG equivalent with this PDA.
 

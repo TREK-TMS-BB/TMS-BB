@@ -60,7 +60,6 @@ public:
 	 * @return A multimap containing the input symbols and corresponding transition info.
 	 */
 	std::multimap<std::pair<char, std::string>, std::pair<std::string, std::vector<std::string>>> get_transitions();
-
 private:
 	std::string statename; //! A string with the name of the state.
 	std::multimap<std::pair<char, std::string>, std::pair<std::string, std::vector<std::string>>> transitions; //! A multimap containing input pairs and their corresponding transition info.

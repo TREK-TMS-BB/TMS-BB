@@ -396,6 +396,96 @@ bool PDA::isStartState(std::string name) {
 	return (name == start_state);
 }
 
+bool PDA::containsString(std::string input) {
+	std::vector<std::pair<std::pair<State*, std::stack<std::string>>, std::string>> current_status;
+	std::pair<std::pair<State*, std::stack<std::string>>, std::string> start_pair;
+	start_pair.first = cur_states[0];
+	start_pair.second = input;
+	current_status.push_back(start_pair);
+	while(current_status.size() != 0) {
+		std::vector<std::pair<std::pair<State*, std::stack<std::string>>, std::string>> work_vector;
+		for (auto cur : current_status) {
+			if (type == acceptByFinalState) {
+				for (auto accept : accept_states) {
+					if(accept == cur.first.first->get_name() && cur.second == "") {
+						return true;
+					}
+				}
+			}
+			if (type == acceptByEmptyStack) {
+				if (cur.first.second.size() == 0 && cur.second == "") {
+					return true;
+				}
+			}
+
+			if (cur.second != "") {
+				std::vector<std::pair<std::string, std::vector<std::string>>> return_vec = cur.first.first->simulate(cur.second[0], cur.first.second.top());
+				for (auto i : return_vec) {
+					State* stateptr = nullptr;
+					std::stack<std::string> work_stack = cur.first.second;
+					std::string new_str = cur.second.substr(1, cur.second.size());
+					std::vector<State>::iterator it;
+					for (it = states.begin(); it != states.end(); it++) {
+						if(i.first == it->get_name()) {
+							stateptr =  &(*it);
+						}
+					}
+					for (unsigned int j = 0; j < i.second.size(); j++) {
+						if (i.second[j] == "pop") {
+							work_stack.pop();
+						}
+						else if (i.second[j] == "push") {
+							work_stack.push(i.second[j+1]);
+						}
+						else {
+							continue;
+						}
+					}
+					std::pair<State*, std::stack<std::string>> work_pair;
+					work_pair.first = stateptr;
+					work_pair.second = work_stack;
+					std::pair<std::pair<State*, std::stack<std::string>>, std::string> push_pair;
+					push_pair.first = work_pair;
+					push_pair.second = new_str;
+					work_vector.push_back(push_pair);
+				}
+			}
+			std::vector<std::pair<std::string, std::vector<std::string>>> return_vec = cur.first.first->simulate('e', cur.first.second.top());
+			for (auto i : return_vec) {
+				State* stateptr = nullptr;
+				std::stack<std::string> work_stack = cur.first.second;
+				std::string new_str = cur.second.substr(0, cur.second.size());
+				std::vector<State>::iterator it;
+				for (it = states.begin(); it != states.end(); it++) {
+					if(i.first == it->get_name()) {
+						stateptr =  &(*it);
+					}
+				}
+				for (unsigned int j = 0; j < i.second.size(); j++) {
+					if (i.second[j] == "pop") {
+						work_stack.pop();
+					}
+					else if (i.second[j] == "push") {
+						work_stack.push(i.second[j+1]);
+					}
+					else {
+						continue;
+					}
+				}
+				std::pair<State*, std::stack<std::string>> work_pair;
+				work_pair.first = stateptr;
+				work_pair.second = work_stack;
+				std::pair<std::pair<State*, std::stack<std::string>>, std::string> push_pair;
+				push_pair.first = work_pair;
+				push_pair.second = new_str;
+				work_vector.push_back(push_pair);
+		}
+			current_status = work_vector;
+	}
+		return false;
+	}
+}
+
 } /* namespace PDA */
 
 // TODO: Clean the code
