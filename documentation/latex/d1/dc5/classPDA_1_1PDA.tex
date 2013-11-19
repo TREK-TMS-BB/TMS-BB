@@ -1,0 +1,269 @@
+\hypertarget{classPDA_1_1PDA}{\section{P\-D\-A\-:\-:P\-D\-A Class Reference}
+\label{classPDA_1_1PDA}\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}}
+}
+
+
+{\ttfamily \#include $<$P\-D\-A.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPDA_1_1PDA_a7785c447944c57243e2b1ea76903e3f6}{P\-D\-A} ()
+\begin{DoxyCompactList}\small\item\em A standard constructor. \end{DoxyCompactList}\item 
+\hyperlink{classPDA_1_1PDA_a457ac4b1de0a21642e946847b85fcc2b}{P\-D\-A} (\hyperlink{classCFG}{C\-F\-G} $\ast$grammar)
+\begin{DoxyCompactList}\small\item\em A specified contstructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classPDA_1_1PDA_a9cd56fae8de9f1cc8a6b3da52d1b525f}{$\sim$\-P\-D\-A} ()
+\begin{DoxyCompactList}\small\item\em A standard destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classPDA_1_1PDA_adeb9e042e871b40ad01630d4da2e7a6a}{to\-Empty\-Stack\-Acceptance} ()
+\begin{DoxyCompactList}\small\item\em A function changing the \hyperlink{classPDA_1_1PDA}{P\-D\-A} to accept by empty stack. \end{DoxyCompactList}\item 
+void \hyperlink{classPDA_1_1PDA_a6c6b86cde5edba8125fcf633d0a9a916}{to\-Final\-State\-Acceptance} ()
+\begin{DoxyCompactList}\small\item\em A function changing the \hyperlink{classPDA_1_1PDA}{P\-D\-A} to accept by final state. \end{DoxyCompactList}\item 
+void \hyperlink{classPDA_1_1PDA_a741e99b5d9e53e32d6808bf83dde96b2}{to\-La\-Te\-X} (std\-::string filename)
+\begin{DoxyCompactList}\small\item\em A function making a file to print the \hyperlink{classPDA_1_1PDA}{P\-D\-A} in La\-Te\-X. \end{DoxyCompactList}\item 
+void \hyperlink{classPDA_1_1PDA_a04c7164ddd8488e074741259cb9a8db4}{print\-\_\-status} ()
+\begin{DoxyCompactList}\small\item\em A function to print the complete current status of the \hyperlink{classPDA_1_1PDA}{P\-D\-A}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classPDA_1_1PDA_af707f305d9b16dbc3dcb686a3f63fca4}{check\-State\-Names} (std\-::string prefix)
+\begin{DoxyCompactList}\small\item\em A pair containing a pointer to the current state we are in and its corresponding stack. \end{DoxyCompactList}\item 
+bool \hyperlink{classPDA_1_1PDA_aa245040d766419cc4e9ddcd825ab6ca5}{is\-Accept\-State} (std\-::string name)
+\begin{DoxyCompactList}\small\item\em Returns whether a certain state is an accept state. \end{DoxyCompactList}\item 
+bool \hyperlink{classPDA_1_1PDA_a37329b27d0ac02e944d1160a4462fbce}{is\-Start\-State} (std\-::string name)
+\begin{DoxyCompactList}\small\item\em Returns whether a certain state is a start state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCFG}{C\-F\-G} $\ast$ \hyperlink{classPDA_1_1PDA_aef026ff20ec36b368db8cf05dc7d6ef7}{cfg}
+\item 
+\hyperlink{namespacePDA_a2f2b17cdf30facf6f0fe593ab209acf8}{P\-D\-A\-Type} \hyperlink{classPDA_1_1PDA_a15524b46d2be399f384b0f236ccb38f4}{type}
+\begin{DoxyCompactList}\small\item\em A pointer to the \hyperlink{classCFG}{C\-F\-G} equivalent with this \hyperlink{classPDA_1_1PDA}{P\-D\-A}. \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{classPDA_1_1State}{State} $>$ \hyperlink{classPDA_1_1PDA_a38d40f2c938f18d396ea2b13ca361271}{states}
+\begin{DoxyCompactList}\small\item\em The type of the \hyperlink{classPDA_1_1PDA}{P\-D\-A} (accept\-By\-Final\-State or accept\-By\-Empty\-Stack). \end{DoxyCompactList}\item 
+std\-::vector$<$ char $>$ \hyperlink{classPDA_1_1PDA_a54db260eece0bfe0d5aad0ef13f18a02}{input\-\_\-alphabet}
+\begin{DoxyCompactList}\small\item\em A vector containing all the states of the \hyperlink{classPDA_1_1PDA}{P\-D\-A}. \end{DoxyCompactList}\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classPDA_1_1PDA_a90a4f96e28003d5bfa4d67b4c7a191b5}{stack\-\_\-alphabet}
+\begin{DoxyCompactList}\small\item\em A vector containing all the symbols that can be used as input. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classPDA_1_1PDA_af346efb9a6812d704d69299eef9262e6}{start\-\_\-state}
+\begin{DoxyCompactList}\small\item\em A vector containing all the symbols used on the stack. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classPDA_1_1PDA_a253c02338c616cd8e8882f71e2a5666f}{start\-\_\-stack}
+\begin{DoxyCompactList}\small\item\em The name of the start state. \end{DoxyCompactList}\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classPDA_1_1PDA_a7c6d15bda561a77936c986290af7bf66}{accept\-\_\-states}
+\begin{DoxyCompactList}\small\item\em The symbol that is initially pushed on the stack. \end{DoxyCompactList}\item 
+std\-::vector$<$ std\-::pair$<$ \hyperlink{classPDA_1_1State}{State} \\*
+$\ast$, std\-::stack$<$ std\-::string $>$ $>$ $>$ \hyperlink{classPDA_1_1PDA_a71d7a97ddb658ed2c07e30001ff6ba1b}{cur\-\_\-states}
+\begin{DoxyCompactList}\small\item\em A vector containing the names of the accept states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPDA_1_1PDA_a7785c447944c57243e2b1ea76903e3f6}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!P\-D\-A@{P\-D\-A}}
+\index{P\-D\-A@{P\-D\-A}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{P\-D\-A}]{\setlength{\rightskip}{0pt plus 5cm}P\-D\-A\-::\-P\-D\-A\-::\-P\-D\-A (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPDA_1_1PDA_a7785c447944c57243e2b1ea76903e3f6}
+
+
+A standard constructor. 
+
+\hypertarget{classPDA_1_1PDA_a457ac4b1de0a21642e946847b85fcc2b}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!P\-D\-A@{P\-D\-A}}
+\index{P\-D\-A@{P\-D\-A}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{P\-D\-A}]{\setlength{\rightskip}{0pt plus 5cm}P\-D\-A\-::\-P\-D\-A\-::\-P\-D\-A (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-F\-G} $\ast$}]{grammar}
+\end{DoxyParamCaption}
+)}}\label{classPDA_1_1PDA_a457ac4b1de0a21642e946847b85fcc2b}
+
+
+A specified contstructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grammar} & A \hyperlink{classCFG}{C\-F\-G} used to create an equivalent \hyperlink{classPDA_1_1PDA}{P\-D\-A}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPDA_1_1PDA_a9cd56fae8de9f1cc8a6b3da52d1b525f}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!$\sim$\-P\-D\-A@{$\sim$\-P\-D\-A}}
+\index{$\sim$\-P\-D\-A@{$\sim$\-P\-D\-A}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{$\sim$\-P\-D\-A}]{\setlength{\rightskip}{0pt plus 5cm}virtual P\-D\-A\-::\-P\-D\-A\-::$\sim$\-P\-D\-A (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPDA_1_1PDA_a9cd56fae8de9f1cc8a6b3da52d1b525f}
+
+
+A standard destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPDA_1_1PDA_af707f305d9b16dbc3dcb686a3f63fca4}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!check\-State\-Names@{check\-State\-Names}}
+\index{check\-State\-Names@{check\-State\-Names}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{check\-State\-Names}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string P\-D\-A\-::\-P\-D\-A\-::check\-State\-Names (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{prefix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_af707f305d9b16dbc3dcb686a3f63fca4}
+
+
+A pair containing a pointer to the current state we are in and its corresponding stack. 
+
+Checks wether a certain name is already used in the \hyperlink{classPDA_1_1PDA}{P\-D\-A}. 
+\begin{DoxyParams}{Parameters}
+{\em prefix} & Start of the name you want to give the state. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPDA_1_1PDA_aa245040d766419cc4e9ddcd825ab6ca5}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!is\-Accept\-State@{is\-Accept\-State}}
+\index{is\-Accept\-State@{is\-Accept\-State}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{is\-Accept\-State}]{\setlength{\rightskip}{0pt plus 5cm}bool P\-D\-A\-::\-P\-D\-A\-::is\-Accept\-State (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_aa245040d766419cc4e9ddcd825ab6ca5}
+
+
+Returns whether a certain state is an accept state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the state you want to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean telling whether it is an accept state. 
+\end{DoxyReturn}
+\hypertarget{classPDA_1_1PDA_a37329b27d0ac02e944d1160a4462fbce}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!is\-Start\-State@{is\-Start\-State}}
+\index{is\-Start\-State@{is\-Start\-State}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{is\-Start\-State}]{\setlength{\rightskip}{0pt plus 5cm}bool P\-D\-A\-::\-P\-D\-A\-::is\-Start\-State (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_a37329b27d0ac02e944d1160a4462fbce}
+
+
+Returns whether a certain state is a start state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the state you want to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean telling whether it is a start state. 
+\end{DoxyReturn}
+\hypertarget{classPDA_1_1PDA_a04c7164ddd8488e074741259cb9a8db4}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!print\-\_\-status@{print\-\_\-status}}
+\index{print\-\_\-status@{print\-\_\-status}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{print\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}void P\-D\-A\-::\-P\-D\-A\-::print\-\_\-status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPDA_1_1PDA_a04c7164ddd8488e074741259cb9a8db4}
+
+
+A function to print the complete current status of the \hyperlink{classPDA_1_1PDA}{P\-D\-A}. 
+
+\hypertarget{classPDA_1_1PDA_adeb9e042e871b40ad01630d4da2e7a6a}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!to\-Empty\-Stack\-Acceptance@{to\-Empty\-Stack\-Acceptance}}
+\index{to\-Empty\-Stack\-Acceptance@{to\-Empty\-Stack\-Acceptance}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{to\-Empty\-Stack\-Acceptance}]{\setlength{\rightskip}{0pt plus 5cm}void P\-D\-A\-::\-P\-D\-A\-::to\-Empty\-Stack\-Acceptance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPDA_1_1PDA_adeb9e042e871b40ad01630d4da2e7a6a}
+
+
+A function changing the \hyperlink{classPDA_1_1PDA}{P\-D\-A} to accept by empty stack. 
+
+\hypertarget{classPDA_1_1PDA_a6c6b86cde5edba8125fcf633d0a9a916}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!to\-Final\-State\-Acceptance@{to\-Final\-State\-Acceptance}}
+\index{to\-Final\-State\-Acceptance@{to\-Final\-State\-Acceptance}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{to\-Final\-State\-Acceptance}]{\setlength{\rightskip}{0pt plus 5cm}void P\-D\-A\-::\-P\-D\-A\-::to\-Final\-State\-Acceptance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPDA_1_1PDA_a6c6b86cde5edba8125fcf633d0a9a916}
+
+
+A function changing the \hyperlink{classPDA_1_1PDA}{P\-D\-A} to accept by final state. 
+
+\hypertarget{classPDA_1_1PDA_a741e99b5d9e53e32d6808bf83dde96b2}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!to\-La\-Te\-X@{to\-La\-Te\-X}}
+\index{to\-La\-Te\-X@{to\-La\-Te\-X}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{to\-La\-Te\-X}]{\setlength{\rightskip}{0pt plus 5cm}void P\-D\-A\-::\-P\-D\-A\-::to\-La\-Te\-X (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classPDA_1_1PDA_a741e99b5d9e53e32d6808bf83dde96b2}
+
+
+A function making a file to print the \hyperlink{classPDA_1_1PDA}{P\-D\-A} in La\-Te\-X. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the .tex file will be created. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classPDA_1_1PDA_a7c6d15bda561a77936c986290af7bf66}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!accept\-\_\-states@{accept\-\_\-states}}
+\index{accept\-\_\-states@{accept\-\_\-states}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{accept\-\_\-states}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ P\-D\-A\-::\-P\-D\-A\-::accept\-\_\-states\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_a7c6d15bda561a77936c986290af7bf66}
+
+
+The symbol that is initially pushed on the stack. 
+
+\hypertarget{classPDA_1_1PDA_aef026ff20ec36b368db8cf05dc7d6ef7}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!cfg@{cfg}}
+\index{cfg@{cfg}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{cfg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-F\-G}$\ast$ P\-D\-A\-::\-P\-D\-A\-::cfg\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_aef026ff20ec36b368db8cf05dc7d6ef7}
+\hypertarget{classPDA_1_1PDA_a71d7a97ddb658ed2c07e30001ff6ba1b}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!cur\-\_\-states@{cur\-\_\-states}}
+\index{cur\-\_\-states@{cur\-\_\-states}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{cur\-\_\-states}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::pair$<${\bf State}$\ast$, std\-::stack$<$std\-::string$>$ $>$ $>$ P\-D\-A\-::\-P\-D\-A\-::cur\-\_\-states\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_a71d7a97ddb658ed2c07e30001ff6ba1b}
+
+
+A vector containing the names of the accept states. 
+
+\hypertarget{classPDA_1_1PDA_a54db260eece0bfe0d5aad0ef13f18a02}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!input\-\_\-alphabet@{input\-\_\-alphabet}}
+\index{input\-\_\-alphabet@{input\-\_\-alphabet}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{input\-\_\-alphabet}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$char$>$ P\-D\-A\-::\-P\-D\-A\-::input\-\_\-alphabet\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_a54db260eece0bfe0d5aad0ef13f18a02}
+
+
+A vector containing all the states of the \hyperlink{classPDA_1_1PDA}{P\-D\-A}. 
+
+\hypertarget{classPDA_1_1PDA_a90a4f96e28003d5bfa4d67b4c7a191b5}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!stack\-\_\-alphabet@{stack\-\_\-alphabet}}
+\index{stack\-\_\-alphabet@{stack\-\_\-alphabet}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{stack\-\_\-alphabet}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ P\-D\-A\-::\-P\-D\-A\-::stack\-\_\-alphabet\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_a90a4f96e28003d5bfa4d67b4c7a191b5}
+
+
+A vector containing all the symbols that can be used as input. 
+
+\hypertarget{classPDA_1_1PDA_a253c02338c616cd8e8882f71e2a5666f}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!start\-\_\-stack@{start\-\_\-stack}}
+\index{start\-\_\-stack@{start\-\_\-stack}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{start\-\_\-stack}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string P\-D\-A\-::\-P\-D\-A\-::start\-\_\-stack\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_a253c02338c616cd8e8882f71e2a5666f}
+
+
+The name of the start state. 
+
+\hypertarget{classPDA_1_1PDA_af346efb9a6812d704d69299eef9262e6}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!start\-\_\-state@{start\-\_\-state}}
+\index{start\-\_\-state@{start\-\_\-state}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{start\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string P\-D\-A\-::\-P\-D\-A\-::start\-\_\-state\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_af346efb9a6812d704d69299eef9262e6}
+
+
+A vector containing all the symbols used on the stack. 
+
+\hypertarget{classPDA_1_1PDA_a38d40f2c938f18d396ea2b13ca361271}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!states@{states}}
+\index{states@{states}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{states}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf State}$>$ P\-D\-A\-::\-P\-D\-A\-::states\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_a38d40f2c938f18d396ea2b13ca361271}
+
+
+The type of the \hyperlink{classPDA_1_1PDA}{P\-D\-A} (accept\-By\-Final\-State or accept\-By\-Empty\-Stack). 
+
+\hypertarget{classPDA_1_1PDA_a15524b46d2be399f384b0f236ccb38f4}{\index{P\-D\-A\-::\-P\-D\-A@{P\-D\-A\-::\-P\-D\-A}!type@{type}}
+\index{type@{type}!PDA::PDA@{P\-D\-A\-::\-P\-D\-A}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-A\-Type} P\-D\-A\-::\-P\-D\-A\-::type\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1PDA_a15524b46d2be399f384b0f236ccb38f4}
+
+
+A pointer to the \hyperlink{classCFG}{C\-F\-G} equivalent with this \hyperlink{classPDA_1_1PDA}{P\-D\-A}. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{PDA_8h}{P\-D\-A.\-h}\end{DoxyCompactItemize}
