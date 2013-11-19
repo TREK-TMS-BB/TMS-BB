@@ -1,112 +1,176 @@
-\hypertarget{classCNF__CFG}{\section{C\-N\-F\-\_\-\-C\-F\-G Class Reference}
-\label{classCNF__CFG}\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}}
+\hypertarget{classCNF__CFG}{\section{\-C\-N\-F\-\_\-\-C\-F\-G \-Class \-Reference}
+\label{da/d5c/classCNF__CFG}\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
 }
 
 
-{\ttfamily \#include $<$C\-F\-G.\-h$>$}
+{\ttfamily \#include $<$\-C\-F\-G.\-h$>$}
 
-Inheritance diagram for C\-N\-F\-\_\-\-C\-F\-G\-:\begin{figure}[H]
+\-Inheritance diagram for \-C\-N\-F\-\_\-\-C\-F\-G\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{da/d5c/classCNF__CFG}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCNF__CFG_a3dfe36c6d4b3c69bd4217d71f0fe4746}{C\-N\-F\-\_\-\-C\-F\-G} ()
-\item 
-\hyperlink{classCNF__CFG_a1d22901e8e4c8e25562d4095980537f5}{C\-N\-F\-\_\-\-C\-F\-G} (std\-::vector$<$ std\-::string $>$ \&v, std\-::vector$<$ std\-::string $>$ \&t, std\-::map$<$ std\-::string, std\-::vector$<$ std\-::string $>$ $>$ \&r, std\-::string s)
-\item 
-\hyperlink{classCNF__CFG_aaca2a5cc2e21b1b2e45ddecf3aed65c9}{C\-N\-F\-\_\-\-C\-F\-G} (\hyperlink{classCFG}{C\-F\-G} \&cfg)
-\item 
-\hyperlink{classCNF__CFG_a2cde09b5176c556704653475c299952d}{C\-N\-F\-\_\-\-C\-F\-G} (std\-::string file)
-\item 
+\hyperlink{classCNF__CFG_a3dfe36c6d4b3c69bd4217d71f0fe4746}{\-C\-N\-F\-\_\-\-C\-F\-G} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classCNF__CFG_a1d22901e8e4c8e25562d4095980537f5}{\-C\-N\-F\-\_\-\-C\-F\-G} (std\-::vector$<$ std\-::string $>$ \&v, std\-::vector$<$ std\-::string $>$ \&t, std\-::map$<$ std\-::string, std\-::vector$<$ std\-::string $>$ $>$ \&r, std\-::string s)
+\begin{DoxyCompactList}\small\item\em specified constructor \end{DoxyCompactList}\item 
+\hyperlink{classCNF__CFG_aaca2a5cc2e21b1b2e45ddecf3aed65c9}{\-C\-N\-F\-\_\-\-C\-F\-G} (\hyperlink{classCFG}{\-C\-F\-G} \&cfg)
+\begin{DoxyCompactList}\small\item\em constructor based on a \hyperlink{classCFG}{\-C\-F\-G} and copy constructor \end{DoxyCompactList}\item 
+\hyperlink{classCNF__CFG_a2cde09b5176c556704653475c299952d}{\-C\-N\-F\-\_\-\-C\-F\-G} (std\-::string file)
+\begin{DoxyCompactList}\small\item\em constructor with information file \end{DoxyCompactList}\item 
 bool \hyperlink{classCNF__CFG_a07436f4035c9fba1cd09761cdec0b02e}{check\-\_\-string} (std\-::string w)
-\item 
+\begin{DoxyCompactList}\small\item\em checks if given string is in the \hyperlink{classCNF__CFG}{\-C\-N\-F\-\_\-\-C\-F\-G} \end{DoxyCompactList}\item 
 bool \hyperlink{classCNF__CFG_a418ddb53a7700e331f2791e59d3c1d1f}{already\-\_\-checked} (std\-::string w)
-\end{DoxyCompactItemize}
-\subsection*{Protected Member Functions}
+\begin{DoxyCompactList}\small\item\em function used for testing \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classCNF__CFG_a2e368e4718364caf95866d1d692fd49d}{check\-Rules} ()
-\end{DoxyCompactItemize}
-\subsection*{Protected Attributes}
+\begin{DoxyCompactList}\small\item\em map keeps track of all the strings that have already been checked on this \hyperlink{classCFG}{\-C\-F\-G} with the \-C\-Y\-K algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCYKTable}{C\-Y\-K\-Table} \hyperlink{classCNF__CFG_ad8359be441579098a2df2fd979e2f816}{cyk\-\_\-}
+\hyperlink{classCYKTable}{\-C\-Y\-K\-Table} \hyperlink{classCNF__CFG_ad8359be441579098a2df2fd979e2f816}{cyk\-\_\-}
 \item 
 std\-::map$<$ std\-::string, bool $>$ \hyperlink{classCNF__CFG_ac3b39a62d63d5b0fbedf59456355a1f8}{checked}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em used to check if given string is in \hyperlink{classCFG}{\-C\-F\-G} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Constructor \& Destructor Documentation}
-\hypertarget{classCNF__CFG_a3dfe36c6d4b3c69bd4217d71f0fe4746}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}}
-\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G (
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classCNF__CFG_a3dfe36c6d4b3c69bd4217d71f0fe4746}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{\-C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classCNF__CFG_a3dfe36c6d4b3c69bd4217d71f0fe4746}
-\hypertarget{classCNF__CFG_a1d22901e8e4c8e25562d4095980537f5}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}}
-\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G (
+)}}\label{da/d5c/classCNF__CFG_a3dfe36c6d4b3c69bd4217d71f0fe4746}
+
+
+\-Default constructor. 
+
+\hypertarget{classCNF__CFG_a1d22901e8e4c8e25562d4095980537f5}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{\-C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G} (
 \begin{DoxyParamCaption}
 \item[{std\-::vector$<$ std\-::string $>$ \&}]{v, }
 \item[{std\-::vector$<$ std\-::string $>$ \&}]{t, }
 \item[{std\-::map$<$ std\-::string, std\-::vector$<$ std\-::string $>$ $>$ \&}]{r, }
 \item[{std\-::string}]{s}
 \end{DoxyParamCaption}
-)}}\label{classCNF__CFG_a1d22901e8e4c8e25562d4095980537f5}
-\hypertarget{classCNF__CFG_aaca2a5cc2e21b1b2e45ddecf3aed65c9}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}}
-\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G (
+)}}\label{da/d5c/classCNF__CFG_a1d22901e8e4c8e25562d4095980537f5}
+
+
+specified constructor 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & vector with variables \\
+\hline
+{\em t} & vector with terminals \\
+\hline
+{\em r} & map with rules of the form $<$\-Variable$>$, vector$<$terminals,\-Variables$>$ \\
+\hline
+{\em s} & the start symbol for the \hyperlink{classCFG}{\-C\-F\-G} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCNF__CFG_aaca2a5cc2e21b1b2e45ddecf3aed65c9}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{\-C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G} (
 \begin{DoxyParamCaption}
-\item[{{\bf C\-F\-G} \&}]{cfg}
+\item[{{\bf \-C\-F\-G} \&}]{cfg}
 \end{DoxyParamCaption}
-)}}\label{classCNF__CFG_aaca2a5cc2e21b1b2e45ddecf3aed65c9}
-\hypertarget{classCNF__CFG_a2cde09b5176c556704653475c299952d}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}}
-\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G (
+)}}\label{da/d5c/classCNF__CFG_aaca2a5cc2e21b1b2e45ddecf3aed65c9}
+
+
+constructor based on a \hyperlink{classCFG}{\-C\-F\-G} and copy constructor 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em cfg} & a \hyperlink{classCFG}{\-C\-F\-G} that is in \-C\-N\-F form or a \hyperlink{classCNF__CFG}{\-C\-N\-F\-\_\-\-C\-F\-G} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCNF__CFG_a2cde09b5176c556704653475c299952d}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{\-C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G} (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{file}
 \end{DoxyParamCaption}
-)}}\label{classCNF__CFG_a2cde09b5176c556704653475c299952d}
+)}}\label{da/d5c/classCNF__CFG_a2cde09b5176c556704653475c299952d}
 
 
-\subsection{Member Function Documentation}
-\hypertarget{classCNF__CFG_a418ddb53a7700e331f2791e59d3c1d1f}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!already\-\_\-checked@{already\-\_\-checked}}
-\index{already\-\_\-checked@{already\-\_\-checked}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{already\-\_\-checked}]{\setlength{\rightskip}{0pt plus 5cm}bool C\-N\-F\-\_\-\-C\-F\-G\-::already\-\_\-checked (
+constructor with information file 
+
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classCNF__CFG_a418ddb53a7700e331f2791e59d3c1d1f}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!already\-\_\-checked@{already\-\_\-checked}}
+\index{already\-\_\-checked@{already\-\_\-checked}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{already\-\_\-checked}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::already\-\_\-checked} (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{w}
 \end{DoxyParamCaption}
-)}}\label{classCNF__CFG_a418ddb53a7700e331f2791e59d3c1d1f}
-\hypertarget{classCNF__CFG_a07436f4035c9fba1cd09761cdec0b02e}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!check\-\_\-string@{check\-\_\-string}}
-\index{check\-\_\-string@{check\-\_\-string}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{check\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}bool C\-N\-F\-\_\-\-C\-F\-G\-::check\-\_\-string (
+)}}\label{da/d5c/classCNF__CFG_a418ddb53a7700e331f2791e59d3c1d1f}
+
+
+function used for testing 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em w} & string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+bool \-: true if already checked, false if not in language 
+\end{DoxyReturn}
+\hypertarget{classCNF__CFG_a07436f4035c9fba1cd09761cdec0b02e}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!check\-\_\-string@{check\-\_\-string}}
+\index{check\-\_\-string@{check\-\_\-string}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{check\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::check\-\_\-string} (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{w}
 \end{DoxyParamCaption}
-)}}\label{classCNF__CFG_a07436f4035c9fba1cd09761cdec0b02e}
-\hypertarget{classCNF__CFG_a2e368e4718364caf95866d1d692fd49d}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!check\-Rules@{check\-Rules}}
-\index{check\-Rules@{check\-Rules}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{check\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}void C\-N\-F\-\_\-\-C\-F\-G\-::check\-Rules (
+)}}\label{da/d5c/classCNF__CFG_a07436f4035c9fba1cd09761cdec0b02e}
+
+
+checks if given string is in the \hyperlink{classCNF__CFG}{\-C\-N\-F\-\_\-\-C\-F\-G} 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em w} & string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+bool \-: true if in language, false if not in language 
+\end{DoxyReturn}
+\hypertarget{classCNF__CFG_a2e368e4718364caf95866d1d692fd49d}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!check\-Rules@{check\-Rules}}
+\index{check\-Rules@{check\-Rules}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{check\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::check\-Rules} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classCNF__CFG_a2e368e4718364caf95866d1d692fd49d}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{da/d5c/classCNF__CFG_a2e368e4718364caf95866d1d692fd49d}
 
 
-\subsection{Member Data Documentation}
-\hypertarget{classCNF__CFG_ac3b39a62d63d5b0fbedf59456355a1f8}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!checked@{checked}}
-\index{checked@{checked}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{checked}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, bool$>$ C\-N\-F\-\_\-\-C\-F\-G\-::checked\hspace{0.3cm}{\ttfamily [protected]}}}\label{classCNF__CFG_ac3b39a62d63d5b0fbedf59456355a1f8}
-\hypertarget{classCNF__CFG_ad8359be441579098a2df2fd979e2f816}{\index{C\-N\-F\-\_\-\-C\-F\-G@{C\-N\-F\-\_\-\-C\-F\-G}!cyk\-\_\-@{cyk\-\_\-}}
-\index{cyk\-\_\-@{cyk\-\_\-}!CNF_CFG@{C\-N\-F\-\_\-\-C\-F\-G}}
-\subsubsection[{cyk\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-Y\-K\-Table} C\-N\-F\-\_\-\-C\-F\-G\-::cyk\-\_\-\hspace{0.3cm}{\ttfamily [protected]}}}\label{classCNF__CFG_ad8359be441579098a2df2fd979e2f816}
+map keeps track of all the strings that have already been checked on this \hyperlink{classCFG}{\-C\-F\-G} with the \-C\-Y\-K algorithm 
+
+checks the rules of the \hyperlink{classCFG}{\-C\-F\-G} to see if they are in \-C\-N\-F form 
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classCNF__CFG_ac3b39a62d63d5b0fbedf59456355a1f8}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!checked@{checked}}
+\index{checked@{checked}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{checked}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, bool$>$ {\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::checked}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{da/d5c/classCNF__CFG_ac3b39a62d63d5b0fbedf59456355a1f8}
 
 
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+used to check if given string is in \hyperlink{classCFG}{\-C\-F\-G} 
+
+\hypertarget{classCNF__CFG_ad8359be441579098a2df2fd979e2f816}{\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!cyk\-\_\-@{cyk\-\_\-}}
+\index{cyk\-\_\-@{cyk\-\_\-}!CNF_CFG@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{cyk\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-C\-Y\-K\-Table} {\bf \-C\-N\-F\-\_\-\-C\-F\-G\-::cyk\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{da/d5c/classCNF__CFG_ad8359be441579098a2df2fd979e2f816}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-src/\hyperlink{CFG_8h}{C\-F\-G.\-h}\end{DoxyCompactItemize}
+src/\hyperlink{CFG_8h}{\-C\-F\-G.\-h}\end{DoxyCompactItemize}
