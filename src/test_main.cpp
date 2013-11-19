@@ -12,14 +12,15 @@
 #include "tests/CFG_test.h"
 #include "tests/CYK_test.h"
 
-/*#include <string>
+#include <string>
 #include "utilities.h"
 #include "CYKTable.h"
 #include "CFG.h"
 #include "Parser.h"
 #include "Exception.h"
 #include "ParseTable.h"
-#include "LRParser.h"*/
+#include "LRParser.h"
+#include "PDA.h"
 
 int main(int argc, char **argv) {
 	/*std::cout << "TESTS FOR CFG" << std::endl;
@@ -92,8 +93,12 @@ int main(int argc, char **argv) {
 	{
 		std::cerr << e.what() << std::endl;
 	}*/
-	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
+	//::testing::InitGoogleTest(&argc, argv);
+	//return RUN_ALL_TESTS();
+
+	CFG grammar("./../XML-Files/LR1-1.xml");
+	PDA::PDA pda(&grammar);
+	//std::cout << pda.containsString("xxx") << std::endl;
 
 
 }
