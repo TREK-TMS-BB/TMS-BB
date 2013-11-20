@@ -21,26 +21,38 @@ enum EAction {shift, reduction, accept, jump, blank, error};
 
 class ParseTable {
 public:
+	//! Default constructor. Our ParseTable will be empty as it has no CFG.
 	ParseTable();
-	// Default constructor. Our parsetable will be empty as it has no CFG.
 
+	//! Our ParseTable will be constructed using the CFG provided as parameter.
+	/**
+	 * @param grammar The grammar which the ParseTable will be based on.
+	 */
 	ParseTable(CFG);
-	// Our parsetable will be constructed using the CFG provided as parameter.
 
+	//! Returns the contents of the parse table (and what action should happen) depending on the input.
+	/**
+	 * @param token ParseTable row
+	 * @param symbol ParseTable column
+	 * @return Pair of an action (EAction) and possible information needed to complete the action (string)
+	 */
 	std::pair<EAction, std::string> operator() (int, std::string) const;
-	// Returns the contents of the parse table (and what action should happen) depending on the input.
 
 	virtual ~ParseTable();
 
 private:
+	//! The actual parse table
 	std::vector<std::vector<std::string> > table;
-	// Parsetable
 
+	//! Maps column index and input string. This is a private method used to quickly find what column index you have to look in.
 	std::map<std::string, int> lookup;
-	// Maps column index and input string.
 
+	//! Extracts info from input.
+	/**
+	 * @param entry A table entry
+	 * @return A pair of what needs to be done (EAction) and a string with info needed to perform the action.
+	 */
 	std::pair<EAction, std::string> extractInfo(std::string) const;
-	// Returns a pair of what needs to be done (EAction) and a string with info needed to perform the action.
 };
 
 #endif /* PARSETABLE_H_ */

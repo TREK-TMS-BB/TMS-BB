@@ -94,17 +94,23 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da1/classParseTable.html#acacf41ffea967138a7eb200a1d03c0bf">ParseTable</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Our <a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> will be empty as it has no <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>.  <a href="#acacf41ffea967138a7eb200a1d03c0bf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da1/classParseTable.html#a71107a2b7d2b83142a31d08d9e960fee">ParseTable</a> (<a class="el" href="../../d7/dd4/classCFG.html">CFG</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Our <a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> will be constructed using the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> provided as parameter.  <a href="#a71107a2b7d2b83142a31d08d9e960fee"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="../../d4/d97/ParseTable_8h.html#a81d4868b129e5f45325894085a36a8a5">EAction</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da1/classParseTable.html#a276cf2fa3182cff81da31ce69c26a30c">operator()</a> (int, std::string) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the contents of the parse table (and what action should happen) depending on the input.  <a href="#a276cf2fa3182cff81da31ce69c26a30c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da1/classParseTable.html#aa3c8f1c8313c216e39388ec0bd64afc6">~ParseTable</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="../../d4/d97/ParseTable_8h.html#a81d4868b129e5f45325894085a36a8a5">EAction</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da1/classParseTable.html#a67d59fa53fbc3136cc8ad6e20c7edf87">extractInfo</a> (std::string) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts info from input.  <a href="#a67d59fa53fbc3136cc8ad6e20c7edf87"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
 &lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da1/classParseTable.html#a0dbd87ee0d018de6bb990e1ffd8ac26d">table</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual parse table.  <a href="#a0dbd87ee0d018de6bb990e1ffd8ac26d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da1/classParseTable.html#ac91766c673d5b534e370e31eb71f6604">lookup</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps column index and input string. This is a private method used to quickly find what column index you have to look in.  <a href="#ac91766c673d5b534e370e31eb71f6604"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acacf41ffea967138a7eb200a1d03c0bf"></a><!-- doxytag: member="ParseTable::ParseTable" ref="acacf41ffea967138a7eb200a1d03c0bf" args="()" -->
@@ -120,6 +126,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Default constructor. Our <a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> will be empty as it has no <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>. </p>
 
 </div>
 </div>
@@ -137,6 +145,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Our <a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> will be constructed using the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> provided as parameter. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">grammar</td><td>The grammar which the <a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> will be based on. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -172,6 +188,15 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Extracts info from input. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entry</td><td>A table entry </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A pair of what needs to be done (EAction) and a string with info needed to perform the action. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a276cf2fa3182cff81da31ce69c26a30c"></a><!-- doxytag: member="ParseTable::operator()" ref="a276cf2fa3182cff81da31ce69c26a30c" args="(int, std::string) const " -->
@@ -199,6 +224,16 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Returns the contents of the parse table (and what action should happen) depending on the input. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">token</td><td><a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> row </td></tr>
+    <tr><td class="paramname">symbol</td><td><a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> column </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Pair of an action (EAction) and possible information needed to complete the action (string) </dd></dl>
+
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
@@ -213,6 +248,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Maps column index and input string. This is a private method used to quickly find what column index you have to look in. </p>
+
 </div>
 </div>
 <a class="anchor" id="a0dbd87ee0d018de6bb990e1ffd8ac26d"></a><!-- doxytag: member="ParseTable::table" ref="a0dbd87ee0d018de6bb990e1ffd8ac26d" args="" -->
@@ -225,6 +262,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>The actual parse table. </p>
 
 </div>
 </div>
@@ -249,7 +288,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 19 2013 16:46:34 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 20 2013 17:38:37 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
