@@ -224,7 +224,8 @@ std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) const
 			return (std::pair<EAction, std::string>(shift, ss.str()));
 		}
 		else {
-			// Wrong entry
+			// Return error
+			return std::pair<EAction, std::string>(error, "error");
 		}
 	}
 
@@ -255,13 +256,11 @@ std::pair<EAction, std::string> ParseTable::extractInfo(std::string entry) const
 
 std::pair<EAction, std::string> ParseTable::operator() (int token, std::string symbol) const{
 	try {
-		//std::cout << "test 1 2 3" << std::endl;
 		std::string entry = table.at(token).at(lookup.at(symbol));
-		//std::cout << "failed 3 2 1 " << std::endl;
 		return extractInfo(entry);
 	}
 	catch (std::out_of_range& e) {
 		std::cout << "Bad input: it is not part of the CFL." << std::endl;
-		exit(0);
+		exit(1);
 	}
 }

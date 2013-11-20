@@ -22,9 +22,13 @@
 \begin{DoxyCompactList}\small\item\em \-The parameter \hyperlink{classParseTable}{\-Parse\-Table} will be directly used. \end{DoxyCompactList}\item 
 bool \hyperlink{classLRParser_a0657ab1ec68beb8fce3756f7204079b4}{parse} (std\-::string)
 \begin{DoxyCompactList}\small\item\em \-Parses the given input string and returns true if it is valid, false if it is invalid. \end{DoxyCompactList}\item 
+std\-::stack$<$ std\-::string $>$ \hyperlink{classLRParser_ac832f117eb1ff5f21d9ed0a7426937a5}{get\-Stack} ()
+\item 
+unsigned int \hyperlink{classLRParser_a817415c2083c538a0380eace8ec4df5e}{get\-Counter} ()
+\item 
 virtual \hyperlink{classLRParser_a85b1487a331f1a617ee74965264fcf8f}{$\sim$\-L\-R\-Parser} ()
 \end{DoxyCompactItemize}
-\subsection*{\-Private \-Member \-Functions}
+\subsection*{\-Protected \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
 std\-::pair$<$ \hyperlink{ParseTable_8h_a81d4868b129e5f45325894085a36a8a5}{\-E\-Action}, std\-::string $>$ \hyperlink{classLRParser_a3bd6bff5276c4ee9b592a14e31e789b3}{process\-Symbol} ()
@@ -33,7 +37,7 @@ bool \hyperlink{classLRParser_aa2a11e0af8cbc1bb23b522f1a2ca87e5}{perform\-Action
 \begin{DoxyCompactList}\small\item\em \-Performs action. \-If this evaluates to true the function it means that input\-\_\- was valid. \end{DoxyCompactList}\item 
 bool \hyperlink{classLRParser_ab355d762edcb2c7da1f30728d08b43a1}{handle\-Reduction} (std\-::string)
 \begin{DoxyCompactList}\small\item\em \-Handles the reduction action. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{\-Private \-Attributes}
+\subsection*{\-Protected \-Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classParseTable}{\-Parse\-Table} \hyperlink{classLRParser_a111f4dd04eb42896c7c31bd1a255a58b}{p\-\_\-table\-\_\-}
@@ -105,13 +109,27 @@ std\-::ostream \& \hyperlink{classLRParser_a9f53bcd94244f30103c9756aabf51d38}{op
 
 
 \subsection{\-Member \-Function \-Documentation}
+\hypertarget{classLRParser_a817415c2083c538a0380eace8ec4df5e}{\index{\-L\-R\-Parser@{\-L\-R\-Parser}!get\-Counter@{get\-Counter}}
+\index{get\-Counter@{get\-Counter}!LRParser@{\-L\-R\-Parser}}
+\subsubsection[{get\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-L\-R\-Parser\-::get\-Counter} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d6/de9/classLRParser_a817415c2083c538a0380eace8ec4df5e}
+\hypertarget{classLRParser_ac832f117eb1ff5f21d9ed0a7426937a5}{\index{\-L\-R\-Parser@{\-L\-R\-Parser}!get\-Stack@{get\-Stack}}
+\index{get\-Stack@{get\-Stack}!LRParser@{\-L\-R\-Parser}}
+\subsubsection[{get\-Stack}]{\setlength{\rightskip}{0pt plus 5cm}std\-::stack$<$std\-::string$>$ {\bf \-L\-R\-Parser\-::get\-Stack} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d6/de9/classLRParser_ac832f117eb1ff5f21d9ed0a7426937a5}
 \hypertarget{classLRParser_ab355d762edcb2c7da1f30728d08b43a1}{\index{\-L\-R\-Parser@{\-L\-R\-Parser}!handle\-Reduction@{handle\-Reduction}}
 \index{handle\-Reduction@{handle\-Reduction}!LRParser@{\-L\-R\-Parser}}
 \subsubsection[{handle\-Reduction}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-L\-R\-Parser\-::handle\-Reduction} (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d6/de9/classLRParser_ab355d762edcb2c7da1f30728d08b43a1}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{d6/de9/classLRParser_ab355d762edcb2c7da1f30728d08b43a1}
 
 
 \-Handles the reduction action. 
@@ -143,7 +161,7 @@ std\-::ostream \& \hyperlink{classLRParser_a9f53bcd94244f30103c9756aabf51d38}{op
 \begin{DoxyParamCaption}
 \item[{std\-::pair$<$ {\bf \-E\-Action}, std\-::string $>$}]{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d6/de9/classLRParser_aa2a11e0af8cbc1bb23b522f1a2ca87e5}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{d6/de9/classLRParser_aa2a11e0af8cbc1bb23b522f1a2ca87e5}
 
 
 \-Performs action. \-If this evaluates to true the function it means that input\-\_\- was valid. 
@@ -159,7 +177,7 @@ std\-::ostream \& \hyperlink{classLRParser_a9f53bcd94244f30103c9756aabf51d38}{op
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d6/de9/classLRParser_a3bd6bff5276c4ee9b592a14e31e789b3}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{d6/de9/classLRParser_a3bd6bff5276c4ee9b592a14e31e789b3}
 
 
 \-Counter used to track at what character of our input we're at. 
@@ -187,16 +205,16 @@ a pair of what to do (\-E\-Action) and possible data needed for the action (stri
 \subsection{\-Member \-Data \-Documentation}
 \hypertarget{classLRParser_acd3eab842429e90bd7dc0433274e0a37}{\index{\-L\-R\-Parser@{\-L\-R\-Parser}!counter\-\_\-@{counter\-\_\-}}
 \index{counter\-\_\-@{counter\-\_\-}!LRParser@{\-L\-R\-Parser}}
-\subsubsection[{counter\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-L\-R\-Parser\-::counter\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d6/de9/classLRParser_acd3eab842429e90bd7dc0433274e0a37}
+\subsubsection[{counter\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-L\-R\-Parser\-::counter\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{d6/de9/classLRParser_acd3eab842429e90bd7dc0433274e0a37}
 \hypertarget{classLRParser_a8dc38b1c7c3a3aa80abbd48ee2364319}{\index{\-L\-R\-Parser@{\-L\-R\-Parser}!input\-\_\-@{input\-\_\-}}
 \index{input\-\_\-@{input\-\_\-}!LRParser@{\-L\-R\-Parser}}
-\subsubsection[{input\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-L\-R\-Parser\-::input\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d6/de9/classLRParser_a8dc38b1c7c3a3aa80abbd48ee2364319}
+\subsubsection[{input\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-L\-R\-Parser\-::input\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{d6/de9/classLRParser_a8dc38b1c7c3a3aa80abbd48ee2364319}
 \hypertarget{classLRParser_a111f4dd04eb42896c7c31bd1a255a58b}{\index{\-L\-R\-Parser@{\-L\-R\-Parser}!p\-\_\-table\-\_\-@{p\-\_\-table\-\_\-}}
 \index{p\-\_\-table\-\_\-@{p\-\_\-table\-\_\-}!LRParser@{\-L\-R\-Parser}}
-\subsubsection[{p\-\_\-table\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Parse\-Table} {\bf \-L\-R\-Parser\-::p\-\_\-table\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d6/de9/classLRParser_a111f4dd04eb42896c7c31bd1a255a58b}
+\subsubsection[{p\-\_\-table\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Parse\-Table} {\bf \-L\-R\-Parser\-::p\-\_\-table\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{d6/de9/classLRParser_a111f4dd04eb42896c7c31bd1a255a58b}
 \hypertarget{classLRParser_a98af41152079cb4f2fe7f280629cf18c}{\index{\-L\-R\-Parser@{\-L\-R\-Parser}!stack\-\_\-@{stack\-\_\-}}
 \index{stack\-\_\-@{stack\-\_\-}!LRParser@{\-L\-R\-Parser}}
-\subsubsection[{stack\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::stack$<$std\-::string$>$ {\bf \-L\-R\-Parser\-::stack\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d6/de9/classLRParser_a98af41152079cb4f2fe7f280629cf18c}
+\subsubsection[{stack\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::stack$<$std\-::string$>$ {\bf \-L\-R\-Parser\-::stack\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{d6/de9/classLRParser_a98af41152079cb4f2fe7f280629cf18c}
 
 
 \-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

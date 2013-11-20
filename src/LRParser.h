@@ -44,9 +44,13 @@ public:
 	//! Overloaded output operator: shows the stack contents;
 	friend std::ostream& operator<<(std::ostream&, LRParser&);
 
+	std::stack<std::string> getStack();
+
+	unsigned int getCounter();
+
 	virtual ~LRParser();
 
-private:
+protected:
 	ParseTable p_table_;
 	std::stack<std::string> stack_;
 	std::string input_;

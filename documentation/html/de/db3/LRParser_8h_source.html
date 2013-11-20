@@ -115,26 +115,30 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00043"></a>00043 
 <a name="l00045"></a>00045         <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../d6/de9/classLRParser.html#a9f53bcd94244f30103c9756aabf51d38" title="Overloaded output operator: shows the stack contents;.">operator&lt;&lt;</a>(std::ostream&amp;, <a class="code" href="../../d6/de9/classLRParser.html">LRParser</a>&amp;);
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047         <span class="keyword">virtual</span> <a class="code" href="../../d6/de9/classLRParser.html#a85b1487a331f1a617ee74965264fcf8f">~LRParser</a>();
+<a name="l00047"></a>00047         std::stack&lt;std::string&gt; <a class="code" href="../../d6/de9/classLRParser.html#ac832f117eb1ff5f21d9ed0a7426937a5">getStack</a>();
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="keyword">private</span>:
-<a name="l00050"></a><a class="code" href="../../d6/de9/classLRParser.html#a111f4dd04eb42896c7c31bd1a255a58b">00050</a>         <a class="code" href="../../d9/da1/classParseTable.html">ParseTable</a> <a class="code" href="../../d6/de9/classLRParser.html#a111f4dd04eb42896c7c31bd1a255a58b">p_table_</a>;
-<a name="l00051"></a><a class="code" href="../../d6/de9/classLRParser.html#a98af41152079cb4f2fe7f280629cf18c">00051</a>         std::stack&lt;std::string&gt; <a class="code" href="../../d6/de9/classLRParser.html#a98af41152079cb4f2fe7f280629cf18c">stack_</a>;
-<a name="l00052"></a><a class="code" href="../../d6/de9/classLRParser.html#a8dc38b1c7c3a3aa80abbd48ee2364319">00052</a>         std::string <a class="code" href="../../d6/de9/classLRParser.html#a8dc38b1c7c3a3aa80abbd48ee2364319">input_</a>;
-<a name="l00053"></a><a class="code" href="../../d6/de9/classLRParser.html#acd3eab842429e90bd7dc0433274e0a37">00053</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/de9/classLRParser.html#acd3eab842429e90bd7dc0433274e0a37">counter_</a>; 
-<a name="l00054"></a>00054 
-<a name="l00060"></a>00060         std::pair&lt;EAction, std::string&gt; <a class="code" href="../../d6/de9/classLRParser.html#a3bd6bff5276c4ee9b592a14e31e789b3" title="Counter used to track at what character of our input we&#39;re at.">processSymbol</a>();
-<a name="l00061"></a>00061 
-<a name="l00063"></a>00063 
-<a name="l00066"></a>00066         <span class="keywordtype">bool</span> <a class="code" href="../../d6/de9/classLRParser.html#aa2a11e0af8cbc1bb23b522f1a2ca87e5" title="Performs action. If this evaluates to true the function it means that input_ was valid.">performAction</a>(std::pair&lt;EAction, std::string&gt;);
+<a name="l00049"></a>00049         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/de9/classLRParser.html#a817415c2083c538a0380eace8ec4df5e">getCounter</a>();
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051         <span class="keyword">virtual</span> <a class="code" href="../../d6/de9/classLRParser.html#a85b1487a331f1a617ee74965264fcf8f">~LRParser</a>();
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">protected</span>:
+<a name="l00054"></a><a class="code" href="../../d6/de9/classLRParser.html#a111f4dd04eb42896c7c31bd1a255a58b">00054</a>         <a class="code" href="../../d9/da1/classParseTable.html">ParseTable</a> <a class="code" href="../../d6/de9/classLRParser.html#a111f4dd04eb42896c7c31bd1a255a58b">p_table_</a>;
+<a name="l00055"></a><a class="code" href="../../d6/de9/classLRParser.html#a98af41152079cb4f2fe7f280629cf18c">00055</a>         std::stack&lt;std::string&gt; <a class="code" href="../../d6/de9/classLRParser.html#a98af41152079cb4f2fe7f280629cf18c">stack_</a>;
+<a name="l00056"></a><a class="code" href="../../d6/de9/classLRParser.html#a8dc38b1c7c3a3aa80abbd48ee2364319">00056</a>         std::string <a class="code" href="../../d6/de9/classLRParser.html#a8dc38b1c7c3a3aa80abbd48ee2364319">input_</a>;
+<a name="l00057"></a><a class="code" href="../../d6/de9/classLRParser.html#acd3eab842429e90bd7dc0433274e0a37">00057</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/de9/classLRParser.html#acd3eab842429e90bd7dc0433274e0a37">counter_</a>; 
+<a name="l00058"></a>00058 
+<a name="l00064"></a>00064         std::pair&lt;EAction, std::string&gt; <a class="code" href="../../d6/de9/classLRParser.html#a3bd6bff5276c4ee9b592a14e31e789b3" title="Counter used to track at what character of our input we&#39;re at.">processSymbol</a>();
+<a name="l00065"></a>00065 
 <a name="l00067"></a>00067 
-<a name="l00069"></a>00069 
-<a name="l00072"></a>00072         <span class="keywordtype">bool</span> <a class="code" href="../../d6/de9/classLRParser.html#ab355d762edcb2c7da1f30728d08b43a1" title="Handles the reduction action.">handleReduction</a>(std::string);
+<a name="l00070"></a>00070         <span class="keywordtype">bool</span> <a class="code" href="../../d6/de9/classLRParser.html#aa2a11e0af8cbc1bb23b522f1a2ca87e5" title="Performs action. If this evaluates to true the function it means that input_ was valid.">performAction</a>(std::pair&lt;EAction, std::string&gt;);
+<a name="l00071"></a>00071 
 <a name="l00073"></a>00073 
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075 };
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 <span class="preprocessor">#endif </span><span class="comment">/* LRPARSER_H_ */</span>
+<a name="l00076"></a>00076         <span class="keywordtype">bool</span> <a class="code" href="../../d6/de9/classLRParser.html#ab355d762edcb2c7da1f30728d08b43a1" title="Handles the reduction action.">handleReduction</a>(std::string);
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="preprocessor">#endif </span><span class="comment">/* LRPARSER_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -153,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 20 2013 17:27:04 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 20 2013 20:27:50 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

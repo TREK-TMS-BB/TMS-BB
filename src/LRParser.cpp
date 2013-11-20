@@ -111,7 +111,7 @@ bool LRParser::performAction(std::pair<EAction, std::string> action) {
 	case shift:
 		// push the token on the stack.
 		stack_.push(action.second);
-		std::cout << *this << std::endl;
+		//std::cout << *this << std::endl;
 		break;
 	case reduction:
 		// Replace the body of the production rule by the head.
@@ -119,7 +119,7 @@ bool LRParser::performAction(std::pair<EAction, std::string> action) {
 		break;
 	case accept:
 		// EMPTY STACK
-		std::cout << *this << std::endl;
+		//std::cout << *this << std::endl;
 		while (!stack_.empty()) {
 			stack_.pop();
 		}
@@ -163,7 +163,7 @@ bool LRParser::parse(std::string input) {
 		}
 		// If we had the accept action and we have consumed our whole input: our input is valid.
 		else if (stack_.empty() && accept && (counter_ == input_.length())) {
-			std::cout << *this << std::endl;
+			//std::cout << *this << std::endl;
 			return true;
 		}
 	}
@@ -171,3 +171,11 @@ bool LRParser::parse(std::string input) {
 	return false;
 }
 
+
+std::stack<std::string> LRParser::getStack() {
+	return stack_;
+}
+
+unsigned int LRParser::getCounter() {
+	return counter_;
+}

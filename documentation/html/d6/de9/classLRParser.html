@@ -80,8 +80,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">LRParser Class Reference</div>  </div>
@@ -111,17 +111,19 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameter <a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> will be directly used.  <a href="#a52727298bd32f6b4ac91d2e1351ffe49"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a0657ab1ec68beb8fce3756f7204079b4">parse</a> (std::string)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the given input string and returns true if it is valid, false if it is invalid.  <a href="#a0657ab1ec68beb8fce3756f7204079b4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::stack&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#ac832f117eb1ff5f21d9ed0a7426937a5">getStack</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a817415c2083c538a0380eace8ec4df5e">getCounter</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a85b1487a331f1a617ee74965264fcf8f">~LRParser</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="../../d4/d97/ParseTable_8h.html#a81d4868b129e5f45325894085a36a8a5">EAction</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a3bd6bff5276c4ee9b592a14e31e789b3">processSymbol</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter used to track at what character of our input we're at.  <a href="#a3bd6bff5276c4ee9b592a14e31e789b3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#aa2a11e0af8cbc1bb23b522f1a2ca87e5">performAction</a> (std::pair&lt; <a class="el" href="../../d4/d97/ParseTable_8h.html#a81d4868b129e5f45325894085a36a8a5">EAction</a>, std::string &gt;)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs action. If this evaluates to true the function it means that input_ was valid.  <a href="#aa2a11e0af8cbc1bb23b522f1a2ca87e5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#ab355d762edcb2c7da1f30728d08b43a1">handleReduction</a> (std::string)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the reduction action.  <a href="#ab355d762edcb2c7da1f30728d08b43a1"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a111f4dd04eb42896c7c31bd1a255a58b">p_table_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::stack&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a98af41152079cb4f2fe7f280629cf18c">stack_</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a8dc38b1c7c3a3aa80abbd48ee2364319">input_</a></td></tr>
@@ -217,6 +219,38 @@ Friends</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a817415c2083c538a0380eace8ec4df5e"></a><!-- doxytag: member="LRParser::getCounter" ref="a817415c2083c538a0380eace8ec4df5e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="../../d6/de9/classLRParser.html#a817415c2083c538a0380eace8ec4df5e">LRParser::getCounter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac832f117eb1ff5f21d9ed0a7426937a5"></a><!-- doxytag: member="LRParser::getStack" ref="ac832f117eb1ff5f21d9ed0a7426937a5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::stack&lt;std::string&gt; <a class="el" href="../../d6/de9/classLRParser.html#ac832f117eb1ff5f21d9ed0a7426937a5">LRParser::getStack</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ab355d762edcb2c7da1f30728d08b43a1"></a><!-- doxytag: member="LRParser::handleReduction" ref="ab355d762edcb2c7da1f30728d08b43a1" args="(std::string)" -->
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +260,7 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [private]</code></td>
+          <td><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -276,7 +310,7 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramtype">std::pair&lt; <a class="el" href="../../d4/d97/ParseTable_8h.html#a81d4868b129e5f45325894085a36a8a5">EAction</a>, std::string &gt;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [private]</code></td>
+          <td><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -300,7 +334,7 @@ Friends</h2></td></tr>
           <td class="memname">std::pair&lt;<a class="el" href="../../d4/d97/ParseTable_8h.html#a81d4868b129e5f45325894085a36a8a5">EAction</a>, std::string&gt; <a class="el" href="../../d6/de9/classLRParser.html#a3bd6bff5276c4ee9b592a14e31e789b3">LRParser::processSymbol</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [private]</code></td>
+          <td><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -348,7 +382,7 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int <a class="el" href="../../d6/de9/classLRParser.html#acd3eab842429e90bd7dc0433274e0a37">LRParser::counter_</a><code> [private]</code></td>
+          <td class="memname">unsigned int <a class="el" href="../../d6/de9/classLRParser.html#acd3eab842429e90bd7dc0433274e0a37">LRParser::counter_</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -361,7 +395,7 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string <a class="el" href="../../d6/de9/classLRParser.html#a8dc38b1c7c3a3aa80abbd48ee2364319">LRParser::input_</a><code> [private]</code></td>
+          <td class="memname">std::string <a class="el" href="../../d6/de9/classLRParser.html#a8dc38b1c7c3a3aa80abbd48ee2364319">LRParser::input_</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -374,7 +408,7 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> <a class="el" href="../../d6/de9/classLRParser.html#a111f4dd04eb42896c7c31bd1a255a58b">LRParser::p_table_</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> <a class="el" href="../../d6/de9/classLRParser.html#a111f4dd04eb42896c7c31bd1a255a58b">LRParser::p_table_</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -387,7 +421,7 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::stack&lt;std::string&gt; <a class="el" href="../../d6/de9/classLRParser.html#a98af41152079cb4f2fe7f280629cf18c">LRParser::stack_</a><code> [private]</code></td>
+          <td class="memname">std::stack&lt;std::string&gt; <a class="el" href="../../d6/de9/classLRParser.html#a98af41152079cb4f2fe7f280629cf18c">LRParser::stack_</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -416,7 +450,7 @@ Friends</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 20 2013 17:27:04 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 20 2013 20:27:50 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -11,6 +11,8 @@
 #include "tests/fileTest.h"
 #include "tests/CFG_test.h"
 #include "tests/CYK_test.h"
+#include "tests/LRParser_test.h"
+#include "tests/ParseTable_test.h"
 
 #include <string>
 #include "utilities.h"
@@ -93,11 +95,12 @@ int main(int argc, char **argv) {
 	{
 		std::cerr << e.what() << std::endl;
 	}*/
-	//::testing::InitGoogleTest(&argc, argv);
-	//return RUN_ALL_TESTS();
 
-	CFG grammar("XML-Files/LR1-1.xml");
-	PDA::PDA pda(&grammar);
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+
+	//CFG grammar("XML-Files/LR1-1.xml");
+	//PDA::PDA pda(&grammar);
 	//std::cout << pda.containsString("xxx") << std::endl;
 
 	std::cout << "program finished"	 << std::endl;
