@@ -96,10 +96,10 @@ int main(int argc, char **argv) {
 	//::testing::InitGoogleTest(&argc, argv);
 	//return RUN_ALL_TESTS();
 
-	CFG grammar("./../XML-Files/LR1-1.xml");
+	CFG grammar("XML-Files/LR1-1.xml");
 	PDA::PDA pda(&grammar);
 	//std::cout << pda.containsString("xxx") << std::endl;
 
-
+	std::cout << "program finished"	 << std::endl;
 }
 

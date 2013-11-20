@@ -104,15 +104,22 @@ Inheritance diagram for LRParser:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#adf2fe54095f02900d06389007a1e5f53">LRParser</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="../../d6/de9/classLRParser.html">LRParser</a>. This won't be able to do anything as it has no parse table.  <a href="#adf2fe54095f02900d06389007a1e5f53"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#abee4e9919e49f66051167487fb467601">LRParser</a> (<a class="el" href="../../d7/dd4/classCFG.html">CFG</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> defines the CFL. The parse table will be generated from this grammar.  <a href="#abee4e9919e49f66051167487fb467601"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a52727298bd32f6b4ac91d2e1351ffe49">LRParser</a> (<a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameter <a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> will be directly used.  <a href="#a52727298bd32f6b4ac91d2e1351ffe49"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a0657ab1ec68beb8fce3756f7204079b4">parse</a> (std::string)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the given input string and returns true if it is valid, false if it is invalid.  <a href="#a0657ab1ec68beb8fce3756f7204079b4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a85b1487a331f1a617ee74965264fcf8f">~LRParser</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="../../d4/d97/ParseTable_8h.html#a81d4868b129e5f45325894085a36a8a5">EAction</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a3bd6bff5276c4ee9b592a14e31e789b3">processSymbol</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter used to track at what character of our input we're at.  <a href="#a3bd6bff5276c4ee9b592a14e31e789b3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#aa2a11e0af8cbc1bb23b522f1a2ca87e5">performAction</a> (std::pair&lt; <a class="el" href="../../d4/d97/ParseTable_8h.html#a81d4868b129e5f45325894085a36a8a5">EAction</a>, std::string &gt;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs action. If this evaluates to true the function it means that input_ was valid.  <a href="#aa2a11e0af8cbc1bb23b522f1a2ca87e5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#ab355d762edcb2c7da1f30728d08b43a1">handleReduction</a> (std::string)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the reduction action.  <a href="#ab355d762edcb2c7da1f30728d08b43a1"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a111f4dd04eb42896c7c31bd1a255a58b">p_table_</a></td></tr>
@@ -122,6 +129,7 @@ Private Attributes</h2></td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de9/classLRParser.html#a9f53bcd94244f30103c9756aabf51d38">operator&lt;&lt;</a> (std::ostream &amp;, <a class="el" href="../../d6/de9/classLRParser.html">LRParser</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded output operator: shows the stack contents;.  <a href="#a9f53bcd94244f30103c9756aabf51d38"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adf2fe54095f02900d06389007a1e5f53"></a><!-- doxytag: member="LRParser::LRParser" ref="adf2fe54095f02900d06389007a1e5f53" args="()" -->
@@ -137,6 +145,8 @@ Friends</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Default constructor for <a class="el" href="../../d6/de9/classLRParser.html">LRParser</a>. This won't be able to do anything as it has no parse table. </p>
 
 </div>
 </div>
@@ -155,6 +165,14 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>The <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> defines the CFL. The parse table will be generated from this grammar. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">grammar</td><td>grammar for our <a class="el" href="../../d6/de9/classLRParser.html">LRParser</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a52727298bd32f6b4ac91d2e1351ffe49"></a><!-- doxytag: member="LRParser::LRParser" ref="a52727298bd32f6b4ac91d2e1351ffe49" args="(ParseTable)" -->
@@ -171,6 +189,14 @@ Friends</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>The parameter <a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> will be directly used. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt</td><td><a class="el" href="../../d9/da1/classParseTable.html">ParseTable</a> for our <a class="el" href="../../d6/de9/classLRParser.html">LRParser</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -206,6 +232,14 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Handles the reduction action. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>is a rule that will be applied from body to head. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a0657ab1ec68beb8fce3756f7204079b4"></a><!-- doxytag: member="LRParser::parse" ref="a0657ab1ec68beb8fce3756f7204079b4" args="(std::string)" -->
@@ -222,6 +256,14 @@ Friends</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Parses the given input string and returns true if it is valid, false if it is invalid. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>input string that will be tested. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -240,6 +282,14 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Performs action. If this evaluates to true the function it means that input_ was valid. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>which will be executed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a3bd6bff5276c4ee9b592a14e31e789b3"></a><!-- doxytag: member="LRParser::processSymbol" ref="a3bd6bff5276c4ee9b592a14e31e789b3" args="()" -->
@@ -255,6 +305,10 @@ Friends</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Counter used to track at what character of our input we're at. </p>
+<p>Reads a symbol from the input and returns what to do. (from parsetable) Also pushes the read symbol on the stack. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>a pair of what to do (EAction) and possible data needed for the action (string). </dd></dl>
 
 </div>
 </div>
@@ -283,6 +337,8 @@ Friends</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Overloaded output operator: shows the stack contents;. </p>
 
 </div>
 </div>
@@ -360,7 +416,7 @@ Friends</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 19 2013 16:46:33 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 20 2013 17:27:04 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -106,39 +106,39 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00024"></a>00024 
 <a name="l00025"></a><a class="code" href="../../da/d24/classCFGParser.html">00025</a> <span class="keyword">class </span><a class="code" href="../../da/d24/classCFGParser.html">CFGParser</a> : <span class="keyword">public</span> <a class="code" href="../../d0/d40/classParser.html">Parser</a> {
 <a name="l00026"></a>00026 <span class="keyword">public</span>:
-<a name="l00027"></a>00027         <a class="code" href="../../da/d24/classCFGParser.html#ab92c03dd2a8d901fb38b468c97ee879d">CFGParser</a>(std::string);
-<a name="l00028"></a>00028         <span class="comment">// Default constructor: will parse the entire CFG.</span>
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030         <span class="keyword">virtual</span> <a class="code" href="../../da/d24/classCFGParser.html#a52b7730ad87bfb47fcc100dc6b2756ee">~CFGParser</a>();
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032         std::vector&lt;std::string&gt; <a class="code" href="../../da/d24/classCFGParser.html#a91c3dfa2ce514b1066eb4d86af311804">getVariables</a>() <span class="keyword">const</span>;
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034         std::vector&lt;std::string&gt; <a class="code" href="../../da/d24/classCFGParser.html#aef1d5758fe648f2ab93220816bdd9a84">getTerminals</a>() <span class="keyword">const</span>;
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036         std::map&lt;std::string, std::vector&lt;std::string&gt; &gt; <a class="code" href="../../da/d24/classCFGParser.html#abf6237f25b52dd05009220a8d10c3449">getRules</a>() <span class="keyword">const</span>;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038         std::string <a class="code" href="../../da/d24/classCFGParser.html#af4336389c220320c7d9511fffafddfae">getStart</a>() <span class="keyword">const</span>;
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="keyword">private</span>:
-<a name="l00041"></a><a class="code" href="../../da/d24/classCFGParser.html#a2be700c7eebe5a1a0fd18b88b3074840">00041</a>         std::vector&lt;std::string&gt; <a class="code" href="../../da/d24/classCFGParser.html#a2be700c7eebe5a1a0fd18b88b3074840">variables</a>;
-<a name="l00042"></a><a class="code" href="../../da/d24/classCFGParser.html#a7242b5a22e08de31297dc9bbb367f5bc">00042</a>         std::vector&lt;std::string&gt; <a class="code" href="../../da/d24/classCFGParser.html#a7242b5a22e08de31297dc9bbb367f5bc">terminals</a>;
-<a name="l00043"></a><a class="code" href="../../da/d24/classCFGParser.html#a9bea0a4314c8f16ac9aaf0a801a42d86">00043</a>         std::map&lt;std::string, std::vector&lt;std::string&gt; &gt; <a class="code" href="../../da/d24/classCFGParser.html#a9bea0a4314c8f16ac9aaf0a801a42d86">rules</a>;
-<a name="l00044"></a><a class="code" href="../../da/d24/classCFGParser.html#a3a51f2f7a2f5342ce9016d226869a516">00044</a>         std::string <a class="code" href="../../da/d24/classCFGParser.html#a3a51f2f7a2f5342ce9016d226869a516">startSymbol</a>;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046         <span class="keywordtype">void</span> <a class="code" href="../../da/d24/classCFGParser.html#ad743c15b7790fcd172b8a1ef7ece1473">parseVariables</a>(TiXmlElement*);
-<a name="l00047"></a>00047         <span class="comment">// Parses the variables of the CFG.</span>
+<a name="l00028"></a>00028 
+<a name="l00031"></a>00031         <a class="code" href="../../da/d24/classCFGParser.html#ab92c03dd2a8d901fb38b468c97ee879d" title="Default constructor: will parse the entire CFG.">CFGParser</a>(std::string);
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033         <span class="keyword">virtual</span> <a class="code" href="../../da/d24/classCFGParser.html#a52b7730ad87bfb47fcc100dc6b2756ee">~CFGParser</a>();
+<a name="l00034"></a>00034 
+<a name="l00036"></a>00036 
+<a name="l00039"></a>00039         std::vector&lt;std::string&gt; <a class="code" href="../../da/d24/classCFGParser.html#a91c3dfa2ce514b1066eb4d86af311804" title="Returns the CFG variables.">getVariables</a>() <span class="keyword">const</span>;
+<a name="l00040"></a>00040 
+<a name="l00042"></a>00042 
+<a name="l00045"></a>00045         std::vector&lt;std::string&gt; <a class="code" href="../../da/d24/classCFGParser.html#aef1d5758fe648f2ab93220816bdd9a84" title="Returns the CFG terminals.">getTerminals</a>() <span class="keyword">const</span>;
+<a name="l00046"></a>00046 
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049         <span class="keywordtype">void</span> <a class="code" href="../../da/d24/classCFGParser.html#a525642f6ee69770c435e855e0609fa32">parseTerminals</a>(TiXmlElement*);
-<a name="l00050"></a>00050         <span class="comment">// Parses the terminals of the CFG.</span>
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052         <span class="keywordtype">void</span> <a class="code" href="../../da/d24/classCFGParser.html#a681f962f987adf57ba9ff8b3638fef14">parseRules</a>(TiXmlElement*);
-<a name="l00053"></a>00053         <span class="comment">// Parses the rules of the CFG.</span>
+<a name="l00051"></a>00051         std::map&lt;std::string, std::vector&lt;std::string&gt; &gt; <a class="code" href="../../da/d24/classCFGParser.html#abf6237f25b52dd05009220a8d10c3449" title="Returns the CFG rules.">getRules</a>() <span class="keyword">const</span>;
+<a name="l00052"></a>00052 
 <a name="l00054"></a>00054 
-<a name="l00055"></a>00055         <span class="keywordtype">void</span> <a class="code" href="../../da/d24/classCFGParser.html#a1ca52cabb5cf726a0eb7a2668c3c0a5a">parseStart</a>(TiXmlElement*);
-<a name="l00056"></a>00056         <span class="comment">// Parses the start symbol of the CFG.</span>
-<a name="l00057"></a>00057 };
+<a name="l00057"></a>00057         std::string <a class="code" href="../../da/d24/classCFGParser.html#af4336389c220320c7d9511fffafddfae" title="Returns the start of the CFG.">getStart</a>() <span class="keyword">const</span>;
 <a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="preprocessor">#endif </span><span class="comment">/* PARSER_H_ */</span>
+<a name="l00059"></a>00059 <span class="keyword">private</span>:
+<a name="l00060"></a><a class="code" href="../../da/d24/classCFGParser.html#a2be700c7eebe5a1a0fd18b88b3074840">00060</a>         std::vector&lt;std::string&gt; <a class="code" href="../../da/d24/classCFGParser.html#a2be700c7eebe5a1a0fd18b88b3074840">variables</a>;
+<a name="l00061"></a><a class="code" href="../../da/d24/classCFGParser.html#a7242b5a22e08de31297dc9bbb367f5bc">00061</a>         std::vector&lt;std::string&gt; <a class="code" href="../../da/d24/classCFGParser.html#a7242b5a22e08de31297dc9bbb367f5bc">terminals</a>;
+<a name="l00062"></a><a class="code" href="../../da/d24/classCFGParser.html#a9bea0a4314c8f16ac9aaf0a801a42d86">00062</a>         std::map&lt;std::string, std::vector&lt;std::string&gt; &gt; <a class="code" href="../../da/d24/classCFGParser.html#a9bea0a4314c8f16ac9aaf0a801a42d86">rules</a>;
+<a name="l00063"></a><a class="code" href="../../da/d24/classCFGParser.html#a3a51f2f7a2f5342ce9016d226869a516">00063</a>         std::string <a class="code" href="../../da/d24/classCFGParser.html#a3a51f2f7a2f5342ce9016d226869a516">startSymbol</a>;
+<a name="l00064"></a>00064 
+<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="../../da/d24/classCFGParser.html#ad743c15b7790fcd172b8a1ef7ece1473" title="Parses the variables of the CFG.">parseVariables</a>(TiXmlElement*);
+<a name="l00067"></a>00067 
+<a name="l00069"></a>00069         <span class="keywordtype">void</span> <a class="code" href="../../da/d24/classCFGParser.html#a525642f6ee69770c435e855e0609fa32" title="Parses the terminals of the CFG.">parseTerminals</a>(TiXmlElement*);
+<a name="l00070"></a>00070 
+<a name="l00072"></a>00072         <span class="keywordtype">void</span> <a class="code" href="../../da/d24/classCFGParser.html#a681f962f987adf57ba9ff8b3638fef14" title="Parses the rules of the CFG.">parseRules</a>(TiXmlElement*);
+<a name="l00073"></a>00073 
+<a name="l00075"></a>00075         <span class="keywordtype">void</span> <a class="code" href="../../da/d24/classCFGParser.html#a1ca52cabb5cf726a0eb7a2668c3c0a5a" title="Parses the start symbol of the CFG.">parseStart</a>(TiXmlElement*);
+<a name="l00076"></a>00076 };
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="preprocessor">#endif </span><span class="comment">/* PARSER_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -157,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 19 2013 16:46:31 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 20 2013 17:27:04 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

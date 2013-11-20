@@ -103,18 +103,27 @@ Inheritance diagram for CFGParser:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#ab92c03dd2a8d901fb38b468c97ee879d">CFGParser</a> (std::string)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor: will parse the entire <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>.  <a href="#ab92c03dd2a8d901fb38b468c97ee879d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#a52b7730ad87bfb47fcc100dc6b2756ee">~CFGParser</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#a91c3dfa2ce514b1066eb4d86af311804">getVariables</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> variables.  <a href="#a91c3dfa2ce514b1066eb4d86af311804"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#aef1d5758fe648f2ab93220816bdd9a84">getTerminals</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> terminals.  <a href="#aef1d5758fe648f2ab93220816bdd9a84"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <br class="typebreak"/>
 std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#abf6237f25b52dd05009220a8d10c3449">getRules</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> rules.  <a href="#abf6237f25b52dd05009220a8d10c3449"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#af4336389c220320c7d9511fffafddfae">getStart</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the start of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>.  <a href="#af4336389c220320c7d9511fffafddfae"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#ad743c15b7790fcd172b8a1ef7ece1473">parseVariables</a> (TiXmlElement *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the variables of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>.  <a href="#ad743c15b7790fcd172b8a1ef7ece1473"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#a525642f6ee69770c435e855e0609fa32">parseTerminals</a> (TiXmlElement *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the terminals of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>.  <a href="#a525642f6ee69770c435e855e0609fa32"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#a681f962f987adf57ba9ff8b3638fef14">parseRules</a> (TiXmlElement *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the rules of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>.  <a href="#a681f962f987adf57ba9ff8b3638fef14"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#a1ca52cabb5cf726a0eb7a2668c3c0a5a">parseStart</a> (TiXmlElement *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the start symbol of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>.  <a href="#a1ca52cabb5cf726a0eb7a2668c3c0a5a"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/classCFGParser.html#a2be700c7eebe5a1a0fd18b88b3074840">variables</a></td></tr>
@@ -138,6 +147,14 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
       </table>
 </div>
 <div class="memdoc">
+
+<p>Default constructor: will parse the entire <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>XML file that describes the to be parsed <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -172,6 +189,9 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div>
 <div class="memdoc">
 
+<p>Returns the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> rules. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A map in the form of (head, body) </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="af4336389c220320c7d9511fffafddfae"></a><!-- doxytag: member="CFGParser::getStart" ref="af4336389c220320c7d9511fffafddfae" args="() const " -->
@@ -187,6 +207,9 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
       </table>
 </div>
 <div class="memdoc">
+
+<p>Returns the start of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The start variable (string) </dd></dl>
 
 </div>
 </div>
@@ -204,6 +227,9 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div>
 <div class="memdoc">
 
+<p>Returns the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> terminals. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A vector containing the terminals (strings). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a91c3dfa2ce514b1066eb4d86af311804"></a><!-- doxytag: member="CFGParser::getVariables" ref="a91c3dfa2ce514b1066eb4d86af311804" args="() const " -->
@@ -219,6 +245,9 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
       </table>
 </div>
 <div class="memdoc">
+
+<p>Returns the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a> variables. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A vector containing the variables (strings). </dd></dl>
 
 </div>
 </div>
@@ -237,6 +266,8 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div>
 <div class="memdoc">
 
+<p>Parses the rules of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>. </p>
+
 </div>
 </div>
 <a class="anchor" id="a1ca52cabb5cf726a0eb7a2668c3c0a5a"></a><!-- doxytag: member="CFGParser::parseStart" ref="a1ca52cabb5cf726a0eb7a2668c3c0a5a" args="(TiXmlElement *)" -->
@@ -253,6 +284,8 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
       </table>
 </div>
 <div class="memdoc">
+
+<p>Parses the start symbol of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>. </p>
 
 </div>
 </div>
@@ -271,6 +304,8 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div>
 <div class="memdoc">
 
+<p>Parses the terminals of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>. </p>
+
 </div>
 </div>
 <a class="anchor" id="ad743c15b7790fcd172b8a1ef7ece1473"></a><!-- doxytag: member="CFGParser::parseVariables" ref="ad743c15b7790fcd172b8a1ef7ece1473" args="(TiXmlElement *)" -->
@@ -287,6 +322,8 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
       </table>
 </div>
 <div class="memdoc">
+
+<p>Parses the variables of the <a class="el" href="../../d7/dd4/classCFG.html">CFG</a>. </p>
 
 </div>
 </div>
@@ -364,7 +401,7 @@ std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign=
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 19 2013 16:46:33 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 20 2013 17:27:04 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
