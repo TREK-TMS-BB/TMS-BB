@@ -3,7 +3,6 @@
 	<variables>
 		<var>A</var>
 		<var>B</var>
-		<var>S</var>
 	</variables>
 	<terminals>
 		<t>x</t>
@@ -13,5 +12,5 @@
 		<r var="A" body="xy"/>
 		<r var="B" body="xA"/>
 	</rules>
-	<start>S</start>
+	<start>B</start>
 </CFG>

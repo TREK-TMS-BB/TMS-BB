@@ -1,189 +1,189 @@
-\hypertarget{classPDA_1_1State}{\section{\-P\-D\-A\-:\-:\-State \-Class \-Reference}
-\label{d7/d1f/classPDA_1_1State}\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}}
+\hypertarget{classPDA_1_1State}{\section{P\-D\-A\-:\-:State Class Reference}
+\label{classPDA_1_1State}\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}}
 }
 
 
-{\ttfamily \#include $<$\-State.\-h$>$}
+{\ttfamily \#include $<$State.\-h$>$}
 
-\subsection*{\-Public \-Member \-Functions}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classPDA_1_1State_a2d91cf0f7a8de4153abf523f70f72c89}{\-State} ()
-\begin{DoxyCompactList}\small\item\em \-A default constructor. \end{DoxyCompactList}\item 
-\hyperlink{classPDA_1_1State_a70be0ec0f495a76b2dd7858885d784a3}{\-State} (std\-::string n)
-\begin{DoxyCompactList}\small\item\em \-A specified constructor. \end{DoxyCompactList}\item 
+\hyperlink{classPDA_1_1State_a2d91cf0f7a8de4153abf523f70f72c89}{State} ()
+\begin{DoxyCompactList}\small\item\em A default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classPDA_1_1State_a70be0ec0f495a76b2dd7858885d784a3}{State} (std\-::string n)
+\begin{DoxyCompactList}\small\item\em A specified constructor. \end{DoxyCompactList}\item 
 virtual \hyperlink{classPDA_1_1State_a2c301a0f1ba94a1780f016fd6fab17d0}{$\sim$\-State} ()
-\begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
 std\-::string \hyperlink{classPDA_1_1State_a703a7b3cb61ffc9bd19c4f161c5bb852}{get\-\_\-name} ()
-\begin{DoxyCompactList}\small\item\em \-A function giving the name of the state. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A function giving the name of the state. \end{DoxyCompactList}\item 
 void \hyperlink{classPDA_1_1State_a3d89cda9ad229bebb25ef256e3470ec8}{add\-\_\-transition} (char input, std\-::string top\-\_\-of\-\_\-stack, std\-::string state, std\-::vector$<$ std\-::string $>$ stack\-\_\-operations)
-\begin{DoxyCompactList}\small\item\em \-A function used to add a transition to a state. \end{DoxyCompactList}\item 
-std\-::vector$<$ std\-::pair\*
-$<$ std\-::string, std\-::vector\*
+\begin{DoxyCompactList}\small\item\em A function used to add a transition to a state. \end{DoxyCompactList}\item 
+std\-::vector$<$ std\-::pair\\*
+$<$ std\-::string, std\-::vector\\*
 $<$ std\-::string $>$ $>$ $>$ \hyperlink{classPDA_1_1State_af5d878651060daa40b2259531d1df111}{simulate} (char input, std\-::string top\-\_\-of\-\_\-stack)
-\begin{DoxyCompactList}\small\item\em \-A function returning all the states you can transition to and their stacks given a certain input. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A function returning all the states you can transition to and their stacks given a certain input. \end{DoxyCompactList}\item 
 void \hyperlink{classPDA_1_1State_afd437b030a253440225b75695f8ccf90}{print\-\_\-transitions} ()
-\begin{DoxyCompactList}\small\item\em \-A function neatly printing out the transitions. \end{DoxyCompactList}\item 
-std\-::multimap$<$ std\-::pair$<$ char, \*
-std\-::string $>$, std\-::pair\*
-$<$ std\-::string, std\-::vector\*
+\begin{DoxyCompactList}\small\item\em A function neatly printing out the transitions. \end{DoxyCompactList}\item 
+std\-::multimap$<$ std\-::pair$<$ char, \\*
+std\-::string $>$, std\-::pair\\*
+$<$ std\-::string, std\-::vector\\*
 $<$ std\-::string $>$ $>$ $>$ \hyperlink{classPDA_1_1State_af55439fad25308b084feb62eeaf3b7a2}{get\-\_\-transitions} ()
-\begin{DoxyCompactList}\small\item\em \-A function returning the whole transition map. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactList}\small\item\em A function returning the whole transition map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\-::string \hyperlink{classPDA_1_1State_afbfeb988281f28afbb9a0718e8e4eb67}{statename}
 \item 
-std\-::multimap$<$ std\-::pair$<$ char, \*
-std\-::string $>$, std\-::pair\*
-$<$ std\-::string, std\-::vector\*
+std\-::multimap$<$ std\-::pair$<$ char, \\*
+std\-::string $>$, std\-::pair\\*
+$<$ std\-::string, std\-::vector\\*
 $<$ std\-::string $>$ $>$ $>$ \hyperlink{classPDA_1_1State_abbe5635de165a5a202ba1eb31ee61af1}{transitions}
-\begin{DoxyCompactList}\small\item\em \-A string with the name of the state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A string with the name of the state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{classPDA_1_1State_a2d91cf0f7a8de4153abf523f70f72c89}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!\-State@{\-State}}
-\index{\-State@{\-State}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-P\-D\-A\-::\-State\-::\-State} (
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPDA_1_1State_a2d91cf0f7a8de4153abf523f70f72c89}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!State@{State}}
+\index{State@{State}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}P\-D\-A\-::\-State\-::\-State (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{d7/d1f/classPDA_1_1State_a2d91cf0f7a8de4153abf523f70f72c89}
+)}}\label{classPDA_1_1State_a2d91cf0f7a8de4153abf523f70f72c89}
 
 
-\-A default constructor. 
+A default constructor. 
 
-\hypertarget{classPDA_1_1State_a70be0ec0f495a76b2dd7858885d784a3}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!\-State@{\-State}}
-\index{\-State@{\-State}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-P\-D\-A\-::\-State\-::\-State} (
+\hypertarget{classPDA_1_1State_a70be0ec0f495a76b2dd7858885d784a3}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!State@{State}}
+\index{State@{State}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}P\-D\-A\-::\-State\-::\-State (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{n}
 \end{DoxyParamCaption}
-)}}\label{d7/d1f/classPDA_1_1State_a70be0ec0f495a76b2dd7858885d784a3}
+)}}\label{classPDA_1_1State_a70be0ec0f495a76b2dd7858885d784a3}
 
 
-\-A specified constructor. 
+A specified constructor. 
 
 
-\begin{DoxyParams}{\-Parameters}
-{\em n} & \-The name of the state. \\
+\begin{DoxyParams}{Parameters}
+{\em n} & The name of the state. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classPDA_1_1State_a2c301a0f1ba94a1780f016fd6fab17d0}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!$\sim$\-State@{$\sim$\-State}}
-\index{$\sim$\-State@{$\sim$\-State}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{$\sim$\-State}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf \-P\-D\-A\-::\-State\-::$\sim$\-State} (
+\hypertarget{classPDA_1_1State_a2c301a0f1ba94a1780f016fd6fab17d0}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!$\sim$\-State@{$\sim$\-State}}
+\index{$\sim$\-State@{$\sim$\-State}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{$\sim$\-State}]{\setlength{\rightskip}{0pt plus 5cm}virtual P\-D\-A\-::\-State\-::$\sim$\-State (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{d7/d1f/classPDA_1_1State_a2c301a0f1ba94a1780f016fd6fab17d0}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPDA_1_1State_a2c301a0f1ba94a1780f016fd6fab17d0}
 
 
-\-Default destructor. 
+Default destructor. 
 
 
 
-\subsection{\-Member \-Function \-Documentation}
-\hypertarget{classPDA_1_1State_a3d89cda9ad229bebb25ef256e3470ec8}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!add\-\_\-transition@{add\-\_\-transition}}
-\index{add\-\_\-transition@{add\-\_\-transition}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{add\-\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-P\-D\-A\-::\-State\-::add\-\_\-transition} (
+\subsection{Member Function Documentation}
+\hypertarget{classPDA_1_1State_a3d89cda9ad229bebb25ef256e3470ec8}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!add\-\_\-transition@{add\-\_\-transition}}
+\index{add\-\_\-transition@{add\-\_\-transition}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{add\-\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}void P\-D\-A\-::\-State\-::add\-\_\-transition (
 \begin{DoxyParamCaption}
 \item[{char}]{input, }
 \item[{std\-::string}]{top\-\_\-of\-\_\-stack, }
 \item[{std\-::string}]{state, }
 \item[{std\-::vector$<$ std\-::string $>$}]{stack\-\_\-operations}
 \end{DoxyParamCaption}
-)}}\label{d7/d1f/classPDA_1_1State_a3d89cda9ad229bebb25ef256e3470ec8}
+)}}\label{classPDA_1_1State_a3d89cda9ad229bebb25ef256e3470ec8}
 
 
-\-A function used to add a transition to a state. 
+A function used to add a transition to a state. 
 
 
-\begin{DoxyParams}{\-Parameters}
-{\em input} & \-The input symbol on which the state should transition. \\
+\begin{DoxyParams}{Parameters}
+{\em input} & The input symbol on which the state should transition. \\
 \hline
-{\em top\-\_\-of\-\_\-stack} & \-The symbol that should be on top of the stack when transitioning. \\
+{\em top\-\_\-of\-\_\-stack} & The symbol that should be on top of the stack when transitioning. \\
 \hline
-{\em state} & \-The name of the state you want to transition to. \\
+{\em state} & The name of the state you want to transition to. \\
 \hline
-{\em stack\-\_\-operations} & \-A vector containing operations that should be run on the stack. \\
+{\em stack\-\_\-operations} & A vector containing operations that should be run on the stack. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classPDA_1_1State_a703a7b3cb61ffc9bd19c4f161c5bb852}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!get\-\_\-name@{get\-\_\-name}}
-\index{get\-\_\-name@{get\-\_\-name}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-P\-D\-A\-::\-State\-::get\-\_\-name} (
+\hypertarget{classPDA_1_1State_a703a7b3cb61ffc9bd19c4f161c5bb852}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!get\-\_\-name@{get\-\_\-name}}
+\index{get\-\_\-name@{get\-\_\-name}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string P\-D\-A\-::\-State\-::get\-\_\-name (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{d7/d1f/classPDA_1_1State_a703a7b3cb61ffc9bd19c4f161c5bb852}
+)}}\label{classPDA_1_1State_a703a7b3cb61ffc9bd19c4f161c5bb852}
 
 
-\-A function giving the name of the state. 
+A function giving the name of the state. 
 
-\begin{DoxyReturn}{\-Returns}
-\-It returns a string with the name of the state. 
+\begin{DoxyReturn}{Returns}
+It returns a string with the name of the state. 
 \end{DoxyReturn}
-\hypertarget{classPDA_1_1State_af55439fad25308b084feb62eeaf3b7a2}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!get\-\_\-transitions@{get\-\_\-transitions}}
-\index{get\-\_\-transitions@{get\-\_\-transitions}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{get\-\_\-transitions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::multimap$<$std\-::pair$<$char, std\-::string$>$, std\-::pair$<$std\-::string, std\-::vector$<$std\-::string$>$ $>$ $>$ {\bf \-P\-D\-A\-::\-State\-::get\-\_\-transitions} (
+\hypertarget{classPDA_1_1State_af55439fad25308b084feb62eeaf3b7a2}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!get\-\_\-transitions@{get\-\_\-transitions}}
+\index{get\-\_\-transitions@{get\-\_\-transitions}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{get\-\_\-transitions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::multimap$<$std\-::pair$<$char, std\-::string$>$, std\-::pair$<$std\-::string, std\-::vector$<$std\-::string$>$ $>$ $>$ P\-D\-A\-::\-State\-::get\-\_\-transitions (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{d7/d1f/classPDA_1_1State_af55439fad25308b084feb62eeaf3b7a2}
+)}}\label{classPDA_1_1State_af55439fad25308b084feb62eeaf3b7a2}
 
 
-\-A function returning the whole transition map. 
+A function returning the whole transition map. 
 
-\begin{DoxyReturn}{\-Returns}
-\-A multimap containing the input symbols and corresponding transition info. 
+\begin{DoxyReturn}{Returns}
+A multimap containing the input symbols and corresponding transition info. 
 \end{DoxyReturn}
-\hypertarget{classPDA_1_1State_afd437b030a253440225b75695f8ccf90}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!print\-\_\-transitions@{print\-\_\-transitions}}
-\index{print\-\_\-transitions@{print\-\_\-transitions}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{print\-\_\-transitions}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-P\-D\-A\-::\-State\-::print\-\_\-transitions} (
+\hypertarget{classPDA_1_1State_afd437b030a253440225b75695f8ccf90}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!print\-\_\-transitions@{print\-\_\-transitions}}
+\index{print\-\_\-transitions@{print\-\_\-transitions}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{print\-\_\-transitions}]{\setlength{\rightskip}{0pt plus 5cm}void P\-D\-A\-::\-State\-::print\-\_\-transitions (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{d7/d1f/classPDA_1_1State_afd437b030a253440225b75695f8ccf90}
+)}}\label{classPDA_1_1State_afd437b030a253440225b75695f8ccf90}
 
 
-\-A function neatly printing out the transitions. 
+A function neatly printing out the transitions. 
 
-\hypertarget{classPDA_1_1State_af5d878651060daa40b2259531d1df111}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!simulate@{simulate}}
-\index{simulate@{simulate}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{simulate}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::pair$<$std\-::string, std\-::vector$<$std\-::string$>$ $>$ $>$ {\bf \-P\-D\-A\-::\-State\-::simulate} (
+\hypertarget{classPDA_1_1State_af5d878651060daa40b2259531d1df111}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!simulate@{simulate}}
+\index{simulate@{simulate}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{simulate}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::pair$<$std\-::string, std\-::vector$<$std\-::string$>$ $>$ $>$ P\-D\-A\-::\-State\-::simulate (
 \begin{DoxyParamCaption}
 \item[{char}]{input, }
 \item[{std\-::string}]{top\-\_\-of\-\_\-stack}
 \end{DoxyParamCaption}
-)}}\label{d7/d1f/classPDA_1_1State_af5d878651060daa40b2259531d1df111}
+)}}\label{classPDA_1_1State_af5d878651060daa40b2259531d1df111}
 
 
-\-A function returning all the states you can transition to and their stacks given a certain input. 
+A function returning all the states you can transition to and their stacks given a certain input. 
 
 
-\begin{DoxyParams}{\-Parameters}
-{\em input} & \-The char that is read to transition. \\
+\begin{DoxyParams}{Parameters}
+{\em input} & The char that is read to transition. \\
 \hline
-{\em top\-\_\-of\-\_\-stack} & \-The current top of the stack. \\
+{\em top\-\_\-of\-\_\-stack} & The current top of the stack. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{\-Returns}
-\-A vector containing pairs with the name of the state you can go to and the operations of the stack you should run then. 
+\begin{DoxyReturn}{Returns}
+A vector containing pairs with the name of the state you can go to and the operations of the stack you should run then. 
 \end{DoxyReturn}
 
 
-\subsection{\-Member \-Data \-Documentation}
-\hypertarget{classPDA_1_1State_afbfeb988281f28afbb9a0718e8e4eb67}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!statename@{statename}}
-\index{statename@{statename}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{statename}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-P\-D\-A\-::\-State\-::statename}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d7/d1f/classPDA_1_1State_afbfeb988281f28afbb9a0718e8e4eb67}
-\hypertarget{classPDA_1_1State_abbe5635de165a5a202ba1eb31ee61af1}{\index{\-P\-D\-A\-::\-State@{\-P\-D\-A\-::\-State}!transitions@{transitions}}
-\index{transitions@{transitions}!PDA::State@{\-P\-D\-A\-::\-State}}
-\subsubsection[{transitions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::multimap$<$std\-::pair$<$char, std\-::string$>$, std\-::pair$<$std\-::string, std\-::vector$<$std\-::string$>$ $>$ $>$ {\bf \-P\-D\-A\-::\-State\-::transitions}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d7/d1f/classPDA_1_1State_abbe5635de165a5a202ba1eb31ee61af1}
+\subsection{Member Data Documentation}
+\hypertarget{classPDA_1_1State_afbfeb988281f28afbb9a0718e8e4eb67}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!statename@{statename}}
+\index{statename@{statename}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{statename}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string P\-D\-A\-::\-State\-::statename\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1State_afbfeb988281f28afbb9a0718e8e4eb67}
+\hypertarget{classPDA_1_1State_abbe5635de165a5a202ba1eb31ee61af1}{\index{P\-D\-A\-::\-State@{P\-D\-A\-::\-State}!transitions@{transitions}}
+\index{transitions@{transitions}!PDA::State@{P\-D\-A\-::\-State}}
+\subsubsection[{transitions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::multimap$<$std\-::pair$<$char, std\-::string$>$, std\-::pair$<$std\-::string, std\-::vector$<$std\-::string$>$ $>$ $>$ P\-D\-A\-::\-State\-::transitions\hspace{0.3cm}{\ttfamily [private]}}}\label{classPDA_1_1State_abbe5635de165a5a202ba1eb31ee61af1}
 
 
-\-A string with the name of the state. 
+A string with the name of the state. 
 
 
 
-\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-src/\hyperlink{State_8h}{\-State.\-h}\end{DoxyCompactItemize}
+src/\hyperlink{State_8h}{State.\-h}\end{DoxyCompactItemize}

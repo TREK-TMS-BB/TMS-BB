@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning}
+\begin{document}
+\begin{tikzpicture} [->,auto,node distance=5cm, line width=0.4mm]
+\node[state, initial] (p0) {p0};
+\node[state] (q) [right =of p0] {q};
+\node[state, accepting] (q0) [right =of q] {q0};
+\path
+(q) edge [loop above] node[text width=1cm, align=center] {$e, S | X$ \\ $e, S | Y$ \\ $e, S | e$ \\ $e, X | xX$ \\ $e, X | x$ \\ $e, Y | xYy$ \\ $e, Y | xy$ \\ $x, x | e$ \\ $y, y | e$ \\ } (q)
+(q) edge [bend left] node[text width=1cm, align=center] {$e, X0 | e$ \\ } (q0)
+(p0) edge [bend left] node[text width=1cm, align=center] {$e, X0 | SX0$ \\ } (q)
+;
+\end{tikzpicture}
+\end{document}

@@ -1,134 +1,134 @@
-\hypertarget{classParseTable}{\section{\-Parse\-Table \-Class \-Reference}
-\label{d9/da1/classParseTable}\index{\-Parse\-Table@{\-Parse\-Table}}
+\hypertarget{classParseTable}{\section{Parse\-Table Class Reference}
+\label{classParseTable}\index{Parse\-Table@{Parse\-Table}}
 }
 
 
-{\ttfamily \#include $<$\-Parse\-Table.\-h$>$}
+{\ttfamily \#include $<$Parse\-Table.\-h$>$}
 
-\subsection*{\-Public \-Member \-Functions}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classParseTable_acacf41ffea967138a7eb200a1d03c0bf}{\-Parse\-Table} ()
-\begin{DoxyCompactList}\small\item\em \-Default constructor. \-Our \hyperlink{classParseTable}{\-Parse\-Table} will be empty as it has no \hyperlink{classCFG}{\-C\-F\-G}. \end{DoxyCompactList}\item 
-\hyperlink{classParseTable_a71107a2b7d2b83142a31d08d9e960fee}{\-Parse\-Table} (\hyperlink{classCFG}{\-C\-F\-G})
-\begin{DoxyCompactList}\small\item\em \-Our \hyperlink{classParseTable}{\-Parse\-Table} will be constructed using the \hyperlink{classCFG}{\-C\-F\-G} provided as parameter. \end{DoxyCompactList}\item 
-std\-::pair$<$ \hyperlink{ParseTable_8h_a81d4868b129e5f45325894085a36a8a5}{\-E\-Action}, std\-::string $>$ \hyperlink{classParseTable_a276cf2fa3182cff81da31ce69c26a30c}{operator()} (int, std\-::string) const 
-\begin{DoxyCompactList}\small\item\em \-Returns the contents of the parse table (and what action should happen) depending on the input. \end{DoxyCompactList}\item 
+\hyperlink{classParseTable_acacf41ffea967138a7eb200a1d03c0bf}{Parse\-Table} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. Our \hyperlink{classParseTable}{Parse\-Table} will be empty as it has no \hyperlink{classCFG}{C\-F\-G}. \end{DoxyCompactList}\item 
+\hyperlink{classParseTable_a71107a2b7d2b83142a31d08d9e960fee}{Parse\-Table} (\hyperlink{classCFG}{C\-F\-G})
+\begin{DoxyCompactList}\small\item\em Our \hyperlink{classParseTable}{Parse\-Table} will be constructed using the \hyperlink{classCFG}{C\-F\-G} provided as parameter. \end{DoxyCompactList}\item 
+std\-::pair$<$ \hyperlink{ParseTable_8h_a81d4868b129e5f45325894085a36a8a5}{E\-Action}, std\-::string $>$ \hyperlink{classParseTable_a276cf2fa3182cff81da31ce69c26a30c}{operator()} (int, std\-::string) const 
+\begin{DoxyCompactList}\small\item\em Returns the contents of the parse table (and what action should happen) depending on the input. \end{DoxyCompactList}\item 
 virtual \hyperlink{classParseTable_aa3c8f1c8313c216e39388ec0bd64afc6}{$\sim$\-Parse\-Table} ()
 \end{DoxyCompactItemize}
-\subsection*{\-Private \-Member \-Functions}
+\subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\-::pair$<$ \hyperlink{ParseTable_8h_a81d4868b129e5f45325894085a36a8a5}{\-E\-Action}, std\-::string $>$ \hyperlink{classParseTable_a67d59fa53fbc3136cc8ad6e20c7edf87}{extract\-Info} (std\-::string) const 
-\begin{DoxyCompactList}\small\item\em \-Extracts info from input. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{\-Private \-Attributes}
+std\-::pair$<$ \hyperlink{ParseTable_8h_a81d4868b129e5f45325894085a36a8a5}{E\-Action}, std\-::string $>$ \hyperlink{classParseTable_a67d59fa53fbc3136cc8ad6e20c7edf87}{extract\-Info} (std\-::string) const 
+\begin{DoxyCompactList}\small\item\em Extracts info from input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\-::vector$<$ std\-::vector\*
+std\-::vector$<$ std\-::vector\\*
 $<$ std\-::string $>$ $>$ \hyperlink{classParseTable_a0dbd87ee0d018de6bb990e1ffd8ac26d}{table}
-\begin{DoxyCompactList}\small\item\em \-The actual parse table. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The actual parse table. \end{DoxyCompactList}\item 
 std\-::map$<$ std\-::string, int $>$ \hyperlink{classParseTable_ac91766c673d5b534e370e31eb71f6604}{lookup}
-\begin{DoxyCompactList}\small\item\em \-Maps column index and input string. \-This is a private method used to quickly find what column index you have to look in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Maps column index and input string. This is a private method used to quickly find what column index you have to look in. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{classParseTable_acacf41ffea967138a7eb200a1d03c0bf}{\index{\-Parse\-Table@{\-Parse\-Table}!\-Parse\-Table@{\-Parse\-Table}}
-\index{\-Parse\-Table@{\-Parse\-Table}!ParseTable@{\-Parse\-Table}}
-\subsubsection[{\-Parse\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Parse\-Table\-::\-Parse\-Table} (
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classParseTable_acacf41ffea967138a7eb200a1d03c0bf}{\index{Parse\-Table@{Parse\-Table}!Parse\-Table@{Parse\-Table}}
+\index{Parse\-Table@{Parse\-Table}!ParseTable@{Parse\-Table}}
+\subsubsection[{Parse\-Table}]{\setlength{\rightskip}{0pt plus 5cm}Parse\-Table\-::\-Parse\-Table (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{d9/da1/classParseTable_acacf41ffea967138a7eb200a1d03c0bf}
+)}}\label{classParseTable_acacf41ffea967138a7eb200a1d03c0bf}
 
 
-\-Default constructor. \-Our \hyperlink{classParseTable}{\-Parse\-Table} will be empty as it has no \hyperlink{classCFG}{\-C\-F\-G}. 
+Default constructor. Our \hyperlink{classParseTable}{Parse\-Table} will be empty as it has no \hyperlink{classCFG}{C\-F\-G}. 
 
-\hypertarget{classParseTable_a71107a2b7d2b83142a31d08d9e960fee}{\index{\-Parse\-Table@{\-Parse\-Table}!\-Parse\-Table@{\-Parse\-Table}}
-\index{\-Parse\-Table@{\-Parse\-Table}!ParseTable@{\-Parse\-Table}}
-\subsubsection[{\-Parse\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Parse\-Table\-::\-Parse\-Table} (
+\hypertarget{classParseTable_a71107a2b7d2b83142a31d08d9e960fee}{\index{Parse\-Table@{Parse\-Table}!Parse\-Table@{Parse\-Table}}
+\index{Parse\-Table@{Parse\-Table}!ParseTable@{Parse\-Table}}
+\subsubsection[{Parse\-Table}]{\setlength{\rightskip}{0pt plus 5cm}Parse\-Table\-::\-Parse\-Table (
 \begin{DoxyParamCaption}
-\item[{{\bf \-C\-F\-G}}]{}
+\item[{{\bf C\-F\-G}}]{}
 \end{DoxyParamCaption}
-)}}\label{d9/da1/classParseTable_a71107a2b7d2b83142a31d08d9e960fee}
+)}}\label{classParseTable_a71107a2b7d2b83142a31d08d9e960fee}
 
 
-\-Our \hyperlink{classParseTable}{\-Parse\-Table} will be constructed using the \hyperlink{classCFG}{\-C\-F\-G} provided as parameter. 
+Our \hyperlink{classParseTable}{Parse\-Table} will be constructed using the \hyperlink{classCFG}{C\-F\-G} provided as parameter. 
 
 
-\begin{DoxyParams}{\-Parameters}
-{\em grammar} & \-The grammar which the \hyperlink{classParseTable}{\-Parse\-Table} will be based on. \\
+\begin{DoxyParams}{Parameters}
+{\em grammar} & The grammar which the \hyperlink{classParseTable}{Parse\-Table} will be based on. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classParseTable_aa3c8f1c8313c216e39388ec0bd64afc6}{\index{\-Parse\-Table@{\-Parse\-Table}!$\sim$\-Parse\-Table@{$\sim$\-Parse\-Table}}
-\index{$\sim$\-Parse\-Table@{$\sim$\-Parse\-Table}!ParseTable@{\-Parse\-Table}}
-\subsubsection[{$\sim$\-Parse\-Table}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf \-Parse\-Table\-::$\sim$\-Parse\-Table} (
+\hypertarget{classParseTable_aa3c8f1c8313c216e39388ec0bd64afc6}{\index{Parse\-Table@{Parse\-Table}!$\sim$\-Parse\-Table@{$\sim$\-Parse\-Table}}
+\index{$\sim$\-Parse\-Table@{$\sim$\-Parse\-Table}!ParseTable@{Parse\-Table}}
+\subsubsection[{$\sim$\-Parse\-Table}]{\setlength{\rightskip}{0pt plus 5cm}virtual Parse\-Table\-::$\sim$\-Parse\-Table (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{d9/da1/classParseTable_aa3c8f1c8313c216e39388ec0bd64afc6}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classParseTable_aa3c8f1c8313c216e39388ec0bd64afc6}
 
 
-\subsection{\-Member \-Function \-Documentation}
-\hypertarget{classParseTable_a67d59fa53fbc3136cc8ad6e20c7edf87}{\index{\-Parse\-Table@{\-Parse\-Table}!extract\-Info@{extract\-Info}}
-\index{extract\-Info@{extract\-Info}!ParseTable@{\-Parse\-Table}}
-\subsubsection[{extract\-Info}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<${\bf \-E\-Action}, std\-::string$>$ {\bf \-Parse\-Table\-::extract\-Info} (
+\subsection{Member Function Documentation}
+\hypertarget{classParseTable_a67d59fa53fbc3136cc8ad6e20c7edf87}{\index{Parse\-Table@{Parse\-Table}!extract\-Info@{extract\-Info}}
+\index{extract\-Info@{extract\-Info}!ParseTable@{Parse\-Table}}
+\subsubsection[{extract\-Info}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<${\bf E\-Action}, std\-::string$>$ Parse\-Table\-::extract\-Info (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d9/da1/classParseTable_a67d59fa53fbc3136cc8ad6e20c7edf87}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classParseTable_a67d59fa53fbc3136cc8ad6e20c7edf87}
 
 
-\-Extracts info from input. 
+Extracts info from input. 
 
 
-\begin{DoxyParams}{\-Parameters}
-{\em entry} & \-A table entry \\
+\begin{DoxyParams}{Parameters}
+{\em entry} & A table entry \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{\-Returns}
-\-A pair of what needs to be done (\-E\-Action) and a string with info needed to perform the action. 
+\begin{DoxyReturn}{Returns}
+A pair of what needs to be done (E\-Action) and a string with info needed to perform the action. 
 \end{DoxyReturn}
-\hypertarget{classParseTable_a276cf2fa3182cff81da31ce69c26a30c}{\index{\-Parse\-Table@{\-Parse\-Table}!operator()@{operator()}}
-\index{operator()@{operator()}!ParseTable@{\-Parse\-Table}}
-\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<${\bf \-E\-Action}, std\-::string$>$ \-Parse\-Table\-::operator() (
+\hypertarget{classParseTable_a276cf2fa3182cff81da31ce69c26a30c}{\index{Parse\-Table@{Parse\-Table}!operator()@{operator()}}
+\index{operator()@{operator()}!ParseTable@{Parse\-Table}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<${\bf E\-Action}, std\-::string$>$ Parse\-Table\-::operator() (
 \begin{DoxyParamCaption}
 \item[{int}]{, }
 \item[{std\-::string}]{}
 \end{DoxyParamCaption}
-) const}}\label{d9/da1/classParseTable_a276cf2fa3182cff81da31ce69c26a30c}
+) const}}\label{classParseTable_a276cf2fa3182cff81da31ce69c26a30c}
 
 
-\-Returns the contents of the parse table (and what action should happen) depending on the input. 
+Returns the contents of the parse table (and what action should happen) depending on the input. 
 
 
-\begin{DoxyParams}{\-Parameters}
-{\em token} & \hyperlink{classParseTable}{\-Parse\-Table} row \\
+\begin{DoxyParams}{Parameters}
+{\em token} & \hyperlink{classParseTable}{Parse\-Table} row \\
 \hline
-{\em symbol} & \hyperlink{classParseTable}{\-Parse\-Table} column \\
+{\em symbol} & \hyperlink{classParseTable}{Parse\-Table} column \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{\-Returns}
-\-Pair of an action (\-E\-Action) and possible information needed to complete the action (string) 
+\begin{DoxyReturn}{Returns}
+Pair of an action (E\-Action) and possible information needed to complete the action (string) 
 \end{DoxyReturn}
 
 
-\subsection{\-Member \-Data \-Documentation}
-\hypertarget{classParseTable_ac91766c673d5b534e370e31eb71f6604}{\index{\-Parse\-Table@{\-Parse\-Table}!lookup@{lookup}}
-\index{lookup@{lookup}!ParseTable@{\-Parse\-Table}}
-\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, int$>$ {\bf \-Parse\-Table\-::lookup}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d9/da1/classParseTable_ac91766c673d5b534e370e31eb71f6604}
+\subsection{Member Data Documentation}
+\hypertarget{classParseTable_ac91766c673d5b534e370e31eb71f6604}{\index{Parse\-Table@{Parse\-Table}!lookup@{lookup}}
+\index{lookup@{lookup}!ParseTable@{Parse\-Table}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, int$>$ Parse\-Table\-::lookup\hspace{0.3cm}{\ttfamily [private]}}}\label{classParseTable_ac91766c673d5b534e370e31eb71f6604}
 
 
-\-Maps column index and input string. \-This is a private method used to quickly find what column index you have to look in. 
+Maps column index and input string. This is a private method used to quickly find what column index you have to look in. 
 
-\hypertarget{classParseTable_a0dbd87ee0d018de6bb990e1ffd8ac26d}{\index{\-Parse\-Table@{\-Parse\-Table}!table@{table}}
-\index{table@{table}!ParseTable@{\-Parse\-Table}}
-\subsubsection[{table}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::vector$<$std\-::string$>$ $>$ {\bf \-Parse\-Table\-::table}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d9/da1/classParseTable_a0dbd87ee0d018de6bb990e1ffd8ac26d}
-
-
-\-The actual parse table. 
+\hypertarget{classParseTable_a0dbd87ee0d018de6bb990e1ffd8ac26d}{\index{Parse\-Table@{Parse\-Table}!table@{table}}
+\index{table@{table}!ParseTable@{Parse\-Table}}
+\subsubsection[{table}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::vector$<$std\-::string$>$ $>$ Parse\-Table\-::table\hspace{0.3cm}{\ttfamily [private]}}}\label{classParseTable_a0dbd87ee0d018de6bb990e1ffd8ac26d}
 
 
+The actual parse table. 
 
-\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-src/\hyperlink{ParseTable_8h}{\-Parse\-Table.\-h}\end{DoxyCompactItemize}
+src/\hyperlink{ParseTable_8h}{Parse\-Table.\-h}\end{DoxyCompactItemize}

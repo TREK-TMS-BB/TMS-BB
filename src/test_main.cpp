@@ -96,8 +96,15 @@ int main(int argc, char **argv) {
 		std::cerr << e.what() << std::endl;
 	}*/
 
-	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
+	//::testing::InitGoogleTest(&argc, argv);
+	//return RUN_ALL_TESTS();
+
+	CFG grammar("XML-Files/LR1-1.xml");
+	PDA::PDA pda(&grammar);
+	pda.toFinalStateAcceptance();
+	pda.toLaTeX("LR1-1.tex");
+
+	std::cout << pda.containsString("xxxxx") << std::endl;
 
 	//CFG grammar("XML-Files/LR1-1.xml");
 	//PDA::PDA pda(&grammar);

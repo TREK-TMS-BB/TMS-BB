@@ -1,0 +1,11 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning}
+\begin{document}
+\begin{tikzpicture} [->,auto,node distance=5cm, line width=0.4mm]
+\node[state, initial] (q) {q};
+\path
+(q) edge [loop above] node[text width=1cm, align=center] {$e, A | xy$ \\ $e, B | xA$ \\ $x, x | e$ \\ $y, y | e$ \\ } (q)
+;
+\end{tikzpicture}
+\end{document}

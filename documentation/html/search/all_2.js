@@ -13,9 +13,10 @@ var searchData=
   ['checkstatenames',['checkStateNames',['../d1/dc5/classPDA_1_1PDA.html#af707f305d9b16dbc3dcb686a3f63fca4',1,'PDA::PDA']]],
   ['cnf_5fcfg',['CNF_CFG',['../da/d5c/classCNF__CFG.html',1,'CNF_CFG'],['../da/d5c/classCNF__CFG.html#a3dfe36c6d4b3c69bd4217d71f0fe4746',1,'CNF_CFG::CNF_CFG()'],['../da/d5c/classCNF__CFG.html#a1d22901e8e4c8e25562d4095980537f5',1,'CNF_CFG::CNF_CFG(std::vector&lt; std::string &gt; &amp;v, std::vector&lt; std::string &gt; &amp;t, std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &amp;r, std::string s)'],['../da/d5c/classCNF__CFG.html#aaca2a5cc2e21b1b2e45ddecf3aed65c9',1,'CNF_CFG::CNF_CFG(CFG &amp;cfg)'],['../da/d5c/classCNF__CFG.html#a2cde09b5176c556704653475c299952d',1,'CNF_CFG::CNF_CFG(std::string file)']]],
   ['collumn',['Collumn',['../db/d5c/CYKTable_8h.html#aff3ec19000cb01e2a58e1d57c1cf8128',1,'CYKTable.h']]],
+  ['containsstring',['containsString',['../d1/dc5/classPDA_1_1PDA.html#a7f6cb548bcd3860306e3c96e0041ffd4',1,'PDA::PDA']]],
   ['counter_5f',['counter_',['../d6/de9/classLRParser.html#acd3eab842429e90bd7dc0433274e0a37',1,'LRParser']]],
   ['createtable',['createTable',['../d6/dcd/classCYKTable.html#a7aaee4d68e79f91fb6ff28b14f63668a',1,'CYKTable']]],
-  ['cur_5fstates',['cur_states',['../d1/dc5/classPDA_1_1PDA.html#a71d7a97ddb658ed2c07e30001ff6ba1b',1,'PDA::PDA']]],
+  ['cur_5fstates',['cur_states',['../d1/dc5/classPDA_1_1PDA.html#a0a940e3906fb9cfb1fa58fa8d329ab1b',1,'PDA::PDA']]],
   ['cyk_5f',['cyk_',['../da/d5c/classCNF__CFG.html#ad8359be441579098a2df2fd979e2f816',1,'CNF_CFG']]],
   ['cyktable',['CYKTable',['../d6/dcd/classCYKTable.html',1,'CYKTable'],['../d6/dcd/classCYKTable.html#ac96905a2f347c63cfda59d55fc97d90a',1,'CYKTable::CYKTable()'],['../d6/dcd/classCYKTable.html#a9bcbd180cfda8d5c47587f67026d89ad',1,'CYKTable::CYKTable(std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &amp;r, std::string startSymbol)'],['../d6/dcd/classCYKTable.html#abd9ea746b2c4ed848819efbf95645cc4',1,'CYKTable::CYKTable(std::string w, std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &amp;r, std::string stS)']]],
   ['cyktable_2eh',['CYKTable.h',['../db/d5c/CYKTable_8h.html',1,'']]]
