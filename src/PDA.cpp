@@ -30,14 +30,12 @@ PDA::PDA(CFG* grammar) {
 		stack_alphabet.push_back(variable.substr(0, 1));
 	}
 
-
-
 	start_state = "q";
 	start_stack = startstring;
-
 	accept_states.clear();
 
 	State q("q");
+	// MAKE THE VARIABLE TRANSITIONS
 	for (auto variable : variables) {
 		std::vector<std::string> transitions = rules[variable];
 		for (auto transition : transitions){
@@ -53,6 +51,7 @@ PDA::PDA(CFG* grammar) {
 		}
 	}
 
+	// MAKE THE TERMINAL TRANSITIONS
 	for (auto terminal : terminals) {
 		std::vector<std::string> stack_instructions;
 		stack_instructions.push_back("pop");
@@ -62,7 +61,6 @@ PDA::PDA(CFG* grammar) {
 
 	states.push_back(q);
 	resetPDA();
-
 }
 
 PDA::~PDA() {}
@@ -72,27 +70,14 @@ void PDA::toFinalStateAcceptance() {
 		return;
 	}
 	else if (type == acceptByEmptyStack) {
+		// MAKE NEW NAMES FOR THE STATES AND STACKSYMBOL
 		std::string finalstate_name = checkStateNames("q");
 		std::string startstate_name = checkStateNames("p");
-		std::string bottom_name;
-		std::string name;
-		bool correct_name = false;
-		int postfix_number = 0;
-		correct_name = false;
-		while(!correct_name) {
-			correct_name = true;
-			std::stringstream ss;
-			ss << "X" << postfix_number;
-			name = ss.str();
-			for(auto stacksymbol : stack_alphabet) {
-				if (stacksymbol == name){
-					correct_name = false;
-				}
-			}
-			postfix_number++;
-		}
-		bottom_name = name;
+		std::string bottom_name = checkStackNames("X");
+
 		type = acceptByFinalState;
+
+		// CREATE THE NEW ACCEPT STATE
 		accept_states.push_back(finalstate_name);
 		State finalstate(finalstate_name);
 		stack_alphabet.push_back(bottom_name);
@@ -102,15 +87,18 @@ void PDA::toFinalStateAcceptance() {
 			state.add_transition('e', bottom_name, finalstate_name, stack_instructions);
 		}
 		states.push_back(finalstate);
+
+		// CREATE THE NEW START STATE
 		State startstate(startstate_name);
 		std::vector<std::string> stack_instructions;
 		stack_instructions.push_back("push");
 		stack_instructions.push_back(start_stack);
 		startstate.add_transition('e', bottom_name, start_state, stack_instructions);
 		states.push_back(startstate);
+
+		// RESET THE PDA
 		start_state = startstate_name;
 		start_stack = bottom_name;
-
 		resetPDA();
 	}
 }
@@ -120,28 +108,14 @@ void PDA::toEmptyStackAcceptance() {
 		return;
 	}
 	else if (type == acceptByFinalState) {
+		// MAKE NEW NAMES FOR THE STATES AND STACKSYMBOL
 		std::string finalstate_name = checkStateNames("q");
 		std::string startstate_name = checkStateNames("p");
-		std::string bottom_name;
-		std::string name;
-		bool correct_name = false;
-		int postfix_number = 0;
-		postfix_number = 0;
-		correct_name = false;
-		while(!correct_name) {
-			correct_name = true;
-			std::stringstream ss;
-			ss << "X" << postfix_number;
-			name = ss.str();
-			for(auto stacksymbol : stack_alphabet) {
-				if (stacksymbol == name){
-					correct_name = false;
-				}
-			}
-			postfix_number++;
-		}
-		bottom_name = name;
+		std::string bottom_name = checkStackNames("X");
+
 		type = acceptByEmptyStack;
+
+		// MAKE THE NEW FINAL STATE ON WHICH THE STACK WILL BE EMPTIED
 		State finalstate(finalstate_name);
 		stack_alphabet.push_back(bottom_name);
 		for(auto stacksymbol : stack_alphabet) {
@@ -150,32 +124,37 @@ void PDA::toEmptyStackAcceptance() {
 			finalstate.add_transition('e', stacksymbol, finalstate_name, stack_instructions);
 		}
 		states.push_back(finalstate);
+
+		// MAKE THE NEW STARTSTATE
 		State startstate(startstate_name);
 		std::vector<std::string> stack_instructions;
 		stack_instructions.push_back("push");
 		stack_instructions.push_back(start_stack);
 		startstate.add_transition('e', bottom_name, start_state, stack_instructions);
 		states.push_back(startstate);
+
+		// MAKE TRANSITIONS TO THE NEW FINALSTATE
 		for(auto a_state : accept_states){
-			for (auto state : states) {
+			for (auto& state : states) {
 				if (state.get_name() == a_state) {
 					for(auto stacksymbol : stack_alphabet) {
 						std::vector<std::string> stack_instructions;
 						stack_instructions.push_back("pop");
-						finalstate.add_transition('e', stacksymbol, finalstate_name, stack_instructions);
+						state.add_transition('e', stacksymbol, finalstate_name, stack_instructions);
 					}
 				}
 			}
 		}
+
+		// RESET THE PDA
 		accept_states.clear();
 		start_state = startstate_name;
 		start_stack = bottom_name;
-
 		resetPDA();
 	}
 }
 
-void PDA::print_status() {
+void PDA::print_pda() {
 	std::cout << "STATES = (";
 	for (auto state : states) {
 		std::cout << state.get_name() << ", ";
@@ -226,14 +205,36 @@ std::string PDA::checkStateNames(std::string prefix) {
 	return name;
 }
 
+std::string PDA::checkStackNames(std::string prefix) {
+	std::string name;
+	bool correct_name = false;
+	int postfix_number = 0;
+	while(!correct_name) {
+		correct_name = true;
+		std::stringstream ss;
+		ss << prefix << postfix_number;
+		name = ss.str();
+		for(auto stacksymbol : stack_alphabet) {
+			if (stacksymbol == name){
+				correct_name = false;
+			}
+		}
+		postfix_number++;
+	}
+	return name;
+}
+
 void PDA::toLaTeX(std::string filename) {
+	// OUTPUT THE STANDARD HARDCODED OPTIONS
 	std::ofstream fout(filename.c_str());
 	fout << "\\documentclass{article}" << std::endl;
 	fout << "\\usepackage{tikz}" << std::endl;
 	fout << "\\usetikzlibrary{automata, positioning}" << std::endl;
 	fout << "\\begin{document}" << std::endl;
-	fout << "\\begin{tikzpicture} [->,auto,node distance=5cm, line width=0.4mm]" << std::endl;
+	fout << "\\begin{tikzpicture} [->,auto,node distance=2cm, line width=0.4mm]" << std::endl;
+
 	std::string last_state = "";
+	// FIRST PRINT THE STARTSTATES
 	for(auto state : states) {
 		if (isAcceptState(state.get_name()) && isStartState(state.get_name())) {
 			fout << "\\node[state, initial, accepting] (" << state.get_name() << ") ";
@@ -248,6 +249,7 @@ void PDA::toLaTeX(std::string filename) {
 			break;
 		}
 	}
+	// PRINT THE NORMAL STATES
 	for(auto state : states){
 		if (!(isAcceptState(state.get_name()) || isStartState(state.get_name()))) {
 			fout << "\\node[state] (" << state.get_name() << ") ";
@@ -259,6 +261,7 @@ void PDA::toLaTeX(std::string filename) {
 			continue;;
 		}
 	}
+	//PRINT THE ACCEPTSTATES
 	for(auto state : states){
 		if (isAcceptState(state.get_name())) {
 			fout << "\\node[state, accepting] (" << state.get_name() << ") ";
@@ -270,6 +273,7 @@ void PDA::toLaTeX(std::string filename) {
 			continue;;
 		}
 	}
+	// PRINT THE TRANSITIONS
 	fout << "\\path" << std::endl;
 	for (auto state : states){
 		std::multimap<std::pair<char, std::string>, std::pair<std::string, std::vector<std::string>>> transitions = state.get_transitions();
@@ -345,6 +349,8 @@ void PDA::toLaTeX(std::string filename) {
 		}
 	}
 	fout << ";" << std::endl;
+
+	// PRINT THE END OF THE DOCUMENTATION
 	fout << "\\end{tikzpicture}" << std::endl;
 	fout << "\\end{document}" << std::endl;
 	fout.close();
@@ -403,8 +409,18 @@ bool PDA::containsString(std::string input) {
 			}
 			if (state_stack_input[k].second != ""){
 				// There is still input;
-				return_vector.push_back(state_stack_input[k].first.first->simulate(state_stack_input[k].second[0], stacksymbol));
 				std::string inputstr = state_stack_input[k].second;
+				bool correct_input = false;
+				for (auto ch : input_alphabet){
+					if(ch == inputstr[0]){
+						correct_input = true;
+					}
+				}
+				if (!correct_input) {
+					std::string error = "THE READ SYMBOL IN " + inputstr + " WAS NOT FOUND IN INPUT_ALPHABET";
+					throw(Exception(error));
+				}
+				return_vector.push_back(state_stack_input[k].first.first->simulate(inputstr[0], stacksymbol));
 				inputstr = inputstr.substr(1, inputstr.size());
 				remaining_string_vector.push_back(inputstr);
 			}
@@ -468,6 +484,7 @@ bool PDA::containsString(std::string input) {
 
 void PDA::resetPDA() {
 	std::pair<State*, std::vector<std::string> > cur_pair;
+	// FIND THE CORRECT STATEPTR
 	State* state_ptr = nullptr;
 	std::vector<State>::iterator it;
 	for (it = states.begin(); it != states.end(); it++){
@@ -482,6 +499,38 @@ void PDA::resetPDA() {
 
 	cur_states.clear();
 	cur_states.push_back(cur_pair);
+}
+
+CFG* PDA::get_cfg(){
+	return cfg;
+}
+
+PDAType PDA::get_type(){
+	return type;
+}
+
+std::vector<State> PDA::get_states(){
+	return states;
+}
+
+std::vector<char> PDA::get_input_alphabet(){
+	return input_alphabet;
+}
+
+std::vector<std::string> PDA::get_stack_alphabet(){
+	return stack_alphabet;
+}
+
+std::string PDA::get_start_state(){
+	return start_state;
+}
+
+std::string PDA::get_start_stack(){
+	return start_stack;
+}
+
+std::vector<std::string> PDA::get_accept_states(){
+	return accept_states;
 }
 
 } /* namespace PDA */

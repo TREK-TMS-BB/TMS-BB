@@ -17,6 +17,7 @@
 #include "utilities.h"
 #include <cstdlib>
 #include <fstream>
+#include "Exception.h"
 
 namespace PDA {
 
@@ -49,7 +50,7 @@ public:
 	void toLaTeX(std::string filename);
 
 	//! A function to print the complete current status of the PDA.
-	void print_status();
+	void print_pda();
 
 	//! A function that returns whether a certain string is accepted by the PDA.
 	/**
@@ -61,6 +62,53 @@ public:
 	//! A function that resets the PDA to its initial state.
 	void resetPDA();
 
+	//! A function returning a pointer to the corresponding CFG.
+	/**
+	 * @return returns a pointer to corresponding CFG.
+	 */
+	CFG* get_cfg();
+
+	//! Returns the type of your PDA.
+	/**
+	 * @return PDAType giving the type of the PDA.
+	 */
+	PDAType get_type();
+
+	//! Returns a vector with all states.
+	/**
+	 * @return vector containing all the states.
+	 */
+	std::vector<State> get_states();
+
+	//! Returns a vector containing the input alphabet.
+	/**
+	 * @return vector of chars, containing the input alphabet;
+	 */
+	std::vector<char> get_input_alphabet();
+
+	//! Returns a vector containing the stack alphabet.
+	/**
+	 * @return vector of strings, containing the input alphabet;
+	 */
+	std::vector<std::string> get_stack_alphabet();
+
+	//! Returns the name of the start state.
+	/**
+	 * @return string containing the name of the start state.
+	 */
+	std::string get_start_state();
+
+	//! Returns the symbol that is initially pushed on the stack.
+	/**
+	 * @return string containing the symbol that is initially pushed on the stack.
+	 */
+	std::string get_start_stack();
+
+	//! Returns the names of the accept_states.
+	/**
+	 * @return vector of strings containing the names of the accept states.
+	 */
+	std::vector<std::string> get_accept_states();
 
 private:
 	CFG* cfg; //! A pointer to the CFG equivalent with this PDA.
@@ -81,6 +129,12 @@ private:
 	 * @param prefix Start of the name you want to give the state.
 	 */
 	std::string checkStateNames(std::string prefix);
+
+	//! Checks wether a certain name is already used in the PDA.
+	/**
+	 * @param prefix Start of the name you want to give the stacksymbol.
+	 */
+	std::string checkStackNames(std::string prefix);
 
 	//! Returns whether a certain state is an accept state.
 	/**
