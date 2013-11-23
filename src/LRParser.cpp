@@ -15,7 +15,7 @@ LRParser::LRParser()
 	  counter_(0)
 {}
 
-LRParser::LRParser(CFG grammar)
+LRParser::LRParser(Grammar::CFG grammar)
 	: p_table_(grammar),
 	 stack_(),
 	 counter_(0)

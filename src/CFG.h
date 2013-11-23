@@ -17,6 +17,7 @@
 #ifndef CFG_H_
 #define CFG_H_
 
+namespace Grammar  {
 
 class CFG {
 public:
@@ -161,5 +162,7 @@ protected:
 	 */
 	void checkRules();
 };
+
+} /* namespace Grammar */
 
 #endif /* CFG_H_ */

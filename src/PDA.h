@@ -32,7 +32,7 @@ public:
 	/**
 	 * @param grammar A CFG used to create an equivalent PDA.
 	 */
-	PDA(CFG* grammar);
+	PDA(Grammar::CFG* grammar);
 
 	//! A standard destructor.
 	virtual ~PDA();
@@ -66,7 +66,7 @@ public:
 	/**
 	 * @return returns a pointer to corresponding CFG.
 	 */
-	CFG* get_cfg();
+	Grammar::CFG* get_cfg();
 
 	//! Returns the type of your PDA.
 	/**
@@ -111,7 +111,7 @@ public:
 	std::vector<std::string> get_accept_states();
 
 private:
-	CFG* cfg; //! A pointer to the CFG equivalent with this PDA.
+	Grammar::CFG* cfg; //! A pointer to the CFG equivalent with this PDA.
 
 	PDAType type; //! The type of the PDA (acceptByFinalState or acceptByEmptyStack).
 	std::vector<State> states; //! A vector containing all the states of the PDA.

@@ -30,7 +30,7 @@ namespace tests {
 		::testing::FLAGS_gtest_death_test_style = "threadsafe";
 
 		// Test whether it extracts info correctly.
-		CFG cfg("XML-Files/LR1-1.xml");
+		Grammar::CFG cfg("XML-Files/LR1-1.xml");
 		ParseTable pt(cfg);
 		std::pair<parser::EAction, std::string> output;
 

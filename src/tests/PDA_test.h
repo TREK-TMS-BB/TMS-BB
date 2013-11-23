@@ -12,6 +12,7 @@
 #include <map>
 
 #include "../PDA.h"
+#include "../CFG.h"
 #include "fileTest.h"
 #include <gtest/gtest.h>
 
@@ -28,7 +29,7 @@ namespace tests {
 	};
 
 	TEST_F(PDATest, PDAConstructorTest) {
-		CFG cfg("XML-Files/cfg.xml");
+		Grammar::CFG cfg("XML-Files/cfg.xml");
 		PDA::PDA pda(&cfg);
 		PDA::PDAType type = PDA::acceptByEmptyStack;
 
@@ -61,7 +62,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAContstructorTest2) {
-		CFG cfg("XML-Files/LR1-1.xml");
+		Grammar::CFG cfg("XML-Files/LR1-1.xml");
 		PDA::PDA pda(&cfg);
 		PDA::PDAType type = PDA::acceptByEmptyStack;
 
@@ -93,7 +94,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAToEmptyStackAcceptanceTest) {
-		CFG cfg("XML-Files/cfg.xml");
+		Grammar::CFG cfg("XML-Files/cfg.xml");
 		PDA::PDA pda(&cfg);
 
 		EXPECT_EQ(PDA::acceptByEmptyStack, pda.get_type());
@@ -104,7 +105,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAToEmptyStackAcceptanceTest2) {
-		CFG cfg("XML-Files/LR1-1.xml");
+		Grammar::CFG cfg("XML-Files/LR1-1.xml");
 		PDA::PDA pda(&cfg);
 
 		EXPECT_EQ(PDA::acceptByEmptyStack, pda.get_type());
@@ -115,7 +116,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAToFinalStateAcceptanceTest) {
-		CFG cfg("XML-Files/cfg.xml");
+		Grammar::CFG cfg("XML-Files/cfg.xml");
 		PDA::PDA pda(&cfg);
 
 		pda.toFinalStateAcceptance();
@@ -127,7 +128,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAToFinalStateAcceptanceTest2) {
-		CFG cfg("XML-Files/LR1-1.xml");
+		Grammar::CFG cfg("XML-Files/LR1-1.xml");
 		PDA::PDA pda(&cfg);
 
 		pda.toFinalStateAcceptance();
@@ -139,7 +140,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAToLaTeXTest) {
-		CFG cfg("XML-Files/cfg.xml");
+		Grammar::CFG cfg("XML-Files/cfg.xml");
 		PDA::PDA pda(&cfg);
 
 		pda.toLaTeX("./src/tests/output/cfgES.tex");
@@ -154,7 +155,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAToLaTeXTest2) {
-		CFG cfg("XML-Files/LR1-1.xml");
+		Grammar::CFG cfg("XML-Files/LR1-1.xml");
 		PDA::PDA pda(&cfg);
 
 		pda.toLaTeX("./src/tests/output/LR1-1ES.tex");
@@ -169,7 +170,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAContainsStringTest) {
-		CFG cfg("XML-Files/cfg.xml");
+		Grammar::CFG cfg("XML-Files/cfg.xml");
 		PDA::PDA pda(&cfg);
 
 		for (int i = 0; i < 10; i++) {
@@ -181,7 +182,7 @@ namespace tests {
 	}
 
 	TEST_F(PDATest, PDAContainsStringTest2) {
-		CFG cfg("XML-Files/LR1-1.xml");
+		Grammar::CFG cfg("XML-Files/LR1-1.xml");
 		PDA::PDA pda(&cfg);
 
 		for (int i = 0; i < 10; i++) {

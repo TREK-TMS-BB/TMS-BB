@@ -30,7 +30,7 @@ public:
 	/**
 	 * @param grammar The grammar which the ParseTable will be based on.
 	 */
-	ParseTable(CFG);
+	ParseTable(Grammar::CFG);
 
 	//! Returns the contents of the parse table (and what action should happen) depending on the input.
 	/**

@@ -7,6 +7,8 @@
 
 #include "CFG.h"
 
+namespace Grammar {
+
 CFG::CFG() {
 	variables_.push_back("S");
 	startSymbol_= "S";
@@ -49,80 +51,6 @@ std::map<std::string, std::vector<std::string> > CFG::getRules() const {
 }
 std::string CFG::getStart() const {
 	return startSymbol_;
-}
-
-std::ostream& operator<< (std::ostream& out, CFG& c) {
-	out << "variables: " << std::endl;
-	out << "{ " << c.variables_.at(0);
-	for (std::vector<std::string>::iterator it = c.variables_.begin()+1; it != c.variables_.end(); it++)
-	{
-		out<< ", " << *it;
-	}
-	out << " }" << std::endl << std::endl;
-
-	out << "terminals: " << std::endl;
-	out << "{ " << c.terminals_.at(0);
-	for (std::vector<std::string>::iterator it = c.terminals_.begin()+1; it != c.terminals_.end(); it++)
-	{
-		out<< ", " << *it;
-	}
-	out << " }" << std::endl << std::endl;
-
-	out << "Start symbol: " << c.startSymbol_ << std::endl;
-
-	out << "rules: " << std::endl;
-	out << "{ "  << std::endl;
-	out << "\t" << c.rules_.begin()->first << " → ";
-	std::vector<std::string>::iterator s_it;
-	for (s_it = c.rules_.begin()->second.begin(); s_it != c.rules_.begin()->second.end()-1; s_it++)
-	{
-		if (*s_it == "")
-		{
-			out << "epsilon" << " | ";
-		}
-		else
-		{
-			out << *s_it << " | ";
-		}
-	}
-	if (*s_it == "")
-	{
-		out << "epsilon";
-	}
-	else
-	{
-		out << *s_it;
-	}
-	out << std::endl;
-	std::map< std::string, std::vector<std::string> >::iterator it = c.rules_.begin();
-	it++;
-	for ( it ; it != c.rules_.end(); ++it)
-	{
-		out << "\t" << it->first << " → ";
-		std::vector<std::string>::iterator r_it;
-		for ( r_it = it->second.begin(); r_it != it->second.end()-1; r_it++)
-		{
-			if (*r_it == "")
-			{
-				out << "epsilon" << " | ";
-			}
-			else
-			{
-				out << *r_it << " | ";
-			}
-		}
-		if (*r_it == "")
-		{
-			out << "epsilon";
-		}
-		else
-		{
-			out << *r_it;
-		}
-		out << std::endl;
-	}
-	out << "}" << std::endl << std::endl;
-	return out;
 }
 
 CFG::~CFG() {
@@ -388,3 +316,80 @@ bool CNF_CFG::already_checked(std::string w) {
 	}
 	return false;
 }
+
+std::ostream& operator<< (std::ostream& out, CFG& c) {
+	out << "variables: " << std::endl;
+	out << "{ " << c.variables_.at(0);
+	for (std::vector<std::string>::iterator it = c.variables_.begin()+1; it != c.variables_.end(); it++)
+	{
+		out<< ", " << *it;
+	}
+	out << " }" << std::endl << std::endl;
+
+	out << "terminals: " << std::endl;
+	out << "{ " << c.terminals_.at(0);
+	for (std::vector<std::string>::iterator it = c.terminals_.begin()+1; it != c.terminals_.end(); it++)
+	{
+		out<< ", " << *it;
+	}
+	out << " }" << std::endl << std::endl;
+
+	out << "Start symbol: " << c.startSymbol_ << std::endl;
+
+	out << "rules: " << std::endl;
+	out << "{ "  << std::endl;
+	out << "\t" << c.rules_.begin()->first << " → ";
+	std::vector<std::string>::iterator s_it;
+	for (s_it = c.rules_.begin()->second.begin(); s_it != c.rules_.begin()->second.end()-1; s_it++)
+	{
+		if (*s_it == "")
+		{
+			out << "epsilon" << " | ";
+		}
+		else
+		{
+			out << *s_it << " | ";
+		}
+	}
+	if (*s_it == "")
+	{
+		out << "epsilon";
+	}
+	else
+	{
+		out << *s_it;
+	}
+	out << std::endl;
+	std::map< std::string, std::vector<std::string> >::iterator it = c.rules_.begin();
+	it++;
+	for ( it ; it != c.rules_.end(); ++it)
+	{
+		out << "\t" << it->first << " → ";
+		std::vector<std::string>::iterator r_it;
+		for ( r_it = it->second.begin(); r_it != it->second.end()-1; r_it++)
+		{
+			if (*r_it == "")
+			{
+				out << "epsilon" << " | ";
+			}
+			else
+			{
+				out << *r_it << " | ";
+			}
+		}
+		if (*r_it == "")
+		{
+			out << "epsilon";
+		}
+		else
+		{
+			out << *r_it;
+		}
+		out << std::endl;
+	}
+	out << "}" << std::endl << std::endl;
+	return out;
+}
+
+
+}	/*namespace CFG */

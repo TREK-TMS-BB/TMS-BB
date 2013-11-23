@@ -7,6 +7,8 @@
 
 #include "CYKTable.h"
 
+namespace Grammar {
+
 CYKTable::CYKTable():startSymbol_("S") {
 }
 CYKTable::CYKTable(std::map<std::string, std::vector<std::string> > &r, std::string stS)
@@ -240,4 +242,5 @@ void CYKTable::createTable(std::string w)
 		}
 	}
 }
+} /*namespace Grammar */
 

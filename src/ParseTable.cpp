@@ -13,7 +13,7 @@ ParseTable::ParseTable()
 	: table()
 {}
 
-ParseTable::ParseTable(CFG grammar) {
+ParseTable::ParseTable(Grammar::CFG grammar) {
 	// Not final yet. This is the hardcoded construction of LR1-1's parsetable.
 	std::vector<std::vector<std::string> > p_table;
 	std::vector<std::string> row0;

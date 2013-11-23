@@ -18,6 +18,8 @@ typedef std::vector<std::string> TableEntry;
 typedef std::vector<TableEntry > Collumn;
 typedef std::vector<Collumn > Table;
 
+namespace Grammar {
+
 class CYKTable {
 public:
 	//! default constructor
@@ -106,6 +108,6 @@ private:
 	std::vector<std::pair<std::string, std::string> > calculateCombinations(unsigned int i, unsigned int k, unsigned int j);
 
 };
-
+} /* namespace Grammar */
 
 #endif /* CYKTABLE_H_ */

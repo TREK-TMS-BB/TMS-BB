@@ -33,7 +33,7 @@ namespace tests {
 		EXPECT_TRUE(lrp.getStack().size() == 0);
 
 		//LRParser(CFG)
-		CFG c("XML-Files/LR1-1.xml");
+		Grammar::CFG c("XML-Files/LR1-1.xml");
 		parser::LRParser t(c);
 		EXPECT_TRUE(lrp.getCounter() == 0);
 		EXPECT_TRUE(lrp.getStack().size() == 0);
@@ -49,7 +49,7 @@ namespace tests {
 		::testing::FLAGS_gtest_death_test_style = "threadsafe";
 
 		// Set up correct LRParser
-		CFG c("XML-Files/LR1-1.xml");
+		Grammar::CFG c("XML-Files/LR1-1.xml");
 		parser::LRParser t(c);
 
 		// Test correct input

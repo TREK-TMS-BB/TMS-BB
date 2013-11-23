@@ -12,6 +12,7 @@
 #include "../CFG.h"
 #include <gtest/gtest.h>
 
+using namespace Grammar;
 
 namespace tests {
 
@@ -26,7 +27,7 @@ namespace tests {
 	};
 
 	class CNF_CFGTest: public testing::Test {
-		friend class CFG;
+		friend class  CFG;
 	protected:
 		CNF_CFG cnf;
 		virtual void SetUp() {
@@ -100,7 +101,7 @@ namespace tests {
 		EXPECT_EQ(rules, grammar.getRules());
 		EXPECT_EQ("S", grammar.getStart());
 
-	// CFG::CFG(CFG& copy)
+	// CFG(CFG& copy)
 		CFG q2(q);
 		EXPECT_EQ(q2.getVariables(), q.getVariables());
 		EXPECT_EQ(q2.getTerminals(), q.getTerminals());

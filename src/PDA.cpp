@@ -13,7 +13,7 @@ namespace PDA {
 PDA::PDA() {}
 
 
-PDA::PDA(CFG* grammar) {
+PDA::PDA(Grammar::CFG* grammar) {
 	cfg = grammar;
 	type = acceptByEmptyStack;
 
@@ -501,7 +501,7 @@ void PDA::resetPDA() {
 	cur_states.push_back(cur_pair);
 }
 
-CFG* PDA::get_cfg(){
+Grammar::CFG* PDA::get_cfg(){
 	return cfg;
 }
 
@@ -533,7 +533,7 @@ std::vector<std::string> PDA::get_accept_states(){
 	return accept_states;
 }
 
-} /* namespace PDA */
+} /* namespace Grammar */
 
 // TODO: Clean the code
 // TODO: Check if in alphabet

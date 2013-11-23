@@ -11,9 +11,9 @@
 namespace tests {
 
 	class CYKTableTest: public testing::Test {
-			friend class CYKTable;
+			friend class Grammar::CYKTable;
 		protected:
-			CYKTable cyk;
+			Grammar::CYKTable cyk;
 			virtual void SetUp() {
 			}
 			virtual void TearDown() {
@@ -35,12 +35,12 @@ namespace tests {
 		rules["C"].push_back("AA");
 
 
-		CYKTable c(rules, start);
+		Grammar::CYKTable c(rules, start);
 		EXPECT_EQ(rules, c.getRules());
 		EXPECT_EQ(start, c.getStartSymbol());
 
 		//CYKTable(std::string w, std::map<std::string, std::vector<std::string> > &r, std::string stS);
-		CYKTable t("aaaa", rules, start);
+		Grammar::CYKTable t("aaaa", rules, start);
 		EXPECT_EQ(rules, t.getRules());
 		EXPECT_EQ(start, t.getStartSymbol());
 		EXPECT_EQ(4, t.getTable().size());
@@ -69,7 +69,7 @@ namespace tests {
 		rules["C"].push_back("AA");
 
 
-		CYKTable c(rules, start);
+		Grammar::CYKTable c(rules, start);
 
 		bool check = c("aaaa");
 		EXPECT_TRUE(check);
@@ -86,7 +86,7 @@ namespace tests {
 		rules["B"].push_back("AA");
 		rules["C"].push_back("AA");
 
-		CYKTable c(rules, start);
+		Grammar::CYKTable c(rules, start);
 
 		c("aaaa");
 
@@ -108,7 +108,7 @@ namespace tests {
 		rules["B"].push_back("AA");
 		rules["C"].push_back("AA");
 
-		CYKTable c(rules, start);
+		Grammar::CYKTable c(rules, start);
 
 		c("aaaa");
 
