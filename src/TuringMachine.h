@@ -11,6 +11,7 @@
 #include <vector>
 #include <tuple>
 #include <iostream>
+#include "Exception.h"
 
 namespace TM {
 
@@ -63,9 +64,16 @@ private:
 	 */
 	void writeHead(TapeSymbol input);
 
+	//! A function handling 1 simulation
+	/*
+	 * reads a symbol, writes, moves
+	 */
+	void simulate();
+
 	Tape::iterator head_;					//! the head of the turing machine moving over the tape
 	Tape tape_;								//! tape of the turing machine
 	std::vector<StateName> states_;			//! vector containing all states
+	StateName curState_;					//! the state where the TM currently in is
 	std::vector<Production> productions_;	//! vector with all productions
 };
 

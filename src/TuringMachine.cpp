@@ -12,6 +12,7 @@ namespace TM {
 TuringMachine::TuringMachine() {
 	tape_ = Tape (100, (TapeSymbol)'B');	// set the tape_ to size 100 and fill with Blanks
 	head_ = tape_.begin();
+	curState_ = "halt";
 }
 
 TuringMachine::TuringMachine(std::string filename) {
@@ -41,6 +42,16 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 
 	// TODO:
 	// Write Simulation
+	while (true) {
+		this->simulate();
+		if (curState_ == "halt") {
+			break;
+		}
+		else if (curState_ == "error") {
+			throw(Exception("SIMULATION CAME IN ERROR STATE, SIMULATION STOPPED"));
+		}
+	}
+
 }
 
 
@@ -112,5 +123,21 @@ TapeSymbol TuringMachine::getHead() const {
 
 void TuringMachine::writeHead(TapeSymbol input) {
 	*head_ = input;
+}
+
+void TuringMachine::simulate() {
+	bool correct = false;
+	for(auto c : productions_) {
+		if ((std::get<0>(c) == curState_) && (std::get<1>(c) == getHead())) {
+			// Found correct transition:
+			writeHead(std::get<2>(c));
+			move(std::get<3>(c));
+			curState_ = std::get<4>(c);
+			correct = true;
+		}
+	}
+	if (!correct) {
+		curState_ = "error";
+	}
 }
 } /* namespace TM */
