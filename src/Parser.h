@@ -16,6 +16,8 @@
 
 #include "tinyXML/tinyxml.h"
 
+namespace parser {
+
 class Parser {
 public:
 	Parser();
@@ -74,5 +76,7 @@ private:
 	//! Parses the start symbol of the CFG.
 	void parseStart(TiXmlElement*);
 };
+
+}
 
 #endif /* PARSER_H_ */

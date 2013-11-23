@@ -19,7 +19,7 @@ CFG::CFG(std::vector<std::string> &v, std::vector<std::string> &t, std::map<std:
 }
 
 CFG::CFG(std::string file){
-	CFGParser CFGP(file);
+	parser::CFGParser CFGP(file);
 	variables_ = CFGP.getVariables();
 	terminals_ = CFGP.getTerminals();
 	startSymbol_ = CFGP.getStart();
@@ -276,7 +276,7 @@ CNF_CFG::CNF_CFG(CFG& cfg) : CFG(cfg), cyk_(rules_, startSymbol_)
 
 CNF_CFG::CNF_CFG(std::string file) : CFG(file), cyk_(rules_, startSymbol_)
 {
-	CFGParser CFGP(file);
+	parser::CFGParser CFGP(file);
 	variables_ = CFGP.getVariables();
 	terminals_ = CFGP.getTerminals();
 	startSymbol_ = CFGP.getStart();

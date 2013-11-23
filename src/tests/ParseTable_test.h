@@ -12,6 +12,8 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
+using parser::ParseTable;
+
 namespace tests {
 
 	class ParseTableTest: public testing::Test {
@@ -30,26 +32,26 @@ namespace tests {
 		// Test whether it extracts info correctly.
 		CFG cfg("XML-Files/LR1-1.xml");
 		ParseTable pt(cfg);
-		std::pair<EAction, std::string> output;
+		std::pair<parser::EAction, std::string> output;
 
 		output = pt(3, "x");
-		EXPECT_TRUE(output.first == blank);
+		EXPECT_TRUE(output.first == parser::blank);
 		EXPECT_TRUE(output.second == "blank");
 
 		output = pt(9, "EOS");
-		EXPECT_TRUE(output.first == accept);
+		EXPECT_TRUE(output.first == parser::accept);
 		EXPECT_TRUE(output.second == "accept");
 
 		output = pt(2, "X");
-		EXPECT_TRUE(output.first == jump);
+		EXPECT_TRUE(output.first == parser::jump);
 		EXPECT_TRUE(output.second == "3");
 
 		output = pt(2, "x");
-		EXPECT_TRUE(output.first == shift);
+		EXPECT_TRUE(output.first == parser::shift);
 		EXPECT_TRUE(output.second == "2");
 
 		output = pt(3, "EOS");
-		EXPECT_TRUE(output.first == reduction);
+		EXPECT_TRUE(output.first == parser::reduction);
 		EXPECT_TRUE(output.second == "XxX");
 
 		// Some wrong input

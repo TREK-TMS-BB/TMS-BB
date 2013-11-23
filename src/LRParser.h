@@ -18,6 +18,8 @@
 #include "ParseTable.h"
 #include "Parser.h"
 
+namespace parser {
+
 class LRParser : public Parser{
 public:
 	//! Default constructor for LRParser. This won't be able to do anything as it has no parse table.
@@ -77,5 +79,7 @@ protected:
 
 
 };
+
+}
 
 #endif /* LRPARSER_H_ */

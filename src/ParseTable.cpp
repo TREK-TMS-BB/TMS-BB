@@ -7,6 +7,8 @@
 
 #include "ParseTable.h"
 
+namespace parser {
+
 ParseTable::ParseTable()
 	: table()
 {}
@@ -263,4 +265,6 @@ std::pair<EAction, std::string> ParseTable::operator() (int token, std::string s
 		std::cout << "Bad input: it is not part of the CFL." << std::endl;
 		exit(1);
 	}
+}
+
 }

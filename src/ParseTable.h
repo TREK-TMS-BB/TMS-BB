@@ -17,6 +17,8 @@
 
 #include "CFG.h"
 
+namespace parser {
+
 enum EAction {shift, reduction, accept, jump, blank, error};
 
 class ParseTable {
@@ -54,5 +56,7 @@ private:
 	 */
 	std::pair<EAction, std::string> extractInfo(std::string) const;
 };
+
+}
 
 #endif /* PARSETABLE_H_ */

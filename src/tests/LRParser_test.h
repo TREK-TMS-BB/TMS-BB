@@ -12,12 +12,14 @@
 #include "../CFG.h"
 #include <gtest/gtest.h>
 
+//using parser::LRParser;
+
 namespace tests {
 
 	class LRParserTest: public testing::Test {
 			friend class LRParser;
 		protected:
-			LRParser lrp;
+			parser::LRParser lrp;
 			virtual void SetUp() {
 			}
 			virtual void TearDown() {
@@ -32,13 +34,13 @@ namespace tests {
 
 		//LRParser(CFG)
 		CFG c("XML-Files/LR1-1.xml");
-		LRParser t(c);
+		parser::LRParser t(c);
 		EXPECT_TRUE(lrp.getCounter() == 0);
 		EXPECT_TRUE(lrp.getStack().size() == 0);
 
 		//LRParser(ParseTable)
-		ParseTable p(c);
-		LRParser d(p);
+		parser::ParseTable p(c);
+		parser::LRParser d(p);
 		EXPECT_TRUE(lrp.getCounter() == 0);
 		EXPECT_TRUE(lrp.getStack().size() == 0);
 	}
@@ -48,7 +50,7 @@ namespace tests {
 
 		// Set up correct LRParser
 		CFG c("XML-Files/LR1-1.xml");
-		LRParser t(c);
+		parser::LRParser t(c);
 
 		// Test correct input
 		bool accepted = t.parse("xxxxxx");

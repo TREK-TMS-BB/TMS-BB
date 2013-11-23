@@ -7,6 +7,8 @@
 
 #include "LRParser.h"
 
+namespace parser {
+
 LRParser::LRParser()
 	: p_table_(),
 	  stack_(),
@@ -178,4 +180,6 @@ std::stack<std::string> LRParser::getStack() {
 
 unsigned int LRParser::getCounter() {
 	return counter_;
+}
+
 }

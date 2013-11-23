@@ -9,6 +9,7 @@
 
 #define TIXML_USE_STL
 
+namespace parser {
 
 Parser::Parser() {
 	// TODO Auto-generated constructor stub
@@ -119,4 +120,6 @@ std::map<std::string, std::vector<std::string> > CFGParser::getRules() const {
 
 std::string CFGParser::getStart() const {
 	return startSymbol;
+}
+
 }
