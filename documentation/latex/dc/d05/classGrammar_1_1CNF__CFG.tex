@@ -1,0 +1,176 @@
+\hypertarget{classGrammar_1_1CNF__CFG}{\section{\-Grammar\-:\-:\-C\-N\-F\-\_\-\-C\-F\-G \-Class \-Reference}
+\label{dc/d05/classGrammar_1_1CNF__CFG}\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+}
+
+
+{\ttfamily \#include $<$\-C\-F\-G.\-h$>$}
+
+\-Inheritance diagram for \-Grammar\-:\-:\-C\-N\-F\-\_\-\-C\-F\-G\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/d05/classGrammar_1_1CNF__CFG}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGrammar_1_1CNF__CFG_aa5850ca203f633fb16b4c74ea50e25f8}{\-C\-N\-F\-\_\-\-C\-F\-G} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classGrammar_1_1CNF__CFG_a9526886948355942d078fc55e69e73c7}{\-C\-N\-F\-\_\-\-C\-F\-G} (std\-::vector$<$ std\-::string $>$ \&v, std\-::vector$<$ std\-::string $>$ \&t, std\-::map$<$ std\-::string, std\-::vector$<$ std\-::string $>$ $>$ \&r, std\-::string s)
+\begin{DoxyCompactList}\small\item\em specified constructor \end{DoxyCompactList}\item 
+\hyperlink{classGrammar_1_1CNF__CFG_a88865800e932d5c81dae48d1be25adb7}{\-C\-N\-F\-\_\-\-C\-F\-G} (\hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \&cfg)
+\begin{DoxyCompactList}\small\item\em constructor based on a \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} and copy constructor \end{DoxyCompactList}\item 
+\hyperlink{classGrammar_1_1CNF__CFG_a90ddda4519a646b86ce74e5f7c66af1a}{\-C\-N\-F\-\_\-\-C\-F\-G} (std\-::string file)
+\begin{DoxyCompactList}\small\item\em constructor with information file \end{DoxyCompactList}\item 
+bool \hyperlink{classGrammar_1_1CNF__CFG_a446adcd68552aec1ee08f7058ac1c1e4}{check\-\_\-string} (std\-::string w)
+\begin{DoxyCompactList}\small\item\em checks if given string is in the \hyperlink{classGrammar_1_1CNF__CFG}{\-C\-N\-F\-\_\-\-C\-F\-G} \end{DoxyCompactList}\item 
+bool \hyperlink{classGrammar_1_1CNF__CFG_a55bd1300252f9c6bd506ae43738b7616}{already\-\_\-checked} (std\-::string w)
+\begin{DoxyCompactList}\small\item\em function used for testing \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGrammar_1_1CNF__CFG_a541e366bbd28560401f54781425d0954}{check\-Rules} ()
+\begin{DoxyCompactList}\small\item\em map keeps track of all the strings that have already been checked on this \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} with the \-C\-Y\-K algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGrammar_1_1CYKTable}{\-C\-Y\-K\-Table} \hyperlink{classGrammar_1_1CNF__CFG_ae65bc2d3253161b23e6cdbfc6a40a475}{cyk\-\_\-}
+\item 
+std\-::map$<$ std\-::string, bool $>$ \hyperlink{classGrammar_1_1CNF__CFG_abb38d3a65837a1d8cf85e3b0e7a1cf15}{checked}
+\begin{DoxyCompactList}\small\item\em used to check if given string is in \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classGrammar_1_1CNF__CFG_aa5850ca203f633fb16b4c74ea50e25f8}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{\-C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{dc/d05/classGrammar_1_1CNF__CFG_aa5850ca203f633fb16b4c74ea50e25f8}
+
+
+\-Default constructor. 
+
+\hypertarget{classGrammar_1_1CNF__CFG_a9526886948355942d078fc55e69e73c7}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{\-C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{v, }
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{t, }
+\item[{std\-::map$<$ std\-::string, std\-::vector$<$ std\-::string $>$ $>$ \&}]{r, }
+\item[{std\-::string}]{s}
+\end{DoxyParamCaption}
+)}}\label{dc/d05/classGrammar_1_1CNF__CFG_a9526886948355942d078fc55e69e73c7}
+
+
+specified constructor 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & vector with variables \\
+\hline
+{\em t} & vector with terminals \\
+\hline
+{\em r} & map with rules of the form $<$\-Variable$>$, vector$<$terminals,\-Variables$>$ \\
+\hline
+{\em s} & the start symbol for the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGrammar_1_1CNF__CFG_a88865800e932d5c81dae48d1be25adb7}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{\-C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-C\-F\-G} \&}]{cfg}
+\end{DoxyParamCaption}
+)}}\label{dc/d05/classGrammar_1_1CNF__CFG_a88865800e932d5c81dae48d1be25adb7}
+
+
+constructor based on a \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} and copy constructor 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em cfg} & a \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} that is in \-C\-N\-F form or a \hyperlink{classGrammar_1_1CNF__CFG}{\-C\-N\-F\-\_\-\-C\-F\-G} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGrammar_1_1CNF__CFG_a90ddda4519a646b86ce74e5f7c66af1a}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}}
+\index{\-C\-N\-F\-\_\-\-C\-F\-G@{\-C\-N\-F\-\_\-\-C\-F\-G}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{\-C\-N\-F\-\_\-\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::\-C\-N\-F\-\_\-\-C\-F\-G} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file}
+\end{DoxyParamCaption}
+)}}\label{dc/d05/classGrammar_1_1CNF__CFG_a90ddda4519a646b86ce74e5f7c66af1a}
+
+
+constructor with information file 
+
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classGrammar_1_1CNF__CFG_a55bd1300252f9c6bd506ae43738b7616}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!already\-\_\-checked@{already\-\_\-checked}}
+\index{already\-\_\-checked@{already\-\_\-checked}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{already\-\_\-checked}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::already\-\_\-checked} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{w}
+\end{DoxyParamCaption}
+)}}\label{dc/d05/classGrammar_1_1CNF__CFG_a55bd1300252f9c6bd506ae43738b7616}
+
+
+function used for testing 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em w} & string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+bool \-: true if already checked, false if not in language 
+\end{DoxyReturn}
+\hypertarget{classGrammar_1_1CNF__CFG_a446adcd68552aec1ee08f7058ac1c1e4}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!check\-\_\-string@{check\-\_\-string}}
+\index{check\-\_\-string@{check\-\_\-string}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{check\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::check\-\_\-string} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{w}
+\end{DoxyParamCaption}
+)}}\label{dc/d05/classGrammar_1_1CNF__CFG_a446adcd68552aec1ee08f7058ac1c1e4}
+
+
+checks if given string is in the \hyperlink{classGrammar_1_1CNF__CFG}{\-C\-N\-F\-\_\-\-C\-F\-G} 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em w} & string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+bool \-: true if in language, false if not in language 
+\end{DoxyReturn}
+\hypertarget{classGrammar_1_1CNF__CFG_a541e366bbd28560401f54781425d0954}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!check\-Rules@{check\-Rules}}
+\index{check\-Rules@{check\-Rules}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{check\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::check\-Rules} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{dc/d05/classGrammar_1_1CNF__CFG_a541e366bbd28560401f54781425d0954}
+
+
+map keeps track of all the strings that have already been checked on this \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} with the \-C\-Y\-K algorithm 
+
+checks the rules of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} to see if they are in \-C\-N\-F form 
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classGrammar_1_1CNF__CFG_abb38d3a65837a1d8cf85e3b0e7a1cf15}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!checked@{checked}}
+\index{checked@{checked}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{checked}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, bool$>$ {\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::checked}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{dc/d05/classGrammar_1_1CNF__CFG_abb38d3a65837a1d8cf85e3b0e7a1cf15}
+
+
+used to check if given string is in \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} 
+
+\hypertarget{classGrammar_1_1CNF__CFG_ae65bc2d3253161b23e6cdbfc6a40a475}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!cyk\-\_\-@{cyk\-\_\-}}
+\index{cyk\-\_\-@{cyk\-\_\-}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{cyk\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-C\-Y\-K\-Table} {\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::cyk\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{dc/d05/classGrammar_1_1CNF__CFG_ae65bc2d3253161b23e6cdbfc6a40a475}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{CFG_8h}{\-C\-F\-G.\-h}\end{DoxyCompactItemize}

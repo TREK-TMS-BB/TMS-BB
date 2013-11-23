@@ -1,0 +1,233 @@
+\hypertarget{classGrammar_1_1CFG}{\section{\-Grammar\-:\-:\-C\-F\-G \-Class \-Reference}
+\label{dd/dc1/classGrammar_1_1CFG}\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}}
+}
+
+
+{\ttfamily \#include $<$\-C\-F\-G.\-h$>$}
+
+\-Inheritance diagram for \-Grammar\-:\-:\-C\-F\-G\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/dc1/classGrammar_1_1CFG}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGrammar_1_1CFG_a2514d591306a5a473cf5fb7526a553fe}{\-C\-F\-G} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classGrammar_1_1CFG_ac2ad8201bf4de4991d2abcd62f74cddd}{\-C\-F\-G} (std\-::vector$<$ std\-::string $>$ \&v, std\-::vector$<$ std\-::string $>$ \&t, std\-::map$<$ std\-::string, std\-::vector$<$ std\-::string $>$ $>$ \&r, std\-::string s)
+\begin{DoxyCompactList}\small\item\em specified constructor \end{DoxyCompactList}\item 
+\hyperlink{classGrammar_1_1CFG_aa8d52c4cdfb2a0ef3d1c49148840d333}{\-C\-F\-G} (std\-::string file)
+\begin{DoxyCompactList}\small\item\em \-Constructor from a given file. \end{DoxyCompactList}\item 
+\hyperlink{classGrammar_1_1CFG_aae4104b0c6f695fa90c2c4a9651b9ac3}{\-C\-F\-G} (\hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \&copy)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classGrammar_1_1CFG_ad9c501567ec736260bde8f4076c63a4b}{to\-C\-N\-F} ()
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classGrammar_1_1CFG_af0abdc0e7b98c2b735b946261b694ce0}{get\-Variables} () const 
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classGrammar_1_1CFG_a4befeaba70b5455e94975670f3d83ba0}{get\-Terminals} () const 
+\item 
+std\-::map$<$ std\-::string, \*
+std\-::vector$<$ std\-::string $>$ $>$ \hyperlink{classGrammar_1_1CFG_a7b964a01cb216bc2c67688724f6058f0}{get\-Rules} () const 
+\item 
+std\-::string \hyperlink{classGrammar_1_1CFG_a667a1d9eba1917ebe2cd7a63e2d6ffa8}{get\-Start} () const 
+\item 
+virtual \hyperlink{classGrammar_1_1CFG_a874ad3df12e1f3fd0cd49ad3e9855a45}{$\sim$\-C\-F\-G} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGrammar_1_1CFG_af4c1e34192bf5b3e6e26b3240c6502b9}{check\-Attributes} ()
+\begin{DoxyCompactList}\small\item\em the start symbol of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classGrammar_1_1CFG_a7041e847818a2e4777bc41d0c2f1db2c}{variables\-\_\-}
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classGrammar_1_1CFG_a65298cf1151bb130a382a4858d99a571}{terminals\-\_\-}
+\begin{DoxyCompactList}\small\item\em vector with the variables of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \end{DoxyCompactList}\item 
+std\-::map$<$ std\-::string, \*
+std\-::vector$<$ std\-::string $>$ $>$ \hyperlink{classGrammar_1_1CFG_a5d91974246061afc53951ef9fac313ad}{rules\-\_\-}
+\begin{DoxyCompactList}\small\item\em vector with the terminals of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classGrammar_1_1CFG_aaddc2586c72b3f257acf18bf98881623}{start\-Symbol\-\_\-}
+\begin{DoxyCompactList}\small\item\em a map with all the rules. rules are of the form $<$\-Variable$>$, vector$<$\-Variables, terminals$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classGrammar_1_1CFG_a125cf827399aa731591064e741ab8fb7}{operator$<$$<$} (std\-::ostream \&out, \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \&c)
+\begin{DoxyCompactList}\small\item\em output operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classGrammar_1_1CFG_a2514d591306a5a473cf5fb7526a553fe}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!\-C\-F\-G@{\-C\-F\-G}}
+\index{\-C\-F\-G@{\-C\-F\-G}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Grammar\-::\-C\-F\-G\-::\-C\-F\-G} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{dd/dc1/classGrammar_1_1CFG_a2514d591306a5a473cf5fb7526a553fe}
+
+
+\-Default constructor. 
+
+\hypertarget{classGrammar_1_1CFG_ac2ad8201bf4de4991d2abcd62f74cddd}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!\-C\-F\-G@{\-C\-F\-G}}
+\index{\-C\-F\-G@{\-C\-F\-G}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Grammar\-::\-C\-F\-G\-::\-C\-F\-G} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{v, }
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{t, }
+\item[{std\-::map$<$ std\-::string, std\-::vector$<$ std\-::string $>$ $>$ \&}]{r, }
+\item[{std\-::string}]{s}
+\end{DoxyParamCaption}
+)}}\label{dd/dc1/classGrammar_1_1CFG_ac2ad8201bf4de4991d2abcd62f74cddd}
+
+
+specified constructor 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & vector with variables \\
+\hline
+{\em t} & vector with terminals \\
+\hline
+{\em r} & map with rules of the form $<$\-Variable$>$, vector$<$terminals,\-Variables$>$ \\
+\hline
+{\em s} & the start symbol for the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGrammar_1_1CFG_aa8d52c4cdfb2a0ef3d1c49148840d333}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!\-C\-F\-G@{\-C\-F\-G}}
+\index{\-C\-F\-G@{\-C\-F\-G}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Grammar\-::\-C\-F\-G\-::\-C\-F\-G} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file}
+\end{DoxyParamCaption}
+)}}\label{dd/dc1/classGrammar_1_1CFG_aa8d52c4cdfb2a0ef3d1c49148840d333}
+
+
+\-Constructor from a given file. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em file} & the path to a file where the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} is described \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGrammar_1_1CFG_aae4104b0c6f695fa90c2c4a9651b9ac3}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!\-C\-F\-G@{\-C\-F\-G}}
+\index{\-C\-F\-G@{\-C\-F\-G}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Grammar\-::\-C\-F\-G\-::\-C\-F\-G} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-C\-F\-G} \&}]{copy}
+\end{DoxyParamCaption}
+)}}\label{dd/dc1/classGrammar_1_1CFG_aae4104b0c6f695fa90c2c4a9651b9ac3}
+
+
+\-Copy constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em copy} & a \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} object which is going to be copied \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGrammar_1_1CFG_a874ad3df12e1f3fd0cd49ad3e9855a45}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!$\sim$\-C\-F\-G@{$\sim$\-C\-F\-G}}
+\index{$\sim$\-C\-F\-G@{$\sim$\-C\-F\-G}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{$\sim$\-C\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf \-Grammar\-::\-C\-F\-G\-::$\sim$\-C\-F\-G} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{dd/dc1/classGrammar_1_1CFG_a874ad3df12e1f3fd0cd49ad3e9855a45}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classGrammar_1_1CFG_af4c1e34192bf5b3e6e26b3240c6502b9}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!check\-Attributes@{check\-Attributes}}
+\index{check\-Attributes@{check\-Attributes}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{check\-Attributes}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Grammar\-::\-C\-F\-G\-::check\-Attributes} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{dd/dc1/classGrammar_1_1CFG_af4c1e34192bf5b3e6e26b3240c6502b9}
+
+
+the start symbol of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} 
+
+checks whether all attributes are ok \hypertarget{classGrammar_1_1CFG_a7b964a01cb216bc2c67688724f6058f0}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!get\-Rules@{get\-Rules}}
+\index{get\-Rules@{get\-Rules}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{get\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, std\-::vector$<$std\-::string$>$ $>$ {\bf \-Grammar\-::\-C\-F\-G\-::get\-Rules} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{dd/dc1/classGrammar_1_1CFG_a7b964a01cb216bc2c67688724f6058f0}
+\hypertarget{classGrammar_1_1CFG_a667a1d9eba1917ebe2cd7a63e2d6ffa8}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!get\-Start@{get\-Start}}
+\index{get\-Start@{get\-Start}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{get\-Start}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Grammar\-::\-C\-F\-G\-::get\-Start} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{dd/dc1/classGrammar_1_1CFG_a667a1d9eba1917ebe2cd7a63e2d6ffa8}
+\hypertarget{classGrammar_1_1CFG_a4befeaba70b5455e94975670f3d83ba0}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!get\-Terminals@{get\-Terminals}}
+\index{get\-Terminals@{get\-Terminals}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{get\-Terminals}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ {\bf \-Grammar\-::\-C\-F\-G\-::get\-Terminals} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{dd/dc1/classGrammar_1_1CFG_a4befeaba70b5455e94975670f3d83ba0}
+\hypertarget{classGrammar_1_1CFG_af0abdc0e7b98c2b735b946261b694ce0}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!get\-Variables@{get\-Variables}}
+\index{get\-Variables@{get\-Variables}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{get\-Variables}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ {\bf \-Grammar\-::\-C\-F\-G\-::get\-Variables} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{dd/dc1/classGrammar_1_1CFG_af0abdc0e7b98c2b735b946261b694ce0}
+\hypertarget{classGrammar_1_1CFG_ad9c501567ec736260bde8f4076c63a4b}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!to\-C\-N\-F@{to\-C\-N\-F}}
+\index{to\-C\-N\-F@{to\-C\-N\-F}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{to\-C\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Grammar\-::\-C\-F\-G\-::to\-C\-N\-F} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{dd/dc1/classGrammar_1_1CFG_ad9c501567ec736260bde8f4076c63a4b}
+
+
+\subsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classGrammar_1_1CFG_a125cf827399aa731591064e741ab8fb7}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out, }
+\item[{{\bf \-C\-F\-G} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{dd/dc1/classGrammar_1_1CFG_a125cf827399aa731591064e741ab8fb7}
+
+
+output operator 
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classGrammar_1_1CFG_a5d91974246061afc53951ef9fac313ad}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!rules\-\_\-@{rules\-\_\-}}
+\index{rules\-\_\-@{rules\-\_\-}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{rules\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, std\-::vector$<$std\-::string$>$ $>$ {\bf \-Grammar\-::\-C\-F\-G\-::rules\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{dd/dc1/classGrammar_1_1CFG_a5d91974246061afc53951ef9fac313ad}
+
+
+vector with the terminals of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} 
+
+\hypertarget{classGrammar_1_1CFG_aaddc2586c72b3f257acf18bf98881623}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!start\-Symbol\-\_\-@{start\-Symbol\-\_\-}}
+\index{start\-Symbol\-\_\-@{start\-Symbol\-\_\-}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{start\-Symbol\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Grammar\-::\-C\-F\-G\-::start\-Symbol\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{dd/dc1/classGrammar_1_1CFG_aaddc2586c72b3f257acf18bf98881623}
+
+
+a map with all the rules. rules are of the form $<$\-Variable$>$, vector$<$\-Variables, terminals$>$ 
+
+\hypertarget{classGrammar_1_1CFG_a65298cf1151bb130a382a4858d99a571}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!terminals\-\_\-@{terminals\-\_\-}}
+\index{terminals\-\_\-@{terminals\-\_\-}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{terminals\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ {\bf \-Grammar\-::\-C\-F\-G\-::terminals\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{dd/dc1/classGrammar_1_1CFG_a65298cf1151bb130a382a4858d99a571}
+
+
+vector with the variables of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} 
+
+\hypertarget{classGrammar_1_1CFG_a7041e847818a2e4777bc41d0c2f1db2c}{\index{\-Grammar\-::\-C\-F\-G@{\-Grammar\-::\-C\-F\-G}!variables\-\_\-@{variables\-\_\-}}
+\index{variables\-\_\-@{variables\-\_\-}!Grammar::CFG@{\-Grammar\-::\-C\-F\-G}}
+\subsubsection[{variables\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ {\bf \-Grammar\-::\-C\-F\-G\-::variables\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{dd/dc1/classGrammar_1_1CFG_a7041e847818a2e4777bc41d0c2f1db2c}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{CFG_8h}{\-C\-F\-G.\-h}\end{DoxyCompactItemize}
