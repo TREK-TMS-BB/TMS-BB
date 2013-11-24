@@ -29,12 +29,12 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 
 	if (input.size() > tape_.size()) {
 		// Have to make tape_ of appropriate size
-		for (int i = tape_.size()-1; i < input.size(); i++) {
+		for (unsigned int i = tape_.size()-1; i < input.size(); i++) {
 			tape_.push_back((TapeSymbol)'B');
 		}
 	}
 	// Put all input on the tape
-	for (int i = 0; i< input.size(); i++) {
+	for (unsigned int i = 0; i< input.size(); i++) {
 		tape_.at(i) = input.at(i);
 	}
 
@@ -87,7 +87,7 @@ std::ostream& operator<< (std::ostream& out, TuringMachine& tm) {
 
 	// print the productions:
 	out << "Productions: " << std::endl;
-	for (int i = 0; i < tm.productions_.size(); i++) {
+	for (unsigned int i = 0; i < tm.productions_.size(); i++) {
 		out << std::get<0>(tm.productions_.at(i)) << "\t";			// Current State
 		out << (char)std::get<1>(tm.productions_.at(i)) << "\t";	// read symbol
 		out << (char)std::get<2>(tm.productions_.at(i)) << "\t";	// write symbol
@@ -109,7 +109,7 @@ std::ostream& operator<< (std::ostream& out, TuringMachine& tm) {
 
 	out << "tape:" << std::endl;
 
-	for (int i = 0; i < tm.tape_.size(); i++) {
+	for (unsigned int i = 0; i < tm.tape_.size(); i++) {
 		out << tm.tape_.at(i) << "  ";
 	}
 	out << std::endl;
@@ -128,16 +128,28 @@ void TuringMachine::writeHead(TapeSymbol input) {
 void TuringMachine::simulate() {
 	bool correct = false;
 	for(auto c : productions_) {
-		if ((std::get<0>(c) == curState_) && (std::get<1>(c) == getHead())) {
+		if ((std::get<0>(c) == curState_) && (std::get<1>(c) == getHead()))  {
 			// Found correct transition:
 			writeHead(std::get<2>(c));
 			move(std::get<3>(c));
 			curState_ = std::get<4>(c);
 			correct = true;
 		}
+		else if ( std::get<1>(c) == '*') {
+			TapeSymbol temp = getHead();
+			if (std::get<2>(c) == '*') {
+					// do nothing to tape
+			}
+			else {
+					writeHead(std::get<2>(c));
+			}
+			move(std::get<3>(c));
+			curState_ = std::get<4>(c);
+			correct = true;
+		}
 	}
 	if (!correct) {
-		curState_ = "error";
+			curState_ = "error";
 	}
 }
 } /* namespace TM */

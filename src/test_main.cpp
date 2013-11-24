@@ -25,6 +25,7 @@
 #include "ParseTable.h"
 #include "LRParser.h"
 #include "PDA.h"
+#include "TMParser.h"
 
 int main(int argc, char **argv) {
 	/*std::cout << "TESTS FOR CFG" << std::endl;
@@ -98,8 +99,8 @@ int main(int argc, char **argv) {
 		std::cerr << e.what() << std::endl;
 	}*/
 
-	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
+	//::testing::InitGoogleTest(&argc, argv);
+	//return RUN_ALL_TESTS();
 
 	//CFG grammar("XML-Files/LR1-1.xml");
 	//PDA::PDA pda(&grammar);
@@ -109,6 +110,9 @@ int main(int argc, char **argv) {
 	//CFG grammar("XML-Files/LR1-1.xml");
 	//PDA::PDA pda(&grammar);
 	//std::cout << pda.containsString("xxx") << std::endl;
+
+	parser::TMParser test("TM-Files/Example.tm");
+	std::cout << test << std::endl;
 
 	std::cout << "program finished"	 << std::endl;
 }
