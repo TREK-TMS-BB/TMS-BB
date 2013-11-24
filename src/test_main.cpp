@@ -112,7 +112,10 @@ int main(int argc, char **argv) {
 	//std::cout << pda.containsString("xxx") << std::endl;
 
 	parser::TMParser test("TM-Files/Example.tm");
-	std::cout << test << std::endl;
+	std::cout << test << std::endl << std::endl;
+
+	parser::TMParser test2("TM-Files/faultyExample.tm");
+	std::cout << test2 << std::endl;
 
 	std::cout << "program finished"	 << std::endl;
 }

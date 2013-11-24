@@ -74,7 +74,7 @@ void TMParser::parseProduction(std::string line) {
 		its = std::find(states_.begin(), states_.end(), curState);
 		if (its == states_.end() && curState != "halt") {
 			// Invalid state.
-			throw Exception(curState + " is not a valid state.");
+			throw Exception(curState + " is not a valid state. This production will not be added.");
 		}
 
 		// At this point our iterator is on ' '
@@ -103,7 +103,7 @@ void TMParser::parseProduction(std::string line) {
 			move = TM::none;
 			break;
 		default:
-			throw Exception("Unknown move direction. This rule will not be added.");
+			throw Exception("Unknown move direction. This production will not be added.");
 		}
 
 		this->iteratorCheck(it2, ' ');
@@ -118,7 +118,7 @@ void TMParser::parseProduction(std::string line) {
 		its = std::find(states_.begin(), states_.end(), newState);
 		if (its == states_.end() && newState != "halt") {
 			// Invalid state.
-			throw Exception(newState + " is not a valid state. This rule will not be added.");
+			throw Exception(newState + " is not a valid state. This production will not be added.");
 		}
 
 		TM::Production production(curState, readSymbol, writeSymbol, move, newState);
@@ -178,7 +178,7 @@ void TMParser::iteratorCheck(std::string::iterator& it2, char c) const {
 		// Get our iterator to the next correct spot.
 		it2++;
 		if (*it2 != c) {
-			throw Exception("There is a fault in a production.");
+			throw Exception("There is a fault in a production. It will not be added. Are your sure there are spaces between your production parts?");
 		}
 		else {
 			it2++;
@@ -210,7 +210,7 @@ std::ostream& operator<<(std::ostream& out, TMParser& tmp) {
 	out << "Initial input = " << tmp.initInput_ << std::endl;
 	out << "States = { ";
 	for (auto e : tmp.states_) {
-		out << e << " ";
+		out << e << " | ";
 	}
 	out << "}" << std::endl;
 	out << "Productions { " << std::endl;
