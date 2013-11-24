@@ -1,7 +1,7 @@
 var searchData=
 [
   ['calculatecombinations',['calculateCombinations',['../dc/d7d/classGrammar_1_1CYKTable.html#af3c9d56ad80f9a7ecc36ae139d7a495b',1,'Grammar::CYKTable']]],
-  ['cfg',['cfg',['../d1/dc5/classPDA_1_1PDA.html#af62ce9c2fc33c22ac10cb94be5832cae',1,'PDA::PDA::cfg()'],['../dd/dc1/classGrammar_1_1CFG.html#a2514d591306a5a473cf5fb7526a553fe',1,'Grammar::CFG::CFG()'],['../dd/dc1/classGrammar_1_1CFG.html#ac2ad8201bf4de4991d2abcd62f74cddd',1,'Grammar::CFG::CFG(std::vector&lt; std::string &gt; &amp;v, std::vector&lt; std::string &gt; &amp;t, std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &amp;r, std::string s)'],['../dd/dc1/classGrammar_1_1CFG.html#aa8d52c4cdfb2a0ef3d1c49148840d333',1,'Grammar::CFG::CFG(std::string file)'],['../dd/dc1/classGrammar_1_1CFG.html#aae4104b0c6f695fa90c2c4a9651b9ac3',1,'Grammar::CFG::CFG(CFG &amp;copy)']]],
+  ['cfg',['CFG',['../dd/dc1/classGrammar_1_1CFG.html#a2514d591306a5a473cf5fb7526a553fe',1,'Grammar::CFG::CFG()'],['../dd/dc1/classGrammar_1_1CFG.html#ac2ad8201bf4de4991d2abcd62f74cddd',1,'Grammar::CFG::CFG(std::vector&lt; std::string &gt; &amp;v, std::vector&lt; std::string &gt; &amp;t, std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &amp;r, std::string s)'],['../dd/dc1/classGrammar_1_1CFG.html#aa8d52c4cdfb2a0ef3d1c49148840d333',1,'Grammar::CFG::CFG(std::string file)'],['../dd/dc1/classGrammar_1_1CFG.html#aae4104b0c6f695fa90c2c4a9651b9ac3',1,'Grammar::CFG::CFG(CFG &amp;copy)'],['../d1/dc5/classPDA_1_1PDA.html#af62ce9c2fc33c22ac10cb94be5832cae',1,'PDA::PDA::cfg()']]],
   ['cfg',['CFG',['../dd/dc1/classGrammar_1_1CFG.html',1,'Grammar']]],
   ['cfg_2eh',['CFG.h',['../d9/d25/CFG_8h.html',1,'']]],
   ['cfg_5fh_5f',['CFG_H_',['../d9/d25/CFG_8h.html#a7104bb8c9d6388226462114534419b9d',1,'CFG.h']]],
@@ -21,8 +21,9 @@ var searchData=
   ['counter_5f',['counter_',['../d6/d50/classparser_1_1LRParser.html#accf01c8956117b364f88fba4cb17b15c',1,'parser::LRParser']]],
   ['createtable',['createTable',['../dc/d7d/classGrammar_1_1CYKTable.html#a11d6b68f810b625495c0640b80d6ac47',1,'Grammar::CYKTable']]],
   ['cur_5fstates',['cur_states',['../d1/dc5/classPDA_1_1PDA.html#a0a940e3906fb9cfb1fa58fa8d329ab1b',1,'PDA::PDA']]],
+  ['curstate_5f',['curState_',['../dd/d15/classTM_1_1TuringMachine.html#aaa6438ae548569a1f41e024d1f68eb84',1,'TM::TuringMachine']]],
   ['cyk_5f',['cyk_',['../dc/d05/classGrammar_1_1CNF__CFG.html#ae65bc2d3253161b23e6cdbfc6a40a475',1,'Grammar::CNF_CFG']]],
-  ['cyktable',['CYKTable',['../dc/d7d/classGrammar_1_1CYKTable.html',1,'Grammar']]],
   ['cyktable',['CYKTable',['../dc/d7d/classGrammar_1_1CYKTable.html#a1fcb6e92bfbaaffd86e988791d2e1602',1,'Grammar::CYKTable::CYKTable()'],['../dc/d7d/classGrammar_1_1CYKTable.html#adbb3e7162af2f47b4683be53c02bdf5a',1,'Grammar::CYKTable::CYKTable(std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &amp;r, std::string startSymbol)'],['../dc/d7d/classGrammar_1_1CYKTable.html#a2fbb1d8a30608a2b5e71eada4ec8a5ae',1,'Grammar::CYKTable::CYKTable(std::string w, std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &amp;r, std::string stS)']]],
+  ['cyktable',['CYKTable',['../dc/d7d/classGrammar_1_1CYKTable.html',1,'Grammar']]],
   ['cyktable_2eh',['CYKTable.h',['../db/d5c/CYKTable_8h.html',1,'']]]
 ];
