@@ -18,10 +18,10 @@
 #include <cstdlib>
 #include <fstream>
 #include "Exception.h"
+#include "Information.h"
 
 namespace PDA {
 
-enum PDAType {acceptByEmptyStack, acceptByFinalState};
 
 class PDA {
 public:

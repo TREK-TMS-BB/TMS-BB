@@ -14,12 +14,12 @@
 #include <map>
 #include <cctype>
 #include <sstream>
+#include "Information.h"
 
 #include "CFG.h"
 
 namespace parser {
 
-enum EAction {shift, reduction, accept, jump, blank, error};
 
 class ParseTable {
 public:

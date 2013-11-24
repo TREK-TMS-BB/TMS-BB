@@ -13,17 +13,9 @@
 #include <iostream>
 #include "Exception.h"
 #include "TMParser.h"
+#include "Information.h"
 
 namespace TM {
-
-typedef std::string StateName;
-enum Direction {left = 0, right, none};
-typedef unsigned char TapeSymbol;
-typedef std::vector<TapeSymbol> Tape;
-/* Productions are of the form:
- * (<Current State> , <ReadSymbol>, <WriteSymbol>, <MoveDirection>, <Next State>)
- */
-typedef std::tuple<StateName, TapeSymbol, TapeSymbol, Direction, StateName> Production;
 
 class TuringMachine {
 public:

@@ -13,10 +13,8 @@
 #include <iostream>
 #include <utility>
 #include "Exception.h"
+#include "Information.h"
 
-typedef std::vector<std::string> TableEntry;
-typedef std::vector<TableEntry > Collumn;
-typedef std::vector<Collumn > Table;
 
 namespace Grammar {
 

@@ -1,0 +1,210 @@
+\hypertarget{classTM_1_1TuringMachine}{\section{\-T\-M\-:\-:\-Turing\-Machine \-Class \-Reference}
+\label{dd/d15/classTM_1_1TuringMachine}\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}}
+}
+
+
+{\ttfamily \#include $<$\-Turing\-Machine.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTM_1_1TuringMachine_afe0ee742405dc0279765af22666df9d3}{\-Turing\-Machine} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classTM_1_1TuringMachine_a92026a3ba4e06bfed9abf0ac2b56709a}{\-Turing\-Machine} (std\-::string filename)
+\begin{DoxyCompactList}\small\item\em \-Construct from .tm file. \end{DoxyCompactList}\item 
+void \hyperlink{classTM_1_1TuringMachine_a72857c5669511dcfca719ddd6422e8f8}{simulate} (std\-::vector$<$ \hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol} $>$ input)
+\begin{DoxyCompactList}\small\item\em \-Function simulating the \-Turing \-Machine with given string on the stack. \end{DoxyCompactList}\item 
+virtual \hyperlink{classTM_1_1TuringMachine_aa0d38ebf67a34efdc5e404086f936285}{$\sim$\-Turing\-Machine} ()
+\begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTM_1_1TuringMachine_a0aa707581497a4a7a0da06eb2ed867be}{move} (\hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792d}{\-Direction} dir)
+\begin{DoxyCompactList}\small\item\em \-A function moving the head in the direction given, adding a new place on the tape if neccessary. \end{DoxyCompactList}\item 
+\hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol} \hyperlink{classTM_1_1TuringMachine_aa3a5267e700842786eeb59fa96a3007f}{get\-Head} () const 
+\begin{DoxyCompactList}\small\item\em \-A function returning the symbol under the head. \end{DoxyCompactList}\item 
+void \hyperlink{classTM_1_1TuringMachine_a63ec43241d2c34c3c19de91cdac7a2b6}{write\-Head} (\hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol} input)
+\begin{DoxyCompactList}\small\item\em \-A function writing given symbol under the head. \end{DoxyCompactList}\item 
+void \hyperlink{classTM_1_1TuringMachine_a37e46074a566b631bd71c24795872c50}{simulate} ()
+\begin{DoxyCompactList}\small\item\em \-A function handling 1 simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Tape\-::iterator \hyperlink{classTM_1_1TuringMachine_a16c476c503a878de6f354339a283ca3b}{head\-\_\-}
+\item 
+\hyperlink{namespaceTM_a20b31cfe7d86b00db299e72ad48f70af}{\-Tape} \hyperlink{classTM_1_1TuringMachine_a4c95b19fbea6a3d73b68dea36cd389a0}{tape\-\_\-}
+\begin{DoxyCompactList}\small\item\em the head of the turing machine moving over the tape \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{namespaceTM_a852554502c474841ede5736b807839ff}{\-State\-Name} $>$ \hyperlink{classTM_1_1TuringMachine_aa83fb53ce10f185f3f1859533cc20e0b}{states\-\_\-}
+\begin{DoxyCompactList}\small\item\em tape of the turing machine \end{DoxyCompactList}\item 
+\hyperlink{namespaceTM_a852554502c474841ede5736b807839ff}{\-State\-Name} \hyperlink{classTM_1_1TuringMachine_aaa6438ae548569a1f41e024d1f68eb84}{cur\-State\-\_\-}
+\begin{DoxyCompactList}\small\item\em vector containing all states \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{namespaceTM_a87460339f40338ea4e37433443965554}{\-Production} $>$ \hyperlink{classTM_1_1TuringMachine_a1aacd1eca81b8f4ab37030b3cda19d13}{productions\-\_\-}
+\begin{DoxyCompactList}\small\item\em the state where the \hyperlink{namespaceTM}{\-T\-M} currently in is \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classTM_1_1TuringMachine_a4edf359a625a3b3114cef725f5ca5337}{operator$<$$<$} (std\-::ostream \&out, \hyperlink{classTM_1_1TuringMachine}{\-Turing\-Machine} \&tm)
+\begin{DoxyCompactList}\small\item\em function printing the tape and the productions \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classTM_1_1TuringMachine_afe0ee742405dc0279765af22666df9d3}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!\-Turing\-Machine@{\-Turing\-Machine}}
+\index{\-Turing\-Machine@{\-Turing\-Machine}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{\-Turing\-Machine}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-T\-M\-::\-Turing\-Machine\-::\-Turing\-Machine} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{dd/d15/classTM_1_1TuringMachine_afe0ee742405dc0279765af22666df9d3}
+
+
+\-Default constructor. 
+
+\hypertarget{classTM_1_1TuringMachine_a92026a3ba4e06bfed9abf0ac2b56709a}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!\-Turing\-Machine@{\-Turing\-Machine}}
+\index{\-Turing\-Machine@{\-Turing\-Machine}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{\-Turing\-Machine}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-T\-M\-::\-Turing\-Machine\-::\-Turing\-Machine} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filename}
+\end{DoxyParamCaption}
+)}}\label{dd/d15/classTM_1_1TuringMachine_a92026a3ba4e06bfed9abf0ac2b56709a}
+
+
+\-Construct from .tm file. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em filename} & the filename in which the \-Turing \-Machine is described \\
+\hline
+\end{DoxyParams}
+\hypertarget{classTM_1_1TuringMachine_aa0d38ebf67a34efdc5e404086f936285}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!$\sim$\-Turing\-Machine@{$\sim$\-Turing\-Machine}}
+\index{$\sim$\-Turing\-Machine@{$\sim$\-Turing\-Machine}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{$\sim$\-Turing\-Machine}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf \-T\-M\-::\-Turing\-Machine\-::$\sim$\-Turing\-Machine} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_aa0d38ebf67a34efdc5e404086f936285}
+
+
+\-Default destructor. 
+
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classTM_1_1TuringMachine_aa3a5267e700842786eeb59fa96a3007f}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!get\-Head@{get\-Head}}
+\index{get\-Head@{get\-Head}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{get\-Head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Tape\-Symbol} {\bf \-T\-M\-::\-Turing\-Machine\-::get\-Head} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_aa3a5267e700842786eeb59fa96a3007f}
+
+
+\-A function returning the symbol under the head. 
+
+\hypertarget{classTM_1_1TuringMachine_a0aa707581497a4a7a0da06eb2ed867be}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!move@{move}}
+\index{move@{move}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::move} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Direction}}]{dir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a0aa707581497a4a7a0da06eb2ed867be}
+
+
+\-A function moving the head in the direction given, adding a new place on the tape if neccessary. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em dir} & the direction in which the head should move \\
+\hline
+\end{DoxyParams}
+\hypertarget{classTM_1_1TuringMachine_a72857c5669511dcfca719ddd6422e8f8}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!simulate@{simulate}}
+\index{simulate@{simulate}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{simulate}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::simulate} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf \-Tape\-Symbol} $>$}]{input}
+\end{DoxyParamCaption}
+)}}\label{dd/d15/classTM_1_1TuringMachine_a72857c5669511dcfca719ddd6422e8f8}
+
+
+\-Function simulating the \-Turing \-Machine with given string on the stack. 
+
+@ param input vector with the input to be put on the tape \hypertarget{classTM_1_1TuringMachine_a37e46074a566b631bd71c24795872c50}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!simulate@{simulate}}
+\index{simulate@{simulate}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{simulate}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::simulate} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a37e46074a566b631bd71c24795872c50}
+
+
+\-A function handling 1 simulation. 
+
+\hypertarget{classTM_1_1TuringMachine_a63ec43241d2c34c3c19de91cdac7a2b6}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!write\-Head@{write\-Head}}
+\index{write\-Head@{write\-Head}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{write\-Head}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::write\-Head} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Tape\-Symbol}}]{input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a63ec43241d2c34c3c19de91cdac7a2b6}
+
+
+\-A function writing given symbol under the head. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em input} & \-Tape\-Symbol to be written on the tape \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classTM_1_1TuringMachine_a4edf359a625a3b3114cef725f5ca5337}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out, }
+\item[{{\bf \-Turing\-Machine} \&}]{tm}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a4edf359a625a3b3114cef725f5ca5337}
+
+
+function printing the tape and the productions 
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classTM_1_1TuringMachine_aaa6438ae548569a1f41e024d1f68eb84}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!cur\-State\-\_\-@{cur\-State\-\_\-}}
+\index{cur\-State\-\_\-@{cur\-State\-\_\-}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{cur\-State\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-State\-Name} {\bf \-T\-M\-::\-Turing\-Machine\-::cur\-State\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_aaa6438ae548569a1f41e024d1f68eb84}
+
+
+vector containing all states 
+
+\hypertarget{classTM_1_1TuringMachine_a16c476c503a878de6f354339a283ca3b}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!head\-\_\-@{head\-\_\-}}
+\index{head\-\_\-@{head\-\_\-}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{head\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\-Tape\-::iterator {\bf \-T\-M\-::\-Turing\-Machine\-::head\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a16c476c503a878de6f354339a283ca3b}
+\hypertarget{classTM_1_1TuringMachine_a1aacd1eca81b8f4ab37030b3cda19d13}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!productions\-\_\-@{productions\-\_\-}}
+\index{productions\-\_\-@{productions\-\_\-}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{productions\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-Production}$>$ {\bf \-T\-M\-::\-Turing\-Machine\-::productions\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a1aacd1eca81b8f4ab37030b3cda19d13}
+
+
+the state where the \hyperlink{namespaceTM}{\-T\-M} currently in is 
+
+\hypertarget{classTM_1_1TuringMachine_aa83fb53ce10f185f3f1859533cc20e0b}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!states\-\_\-@{states\-\_\-}}
+\index{states\-\_\-@{states\-\_\-}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{states\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-State\-Name}$>$ {\bf \-T\-M\-::\-Turing\-Machine\-::states\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_aa83fb53ce10f185f3f1859533cc20e0b}
+
+
+tape of the turing machine 
+
+\hypertarget{classTM_1_1TuringMachine_a4c95b19fbea6a3d73b68dea36cd389a0}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!tape\-\_\-@{tape\-\_\-}}
+\index{tape\-\_\-@{tape\-\_\-}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{tape\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Tape} {\bf \-T\-M\-::\-Turing\-Machine\-::tape\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a4c95b19fbea6a3d73b68dea36cd389a0}
+
+
+the head of the turing machine moving over the tape 
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{TuringMachine_8h}{\-Turing\-Machine.\-h}\end{DoxyCompactItemize}

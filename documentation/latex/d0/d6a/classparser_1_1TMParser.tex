@@ -1,0 +1,201 @@
+\hypertarget{classparser_1_1TMParser}{\section{parser\-:\-:\-T\-M\-Parser \-Class \-Reference}
+\label{d0/d6a/classparser_1_1TMParser}\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}}
+}
+
+
+{\ttfamily \#include $<$\-T\-M\-Parser.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classparser_1_1TMParser_a7449386b475a892715af85ad31fa0015}{\-T\-M\-Parser} (std\-::string)
+\begin{DoxyCompactList}\small\item\em \-Main constructor for \hyperlink{classparser_1_1TMParser}{\-T\-M\-Parser}. \-This will parse the parameter file and save the info in its members. \end{DoxyCompactList}\item 
+virtual \hyperlink{classparser_1_1TMParser_a7dc139954aaa9f7bacd0c433fbbd3519}{$\sim$\-T\-M\-Parser} ()
+\item 
+std\-::string \hyperlink{classparser_1_1TMParser_a041286999146f207f2f127fdedd19403}{get\-Init\-Input} () const 
+\item 
+std\-::vector$<$ \hyperlink{namespaceTM_a852554502c474841ede5736b807839ff}{\-T\-M\-::\-State\-Name} $>$ \hyperlink{classparser_1_1TMParser_a218e4bf57cad53fa565cbe7bc9103181}{get\-States} () const 
+\item 
+std\-::vector$<$ \hyperlink{namespaceTM_a87460339f40338ea4e37433443965554}{\-T\-M\-::\-Production} $>$ \hyperlink{classparser_1_1TMParser_a582cb825725c2d6fb69dead1ce168065}{get\-Productions} () const 
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classparser_1_1TMParser_aadb9e65b789495fc3dde6132d61ff53f}{parse\-States} (std\-::string, std\-::size\-\_\-t)
+\item 
+void \hyperlink{classparser_1_1TMParser_af238e382d917a1e09438d3d971dc375c}{parse\-Init\-Input} (std\-::string, std\-::size\-\_\-t)
+\item 
+void \hyperlink{classparser_1_1TMParser_a58ffe167af0cfb98089dafca94a8f891}{parse\-Production} (std\-::string)
+\item 
+void \hyperlink{classparser_1_1TMParser_a0f0fa124f3929c854f764914f644b6f2}{iterator\-Check} (std\-::string\-::iterator \&, char) const 
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classparser_1_1TMParser_acecddd2b0a5413a91c7744090e582e33}{init\-Input\-\_\-}
+\begin{DoxyCompactList}\small\item\em \-Initial input for the \-Turing \-Machine. \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{namespaceTM_a852554502c474841ede5736b807839ff}{\-T\-M\-::\-State\-Name} $>$ \hyperlink{classparser_1_1TMParser_a8214139fde7f1051bec5c9b786319d1d}{states\-\_\-}
+\begin{DoxyCompactList}\small\item\em \-All states for the \-Turing \-Machine. \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{namespaceTM_a87460339f40338ea4e37433443965554}{\-T\-M\-::\-Production} $>$ \hyperlink{classparser_1_1TMParser_a7948f791b173d8444cfdf47398f2202e}{productions\-\_\-}
+\begin{DoxyCompactList}\small\item\em \-All productions for the \-Turing \-Machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classparser_1_1TMParser_a4ff9f93f95023ec45081a5336b6b5738}{operator$<$$<$} (std\-::ostream \&out, \hyperlink{classparser_1_1TMParser}{\-T\-M\-Parser} \&tmp)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classparser_1_1TMParser_a7449386b475a892715af85ad31fa0015}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!\-T\-M\-Parser@{\-T\-M\-Parser}}
+\index{\-T\-M\-Parser@{\-T\-M\-Parser}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{\-T\-M\-Parser}]{\setlength{\rightskip}{0pt plus 5cm}{\bf parser\-::\-T\-M\-Parser\-::\-T\-M\-Parser} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{d0/d6a/classparser_1_1TMParser_a7449386b475a892715af85ad31fa0015}
+
+
+\-Main constructor for \hyperlink{classparser_1_1TMParser}{\-T\-M\-Parser}. \-This will parse the parameter file and save the info in its members. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em file} & \-The file that needs to be parsed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classparser_1_1TMParser_a7dc139954aaa9f7bacd0c433fbbd3519}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!$\sim$\-T\-M\-Parser@{$\sim$\-T\-M\-Parser}}
+\index{$\sim$\-T\-M\-Parser@{$\sim$\-T\-M\-Parser}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{$\sim$\-T\-M\-Parser}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf parser\-::\-T\-M\-Parser\-::$\sim$\-T\-M\-Parser} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_a7dc139954aaa9f7bacd0c433fbbd3519}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classparser_1_1TMParser_a041286999146f207f2f127fdedd19403}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!get\-Init\-Input@{get\-Init\-Input}}
+\index{get\-Init\-Input@{get\-Init\-Input}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{get\-Init\-Input}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf parser\-::\-T\-M\-Parser\-::get\-Init\-Input} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{d0/d6a/classparser_1_1TMParser_a041286999146f207f2f127fdedd19403}
+\begin{DoxyReturn}{\-Returns}
+initial input for the \-Turing\-Machine. 
+\end{DoxyReturn}
+\hypertarget{classparser_1_1TMParser_a582cb825725c2d6fb69dead1ce168065}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!get\-Productions@{get\-Productions}}
+\index{get\-Productions@{get\-Productions}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{get\-Productions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-T\-M\-::\-Production}$>$ {\bf parser\-::\-T\-M\-Parser\-::get\-Productions} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{d0/d6a/classparser_1_1TMParser_a582cb825725c2d6fb69dead1ce168065}
+\begin{DoxyReturn}{\-Returns}
+all productions for the \-Turing\-Machine. 
+\end{DoxyReturn}
+\hypertarget{classparser_1_1TMParser_a218e4bf57cad53fa565cbe7bc9103181}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!get\-States@{get\-States}}
+\index{get\-States@{get\-States}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{get\-States}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-T\-M\-::\-State\-Name}$>$ {\bf parser\-::\-T\-M\-Parser\-::get\-States} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{d0/d6a/classparser_1_1TMParser_a218e4bf57cad53fa565cbe7bc9103181}
+\begin{DoxyReturn}{\-Returns}
+all states for the \-Turing\-Machine. 
+\end{DoxyReturn}
+\hypertarget{classparser_1_1TMParser_a0f0fa124f3929c854f764914f644b6f2}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!iterator\-Check@{iterator\-Check}}
+\index{iterator\-Check@{iterator\-Check}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{iterator\-Check}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf parser\-::\-T\-M\-Parser\-::iterator\-Check} (
+\begin{DoxyParamCaption}
+\item[{std\-::string\-::iterator \&}]{, }
+\item[{char}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_a0f0fa124f3929c854f764914f644b6f2}
+
+\begin{DoxyParams}{\-Parameters}
+{\em it2\&} & \-The iterator we need to use in our check. \\
+\hline
+{\em c} & \-The char the iterator needs to pass. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classparser_1_1TMParser_af238e382d917a1e09438d3d971dc375c}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!parse\-Init\-Input@{parse\-Init\-Input}}
+\index{parse\-Init\-Input@{parse\-Init\-Input}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{parse\-Init\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf parser\-::\-T\-M\-Parser\-::parse\-Init\-Input} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_af238e382d917a1e09438d3d971dc375c}
+
+\begin{DoxyParams}{\-Parameters}
+{\em line} & \-The string that contains the initial input. \\
+\hline
+{\em found} & \-The index where the string \char`\"{}\-I\-N\-I\-T\-I\-A\-L\-\_\-\-I\-N\-P\-U\-T = \char`\"{} begins. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classparser_1_1TMParser_a58ffe167af0cfb98089dafca94a8f891}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!parse\-Production@{parse\-Production}}
+\index{parse\-Production@{parse\-Production}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{parse\-Production}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf parser\-::\-T\-M\-Parser\-::parse\-Production} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_a58ffe167af0cfb98089dafca94a8f891}
+
+\begin{DoxyParams}{\-Parameters}
+{\em line} & \-The string that contains a production. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classparser_1_1TMParser_aadb9e65b789495fc3dde6132d61ff53f}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!parse\-States@{parse\-States}}
+\index{parse\-States@{parse\-States}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{parse\-States}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf parser\-::\-T\-M\-Parser\-::parse\-States} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_aadb9e65b789495fc3dde6132d61ff53f}
+
+\begin{DoxyParams}{\-Parameters}
+{\em line} & \-The string that contains the states. \\
+\hline
+{\em found} & \-The index where the string \char`\"{}\-S\-T\-A\-T\-E\-S = \{\char`\"{} begins. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classparser_1_1TMParser_a4ff9f93f95023ec45081a5336b6b5738}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out, }
+\item[{{\bf \-T\-M\-Parser} \&}]{tmp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_a4ff9f93f95023ec45081a5336b6b5738}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classparser_1_1TMParser_acecddd2b0a5413a91c7744090e582e33}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!init\-Input\-\_\-@{init\-Input\-\_\-}}
+\index{init\-Input\-\_\-@{init\-Input\-\_\-}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{init\-Input\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf parser\-::\-T\-M\-Parser\-::init\-Input\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_acecddd2b0a5413a91c7744090e582e33}
+
+
+\-Initial input for the \-Turing \-Machine. 
+
+\hypertarget{classparser_1_1TMParser_a7948f791b173d8444cfdf47398f2202e}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!productions\-\_\-@{productions\-\_\-}}
+\index{productions\-\_\-@{productions\-\_\-}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{productions\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-T\-M\-::\-Production}$>$ {\bf parser\-::\-T\-M\-Parser\-::productions\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_a7948f791b173d8444cfdf47398f2202e}
+
+
+\-All productions for the \-Turing \-Machine. 
+
+\hypertarget{classparser_1_1TMParser_a8214139fde7f1051bec5c9b786319d1d}{\index{parser\-::\-T\-M\-Parser@{parser\-::\-T\-M\-Parser}!states\-\_\-@{states\-\_\-}}
+\index{states\-\_\-@{states\-\_\-}!parser::TMParser@{parser\-::\-T\-M\-Parser}}
+\subsubsection[{states\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-T\-M\-::\-State\-Name}$>$ {\bf parser\-::\-T\-M\-Parser\-::states\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{d0/d6a/classparser_1_1TMParser_a8214139fde7f1051bec5c9b786319d1d}
+
+
+\-All states for the \-Turing \-Machine. 
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{TMParser_8h}{\-T\-M\-Parser.\-h}\end{DoxyCompactItemize}

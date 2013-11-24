@@ -15,7 +15,7 @@
 #include <tuple>
 #include <algorithm>
 #include "Exception.h"
-#include "TuringMachine.h"
+#include "Information.h"
 
 namespace parser {
 

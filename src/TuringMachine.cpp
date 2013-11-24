@@ -17,8 +17,13 @@ TuringMachine::TuringMachine() {
 
 TuringMachine::TuringMachine(std::string filename) {
 	parser::TMParser tmp(filename) ;
-	states_ = tmp.getStates();
-	productions_ = tmp.getProductions();
+
+	for (int i = 0; i < tmp.getStates().size();i++) {
+		states_.push_back(tmp.getStates().at(i));
+	}
+	for (int i = 0; i < tmp.getProductions().size();i++) {
+		productions_.push_back(tmp.getProductions().at(i));
+	}
 	tape_ = Tape(100, (TapeSymbol)'B');
 	head_ = tape_.begin();
 	curState_ = states_.at(0);
