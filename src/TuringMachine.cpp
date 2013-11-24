@@ -16,7 +16,12 @@ TuringMachine::TuringMachine() {
 }
 
 TuringMachine::TuringMachine(std::string filename) {
-	// TODO parse the TuringMachine
+	parser::TMParser tmp(filename) ;
+	states_ = tmp.getStates();
+	productions_ = tmp.getProductions();
+	tape_ = Tape(100, (TapeSymbol)'B');
+	head_ = tape_.begin();
+	curState_ = states_.at(0);
 }
 
 TuringMachine::~TuringMachine() {
@@ -136,7 +141,6 @@ void TuringMachine::simulate() {
 			correct = true;
 		}
 		else if ( std::get<1>(c) == '*') {
-			TapeSymbol temp = getHead();
 			if (std::get<2>(c) == '*') {
 					// do nothing to tape
 			}

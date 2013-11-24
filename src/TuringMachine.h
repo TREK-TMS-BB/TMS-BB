@@ -12,6 +12,7 @@
 #include <tuple>
 #include <iostream>
 #include "Exception.h"
+#include "TMParser.h"
 
 namespace TM {
 
