@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['table',['table',['../d6/d64/classparser_1_1ParseTable.html#a3dd2e7557544f4b8f55b2817b82992c4',1,'parser::ParseTable::table()'],['../db/d5c/CYKTable_8h.html#a98fc1757708d007972f5f4640a85323e',1,'Table():&#160;CYKTable.h']]],
+  ['table',['table',['../d6/d64/classparser_1_1ParseTable.html#a3dd2e7557544f4b8f55b2817b82992c4',1,'parser::ParseTable::table()'],['../d0/da6/namespaceGrammar.html#ac36a2ef8f0596f29dde458d3d9917e88',1,'Grammar::Table()']]],
   ['table_5f',['table_',['../dc/d7d/classGrammar_1_1CYKTable.html#a79b636642dc8abac802e95664bd3deaa',1,'Grammar::CYKTable']]],
-  ['tableentry',['TableEntry',['../db/d5c/CYKTable_8h.html#a206494b507940d686bd6c56b2cf0322e',1,'CYKTable.h']]],
+  ['tableentry',['TableEntry',['../d0/da6/namespaceGrammar.html#a1d9fbc78aa4b224969964f71642a1e62',1,'Grammar']]],
   ['tape',['Tape',['../d6/d65/namespaceTM.html#a20b31cfe7d86b00db299e72ad48f70af',1,'TM']]],
   ['tape_5f',['tape_',['../dd/d15/classTM_1_1TuringMachine.html#a4c95b19fbea6a3d73b68dea36cd389a0',1,'TM::TuringMachine']]],
   ['tapesymbol',['TapeSymbol',['../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6',1,'TM']]],

@@ -16,7 +16,7 @@ var searchData=
   ['checkstatenames',['checkStateNames',['../d1/dc5/classPDA_1_1PDA.html#af707f305d9b16dbc3dcb686a3f63fca4',1,'PDA::PDA']]],
   ['cnf_5fcfg',['CNF_CFG',['../dc/d05/classGrammar_1_1CNF__CFG.html#aa5850ca203f633fb16b4c74ea50e25f8',1,'Grammar::CNF_CFG::CNF_CFG()'],['../dc/d05/classGrammar_1_1CNF__CFG.html#a9526886948355942d078fc55e69e73c7',1,'Grammar::CNF_CFG::CNF_CFG(std::vector&lt; std::string &gt; &amp;v, std::vector&lt; std::string &gt; &amp;t, std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &amp;r, std::string s)'],['../dc/d05/classGrammar_1_1CNF__CFG.html#a88865800e932d5c81dae48d1be25adb7',1,'Grammar::CNF_CFG::CNF_CFG(CFG &amp;cfg)'],['../dc/d05/classGrammar_1_1CNF__CFG.html#a90ddda4519a646b86ce74e5f7c66af1a',1,'Grammar::CNF_CFG::CNF_CFG(std::string file)']]],
   ['cnf_5fcfg',['CNF_CFG',['../dc/d05/classGrammar_1_1CNF__CFG.html',1,'Grammar']]],
-  ['collumn',['Collumn',['../db/d5c/CYKTable_8h.html#aff3ec19000cb01e2a58e1d57c1cf8128',1,'CYKTable.h']]],
+  ['collumn',['Collumn',['../d0/da6/namespaceGrammar.html#ab0ca0e61019c21f20260968164e53945',1,'Grammar']]],
   ['containsstring',['containsString',['../d1/dc5/classPDA_1_1PDA.html#a7f6cb548bcd3860306e3c96e0041ffd4',1,'PDA::PDA']]],
   ['counter_5f',['counter_',['../d6/d50/classparser_1_1LRParser.html#accf01c8956117b364f88fba4cb17b15c',1,'parser::LRParser']]],
   ['createtable',['createTable',['../dc/d7d/classGrammar_1_1CYKTable.html#a11d6b68f810b625495c0640b80d6ac47',1,'Grammar::CYKTable']]],

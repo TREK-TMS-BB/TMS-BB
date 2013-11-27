@@ -61,7 +61,7 @@ private:
 	/*
 	 * reads a symbol, writes, moves
 	 */
-	void simulate();
+	void simulateCycle();
 
 	Tape::iterator head_;					//! the head of the turing machine moving over the tape
 	Tape tape_;								//! tape of the turing machine

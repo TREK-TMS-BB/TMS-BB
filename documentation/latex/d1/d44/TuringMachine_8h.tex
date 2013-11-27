@@ -5,6 +5,8 @@
 {\ttfamily \#include $<$tuple$>$}\*
 {\ttfamily \#include $<$iostream$>$}\*
 {\ttfamily \#include \char`\"{}\-Exception.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-T\-M\-Parser.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Information.\-h\char`\"{}}\*
 \subsection*{\-Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,25 +16,4 @@ class \hyperlink{classTM_1_1TuringMachine}{\-T\-M\-::\-Turing\-Machine}
 \begin{DoxyCompactItemize}
 \item 
 namespace \hyperlink{namespaceTM}{\-T\-M}
-\end{DoxyCompactItemize}
-\subsection*{\-Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef std\-::string \hyperlink{namespaceTM_a852554502c474841ede5736b807839ff}{\-T\-M\-::\-State\-Name}
-\item 
-typedef unsigned char \hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-T\-M\-::\-Tape\-Symbol}
-\item 
-typedef std\-::vector$<$ \-Tape\-Symbol $>$ \hyperlink{namespaceTM_a20b31cfe7d86b00db299e72ad48f70af}{\-T\-M\-::\-Tape}
-\item 
-typedef std\-::tuple$<$ \-State\-Name, \*
-\-Tape\-Symbol, \-Tape\-Symbol, \*
-\-Direction, \-State\-Name $>$ \hyperlink{namespaceTM_a87460339f40338ea4e37433443965554}{\-T\-M\-::\-Production}
-\end{DoxyCompactItemize}
-\subsection*{\-Enumerations}
-\begin{DoxyCompactItemize}
-\item 
-enum \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792d}{\-T\-M\-::\-Direction} \{ \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792dac3682a7842c29b64f35ecbeb70fafb7f}{\-T\-M\-::left} =  0, 
-\hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911}{\-T\-M\-::right}, 
-\hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792dabf7f6892ad2d17d8e27921834d7c3ee2}{\-T\-M\-::none}
- \}
 \end{DoxyCompactItemize}

@@ -78,9 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">src/TuringMachine.h File Reference</div>  </div>
 </div><!--header-->
@@ -89,6 +87,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <code>#include &lt;tuple&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
 <code>#include &quot;<a class="el" href="../../d8/d8a/Exception_8h_source.html">Exception.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d25/TMParser_8h_source.html">TMParser.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d6/d92/Information_8h_source.html">Information.h</a>&quot;</code><br/>
 </div>
 <p><a href="../../d1/d44/TuringMachine_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -98,20 +98,6 @@ Classes</h2></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d65/namespaceTM.html">TM</a></td></tr>
-<tr><td colspan="2"><h2><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d65/namespaceTM.html#a852554502c474841ede5736b807839ff">TM::StateName</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">TM::TapeSymbol</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; TapeSymbol &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d65/namespaceTM.html#a20b31cfe7d86b00db299e72ad48f70af">TM::Tape</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::tuple&lt; StateName, <br class="typebreak"/>
-TapeSymbol, TapeSymbol, <br class="typebreak"/>
-Direction, StateName &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d65/namespaceTM.html#a87460339f40338ea4e37433443965554">TM::Production</a></td></tr>
-<tr><td colspan="2"><h2><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792d">TM::Direction</a> { <a class="el" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792dac3682a7842c29b64f35ecbeb70fafb7f">TM::left</a> =  0, 
-<a class="el" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911">TM::right</a>, 
-<a class="el" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792dabf7f6892ad2d17d8e27921834d7c3ee2">TM::none</a>
- }</td></tr>
 </table>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -131,7 +117,7 @@ Enumerations</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 15:24:02 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 24 2013 16:01:21 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

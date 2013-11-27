@@ -26,6 +26,7 @@
 #include "LRParser.h"
 #include "PDA.h"
 #include "TMParser.h"
+#include "TuringMachine.h"
 
 int main(int argc, char **argv) {
 	/*std::cout << "TESTS FOR CFG" << std::endl;
@@ -116,6 +117,24 @@ int main(int argc, char **argv) {
 
 	parser::TMParser test2("TM-Files/faultyExample.tm");
 	std::cout << test2 << std::endl;
+
+	TM::TuringMachine t("TM-Files/example3.tm");
+	std::cout << t << std::endl;
+
+	std::vector<TM::TapeSymbol> temp;
+	temp.push_back('0');
+	temp.push_back('0');
+	temp.push_back('1');
+	temp.push_back('1');
+
+	try {
+		t.simulate(temp);
+	}
+	catch (Exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << t << std::endl;
 
 	std::cout << "program finished"	 << std::endl;
 }

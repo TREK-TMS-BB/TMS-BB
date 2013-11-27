@@ -17,10 +17,10 @@ TuringMachine::TuringMachine() {
 
 TuringMachine::TuringMachine(std::string filename) {
 	parser::TMParser tmp(filename) ;
-
 	for (int i = 0; i < tmp.getStates().size();i++) {
 		states_.push_back(tmp.getStates().at(i));
 	}
+	states_.push_back("Error");
 	for (int i = 0; i < tmp.getProductions().size();i++) {
 		productions_.push_back(tmp.getProductions().at(i));
 	}
@@ -35,25 +35,32 @@ TuringMachine::~TuringMachine() {
 
 void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 
-	// TODO check input for bad symbols
 
+	// TODO check input for bad symbols
+	int temp = input.size();
+	/*
 	if (input.size() > tape_.size()) {
 		// Have to make tape_ of appropriate size
 		for (unsigned int i = tape_.size()-1; i < input.size(); i++) {
-			tape_.push_back((TapeSymbol)'B');
+			tape_.push_back(TapeSymbol('B'));
 		}
-	}
+	}*/
 	// Put all input on the tape
-	for (unsigned int i = 0; i< input.size(); i++) {
+	for (int i = 0; i< temp; i++) {
 		tape_.at(i) = input.at(i);
 	}
+	std::cout << std::endl;
 
 	head_ = tape_.begin();
 
 	// TODO:
 	// Write Simulation
+
+	int count = 0;
 	while (true) {
-		this->simulate();
+		std::cout << count << std::endl;
+		count++;
+		this->simulateCycle();
 		if (curState_ == "halt") {
 			break;
 		}
@@ -68,6 +75,7 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 void TuringMachine::move(Direction dir) {
 	switch (dir) {
 	case left:
+		std::cout << "going left" << std::endl;
 		if (head_ == tape_.begin()) {
 			// have to add new item up front
 			tape_.insert(tape_.begin(), (TapeSymbol)'B');
@@ -78,6 +86,7 @@ void TuringMachine::move(Direction dir) {
 		}
 		break;
 	case right:
+		std::cout << "going right" << std::endl;
 		if (head_ == tape_.end()-1) {
 			// have to pushBack new item
 			tape_.push_back((TapeSymbol)'B');
@@ -89,6 +98,7 @@ void TuringMachine::move(Direction dir) {
 		break;
 	case none:
 		// Stay where you are
+		std::cout << "Do Nothing" << std::endl;
 		break;
 	}
 }
@@ -120,7 +130,7 @@ std::ostream& operator<< (std::ostream& out, TuringMachine& tm) {
 	out << "tape:" << std::endl;
 
 	for (unsigned int i = 0; i < tm.tape_.size(); i++) {
-		out << tm.tape_.at(i) << "  ";
+		out << char(tm.tape_.at(i)) << "  ";
 	}
 	out << std::endl;
 	return out;
@@ -135,26 +145,31 @@ void TuringMachine::writeHead(TapeSymbol input) {
 	*head_ = input;
 }
 
-void TuringMachine::simulate() {
+void TuringMachine::simulateCycle() {
 	bool correct = false;
+
 	for(auto c : productions_) {
-		if ((std::get<0>(c) == curState_) && (std::get<1>(c) == getHead()))  {
+		if (std::get<0>(c) == curState_) {
+			if ((std::get<1>(c) == getHead()))  {
 			// Found correct transition:
 			writeHead(std::get<2>(c));
 			move(std::get<3>(c));
 			curState_ = std::get<4>(c);
 			correct = true;
-		}
-		else if ( std::get<1>(c) == '*') {
-			if (std::get<2>(c) == '*') {
+			break;
+			}
+			else if ( std::get<1>(c) == '*') {
+				if (std::get<2>(c) == '*') {
 					// do nothing to tape
+				}
+				else {
+						writeHead(std::get<2>(c));
+				}
+				move(std::get<3>(c));
+				curState_ = std::get<4>(c);
+				correct = true;
+				break;
 			}
-			else {
-					writeHead(std::get<2>(c));
-			}
-			move(std::get<3>(c));
-			curState_ = std::get<4>(c);
-			correct = true;
 		}
 	}
 	if (!correct) {

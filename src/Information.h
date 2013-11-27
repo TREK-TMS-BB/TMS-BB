@@ -15,7 +15,7 @@
 namespace TM {
 	typedef std::string StateName;
 	enum Direction {left = 0, right, none};
-	typedef unsigned char TapeSymbol;
+	typedef unsigned int TapeSymbol;
 	typedef std::vector<TapeSymbol> Tape;
 	/* Productions are of the form:
 	 * (<Current State> , <ReadSymbol>, <WriteSymbol>, <MoveDirection>, <Next State>)
