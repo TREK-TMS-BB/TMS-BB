@@ -16,7 +16,7 @@ bool utilities::isNumber(std::string input) {
 	return true;
 }
 
-std::string charToString(char input) {
+std::string utilities::charToString(char input) {
 	std::stringstream ss;
 	ss << input;
 	return ss.str();

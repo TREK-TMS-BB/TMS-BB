@@ -16,6 +16,7 @@
 #include <algorithm>
 #include "Exception.h"
 #include "Information.h"
+#include "utilities.h"
 
 namespace parser {
 

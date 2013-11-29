@@ -30,7 +30,7 @@ public:
 
 	//! Function simulating the Turing Machine with given string on the stack
 	/**
-	 * @ param input vector with the input to be put on the tape
+	 * @ param input vector with the input to be put on the tape, input will be handled as integers
 	 */
 	void simulate(std::vector<TapeSymbol> input);
 

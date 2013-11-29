@@ -122,10 +122,10 @@ int main(int argc, char **argv) {
 	std::cout << t << std::endl;
 
 	std::vector<TM::TapeSymbol> temp;
-	temp.push_back('0');
-	temp.push_back('0');
-	temp.push_back('1');
-	temp.push_back('1');
+	temp.push_back(TM::TapeSymbol(0));
+	temp.push_back(TM::TapeSymbol(0));
+	temp.push_back(TM::TapeSymbol(1));
+	temp.push_back(TM::TapeSymbol(1));
 
 	try {
 		t.simulate(temp);

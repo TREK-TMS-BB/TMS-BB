@@ -10,7 +10,7 @@
 namespace TM {
 
 TuringMachine::TuringMachine() {
-	tape_ = Tape (100, (TapeSymbol)'B');	// set the tape_ to size 100 and fill with Blanks
+	tape_ = Tape (100, TapeSymbol());	// set the tape_ to size 100 and fill with Blanks
 	head_ = tape_.begin();
 	curState_ = "halt";
 }
@@ -24,7 +24,7 @@ TuringMachine::TuringMachine(std::string filename) {
 	for (int i = 0; i < tmp.getProductions().size();i++) {
 		productions_.push_back(tmp.getProductions().at(i));
 	}
-	tape_ = Tape(100, (TapeSymbol)'B');
+	tape_ = Tape(100, TapeSymbol());
 	head_ = tape_.begin();
 	curState_ = states_.at(0);
 }
@@ -52,9 +52,6 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 	std::cout << std::endl;
 
 	head_ = tape_.begin();
-
-	// TODO:
-	// Write Simulation
 
 	int count = 0;
 	while (true) {
@@ -109,8 +106,8 @@ std::ostream& operator<< (std::ostream& out, TuringMachine& tm) {
 	out << "Productions: " << std::endl;
 	for (unsigned int i = 0; i < tm.productions_.size(); i++) {
 		out << std::get<0>(tm.productions_.at(i)) << "\t";			// Current State
-		out << (char)std::get<1>(tm.productions_.at(i)) << "\t";	// read symbol
-		out << (char)std::get<2>(tm.productions_.at(i)) << "\t";	// write symbol
+		out << std::get<1>(tm.productions_.at(i)) << "\t";	// read symbol
+		out << std::get<2>(tm.productions_.at(i)) << "\t";	// write symbol
 		Direction dir = std::get<3>(tm.productions_.at(i));			// move head
 		switch (dir) {
 		case right:
@@ -130,7 +127,7 @@ std::ostream& operator<< (std::ostream& out, TuringMachine& tm) {
 	out << "tape:" << std::endl;
 
 	for (unsigned int i = 0; i < tm.tape_.size(); i++) {
-		out << char(tm.tape_.at(i)) << "  ";
+		out << tm.tape_.at(i) << "  ";
 	}
 	out << std::endl;
 	return out;
@@ -150,7 +147,7 @@ void TuringMachine::simulateCycle() {
 
 	for(auto c : productions_) {
 		if (std::get<0>(c) == curState_) {
-			if ((std::get<1>(c) == getHead()))  {
+			if ((std::get<1>(c) == TM::TapeSymbol(getHead())))  {
 			// Found correct transition:
 			writeHead(std::get<2>(c));
 			move(std::get<3>(c));
@@ -158,8 +155,8 @@ void TuringMachine::simulateCycle() {
 			correct = true;
 			break;
 			}
-			else if ( std::get<1>(c) == '*') {
-				if (std::get<2>(c) == '*') {
+			else if ( std::get<1>(c) == TapeSymbol(utilities::charToString('*'))) {
+				if (std::get<2>(c) == TapeSymbol(utilities::charToString('*'))) {
 					// do nothing to tape
 				}
 				else {

@@ -9,7 +9,7 @@ PRODUCTIONS {
 1 * * r 1 ;
 2 0 B l 3x ;
 2 1 B l 3y ;
-2 B B l 7 ;
+2 A A l 7 ;
 3x B B l 4y ;
 3x * * l halt ;		# halt is the accept state of the Turing machine. 
 }

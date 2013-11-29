@@ -79,15 +79,36 @@ void TMParser::parseProduction(std::string line) {
 
 		// At this point our iterator is on ' '
 		it2++;
+		std::cout << "char: " << *it2 << std::endl;
 
 		// Read our read symbol.
-		readSymbol = *it2;
+		if (*it2  == 'B') {
+			readSymbol = TM::TapeSymbol();
+		}
+		else if (isdigit(*it2)) {
+			readSymbol = TM::TapeSymbol(*it2-'0');
+		}
+		else {
+			std::string temp = utilities::charToString(*it2);
+			std::cout << "string = " << temp<< std::endl;
+			readSymbol = TM::TapeSymbol(temp);
+		}
+		std::cout << "TapeSymbol = " << readSymbol << std::endl;
 
 		//
 		this->iteratorCheck(it2, ' ');
 
 		// Read our write symbol.
-		writeSymbol = *it2;
+		if (*it2  == 'B') {
+			writeSymbol = TM::TapeSymbol();
+		}
+		else if (isdigit(*it2)) {
+			writeSymbol = TM::TapeSymbol(*it2-'0');
+		}
+		else {
+			writeSymbol = TM::TapeSymbol(utilities::charToString(*it2));
+		}
+
 
 		this->iteratorCheck(it2, ' ');
 
@@ -161,7 +182,7 @@ void TMParser::parseStates(std::string line, std::size_t found) {
 
 void TMParser::parseInitInput(std::string line, std::size_t found) {
 	std::string::iterator it;
-	std::string initInput = "";
+	std::string initInput = "";		//TODO make a vector of TapeSymbols
 	for (it = line.begin() + found + 18; it != line.end(); it++) {
 		if (*it != ' ' && *it != '#') {
 			initInput += *it;
