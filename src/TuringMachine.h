@@ -13,6 +13,7 @@
 #include <iostream>
 #include "Exception.h"
 #include "TMParser.h"
+#include "TapeSymbol.h"
 #include "Information.h"
 
 namespace TM {

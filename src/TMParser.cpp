@@ -79,7 +79,6 @@ void TMParser::parseProduction(std::string line) {
 
 		// At this point our iterator is on ' '
 		it2++;
-		std::cout << "char: " << *it2 << std::endl;
 
 		// Read our read symbol.
 		if (*it2  == 'B') {
@@ -90,10 +89,8 @@ void TMParser::parseProduction(std::string line) {
 		}
 		else {
 			std::string temp = utilities::charToString(*it2);
-			std::cout << "string = " << temp<< std::endl;
 			readSymbol = TM::TapeSymbol(temp);
 		}
-		std::cout << "TapeSymbol = " << readSymbol << std::endl;
 
 		//
 		this->iteratorCheck(it2, ' ');

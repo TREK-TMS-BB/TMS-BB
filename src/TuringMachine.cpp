@@ -38,25 +38,21 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 
 	// TODO check input for bad symbols
 	int temp = input.size();
-	/*
+
 	if (input.size() > tape_.size()) {
 		// Have to make tape_ of appropriate size
 		for (unsigned int i = tape_.size()-1; i < input.size(); i++) {
-			tape_.push_back(TapeSymbol('B'));
+			tape_.push_back(TapeSymbol());
 		}
-	}*/
+	}
 	// Put all input on the tape
 	for (int i = 0; i< temp; i++) {
 		tape_.at(i) = input.at(i);
 	}
-	std::cout << std::endl;
 
 	head_ = tape_.begin();
 
-	int count = 0;
 	while (true) {
-		std::cout << count << std::endl;
-		count++;
 		this->simulateCycle();
 		if (curState_ == "halt") {
 			break;
@@ -72,7 +68,6 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 void TuringMachine::move(Direction dir) {
 	switch (dir) {
 	case left:
-		std::cout << "going left" << std::endl;
 		if (head_ == tape_.begin()) {
 			// have to add new item up front
 			tape_.insert(tape_.begin(), (TapeSymbol)'B');
@@ -83,7 +78,6 @@ void TuringMachine::move(Direction dir) {
 		}
 		break;
 	case right:
-		std::cout << "going right" << std::endl;
 		if (head_ == tape_.end()-1) {
 			// have to pushBack new item
 			tape_.push_back((TapeSymbol)'B');
@@ -95,7 +89,6 @@ void TuringMachine::move(Direction dir) {
 		break;
 	case none:
 		// Stay where you are
-		std::cout << "Do Nothing" << std::endl;
 		break;
 	}
 }

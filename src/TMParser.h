@@ -15,6 +15,7 @@
 #include <tuple>
 #include <algorithm>
 #include "Exception.h"
+#include "TapeSymbol.h"
 #include "Information.h"
 #include "utilities.h"
 
