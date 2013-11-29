@@ -43,16 +43,10 @@ private:
 	std::string copy_; 	//! name of the variable to be copied to
 };
 
-class BBcomparison : public BareBonesStatement {
-private:
-	std::string left_; //! name of 1st variable
-	char operator_; //! the comparison operator
-	std::string right_; //! name of 2nd variable
-};
-
 class BBwhile : public BareBonesStatement {
 private:
-	BBcomparison check_; //! the statement to be evaluated
+	std::string compVar_; //! variable used to loop -> loop while not 0
+
 	std::vector<std::shared_ptr<BareBonesStatement> > body_; //! the body of the while statement
 };
 
