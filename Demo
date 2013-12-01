@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ "$1" == "--CYK" ]
+then
+  cp ./Demos/CYKDemo CYKDemo
+  ./CYKDemo
+  rm CYKDemo
+  
+elif [ "$1" == "--TM" ]
+then 
+  cp ./Demos/TuringMachineDemo TuringMachineDemo
+  ./TuringMachineDemo
+  rm TuringMachineDemo
+  
+elif [ "$1" == "--TMParser" ]
+then 
+  cp ./Demos/TMParserDemo1 TMParserDemo1
+  cp ./Demos/TMParserDemo2 TMParserDemo2
+  ./TMParserDemo1
+  read -p "Press ENTER to continue " input
+  ./TMParserDemo2
+  rm TMParserDemo1
+  rm TMParserDemo2
+  
+else 
+  echo " invalid option"
+fi

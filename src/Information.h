@@ -14,6 +14,7 @@
 
 #include "Exception.h"
 #include "TapeSymbol.h"
+#include <tuple>
 
 
 namespace TM {

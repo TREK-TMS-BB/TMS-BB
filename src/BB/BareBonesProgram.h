@@ -10,6 +10,11 @@
 
 namespace BB {
 
+#include <string>
+#include <vector>
+#include <memory>
+#include"BareBonesStatement.h"
+
 class BareBonesProgram {
 public:
 	BareBonesProgram();
@@ -17,7 +22,7 @@ public:
 	//! A function writing the BareBones program in TM language to given file
 	void createTMFile(std::string outputFile);
 private:
-	std::vector<std::shared_ptr<BareBonesStatement> > statements; //! all statements of the program
+	//std::vector<std::shared_ptr<BareBonesStatement> > statements; //! all statements of the program
 };
 
 } /* namespace BB */

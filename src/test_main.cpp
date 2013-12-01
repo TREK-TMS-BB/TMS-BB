@@ -100,9 +100,10 @@ int main(int argc, char **argv) {
 		std::cerr << e.what() << std::endl;
 	}*/
 
-	//::testing::InitGoogleTest(&argc, argv);
-	//return RUN_ALL_TESTS();
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 
+	/*
 	//CFG grammar("XML-Files/LR1-1.xml");
 	//PDA::PDA pda(&grammar);
 	//pda.toLaTeX("./LaTeX/LR1-1.tex");
@@ -137,5 +138,6 @@ int main(int argc, char **argv) {
 	std::cout << t << std::endl;
 
 	std::cout << "program finished"	 << std::endl;
+	*/
 }
 
