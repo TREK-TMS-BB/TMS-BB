@@ -15,6 +15,7 @@ ParseTable::ParseTable()
 
 ParseTable::ParseTable(Grammar::CFG grammar) {
 	// Not final yet. This is the hardcoded construction of LR1-1's parsetable.
+
 	std::vector<std::vector<std::string> > p_table;
 	std::vector<std::string> row0;
 	std::vector<std::string> terminals = grammar.getTerminals();

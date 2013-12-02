@@ -80,25 +80,25 @@ int main(int argc, char **argv) {
 		std::cout << "\t test unsuccessful" <<std::endl;
 	}*/
 
-	/*try {
-	CFG grammar("./../XML-Files/LR1-1.xml");
-	ParseTable t(grammar);
-	LRParser lrp(grammar);
-
-	std::string input = "";
-	if (lrp.parse(input)) {
-		std::cout << "Inputstring \"" << input << "\" has been accepted!" << std::endl;
-	}
-	else {
-		std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
-	}
-
-	std::cout << "END OF PROGRAM" << std::endl;
-	}
-	catch(Exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}*/
+//	try {
+//	CFG grammar("XML-Files/LR1-1.xml");
+//	ParseTable t(grammar);
+//	parser::LRParser lrp(grammar);
+//
+//	std::string input = "xYy";
+//	if (lrp.parse(input)) {
+//		std::cout << "Inputstring \"" << input << "\" has been accepted!" << std::endl;
+//	}
+//	else {
+//		std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
+//	}
+//
+//	std::cout << "END OF PROGRAM" << std::endl;
+//	}
+//	catch(Exception &e)
+//	{
+//		std::cerr << e.what() << std::endl;
+//	}
 
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
