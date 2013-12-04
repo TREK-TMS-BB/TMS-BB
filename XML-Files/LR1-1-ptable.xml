@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+
+<!---
+	each child of the <n> tag should be in the correct order:
+	- terminals
+	- EOS
+	- non-terminals
+	
+	For the correct order of terminals/non-terminals go look in the CFG xml file and look in what order they're put there.
+	Or use trial/error with the exception messages.
+--->
+
+
+<parseTable>
+	<n>
+		<x entry="shift 2"/>
+		<y entry=""/>
+		<EOS entry="S->"/>
+		<S entry="9"/>
+		<X entry="8"/>
+		<Y entry="7"/>
+	</n>
+	<n>
+		<x entry="shift 2"/>
+		<y entry="shift 6"/>
+		<EOS entry="X->x"/>
+		<S entry=""/>
+		<X entry="3"/>
+		<Y entry="4"/>
+	</n>
+	<n>
+		<x entry=""/>
+		<y entry=""/>
+		<EOS entry="X->xX"/>
+		<S entry=""/>
+		<X entry=""/>
+		<Y entry=""/>
+	</n>
+	<n>
+		<x entry=""/>
+		<y entry="shift 5"/>
+		<EOS entry=""/>
+		<S entry=""/>
+		<X entry=""/>
+		<Y entry=""/>
+	</n>
+	<n>
+		<x entry=""/>
+		<y entry="Y->xYy"/>
+		<EOS entry="Y->xYy"/>
+		<S entry=""/>
+		<X entry=""/>
+		<Y entry=""/>
+	</n>
+	<n>
+		<x entry=""/>
+		<y entry="Y->xy"/>
+		<EOS entry="Y->xy"/>
+		<S entry=""/>
+		<X entry=""/>
+		<Y entry=""/>
+	</n>
+	<n>
+		<x entry=""/>
+		<y entry=""/>
+		<EOS entry="S->Y"/>
+		<S entry=""/>
+		<X entry=""/>
+		<Y entry=""/>
+	</n>
+	<n>
+		<x entry=""/>
+		<y entry=""/>
+		<EOS entry="S->X"/>
+		<S entry=""/>
+		<X entry=""/>
+		<Y entry=""/>
+	</n>
+	<n>
+		<x entry=""/>
+		<y entry=""/>
+		<EOS entry="accept"/>
+		<S entry=""/>
+		<X entry=""/>
+		<Y entry=""/>
+	</n>
+</parseTable>

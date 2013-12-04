@@ -17,6 +17,7 @@
 #include "Information.h"
 
 #include "CFG.h"
+#include "PTableParser.h"
 
 namespace parser {
 

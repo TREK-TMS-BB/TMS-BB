@@ -20,8 +20,11 @@ namespace parser {
 
 class PTableParser : public Parser {
 public:
-	PTableParser(std::string, std::vector<std::vector<std::string> >);
+	PTableParser();
+
 	virtual ~PTableParser();
+
+	std::vector<std::vector<std::string> > parse(std::string, std::vector<std::vector<std::string> >);
 
 private:
 	std::vector<std::vector<std::string> > pTable_;
