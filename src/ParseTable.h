@@ -30,8 +30,9 @@ public:
 	//! Our ParseTable will be constructed using the CFG provided as parameter.
 	/**
 	 * @param grammar The grammar which the ParseTable will be based on.
+	 * @param ptableXML The filename where our parsetable info can be found.
 	 */
-	ParseTable(Grammar::CFG);
+	ParseTable(Grammar::CFG, std::string);
 
 	//! Returns the contents of the parse table (and what action should happen) depending on the input.
 	/**

@@ -29,7 +29,7 @@ public:
 	/**
 	 * @param grammar grammar for our LRParser.
 	 */
-	LRParser(Grammar::CFG);
+	LRParser(Grammar::CFG, std::string);
 
 	//! The parameter ParseTable will be directly used.
 	/**

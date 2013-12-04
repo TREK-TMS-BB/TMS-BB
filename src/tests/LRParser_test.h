@@ -34,12 +34,12 @@ namespace tests {
 
 		//LRParser(CFG)
 		Grammar::CFG c("XML-Files/LR1-1.xml");
-		parser::LRParser t(c);
+		parser::LRParser t(c, "XML-Files/LR1-1-ptable.xml");
 		EXPECT_TRUE(lrp.getCounter() == 0);
 		EXPECT_TRUE(lrp.getStack().size() == 0);
 
 		//LRParser(ParseTable)
-		parser::ParseTable p(c);
+		parser::ParseTable p(c, "XML-Files/LR1-1-ptable.xml");
 		parser::LRParser d(p);
 		EXPECT_TRUE(lrp.getCounter() == 0);
 		EXPECT_TRUE(lrp.getStack().size() == 0);
@@ -50,7 +50,7 @@ namespace tests {
 
 		// Set up correct LRParser
 		Grammar::CFG c("XML-Files/LR1-1.xml");
-		parser::LRParser t(c);
+		parser::LRParser t(c, "XML-Files/LR1-1-ptable.xml");
 
 		// Test correct input
 		bool accepted = t.parse("xxxxxx");

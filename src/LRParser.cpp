@@ -15,8 +15,8 @@ LRParser::LRParser()
 	  counter_(0)
 {}
 
-LRParser::LRParser(Grammar::CFG grammar)
-	: p_table_(grammar),
+LRParser::LRParser(Grammar::CFG grammar, std::string ptableXML)
+	: p_table_(grammar, ptableXML),
 	 stack_(),
 	 counter_(0)
 {}

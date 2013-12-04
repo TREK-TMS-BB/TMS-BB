@@ -31,7 +31,7 @@ namespace tests {
 
 		// Test whether it extracts info correctly.
 		Grammar::CFG cfg("XML-Files/LR1-1.xml");
-		ParseTable pt(cfg);
+		ParseTable pt(cfg, "XML-Files/LR1-1-ptable.xml");
 		std::pair<parser::EAction, std::string> output;
 
 		output = pt(3, "x");

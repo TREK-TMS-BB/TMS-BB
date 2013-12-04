@@ -80,28 +80,28 @@ int main(int argc, char **argv) {
 		std::cout << "\t test unsuccessful" <<std::endl;
 	}*/
 
-	try {
-	CFG grammar("XML-Files/LR1-2.xml");
-	ParseTable t(grammar);
-	parser::LRParser lrp(grammar);
+//	try {
+//	CFG grammar("XML-Files/LR1-2.xml");
+//	ParseTable t(grammar, "XML-Files/LR1-2-ptable.xml");
+//	parser::LRParser lrp(grammar, "XML-Files/LR1-2-ptable.xml");
+//
+//	std::string input = "zzzz";
+//	if (lrp.parse(input)) {
+//		std::cout << "Inputstring \"" << input << "\" has been accepted!" << std::endl;
+//	}
+//	else {
+//		std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
+//	}
+//
+//	std::cout << "END OF PROGRAM" << std::endl;
+//	}
+//	catch(Exception &e)
+//	{
+//		std::cerr << e.what() << std::endl;
+//	}
 
-	std::string input = "zzzz";
-	if (lrp.parse(input)) {
-		std::cout << "Inputstring \"" << input << "\" has been accepted!" << std::endl;
-	}
-	else {
-		std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
-	}
-
-	std::cout << "END OF PROGRAM" << std::endl;
-	}
-	catch(Exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-//	::testing::InitGoogleTest(&argc, argv);
-//	return RUN_ALL_TESTS();
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 
 	/*
 	//CFG grammar("XML-Files/LR1-1.xml");
