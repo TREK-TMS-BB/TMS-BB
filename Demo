@@ -2,9 +2,17 @@
 
 if [ "$1" == "--CYK" ]
 then
-  cp ./Demos/CYKDemo CYKDemo
-  ./CYKDemo
-  rm CYKDemo
+    if [ "$2" == "" ]
+    then 
+        cp ./Demos/CYKDemo CYKDemo
+        ./CYKDemo
+        rm CYKDemo
+    else
+        cp ./Demos/CYK_TERM_INPUT CYK_TERM_INPUT
+        ./CYK_TERM_INPUT "$2" "$3"
+        rm CYK_TERM_INPUT
+    fi
+        
   
 elif [ "$1" == "--TM" ]
 then 

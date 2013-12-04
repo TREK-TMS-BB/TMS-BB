@@ -67,7 +67,7 @@ public:
 	std::vector<std::string> at(unsigned int i, unsigned int j) const;
 	virtual ~CYKTable();
 
-	friend std::ostream& operator<<(std::ostream& out, CYKTable& c);
+	friend std::ostream& operator<<(std::ostream& out, const CYKTable& c);
 
 	std::map<std::string, std::vector<std::string> > getRules() const;
 	std::string getStartSymbol() const;

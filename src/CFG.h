@@ -150,6 +150,8 @@ public:
 	 * returns true if given string has already been checked;
 	 */
 	bool already_checked(std::string w);
+
+	const CYKTable& getCYK() const;
 protected:
 
 	CYKTable cyk_;	//! used to check if given string is in CFG

@@ -26,6 +26,9 @@ CYKTable::~CYKTable() {
 
 bool CYKTable::operator() (std::string w)
 {
+	if (w.size() == 0){
+		w = " ";
+	}
 	createTable(w);
 	std::vector<std::string> top = this->at(1, w.size());
 	for (int i = 0; i < top.size(); i++)
@@ -38,7 +41,7 @@ bool CYKTable::operator() (std::string w)
 	return false;
 }
 
-std::ostream& operator<<(std::ostream& out, CYKTable& c) {
+std::ostream& operator<<(std::ostream& out, const CYKTable& c) {
 	for (int row = c.table_.size()-1; row >= 0; row--)
 	{
 		for (int collumn = 0; collumn < c.table_.at(row).size(); collumn++)

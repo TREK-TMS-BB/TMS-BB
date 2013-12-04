@@ -317,6 +317,10 @@ bool CNF_CFG::already_checked(std::string w) {
 	return false;
 }
 
+const CYKTable& CNF_CFG::getCYK() const {
+	return cyk_;
+}
+
 std::ostream& operator<< (std::ostream& out, CFG& c) {
 	out << "variables: " << std::endl;
 	out << "{ " << c.variables_.at(0);
