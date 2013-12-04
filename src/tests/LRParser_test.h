@@ -27,8 +27,6 @@ namespace tests {
 	};
 
 	TEST_F(LRParserTest, LRParser_ConstructorTest) {
-		//LRParser()
-		//LRParser l();
 		EXPECT_TRUE(lrp.getCounter() == 0);
 		EXPECT_TRUE(lrp.getStack().size() == 0);
 
@@ -43,6 +41,20 @@ namespace tests {
 		parser::LRParser d(p);
 		EXPECT_TRUE(lrp.getCounter() == 0);
 		EXPECT_TRUE(lrp.getStack().size() == 0);
+
+		//LRParser(CFG)
+		Grammar::CFG f("XML-Files/LR1-2.xml");
+		parser::LRParser g(f, "XML-Files/LR1-2-ptable.xml");
+		EXPECT_TRUE(lrp.getCounter() == 0);
+		EXPECT_TRUE(lrp.getStack().size() == 0);
+
+		//LRParser(ParseTable)
+		parser::ParseTable h(f, "XML-Files/LR1-2-ptable.xml");
+		parser::LRParser i(h);
+		EXPECT_TRUE(lrp.getCounter() == 0);
+		EXPECT_TRUE(lrp.getStack().size() == 0);
+
+
 	}
 
 	TEST_F(LRParserTest, LRParser_test) {
@@ -76,6 +88,35 @@ namespace tests {
 		ASSERT_DEATH(t.parse("1234"), "");
 		ASSERT_DEATH(t.parse("abz"), "");
 		ASSERT_DEATH(t.parse("xYyz"), "");
+
+		// Set up correct LRParser
+		Grammar::CFG c2("XML-Files/LR1-2.xml");
+		parser::LRParser t2(c2, "XML-Files/LR1-2-ptable.xml");
+
+		// Test correct input
+		accepted = t2.parse("zzzz");
+		EXPECT_TRUE(accepted);
+		accepted = t2.parse("zazabzbz");
+		EXPECT_TRUE(accepted);
+		accepted = t2.parse("zazazz");
+		EXPECT_TRUE(accepted);
+
+		// Test wrong input
+		accepted = t2.parse("zz");
+		EXPECT_FALSE(accepted);
+		accepted = t2.parse("zzbzzzb");
+		EXPECT_FALSE(accepted);
+		accepted = t2.parse("zbzzbzbzbzbzzza");
+		EXPECT_FALSE(accepted);
+
+		 //Test bad input
+		accepted = t2.parse("zzbzzzM");
+		EXPECT_FALSE(accepted);
+		accepted = t2.parse("zzaaaaaaaaaaaabz");
+		EXPECT_FALSE(accepted);
+		ASSERT_DEATH(t2.parse("1234"), "");
+		ASSERT_DEATH(t2.parse("rabrzr"), "");
+		ASSERT_DEATH(t2.parse("xYyz"), "");
 	}
 }
 

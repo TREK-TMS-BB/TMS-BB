@@ -56,6 +56,30 @@ namespace tests {
 
 		// Some wrong input
 		ASSERT_DEATH(pt(15, "droog"), "");
+
+		// Test with another CFG/ParseTable.
+		Grammar::CFG cfg2("XML-Files/LR1-2.xml");
+		ParseTable pt2(cfg2, "XML-Files/LR1-2-ptable.xml");
+
+		output = pt2(14, "EOS");
+		EXPECT_TRUE(output.first == parser::accept);
+		EXPECT_TRUE(output.second == "accept");
+
+		output = pt2(4, "N");
+		EXPECT_TRUE(output.first == parser::jump);
+		EXPECT_TRUE(output.second == "6");
+
+		output = pt2(11, "EOS");
+		EXPECT_TRUE(output.first == parser::reduction);
+		EXPECT_TRUE(output.second == "SzMNz");
+
+		output = pt2(13, "z");
+		EXPECT_TRUE(output.first == parser::reduction);
+		EXPECT_TRUE(output.second == "NbNb");
+
+		output = pt2(3, "a");
+		EXPECT_TRUE(output.first == parser::shift);
+		EXPECT_TRUE(output.second == "3");
 	}
 }
 
