@@ -8,7 +8,7 @@
 #include "Exception.h"
 
 Exception::Exception() {
-	text_ = "exception thrown without parameters";
+	text_ = "An exception without any info has been thrown.";
 }
 Exception::Exception(std::string s) {
 	text_ = s;
