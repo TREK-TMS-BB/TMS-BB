@@ -32,14 +32,13 @@ int main() {
 	parser::TMParser test2("TM-Files/faultyExample.tm");
 	std::cout << test2 << std::endl;*/
 
-	TM::TuringMachine t("TM-Files/example3.tm");
+	TM::TuringMachine t("TM-Files/incr.tm");
 	std::cout << t << std::endl;
 
 	std::vector<TM::TapeSymbol> temp;
-	temp.push_back(TM::TapeSymbol(0));
-	temp.push_back(TM::TapeSymbol(0));
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(1));
+	temp.push_back(TM::TapeSymbol(0));
 
 	try {
 		t.simulate(temp);
