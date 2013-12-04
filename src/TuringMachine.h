@@ -35,8 +35,12 @@ public:
 	 */
 	void simulate(std::vector<TapeSymbol> input);
 
+
 	//! function printing the tape and the productions
 	friend std::ostream& operator<< (std::ostream& out, TuringMachine& tm);
+
+	//! A function returning the data on the tape (ie from 1st nonBlank symbol to last nonBlank symbol)
+	std::vector<TapeSymbol> getOutput() const;
 
 
 	//! Default destructor
@@ -63,6 +67,9 @@ private:
 	 * reads a symbol, writes, moves
 	 */
 	void simulateCycle();
+
+	//! A function setting the tape to 100 blanks
+	void resetTape();
 
 	Tape::iterator head_;					//! the head of the turing machine moving over the tape
 	Tape tape_;								//! tape of the turing machine

@@ -42,10 +42,12 @@ int main() {
 
 	try {
 		t.simulate(temp);
+		t.simulate(t.getOutput());
 	}
 	catch (Exception& e) {
 		std::cout << e.what() << std::endl;
 	}
+
 
 	std::cout << t << std::endl;
 

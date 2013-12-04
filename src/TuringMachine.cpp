@@ -37,6 +37,9 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 
 
 	// TODO check input for bad symbols
+	resetTape();
+	curState_ = states_.at(0);
+	head_ = tape_.begin();
 	int temp = input.size();
 
 	if (input.size() > tape_.size()) {
@@ -58,7 +61,8 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 			break;
 		}
 		else if (curState_ == "error") {
-			throw(Exception("SIMULATION CAME IN ERROR STATE, SIMULATION STOPPED"));
+			std::string error = "SIMULATION CAME IN ERROR STATE, SIMULATION STOPPED: IN STATE " + curState_;
+			throw(Exception(error));
 		}
 	}
 
@@ -126,6 +130,31 @@ std::ostream& operator<< (std::ostream& out, TuringMachine& tm) {
 	return out;
 }
 
+std::vector<TapeSymbol> TuringMachine::getOutput() const {
+
+	int placeNonBlank = -1; // the place of the 1st nonBlank
+	int placeBlank = -1; // The place where the first blank of the remaining blanks stands
+
+	for (int i = 0; i < tape_.size(); i++) {
+		if ((placeBlank == -1) && (tape_.at(i).isBlank())) {
+			placeBlank = i;
+		}
+		else if (!tape_.at(i).isBlank()) {
+			placeBlank = -1;
+			if (placeNonBlank == -1) {
+				placeNonBlank = i;
+			}
+		}
+	}
+	std::vector<TapeSymbol> ret;
+
+	for (int j = placeNonBlank; j < placeBlank; j++) {
+		ret.push_back(tape_.at(j));
+	}
+
+	return ret;
+}
+
 
 TapeSymbol TuringMachine::getHead() const {
 	return *head_;
@@ -137,6 +166,7 @@ void TuringMachine::writeHead(TapeSymbol input) {
 
 void TuringMachine::simulateCycle() {
 	bool correct = false;
+
 
 	for(auto c : productions_) {
 		if (std::get<0>(c) == curState_) {
@@ -163,7 +193,13 @@ void TuringMachine::simulateCycle() {
 		}
 	}
 	if (!correct) {
+		std::cout << "CurState = " << curState_ << std::endl;
 			curState_ = "error";
 	}
+}
+
+void TuringMachine::resetTape() {
+	tape_.clear();
+	tape_ = Tape(100,TapeSymbol());
 }
 } /* namespace TM */

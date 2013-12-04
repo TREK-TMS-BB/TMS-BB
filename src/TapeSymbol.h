@@ -25,6 +25,8 @@ public:
 	TapeSymbol(std::string c);
 	//! Assignment operator
 	TapeSymbol& operator=(const TapeSymbol& ts) ;
+	//! A function checking if this is a blank
+	bool isBlank() const;
 	//! Comparison operator
 	friend bool operator==(TapeSymbol t, TapeSymbol ts) ;
 	//! output operator

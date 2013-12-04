@@ -26,6 +26,10 @@ TapeSymbol& TapeSymbol::operator=(const TapeSymbol& ts) {
 	return *this;
 }
 
+bool TapeSymbol::isBlank() const {
+	return (select_ == blank);
+}
+
 bool operator==(TapeSymbol t, TapeSymbol ts) {
 	if (t.select_ != ts.select_) {
 		return false;
