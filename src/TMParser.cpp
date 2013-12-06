@@ -25,6 +25,7 @@ TMParser::TMParser(std::string file) {
 				if (found != std::string::npos) {
 					// We found the States.
 					this->parseStates(line, found);
+					continue;
 				}
 
 				// Check for Initial Input.
@@ -32,6 +33,7 @@ TMParser::TMParser(std::string file) {
 				if (found != std::string::npos) {
 					// We found the initInput.
 					this->parseInitInput(line, found);
+					continue;
 				}
 
 				// Check for Productions
@@ -39,9 +41,14 @@ TMParser::TMParser(std::string file) {
 				if (found != std::string::npos) {
 //					// We found the productions.
 					getline(fs, line);
-					while(line.at(0) != '}') {
-						this->parseProduction(line);
-						getline(fs, line);
+					while(line == "" || line.at(0) != '}') {
+						if (line == "") {
+							getline(fs, line);
+						}
+						else {
+							this->parseProduction(line);
+							getline(fs, line);
+						}
 					}
 				}
 			}

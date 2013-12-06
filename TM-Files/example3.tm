@@ -8,6 +8,7 @@ PRODUCTIONS {
 1 0 0 r 1 ;			# B stands for the blank on the tape
 1 1 Y l 2 ;
 1 Y Y r 1 ;
+
 2 0 0 l 2 ;
 2 X X r 0 ;
 2 Y Y l 2 ;
