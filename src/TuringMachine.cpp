@@ -74,7 +74,7 @@ void TuringMachine::move(Direction dir) {
 	case left:
 		if (head_ == tape_.begin()) {
 			// have to add new item up front
-			tape_.insert(tape_.begin(), (TapeSymbol)'B');
+			tape_.insert(tape_.begin(), TapeSymbol());
 			head_=tape_.begin();
 		}
 		else {
@@ -84,7 +84,7 @@ void TuringMachine::move(Direction dir) {
 	case right:
 		if (head_ == tape_.end()-1) {
 			// have to pushBack new item
-			tape_.push_back((TapeSymbol)'B');
+			tape_.push_back(TapeSymbol());
 			head_= tape_.end()-1;
 		}
 		else {

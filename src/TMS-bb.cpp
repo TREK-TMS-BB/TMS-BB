@@ -48,7 +48,7 @@ int main( int argc, char* argv[]) {
 	/*
 	 * KRISTOF PHASE 1
 	 */
-
+	/*
 	if (argc != 4) {
 		std::cout << "Usage: ./*program-name* *CFG-file* *ParseTable file* *input string*" << std::endl;
 		return 0;
@@ -74,7 +74,7 @@ int main( int argc, char* argv[]) {
 		}
 	}
 
-	/*
+
 	std::map<std::string, std::vector<std::string> > rules;
 	std::vector<std::string> temp;
 	temp.push_back("a");
@@ -84,7 +84,8 @@ int main( int argc, char* argv[]) {
 	rules["D"].push_back("AA");
 	Grammar::CYKTable c( rules, "C");
 	std::cout << c("aaa") << std::endl;
-	std::cout << c << std::endl;*/
+	std::cout << c << std::endl;
+	*/
 
 	/*parser::TMParser test("TM-Files/Example.tm");
 	std::cout << test << std::endl << std::endl;
@@ -92,8 +93,8 @@ int main( int argc, char* argv[]) {
 	parser::TMParser test2("TM-Files/faultyExample.tm");
 	std::cout << test2 << std::endl;*/
 
-	/*
-	TM::TuringMachine t("TM-Files/incr.tm");
+
+	TM::TuringMachine t("TM-Files/clear.tm");
 	std::cout << t << std::endl;
 
 	std::vector<TM::TapeSymbol> temp;
@@ -103,7 +104,7 @@ int main( int argc, char* argv[]) {
 
 	try {
 		t.simulate(temp);
-		t.simulate(t.getOutput());
+		//t.simulate(t.getOutput());
 	}
 	catch (Exception& e) {
 		std::cout << e.what() << std::endl;
@@ -113,7 +114,7 @@ int main( int argc, char* argv[]) {
 	std::cout << t << std::endl;
 
 	std::cout << "program finished"	 << std::endl;
-	*/
+
 
 
 
