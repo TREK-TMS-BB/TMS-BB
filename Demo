@@ -20,6 +20,13 @@ then
   ./TuringMachineDemo
   rm TuringMachineDemo
   
+elif [ "$1" == "--LRParser" ]
+ then 
+ 	cp ./Demos/LRParserDemo LRParserDemo
+ 	./LRParserDemo "$2" "$3" "$4"
+ 	rm LRParserDemo
+
+  
 elif [ "$1" == "--TMParser" ]
 then 
   cp ./Demos/TMParserDemo1 TMParserDemo1
