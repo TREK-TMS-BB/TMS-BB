@@ -40,6 +40,7 @@ public:
 	//! Parses the given input string and returns true if it is valid, false if it is invalid.
 	/**
 	 * @param input input string that will be tested.
+	 * @return Returns true if the input string was accepted. False if it wasn't.
 	 */
 	bool parse(std::string);
 

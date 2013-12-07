@@ -12,27 +12,61 @@
 #include "Parser.h"
 #include "TMParser.h"
 #include "TuringMachine.h"
+#include "LRParser.h"
+
 
 int main( int argc, char* argv[]) {
 
-	if (argc != 3) {
-		std::cout << "Please specify 1 file to use and a string to test" << std::endl;
+	/*
+	 * ROBIN PHASE 1
+	 */
+//	if (argc != 3) {
+//		std::cout << "Please specify 1 file to use and a string to test" << std::endl;
+//		return 0;
+//	}
+//	else {
+//		try {
+//		Grammar::CNF_CFG cnf(argv[1]);
+//		bool answer = cnf.check_string(argv[2]);
+//
+//		const Grammar::CYKTable cyk = cnf.getCYK();
+//		std::cout <<cyk<< std::endl;
+//
+//		if (answer) {
+//			std::cout << "String is in the Grammar" << std::endl;
+//		}
+//		else {
+//			std::cout << "String is not in the Grammar" << std::endl;
+//		}
+//		}
+//		catch (Exception &e) {
+//			std::cout << e.what() << std::endl;
+//			return 0;
+//		}
+//	}
+
+	/*
+	 * KRISTOF PHASE 1
+	 */
+
+	if (argc != 4) {
+		std::cout << "Usage: ./*program-name* *CFG-file* *ParseTable file* *input string*" << std::endl;
 		return 0;
 	}
 	else {
 		try {
-		Grammar::CNF_CFG cnf(argv[1]);
-		bool answer = cnf.check_string(argv[2]);
+			std::cout << "--- Program: Kristof's LR1Parser ---" << std::endl << std::endl;
 
-		const Grammar::CYKTable cyk = cnf.getCYK();
-		std::cout <<cyk<< std::endl;
+			Grammar::CFG grammar(argv[1]);
+			parser::LRParser lrp(grammar, argv[2]);
 
-		if (answer) {
-			std::cout << "String is in the Grammar" << std::endl;
-		}
-		else {
-			std::cout << "String is not in the Grammar" << std::endl;
-		}
+			std::string input = argv[3];
+			if (lrp.parse(input)) {
+				std::cout << "Inputstring \"" << input << "\" has been accepted!" << std::endl;
+			}
+			else {
+				std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
+			}
 		}
 		catch (Exception &e) {
 			std::cout << e.what() << std::endl;

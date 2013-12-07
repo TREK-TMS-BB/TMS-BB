@@ -14,7 +14,6 @@ ParseTable::ParseTable()
 {}
 
 ParseTable::ParseTable(Grammar::CFG grammar, std::string ptableXML) {
-	// Not final yet. This is the hardcoded construction of LR1-1's parsetable.
 
 	std::vector<std::vector<std::string> > p_table;
 	std::vector<std::string> row0;
