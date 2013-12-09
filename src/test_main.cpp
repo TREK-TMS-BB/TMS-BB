@@ -113,6 +113,7 @@ int main(int argc, char **argv) {
 	//PDA::PDA pda(&grammar);
 	//std::cout << pda.containsString("xxx") << std::endl;
 
+	/*
 	parser::TMParser test("TM-Files/Example.tm");
 	std::cout << test << std::endl << std::endl;
 
@@ -137,7 +138,74 @@ int main(int argc, char **argv) {
 
 	std::cout << t << std::endl;
 
-	std::cout << "program finished"	 << std::endl;
+	std::cout << "program finished"	 << std::endl; */
+
+	// =====================================
+	// 			PDA DEMO CHANGETYPE
+	// =====================================
+	/*
+	std::cout << "=================" << std::endl;
+	std::cout << "RUNNING TYPE DEMO" << std::endl;
+	std::cout << "=================" << std::endl << std::endl;
+
+	try {
+		CFG Grammar(argv[1]);
+		PDA::PDA pda(&Grammar);
+		std::cout << "- SETUP PDA FROM CFG FILE: " << argv[1] << std::endl;
+
+		pda.toLaTeX("./LaTeX/stackAcceptance1.tex");
+		std::cout << "- CURRENT PDA PRINTED TO LaTeX: ./LaTeX/stackAcceptance1.tex" << std::endl;
+		pda.toFinalStateAcceptance();
+		std::cout << "- CHANGED TO FINAL STATE ACCEPTANCE." << std::endl;
+		pda.toLaTeX("./LaTeX/stateAcceptance.tex");
+		std::cout << "- CURRENT PDA PRINTED TO LaTeX: ./LaTeX/stateAcceptance.tex" << std::endl;
+		pda.toEmptyStackAcceptance();
+		std::cout << "- CHANGED TO EMPTY STACK ACCEPTANCE." << std::endl;
+		pda.toLaTeX("./LaTeX/stackAcceptance2.tex");
+		std::cout << "- CURRENT PDA PRINTED TO LaTeX: ./LaTeX/stackAcceptance2.tex" << std::endl;
+
+		std::cout << std::endl << "========================" << std::endl;
+		std::cout << "PROGRAM FINISHED RUNNING" << std::endl;
+		std::cout << "========================" << std::endl;
+	}
+
+	catch (Exception& e) {
+		std::cout << e.what() << std::endl;
+	} */
+
+	// =====================================
+	//		  PDA DEMO CONTAINSSTRING
+	// =====================================
+
+	std::cout << "===================" << std::endl;
+	std::cout << "RUNNING STRING DEMO" << std::endl;
+	std::cout << "===================" << std::endl << std::endl;
+
+	try {
+		CFG Grammar(argv[1]);
+		PDA::PDA pda(&Grammar);
+		std::cout << "- SETUP PDA FROM CFG FILE: " << argv[1] << std::endl;
+
+		bool contains = pda.containsString(argv[2]);
+		std::cout << "- TESTING WHETHER STRING \"" << argv[2] << "\" IS ACCEPTED." << std::endl;
+		if (contains) {
+			std::cout << "\tThe PDA accepts the string \"" << argv[2] << "\"." << std::endl;
+		}
+		else {
+			std::cout << "\tThe PDA does not accept the string \"" << argv[2] << "\"." << std::endl;
+		}
+
+		std::cout << std::endl << "========================" << std::endl;
+		std::cout << "PROGRAM FINISHED RUNNING" << std::endl;
+		std::cout << "========================" << std::endl;
+	}
+
+	catch (Exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+
+
+
 
 }
 

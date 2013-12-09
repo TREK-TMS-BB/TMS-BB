@@ -37,6 +37,29 @@ then
   rm TMParserDemo1
   rm TMParserDemo2
   
+ elif [ "$1" == "--PDA" ]
+ then
+ 	cp ./Demos/PDAStringDemo PDAStringDemo
+ 	cp ./Demos/PDATypeDemo PDATypeDemo
+ 	if [ "$2" == "--type" ]
+ 	then
+ 		if [ "$3" == "" ]
+ 		then
+ 			./PDATypeDemo "./XML-Files/LR1-1.xml"
+ 		else
+ 			./PDATypeDemo "$3"
+ 		fi
+ 	elif [ "$2" == "--string" ]
+ 	then
+		./PDAStringDemo "$3" "$4"
+ 	else
+ 		echo "Please provide an option [type/string] for the PDADemo."
+ 	fi
+ 	rm PDAStringDemo
+ 	rm PDATypeDemo
+ 	
+ 
+  
 else 
   echo " invalid option"
 fi
