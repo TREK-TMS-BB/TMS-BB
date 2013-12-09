@@ -38,7 +38,54 @@ CFG::CFG(CFG& copy)
 }
 
 void CFG::toCNF(){
-	 //TODO: @Erkki: Transform given function to CNF
+	/*
+	 * add a variable for every terminal
+	 */
+	std::map<std::string, std::vector<std::string> >::iterator it;
+	for (unsigned int i = 0; i< terminals_.size(); i++){
+		variables_.push_back(utilities::lowToUp(terminals_[i]));
+		for (it = rules_.begin(); it != rules_.end(); it++){
+			for (unsigned int e = 0; e < it->second.size(); e++){
+				it->second[e] = utilities::replacestring(it->second[e], terminals_[i],
+						utilities::lowToUp(terminals_[i]));
+			}
+		}
+
+	}
+	/*
+	 * now we need to eleminate all replacement rules; greater then 3;
+	 */
+	std::map<std::string, std::vector<std::string> > newmap;
+	std::string newvar = "A";
+	for (it = rules_.begin(); it != rules_.end(); it++){
+		for (unsigned int t = 0; t < it->second.size(); t++){
+			if (it->second[t].size() <= 2){
+				newmap[it->first].push_back(it->second[t]);
+			}
+			else if(it->second[t].length() > 2){
+				std::string ruler = it->second[t];
+				std::string firstvar = it->first;
+				while (ruler.length() > 2){
+					bool invar = true;
+					while(invar){
+						invar = false;
+						for (unsigned int r; r < variables_.size(); r++){
+							if(variables_[r] == newvar){
+								newvar = utilities::nextstring(newvar);
+								invar = true;
+							}
+						}
+					}
+					std::string back = ruler.substr(0,1) + newvar;
+					newmap[firstvar].push_back(back);
+					ruler = ruler.substr(1);
+					firstvar = newvar;
+					variables_.push_back(firstvar);
+				}
+			}
+		}
+	}
+	rules_ = newmap;
 }
 std::vector<std::string> CFG::getVariables() const {
 	return variables_;
@@ -363,7 +410,7 @@ std::ostream& operator<< (std::ostream& out, CFG& c) {
 	{
 		out << *s_it;
 	}
-	out << std::endl;
+	out  << std::endl;
 	std::map< std::string, std::vector<std::string> >::iterator it = c.rules_.begin();
 	it++;
 	for ( it ; it != c.rules_.end(); ++it)

@@ -13,6 +13,10 @@
 #include "Parser.h"
 #include "Exception.h"
 #include <sstream>
+#include <algorithm>
+#include <stdio.h>
+#include <ctype.h>
+#include "utilities.h"
 
 #ifndef CFG_H_
 #define CFG_H_
