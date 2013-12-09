@@ -176,8 +176,7 @@ int main(int argc, char **argv) {
 	// =====================================
 	//		  PDA DEMO CONTAINSSTRING
 	// =====================================
-
-	std::cout << "===================" << std::endl;
+/*	std::cout << "===================" << std::endl;
 	std::cout << "RUNNING STRING DEMO" << std::endl;
 	std::cout << "===================" << std::endl << std::endl;
 
@@ -203,7 +202,32 @@ int main(int argc, char **argv) {
 	catch (Exception& e) {
 		std::cout << e.what() << std::endl;
 	}
-
+*/
+	std::cout << "===================" << std::endl;
+	std::cout << "RUNNING toCNF DEMO" << std::endl;
+	std::cout << "===================" << std::endl << std::endl;
+	std::vector<std::string> v;
+	v.push_back("A");
+	v.push_back("B");
+	v.push_back("C");
+	std::vector<std::string> t;
+	t.push_back("x");
+	t.push_back("y");
+	std::map<std::string, std::vector<std::string> > r;
+	r["A"].push_back("BxCBy");
+	r["A"].push_back("ByCx");
+	r["B"].push_back("xCxx");
+	r["C"].push_back("yxy");
+	CFG testcfg2(v, t, r, "A" );
+	std::cout << "Original cfg:" << std::endl;
+	std::cout << testcfg2 << std::endl;
+	testcfg2.toCNF();
+	std::cout << "Cfg nu in CNF:" << std::endl;
+	std::cout << testcfg2 << std::endl;
+	CFG testcfg("./XML-Files/cfg.xml");
+	testcfg.toCNF();
+	std::cout << "CNF: from input file cfg.xml" << std::endl;
+	std::cout << testcfg;
 
 
 
