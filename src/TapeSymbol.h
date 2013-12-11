@@ -30,7 +30,7 @@ public:
 	//! Comparison operator
 	friend bool operator==(TapeSymbol t, TapeSymbol ts) ;
 	//! output operator
-	friend std::ostream& operator<< (std::ostream& out, TapeSymbol& ts);
+	friend std::ostream& operator<< (std::ostream& out, const TapeSymbol& ts);
 
 private:
 	unsigned int integer_;		//! integer value;

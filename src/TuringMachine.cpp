@@ -18,7 +18,6 @@ TuringMachine::TuringMachine() {
 TuringMachine::TuringMachine(std::string filename) {
 	parser::TMParser tmp(filename) ;
 	std::cout << "parsed file" << std::endl;
-	std::cout << tmp.getStates().size()<< std::endl;
 	for (int i = 0; i < tmp.getStates().size();i++) {
 		states_.push_back(tmp.getStates().at(i));
 	}
@@ -184,7 +183,7 @@ void TuringMachine::simulateCycle() {
 
 	for(auto c : productions_) {
 		if (std::get<0>(c) == curState_) {
-			if ((std::get<1>(c) == TM::TapeSymbol(getHead())))  {
+			if ((std::get<1>(c) == getHead()))  {
 			// Found correct transition:
 			writeHead(std::get<2>(c));
 			move(std::get<3>(c));
@@ -208,7 +207,7 @@ void TuringMachine::simulateCycle() {
 	}
 	if (!correct) {
 		std::cout << "CurState = " << curState_ << std::endl;
-			curState_ = "error";
+		curState_ = "error";
 	}
 }
 

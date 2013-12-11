@@ -44,7 +44,7 @@ bool operator==(TapeSymbol t, TapeSymbol ts) {
 	}
 }
 
-std::ostream& operator<< (std::ostream& out, TapeSymbol& ts) {
+std::ostream& operator<< (std::ostream& out, const TapeSymbol& ts) {
 	switch(ts.select_) {
 	case integer:
 		out<<ts.integer_;

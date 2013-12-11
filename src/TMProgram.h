@@ -19,10 +19,17 @@ public:
 	TMProgram();
 	TMProgram(std::string filename);
 	virtual ~TMProgram();
+	std::string getStart();
+	friend std::ostream& operator<<(std::ostream& out,const TMProgram &p);
+	friend void renameStates(std::string, std::string);
+	friend void linkFiles(std::string, std::string, std::string);
+	friend void linkFiles(std::vector<std::string>, std::string);
+private:
 	//! a function renaming the states to filename_stateName
 	void renameStates();
-	friend std::ostream& operator<<(std::ostream& out,const TMProgram &p);
-private:
+	//! a function linking the program to the next (expecting all names of states to be different)
+	void linkWith(const TMProgram& prog);
+
 	std::string filename_;					//! the name of the file the program came from
 	std::vector<StateName> states_;			//! vector containing all states
 	std::vector<Production> productions_;	//! vector with all productions

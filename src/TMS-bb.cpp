@@ -15,7 +15,7 @@
 #include "TuringMachine.h"
 #include "LRParser.h"
 #include "PDA.h"
-#include "TMProgram.h"
+#include "LinkTM.h"
 
 
 int main( int argc, char* argv[]) {
@@ -99,21 +99,28 @@ int main( int argc, char* argv[]) {
 	//
 	// TM use for development
 
-	TM::TMProgram t("TM-Files/clear.tm");
-	TM::TuringMachine s("TM-Files/incr2.tm");
-	TM::TuringMachine r("TM-Files/decr.tm");
+	/*TM::TMProgram t("TM-Files/clear.tm");
+	*/
 
-	t.renameStates();
+	//t.renameStates();
+
+	//TM::renameStates("TM-Files/clear.tm", "TM-Files/clearRen.tm");
+
+	TM::linkFiles("TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/test.tm" );
+
+	TM::TuringMachine t("TM-Files/test.tm");
+
+
 	std::cout << t << std::endl;
-	/*std::vector<TM::TapeSymbol> temp;
-	temp.push_back(TM::TapeSymbol(0));
+	std::vector<TM::TapeSymbol> temp;
 	temp.push_back(TM::TapeSymbol(1));
+	temp.push_back(TM::TapeSymbol(0));
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(0));
 
 	try {
-		s.simulate(temp);
+		t.simulate(temp);
 		//t.simulate(t.getOutput());
 	}
 	catch (Exception& e) {
@@ -121,7 +128,7 @@ int main( int argc, char* argv[]) {
 	}
 
 
-	std::cout << s << std::endl;*/
+	std::cout << t << std::endl;
 
 	std::cout << "program finished"	 << std::endl;
 

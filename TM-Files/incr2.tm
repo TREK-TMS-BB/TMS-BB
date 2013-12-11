@@ -1,6 +1,6 @@
 INITIAL_INPUT=0
 
-STATES = {gotoVar_0, gotoVar_halt, incr_0, incr_1, incr_2, incr_halt, gotoStart_0, gotoStart_halt} 	# you dont have to mention halt
+STATES = {gotoVar_0, gotoVar_halt, incr_0, incr_1, incr_2, incr_halt, gotoStart_0, gotoStart_halt, halt} 	
 
 PRODUCTIONS {
 gotoVar_0 1 1 r gotoVar_0 ;

@@ -91,6 +91,9 @@ void TMParser::parseProduction(std::string line) {
 		if (*it2  == 'B') {
 			readSymbol = TM::TapeSymbol();
 		}
+		else if (*it2 == '_') {
+			readSymbol = TM::TapeSymbol();
+		}
 		else if (isdigit(*it2)) {
 			readSymbol = TM::TapeSymbol(*it2-'0');
 		}
@@ -104,6 +107,9 @@ void TMParser::parseProduction(std::string line) {
 
 		// Read our write symbol.
 		if (*it2  == 'B') {
+			writeSymbol = TM::TapeSymbol();
+		}
+		else if (*it2 == '_') {
 			writeSymbol = TM::TapeSymbol();
 		}
 		else if (isdigit(*it2)) {
@@ -147,7 +153,6 @@ void TMParser::parseProduction(std::string line) {
 		}
 
 		TM::Production production(curState, readSymbol, writeSymbol, move, newState);
-
 		productions_.push_back(production);
 	}
 	catch (Exception& e) {

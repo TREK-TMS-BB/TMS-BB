@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <vector>
+#include "TMProgram.h"
 
 namespace TM {
 
@@ -18,7 +19,7 @@ namespace TM {
  * @param file: the name of the TM file where the variables have to be renamed
  * @param output: the name of the output file
  */
-void renameVariables(std::string file, std::string output);
+void renameStates(std::string file, std::string output);
 
 //! A function linking 2 files into output
 /**
