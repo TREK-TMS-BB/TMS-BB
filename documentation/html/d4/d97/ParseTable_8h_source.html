@@ -99,34 +99,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="../../d6/d92/Information_8h.html">Information.h</a>&quot;</span>
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="../../d9/d25/CFG_8h.html">CFG.h</a>&quot;</span>
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="keyword">namespace </span>parser {
-<a name="l00022"></a>00022 
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/da9/PTableParser_8h.html">PTableParser.h</a>&quot;</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">namespace </span>parser {
 <a name="l00023"></a>00023 
-<a name="l00024"></a><a class="code" href="../../d6/d64/classparser_1_1ParseTable.html">00024</a> <span class="keyword">class </span><a class="code" href="../../d6/d64/classparser_1_1ParseTable.html">ParseTable</a> {
-<a name="l00025"></a>00025 <span class="keyword">public</span>:
-<a name="l00027"></a>00027         <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a00ed64dc142ed6ff9418bec52ae3db04" title="Default constructor. Our ParseTable will be empty as it has no CFG.">ParseTable</a>();
-<a name="l00028"></a>00028 
-<a name="l00030"></a>00030 
-<a name="l00033"></a>00033         <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a00ed64dc142ed6ff9418bec52ae3db04" title="Default constructor. Our ParseTable will be empty as it has no CFG.">ParseTable</a>(<a class="code" href="../../dd/dc1/classGrammar_1_1CFG.html">Grammar::CFG</a>);
-<a name="l00034"></a>00034 
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="../../d6/d64/classparser_1_1ParseTable.html">00025</a> <span class="keyword">class </span><a class="code" href="../../d6/d64/classparser_1_1ParseTable.html">ParseTable</a> {
+<a name="l00026"></a>00026 <span class="keyword">public</span>:
+<a name="l00028"></a>00028         <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a00ed64dc142ed6ff9418bec52ae3db04" title="Default constructor. Our ParseTable will be empty as it has no CFG.">ParseTable</a>();
+<a name="l00029"></a>00029 
+<a name="l00031"></a>00031 
+<a name="l00035"></a>00035         <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a00ed64dc142ed6ff9418bec52ae3db04" title="Default constructor. Our ParseTable will be empty as it has no CFG.">ParseTable</a>(<a class="code" href="../../dd/dc1/classGrammar_1_1CFG.html">Grammar::CFG</a>, std::string);
 <a name="l00036"></a>00036 
-<a name="l00041"></a>00041         std::pair&lt;EAction, std::string&gt; <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a26500ede234e76d28fcc6bef9198b71a" title="Returns the contents of the parse table (and what action should happen) depending on the input...">operator() </a>(<span class="keywordtype">int</span>, std::string) <span class="keyword">const</span>;
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043         <span class="keyword">virtual</span> <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a9879c15d87bea61cdfbf3e58151e57d3">~ParseTable</a>();
+<a name="l00038"></a>00038 
+<a name="l00043"></a>00043         std::pair&lt;EAction, std::string&gt; <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a26500ede234e76d28fcc6bef9198b71a" title="Returns the contents of the parse table (and what action should happen) depending on the input...">operator() </a>(<span class="keywordtype">int</span>, std::string) <span class="keyword">const</span>;
 <a name="l00044"></a>00044 
-<a name="l00045"></a>00045 <span class="keyword">private</span>:
-<a name="l00047"></a><a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a3dd2e7557544f4b8f55b2817b82992c4">00047</a>         std::vector&lt;std::vector&lt;std::string&gt; &gt; <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a3dd2e7557544f4b8f55b2817b82992c4" title="The actual parse table.">table</a>;
-<a name="l00048"></a>00048 
-<a name="l00050"></a><a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a5a5d69d3c668e67bf8805165797fca65">00050</a>         std::map&lt;std::string, int&gt; <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a5a5d69d3c668e67bf8805165797fca65" title="Maps column index and input string. This is a private method used to quickly find what column index y...">lookup</a>;
-<a name="l00051"></a>00051 
+<a name="l00045"></a>00045         <span class="keyword">virtual</span> <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a9879c15d87bea61cdfbf3e58151e57d3">~ParseTable</a>();
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 <span class="keyword">private</span>:
+<a name="l00049"></a><a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a3dd2e7557544f4b8f55b2817b82992c4">00049</a>         std::vector&lt;std::vector&lt;std::string&gt; &gt; <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a3dd2e7557544f4b8f55b2817b82992c4" title="The actual parse table.">table</a>;
+<a name="l00050"></a>00050 
+<a name="l00052"></a><a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a5a5d69d3c668e67bf8805165797fca65">00052</a>         std::map&lt;std::string, int&gt; <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#a5a5d69d3c668e67bf8805165797fca65" title="Maps column index and input string. This is a private method used to quickly find what column index y...">lookup</a>;
 <a name="l00053"></a>00053 
-<a name="l00057"></a>00057         std::pair&lt;EAction, std::string&gt; <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#aa82b236a735f2f0b9aff02273c9c96a8" title="Extracts info from input.">extractInfo</a>(std::string) <span class="keyword">const</span>;
-<a name="l00058"></a>00058 };
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 }
+<a name="l00055"></a>00055 
+<a name="l00059"></a>00059         std::pair&lt;EAction, std::string&gt; <a class="code" href="../../d6/d64/classparser_1_1ParseTable.html#aa82b236a735f2f0b9aff02273c9c96a8" title="Extracts info from input.">extractInfo</a>(std::string) <span class="keyword">const</span>;
+<a name="l00060"></a>00060 };
 <a name="l00061"></a>00061 
-<a name="l00062"></a>00062 <span class="preprocessor">#endif </span><span class="comment">/* PARSETABLE_H_ */</span>
+<a name="l00062"></a>00062 }
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="preprocessor">#endif </span><span class="comment">/* PARSETABLE_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -145,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 16:01:21 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 11 2013 10:44:46 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

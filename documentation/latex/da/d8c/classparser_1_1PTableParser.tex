@@ -1,0 +1,92 @@
+\hypertarget{classparser_1_1PTableParser}{\section{parser\-:\-:\-P\-Table\-Parser \-Class \-Reference}
+\label{da/d8c/classparser_1_1PTableParser}\index{parser\-::\-P\-Table\-Parser@{parser\-::\-P\-Table\-Parser}}
+}
+
+
+{\ttfamily \#include $<$\-P\-Table\-Parser.\-h$>$}
+
+\-Inheritance diagram for parser\-:\-:\-P\-Table\-Parser\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{da/d8c/classparser_1_1PTableParser}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classparser_1_1PTableParser_a983ee5c9e9867bfcf82f38e701d3c546}{\-P\-Table\-Parser} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classparser_1_1PTableParser_ae825bde72b66deb0ee4308ce3c7d100d}{$\sim$\-P\-Table\-Parser} ()
+\item 
+std\-::vector$<$ std\-::vector\*
+$<$ std\-::string $>$ $>$ \hyperlink{classparser_1_1PTableParser_a6efa9956575713877360af5cb41b2e86}{parse} (std\-::string, std\-::vector$<$ std\-::vector$<$ std\-::string $>$ $>$)
+\begin{DoxyCompactList}\small\item\em \-This parses the \-Parse \-Table \-X\-M\-L file and fills in the parse table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classparser_1_1PTableParser_ae20dc625548fbf58a387fa8dfee100ef}{parse\-Row} (\-Ti\-Xml\-Element $\ast$)
+\begin{DoxyCompactList}\small\item\em \-Parses one row of the \-X\-M\-L file and fills it in the table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::vector\*
+$<$ std\-::string $>$ $>$ \hyperlink{classparser_1_1PTableParser_a7190cd2dc71301c0164bbaacabf07942}{p\-Table\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classparser_1_1PTableParser_a983ee5c9e9867bfcf82f38e701d3c546}{\index{parser\-::\-P\-Table\-Parser@{parser\-::\-P\-Table\-Parser}!\-P\-Table\-Parser@{\-P\-Table\-Parser}}
+\index{\-P\-Table\-Parser@{\-P\-Table\-Parser}!parser::PTableParser@{parser\-::\-P\-Table\-Parser}}
+\subsubsection[{\-P\-Table\-Parser}]{\setlength{\rightskip}{0pt plus 5cm}{\bf parser\-::\-P\-Table\-Parser\-::\-P\-Table\-Parser} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{da/d8c/classparser_1_1PTableParser_a983ee5c9e9867bfcf82f38e701d3c546}
+
+
+\-Default constructor. 
+
+\hypertarget{classparser_1_1PTableParser_ae825bde72b66deb0ee4308ce3c7d100d}{\index{parser\-::\-P\-Table\-Parser@{parser\-::\-P\-Table\-Parser}!$\sim$\-P\-Table\-Parser@{$\sim$\-P\-Table\-Parser}}
+\index{$\sim$\-P\-Table\-Parser@{$\sim$\-P\-Table\-Parser}!parser::PTableParser@{parser\-::\-P\-Table\-Parser}}
+\subsubsection[{$\sim$\-P\-Table\-Parser}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf parser\-::\-P\-Table\-Parser\-::$\sim$\-P\-Table\-Parser} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{da/d8c/classparser_1_1PTableParser_ae825bde72b66deb0ee4308ce3c7d100d}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classparser_1_1PTableParser_a6efa9956575713877360af5cb41b2e86}{\index{parser\-::\-P\-Table\-Parser@{parser\-::\-P\-Table\-Parser}!parse@{parse}}
+\index{parse@{parse}!parser::PTableParser@{parser\-::\-P\-Table\-Parser}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::vector$<$std\-::string$>$ $>$ {\bf parser\-::\-P\-Table\-Parser\-::parse} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::vector$<$ std\-::vector$<$ std\-::string $>$ $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{da/d8c/classparser_1_1PTableParser_a6efa9956575713877360af5cb41b2e86}
+
+
+\-This parses the \-Parse \-Table \-X\-M\-L file and fills in the parse table. 
+
+\hypertarget{classparser_1_1PTableParser_ae20dc625548fbf58a387fa8dfee100ef}{\index{parser\-::\-P\-Table\-Parser@{parser\-::\-P\-Table\-Parser}!parse\-Row@{parse\-Row}}
+\index{parse\-Row@{parse\-Row}!parser::PTableParser@{parser\-::\-P\-Table\-Parser}}
+\subsubsection[{parse\-Row}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf parser\-::\-P\-Table\-Parser\-::parse\-Row} (
+\begin{DoxyParamCaption}
+\item[{\-Ti\-Xml\-Element $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{da/d8c/classparser_1_1PTableParser_ae20dc625548fbf58a387fa8dfee100ef}
+
+
+\-Parses one row of the \-X\-M\-L file and fills it in the table. 
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classparser_1_1PTableParser_a7190cd2dc71301c0164bbaacabf07942}{\index{parser\-::\-P\-Table\-Parser@{parser\-::\-P\-Table\-Parser}!p\-Table\-\_\-@{p\-Table\-\_\-}}
+\index{p\-Table\-\_\-@{p\-Table\-\_\-}!parser::PTableParser@{parser\-::\-P\-Table\-Parser}}
+\subsubsection[{p\-Table\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::vector$<$std\-::string$>$ $>$ {\bf parser\-::\-P\-Table\-Parser\-::p\-Table\-\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{da/d8c/classparser_1_1PTableParser_a7190cd2dc71301c0164bbaacabf07942}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{PTableParser_8h}{\-P\-Table\-Parser.\-h}\end{DoxyCompactItemize}

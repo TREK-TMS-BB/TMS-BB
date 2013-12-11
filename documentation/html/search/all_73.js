@@ -1,7 +1,9 @@
 var searchData=
 [
+  ['select_5f',['select_',['../d8/d62/classTM_1_1TapeSymbol.html#af84d020bd2a06906fc7bb461cf16fb14',1,'TM::TapeSymbol']]],
   ['shift',['shift',['../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedaa0b431997906e4d0c453d7ba0fe1c744',1,'parser']]],
-  ['simulate',['simulate',['../d7/d1f/classPDA_1_1State.html#af5d878651060daa40b2259531d1df111',1,'PDA::State::simulate()'],['../dd/d15/classTM_1_1TuringMachine.html#a72857c5669511dcfca719ddd6422e8f8',1,'TM::TuringMachine::simulate(std::vector&lt; TapeSymbol &gt; input)'],['../dd/d15/classTM_1_1TuringMachine.html#a37e46074a566b631bd71c24795872c50',1,'TM::TuringMachine::simulate()']]],
+  ['simulate',['simulate',['../d7/d1f/classPDA_1_1State.html#af5d878651060daa40b2259531d1df111',1,'PDA::State::simulate()'],['../dd/d15/classTM_1_1TuringMachine.html#a72857c5669511dcfca719ddd6422e8f8',1,'TM::TuringMachine::simulate()']]],
+  ['simulatecycle',['simulateCycle',['../dd/d15/classTM_1_1TuringMachine.html#a4b31360cb25c328eaef5c5a6aee484b2',1,'TM::TuringMachine']]],
   ['stack_5f',['stack_',['../d6/d50/classparser_1_1LRParser.html#a6e3689c510e91dbc51a2bee92bf760da',1,'parser::LRParser']]],
   ['stack_5falphabet',['stack_alphabet',['../d1/dc5/classPDA_1_1PDA.html#a90a4f96e28003d5bfa4d67b4c7a191b5',1,'PDA::PDA']]],
   ['start_5fstack',['start_stack',['../d1/dc5/classPDA_1_1PDA.html#a253c02338c616cd8e8882f71e2a5666f',1,'PDA::PDA']]],

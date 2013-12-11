@@ -4,6 +4,8 @@
 \subsection*{\-Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol}
+\item 
 class \hyperlink{classTM_1_1TuringMachine}{\-Turing\-Machine}
 \end{DoxyCompactItemize}
 \subsection*{\-Typedefs}
@@ -11,12 +13,10 @@ class \hyperlink{classTM_1_1TuringMachine}{\-Turing\-Machine}
 \item 
 typedef std\-::string \hyperlink{namespaceTM_a852554502c474841ede5736b807839ff}{\-State\-Name}
 \item 
-typedef unsigned char \hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol}
-\item 
-typedef std\-::vector$<$ \hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol} $>$ \hyperlink{namespaceTM_a20b31cfe7d86b00db299e72ad48f70af}{\-Tape}
+typedef std\-::vector$<$ \hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol} $>$ \hyperlink{namespaceTM_a20b31cfe7d86b00db299e72ad48f70af}{\-Tape}
 \item 
 typedef std\-::tuple$<$ \hyperlink{namespaceTM_a852554502c474841ede5736b807839ff}{\-State\-Name}, \*
-\hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol}, \hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol}, \*
+\hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol}, \hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol}, \*
 \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792d}{\-Direction}, \hyperlink{namespaceTM_a852554502c474841ede5736b807839ff}{\-State\-Name} $>$ \hyperlink{namespaceTM_a87460339f40338ea4e37433443965554}{\-Production}
 \end{DoxyCompactItemize}
 \subsection*{\-Enumerations}
@@ -25,6 +25,11 @@ typedef std\-::tuple$<$ \hyperlink{namespaceTM_a852554502c474841ede5736b807839ff
 enum \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792d}{\-Direction} \{ \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792dac3682a7842c29b64f35ecbeb70fafb7f}{left} =  0, 
 \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911}{right}, 
 \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792dabf7f6892ad2d17d8e27921834d7c3ee2}{none}
+ \}
+\item 
+enum \hyperlink{namespaceTM_ac5907d46a678a9a9fe237dce1768dbad}{\-Type} \{ \hyperlink{namespaceTM_ac5907d46a678a9a9fe237dce1768dbadab9bb640471008bcc22eb57218c7bff41}{integer} =  0, 
+\hyperlink{namespaceTM_ac5907d46a678a9a9fe237dce1768dbadac48426601eef44a3d1338b4570940a4e}{character}, 
+\hyperlink{namespaceTM_ac5907d46a678a9a9fe237dce1768dbadac0597b9032816eafa95b0ca98dcafa77}{blank}
  \}
 \end{DoxyCompactItemize}
 
@@ -39,9 +44,6 @@ enum \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792d}{\-Direction} \{ \
 \hypertarget{namespaceTM_a20b31cfe7d86b00db299e72ad48f70af}{\index{\-T\-M@{\-T\-M}!\-Tape@{\-Tape}}
 \index{\-Tape@{\-Tape}!TM@{\-T\-M}}
 \subsubsection[{\-Tape}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<${\bf \-Tape\-Symbol}$>$ {\bf \-T\-M\-::\-Tape}}}\label{d6/d65/namespaceTM_a20b31cfe7d86b00db299e72ad48f70af}
-\hypertarget{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\index{\-T\-M@{\-T\-M}!\-Tape\-Symbol@{\-Tape\-Symbol}}
-\index{\-Tape\-Symbol@{\-Tape\-Symbol}!TM@{\-T\-M}}
-\subsubsection[{\-Tape\-Symbol}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf \-T\-M\-::\-Tape\-Symbol}}}\label{d6/d65/namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}
 
 
 \subsection{\-Enumeration \-Type \-Documentation}
@@ -57,6 +59,21 @@ enum \hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792d}{\-Direction} \{ \
 \hypertarget{namespaceTM_a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911}{right}\label{d6/d65/namespaceTM_a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911}
 }]\index{none@{none}!\-T\-M@{\-T\-M}}\index{\-T\-M@{\-T\-M}!none@{none}}\item[{\em 
 \hypertarget{namespaceTM_a7c40dddb5b66504639e0d378ec13792dabf7f6892ad2d17d8e27921834d7c3ee2}{none}\label{d6/d65/namespaceTM_a7c40dddb5b66504639e0d378ec13792dabf7f6892ad2d17d8e27921834d7c3ee2}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{namespaceTM_ac5907d46a678a9a9fe237dce1768dbad}{\index{\-T\-M@{\-T\-M}!\-Type@{\-Type}}
+\index{\-Type@{\-Type}!TM@{\-T\-M}}
+\subsubsection[{\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-T\-M\-::\-Type}}}\label{d6/d65/namespaceTM_ac5907d46a678a9a9fe237dce1768dbad}
+\begin{Desc}
+\item[\-Enumerator\-: ]\par
+\begin{description}
+\index{integer@{integer}!\-T\-M@{\-T\-M}}\index{\-T\-M@{\-T\-M}!integer@{integer}}\item[{\em 
+\hypertarget{namespaceTM_ac5907d46a678a9a9fe237dce1768dbadab9bb640471008bcc22eb57218c7bff41}{integer}\label{d6/d65/namespaceTM_ac5907d46a678a9a9fe237dce1768dbadab9bb640471008bcc22eb57218c7bff41}
+}]\index{character@{character}!\-T\-M@{\-T\-M}}\index{\-T\-M@{\-T\-M}!character@{character}}\item[{\em 
+\hypertarget{namespaceTM_ac5907d46a678a9a9fe237dce1768dbadac48426601eef44a3d1338b4570940a4e}{character}\label{d6/d65/namespaceTM_ac5907d46a678a9a9fe237dce1768dbadac48426601eef44a3d1338b4570940a4e}
+}]\index{blank@{blank}!\-T\-M@{\-T\-M}}\index{\-T\-M@{\-T\-M}!blank@{blank}}\item[{\em 
+\hypertarget{namespaceTM_ac5907d46a678a9a9fe237dce1768dbadac0597b9032816eafa95b0ca98dcafa77}{blank}\label{d6/d65/namespaceTM_ac5907d46a678a9a9fe237dce1768dbadac0597b9032816eafa95b0ca98dcafa77}
 }]\end{description}
 \end{Desc}
 

@@ -16,7 +16,7 @@
 \item 
 \hyperlink{classparser_1_1LRParser_a47746b2d23e724d5149a51971a92cf7e}{\-L\-R\-Parser} ()
 \begin{DoxyCompactList}\small\item\em \-Default constructor for \hyperlink{classparser_1_1LRParser}{\-L\-R\-Parser}. \-This won't be able to do anything as it has no parse table. \end{DoxyCompactList}\item 
-\hyperlink{classparser_1_1LRParser_a275c85831be080f6befe55be32e624ca}{\-L\-R\-Parser} (\hyperlink{classGrammar_1_1CFG}{\-Grammar\-::\-C\-F\-G})
+\hyperlink{classparser_1_1LRParser_a8eb7c9bcb89383c73da20e01ee60e169}{\-L\-R\-Parser} (\hyperlink{classGrammar_1_1CFG}{\-Grammar\-::\-C\-F\-G}, std\-::string)
 \begin{DoxyCompactList}\small\item\em \-The \-C\-F\-G defines the \-C\-F\-L. \-The parse table will be generated from this grammar. \end{DoxyCompactList}\item 
 \hyperlink{classparser_1_1LRParser_a14376046af5b5d818b6e46902d765b0d}{\-L\-R\-Parser} (\hyperlink{classparser_1_1ParseTable}{\-Parse\-Table})
 \begin{DoxyCompactList}\small\item\em \-The parameter \hyperlink{classparser_1_1ParseTable}{\-Parse\-Table} will be directly used. \end{DoxyCompactList}\item 
@@ -67,13 +67,14 @@ std\-::ostream \& \hyperlink{classparser_1_1LRParser_a9f53bcd94244f30103c9756aab
 
 \-Default constructor for \hyperlink{classparser_1_1LRParser}{\-L\-R\-Parser}. \-This won't be able to do anything as it has no parse table. 
 
-\hypertarget{classparser_1_1LRParser_a275c85831be080f6befe55be32e624ca}{\index{parser\-::\-L\-R\-Parser@{parser\-::\-L\-R\-Parser}!\-L\-R\-Parser@{\-L\-R\-Parser}}
+\hypertarget{classparser_1_1LRParser_a8eb7c9bcb89383c73da20e01ee60e169}{\index{parser\-::\-L\-R\-Parser@{parser\-::\-L\-R\-Parser}!\-L\-R\-Parser@{\-L\-R\-Parser}}
 \index{\-L\-R\-Parser@{\-L\-R\-Parser}!parser::LRParser@{parser\-::\-L\-R\-Parser}}
 \subsubsection[{\-L\-R\-Parser}]{\setlength{\rightskip}{0pt plus 5cm}{\bf parser\-::\-L\-R\-Parser\-::\-L\-R\-Parser} (
 \begin{DoxyParamCaption}
-\item[{{\bf \-Grammar\-::\-C\-F\-G}}]{}
+\item[{{\bf \-Grammar\-::\-C\-F\-G}}]{, }
+\item[{std\-::string}]{}
 \end{DoxyParamCaption}
-)}}\label{d6/d50/classparser_1_1LRParser_a275c85831be080f6befe55be32e624ca}
+)}}\label{d6/d50/classparser_1_1LRParser_a8eb7c9bcb89383c73da20e01ee60e169}
 
 
 \-The \-C\-F\-G defines the \-C\-F\-L. \-The parse table will be generated from this grammar. 
@@ -155,6 +156,9 @@ std\-::ostream \& \hyperlink{classparser_1_1LRParser_a9f53bcd94244f30103c9756aab
 {\em input} & input string that will be tested. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Returns true if the input string was accepted. \-False if it wasn't. 
+\end{DoxyReturn}
 \hypertarget{classparser_1_1LRParser_a4999e6f888dd298d99ad945f95f1b9b6}{\index{parser\-::\-L\-R\-Parser@{parser\-::\-L\-R\-Parser}!perform\-Action@{perform\-Action}}
 \index{perform\-Action@{perform\-Action}!parser::LRParser@{parser\-::\-L\-R\-Parser}}
 \subsubsection[{perform\-Action}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf parser\-::\-L\-R\-Parser\-::perform\-Action} (

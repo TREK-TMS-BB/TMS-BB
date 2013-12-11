@@ -198,21 +198,23 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00150"></a>00150 <span class="comment">         * returns true if given string has already been checked;</span>
 <a name="l00151"></a>00151 <span class="comment">         */</span>
 <a name="l00152"></a>00152         <span class="keywordtype">bool</span> <a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#a55bd1300252f9c6bd506ae43738b7616" title="function used for testing">already_checked</a>(std::string w);
-<a name="l00153"></a>00153 <span class="keyword">protected</span>:
-<a name="l00154"></a>00154 
-<a name="l00155"></a><a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#ae65bc2d3253161b23e6cdbfc6a40a475">00155</a>         <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html">CYKTable</a> <a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#ae65bc2d3253161b23e6cdbfc6a40a475">cyk_</a>;  
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154         <span class="keyword">const</span> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html">CYKTable</a>&amp; <a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#aabfab26060664908edad6fa7d61bef37">getCYK</a>() <span class="keyword">const</span>;
+<a name="l00155"></a>00155 <span class="keyword">protected</span>:
 <a name="l00156"></a>00156 
-<a name="l00157"></a><a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#abb38d3a65837a1d8cf85e3b0e7a1cf15">00157</a>          std::map&lt;std::string, bool&gt; <a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#abb38d3a65837a1d8cf85e3b0e7a1cf15" title="used to check if given string is in CFG">checked</a>;    
+<a name="l00157"></a><a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#ae65bc2d3253161b23e6cdbfc6a40a475">00157</a>         <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html">CYKTable</a> <a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#ae65bc2d3253161b23e6cdbfc6a40a475">cyk_</a>;  
 <a name="l00158"></a>00158 
-<a name="l00160"></a>00160         <span class="comment">/* throws exception if they do not</span>
-<a name="l00161"></a>00161 <span class="comment">         * does nothing when the rules are ok</span>
-<a name="l00162"></a>00162 <span class="comment">         */</span>
-<a name="l00163"></a>00163         <span class="keywordtype">void</span> <a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#a541e366bbd28560401f54781425d0954" title="map keeps track of all the strings that have already been checked on this CFG with the CYK algorithm...">checkRules</a>();
-<a name="l00164"></a>00164 };
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166 } <span class="comment">/* namespace Grammar */</span>
+<a name="l00159"></a><a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#abb38d3a65837a1d8cf85e3b0e7a1cf15">00159</a>          std::map&lt;std::string, bool&gt; <a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#abb38d3a65837a1d8cf85e3b0e7a1cf15" title="used to check if given string is in CFG">checked</a>;    
+<a name="l00160"></a>00160 
+<a name="l00162"></a>00162         <span class="comment">/* throws exception if they do not</span>
+<a name="l00163"></a>00163 <span class="comment">         * does nothing when the rules are ok</span>
+<a name="l00164"></a>00164 <span class="comment">         */</span>
+<a name="l00165"></a>00165         <span class="keywordtype">void</span> <a class="code" href="../../dc/d05/classGrammar_1_1CNF__CFG.html#a541e366bbd28560401f54781425d0954" title="map keeps track of all the strings that have already been checked on this CFG with the CYK algorithm...">checkRules</a>();
+<a name="l00166"></a>00166 };
 <a name="l00167"></a>00167 
-<a name="l00168"></a>00168 <span class="preprocessor">#endif </span><span class="comment">/* CFG_H_ */</span>
+<a name="l00168"></a>00168 } <span class="comment">/* namespace Grammar */</span>
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170 <span class="preprocessor">#endif </span><span class="comment">/* CFG_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -231,7 +233,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 16:01:21 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 11 2013 10:44:46 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -7,6 +7,8 @@ var searchData=
   ['cfg_5fh_5f',['CFG_H_',['../d9/d25/CFG_8h.html#a7104bb8c9d6388226462114534419b9d',1,'CFG.h']]],
   ['cfgparser',['CFGParser',['../de/d63/classparser_1_1CFGParser.html#adfc299d4c11f48a08c27c4e07a11d3ef',1,'parser::CFGParser']]],
   ['cfgparser',['CFGParser',['../de/d63/classparser_1_1CFGParser.html',1,'parser']]],
+  ['character',['character',['../d6/d65/namespaceTM.html#ac5907d46a678a9a9fe237dce1768dbadac48426601eef44a3d1338b4570940a4e',1,'TM']]],
+  ['character_5f',['character_',['../d8/d62/classTM_1_1TapeSymbol.html#a86066d23f5c51d788d039ccc50aa44a6',1,'TM::TapeSymbol']]],
   ['chartostring',['charToString',['../d2/d96/namespaceutilities.html#a937f243bd57e4a94510304c6a9920064',1,'utilities']]],
   ['check_5fstring',['check_string',['../dc/d05/classGrammar_1_1CNF__CFG.html#a446adcd68552aec1ee08f7058ac1c1e4',1,'Grammar::CNF_CFG']]],
   ['checkattributes',['checkAttributes',['../dd/dc1/classGrammar_1_1CFG.html#af4c1e34192bf5b3e6e26b3240c6502b9',1,'Grammar::CFG']]],

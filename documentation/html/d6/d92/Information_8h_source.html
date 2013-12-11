@@ -94,34 +94,40 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00012"></a>00012 <span class="comment"> * This .h file contains all typedefs, enumerations, ... needed in the program</span>
 <a name="l00013"></a>00013 <span class="comment"> */</span>
 <a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="../../d6/d65/namespaceTM.html">00015</a> <span class="keyword">namespace </span>TM {
-<a name="l00016"></a><a class="code" href="../../d6/d65/namespaceTM.html#a852554502c474841ede5736b807839ff">00016</a>         <span class="keyword">typedef</span> std::string <a class="code" href="../../d6/d65/namespaceTM.html#a852554502c474841ede5736b807839ff">StateName</a>;
-<a name="l00017"></a><a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911">00017</a>         <span class="keyword">enum</span> <a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792d">Direction</a> {<a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792dac3682a7842c29b64f35ecbeb70fafb7f">left</a> = 0, <a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911">right</a>, <a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792dabf7f6892ad2d17d8e27921834d7c3ee2">none</a>};
-<a name="l00018"></a><a class="code" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">00018</a>         <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">TapeSymbol</a>;
-<a name="l00019"></a><a class="code" href="../../d6/d65/namespaceTM.html#a20b31cfe7d86b00db299e72ad48f70af">00019</a>         <span class="keyword">typedef</span> std::vector&lt;TapeSymbol&gt; <a class="code" href="../../d6/d65/namespaceTM.html#a20b31cfe7d86b00db299e72ad48f70af">Tape</a>;
-<a name="l00020"></a>00020         <span class="comment">/* Productions are of the form:</span>
-<a name="l00021"></a>00021 <span class="comment">         * (&lt;Current State&gt; , &lt;ReadSymbol&gt;, &lt;WriteSymbol&gt;, &lt;MoveDirection&gt;, &lt;Next State&gt;)</span>
-<a name="l00022"></a>00022 <span class="comment">         */</span>
-<a name="l00023"></a><a class="code" href="../../d6/d65/namespaceTM.html#a87460339f40338ea4e37433443965554">00023</a>         <span class="keyword">typedef</span> std::tuple&lt;StateName, TapeSymbol, TapeSymbol, Direction, StateName&gt; <a class="code" href="../../d6/d65/namespaceTM.html#a87460339f40338ea4e37433443965554">Production</a>;
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 }
-<a name="l00026"></a>00026 
-<a name="l00027"></a><a class="code" href="../../d7/d11/namespacePDA.html">00027</a> <span class="keyword">namespace </span><a class="code" href="../../d1/dc5/classPDA_1_1PDA.html">PDA</a> {
-<a name="l00028"></a><a class="code" href="../../d7/d11/namespacePDA.html#a2f2b17cdf30facf6f0fe593ab209acf8">00028</a>         <span class="keyword">enum</span> <a class="code" href="../../d7/d11/namespacePDA.html#a2f2b17cdf30facf6f0fe593ab209acf8">PDAType</a> {<a class="code" href="../../d7/d11/namespacePDA.html#a2f2b17cdf30facf6f0fe593ab209acf8abec96ee068d9af07a9bf41137e3b3635">acceptByEmptyStack</a>, <a class="code" href="../../d7/d11/namespacePDA.html#a2f2b17cdf30facf6f0fe593ab209acf8a68e7e330c1fb2405ce07c4f2600139e1">acceptByFinalState</a>};
-<a name="l00029"></a>00029 }
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/d8a/Exception_8h.html">Exception.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="../../d7/d8e/TapeSymbol_8h.html">TapeSymbol.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;tuple&gt;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="../../d6/d65/namespaceTM.html">00020</a> <span class="keyword">namespace </span>TM {
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="../../d6/d65/namespaceTM.html#a852554502c474841ede5736b807839ff">00023</a>         <span class="keyword">typedef</span> std::string <a class="code" href="../../d6/d65/namespaceTM.html#a852554502c474841ede5736b807839ff">StateName</a>;
+<a name="l00024"></a><a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911">00024</a>         <span class="keyword">enum</span> <a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792d">Direction</a> {<a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792dac3682a7842c29b64f35ecbeb70fafb7f">left</a> = 0, <a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792da7524c80fbbe2893a839a75c97def5911">right</a>, <a class="code" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792dabf7f6892ad2d17d8e27921834d7c3ee2">none</a>};
+<a name="l00025"></a><a class="code" href="../../d6/d65/namespaceTM.html#a20b31cfe7d86b00db299e72ad48f70af">00025</a>         <span class="keyword">typedef</span> std::vector&lt;TapeSymbol&gt; <a class="code" href="../../d6/d65/namespaceTM.html#a20b31cfe7d86b00db299e72ad48f70af">Tape</a>;
+<a name="l00026"></a>00026         <span class="comment">/* Productions are of the form:</span>
+<a name="l00027"></a>00027 <span class="comment">         * (&lt;Current State&gt; , &lt;ReadSymbol&gt;, &lt;WriteSymbol&gt;, &lt;MoveDirection&gt;, &lt;Next State&gt;)</span>
+<a name="l00028"></a>00028 <span class="comment">         */</span>
+<a name="l00029"></a><a class="code" href="../../d6/d65/namespaceTM.html#a87460339f40338ea4e37433443965554">00029</a>         <span class="keyword">typedef</span> std::tuple&lt;StateName, TapeSymbol, TapeSymbol, Direction, StateName&gt; <a class="code" href="../../d6/d65/namespaceTM.html#a87460339f40338ea4e37433443965554">Production</a>;
 <a name="l00030"></a>00030 
-<a name="l00031"></a><a class="code" href="../../d0/dd5/namespaceparser.html">00031</a> <span class="keyword">namespace </span>parser {
-<a name="l00032"></a><a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedaa0b431997906e4d0c453d7ba0fe1c744">00032</a>         <span class="keyword">enum</span> <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbed">EAction</a> {<a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedaa0b431997906e4d0c453d7ba0fe1c744">shift</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbeda175b62b0686c65910f72c0c4b7ff2c86">reduction</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedab009f2af27ebdb5b6829ee1614826576">accept</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedacce7c4f977d7145f234fd8f2691dab61">jump</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbeda0c4197e3086acf7d33bcf1a943d4754c">blank</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedaa02231033cc9e46e39eff451b2aeafb9">error</a>};
-<a name="l00033"></a>00033 }
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keyword">namespace </span>Grammar {
-<a name="l00036"></a><a class="code" href="../../d0/da6/namespaceGrammar.html#a1d9fbc78aa4b224969964f71642a1e62">00036</a>         <span class="keyword">typedef</span> std::vector&lt;std::string&gt; <a class="code" href="../../d0/da6/namespaceGrammar.html#a1d9fbc78aa4b224969964f71642a1e62">TableEntry</a>;
-<a name="l00037"></a><a class="code" href="../../d0/da6/namespaceGrammar.html#ab0ca0e61019c21f20260968164e53945">00037</a>         <span class="keyword">typedef</span> std::vector&lt;TableEntry &gt; <a class="code" href="../../d0/da6/namespaceGrammar.html#ab0ca0e61019c21f20260968164e53945">Collumn</a>;
-<a name="l00038"></a><a class="code" href="../../d0/da6/namespaceGrammar.html#ac36a2ef8f0596f29dde458d3d9917e88">00038</a>         <span class="keyword">typedef</span> std::vector&lt;Collumn &gt; <a class="code" href="../../d0/da6/namespaceGrammar.html#ac36a2ef8f0596f29dde458d3d9917e88">Table</a>;
+<a name="l00031"></a>00031 }
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="../../d7/d11/namespacePDA.html">00033</a> <span class="keyword">namespace </span><a class="code" href="../../d1/dc5/classPDA_1_1PDA.html">PDA</a> {
+<a name="l00034"></a><a class="code" href="../../d7/d11/namespacePDA.html#a2f2b17cdf30facf6f0fe593ab209acf8">00034</a>         <span class="keyword">enum</span> <a class="code" href="../../d7/d11/namespacePDA.html#a2f2b17cdf30facf6f0fe593ab209acf8">PDAType</a> {<a class="code" href="../../d7/d11/namespacePDA.html#a2f2b17cdf30facf6f0fe593ab209acf8abec96ee068d9af07a9bf41137e3b3635">acceptByEmptyStack</a>, <a class="code" href="../../d7/d11/namespacePDA.html#a2f2b17cdf30facf6f0fe593ab209acf8a68e7e330c1fb2405ce07c4f2600139e1">acceptByFinalState</a>};
+<a name="l00035"></a>00035 }
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="../../d0/dd5/namespaceparser.html">00037</a> <span class="keyword">namespace </span>parser {
+<a name="l00038"></a><a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedaa0b431997906e4d0c453d7ba0fe1c744">00038</a>         <span class="keyword">enum</span> <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbed">EAction</a> {<a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedaa0b431997906e4d0c453d7ba0fe1c744">shift</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbeda175b62b0686c65910f72c0c4b7ff2c86">reduction</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedab009f2af27ebdb5b6829ee1614826576">accept</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedacce7c4f977d7145f234fd8f2691dab61">jump</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbeda0c4197e3086acf7d33bcf1a943d4754c">blank</a>, <a class="code" href="../../d0/dd5/namespaceparser.html#a7a838229f5b5b20f185dfad9d362dbedaa02231033cc9e46e39eff451b2aeafb9">error</a>};
 <a name="l00039"></a>00039 }
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="preprocessor">#endif </span><span class="comment">/* INFORMATION_H_ */</span>
+<a name="l00041"></a>00041 <span class="keyword">namespace </span>Grammar {
+<a name="l00042"></a><a class="code" href="../../d0/da6/namespaceGrammar.html#a1d9fbc78aa4b224969964f71642a1e62">00042</a>         <span class="keyword">typedef</span> std::vector&lt;std::string&gt; <a class="code" href="../../d0/da6/namespaceGrammar.html#a1d9fbc78aa4b224969964f71642a1e62">TableEntry</a>;
+<a name="l00043"></a><a class="code" href="../../d0/da6/namespaceGrammar.html#ab0ca0e61019c21f20260968164e53945">00043</a>         <span class="keyword">typedef</span> std::vector&lt;TableEntry &gt; <a class="code" href="../../d0/da6/namespaceGrammar.html#ab0ca0e61019c21f20260968164e53945">Collumn</a>;
+<a name="l00044"></a><a class="code" href="../../d0/da6/namespaceGrammar.html#ac36a2ef8f0596f29dde458d3d9917e88">00044</a>         <span class="keyword">typedef</span> std::vector&lt;Collumn &gt; <a class="code" href="../../d0/da6/namespaceGrammar.html#ac36a2ef8f0596f29dde458d3d9917e88">Table</a>;
+<a name="l00045"></a>00045 }
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="preprocessor">#endif </span><span class="comment">/* INFORMATION_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -140,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 16:01:21 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 11 2013 10:44:46 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

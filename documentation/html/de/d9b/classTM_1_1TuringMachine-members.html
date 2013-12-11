@@ -91,12 +91,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 This is the complete list of members for <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a>, including all inherited members.<table>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aaa6438ae548569a1f41e024d1f68eb84">curState_</a></td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aa3a5267e700842786eeb59fa96a3007f">getHead</a>() const </td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a83164b2cc501c122fe56808c570bab27">getOutput</a>() const </td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a16c476c503a878de6f354339a283ca3b">head_</a></td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a0aa707581497a4a7a0da06eb2ed867be">move</a>(Direction dir)</td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a4edf359a625a3b3114cef725f5ca5337">operator&lt;&lt;</a>(std::ostream &amp;out, TuringMachine &amp;tm)</td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [friend]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a1aacd1eca81b8f4ab37030b3cda19d13">productions_</a></td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aef5eb3b9f3c3c3b1b1f499cc45480976">resetTape</a>()</td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a72857c5669511dcfca719ddd6422e8f8">simulate</a>(std::vector&lt; TapeSymbol &gt; input)</td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a37e46074a566b631bd71c24795872c50">simulate</a>()</td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a4b31360cb25c328eaef5c5a6aee484b2">simulateCycle</a>()</td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aa83fb53ce10f185f3f1859533cc20e0b">states_</a></td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a4c95b19fbea6a3d73b68dea36cd389a0">tape_</a></td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#afe0ee742405dc0279765af22666df9d3">TuringMachine</a>()</td><td><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html">TM::TuringMachine</a></td><td></td></tr>
@@ -121,7 +123,7 @@ This is the complete list of members for <a class="el" href="../../dd/d15/classT
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 16:01:22 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 11 2013 10:44:49 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -25,7 +25,9 @@
 bool \hyperlink{classGrammar_1_1CNF__CFG_a446adcd68552aec1ee08f7058ac1c1e4}{check\-\_\-string} (std\-::string w)
 \begin{DoxyCompactList}\small\item\em checks if given string is in the \hyperlink{classGrammar_1_1CNF__CFG}{\-C\-N\-F\-\_\-\-C\-F\-G} \end{DoxyCompactList}\item 
 bool \hyperlink{classGrammar_1_1CNF__CFG_a55bd1300252f9c6bd506ae43738b7616}{already\-\_\-checked} (std\-::string w)
-\begin{DoxyCompactList}\small\item\em function used for testing \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em function used for testing \end{DoxyCompactList}\item 
+const \hyperlink{classGrammar_1_1CYKTable}{\-C\-Y\-K\-Table} \& \hyperlink{classGrammar_1_1CNF__CFG_aabfab26060664908edad6fa7d61bef37}{get\-C\-Y\-K} () const 
+\end{DoxyCompactItemize}
 \subsection*{\-Protected \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -156,7 +158,14 @@ bool \-: true if in language, false if not in language
 
 map keeps track of all the strings that have already been checked on this \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} with the \-C\-Y\-K algorithm 
 
-checks the rules of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} to see if they are in \-C\-N\-F form 
+checks the rules of the \hyperlink{classGrammar_1_1CFG}{\-C\-F\-G} to see if they are in \-C\-N\-F form \hypertarget{classGrammar_1_1CNF__CFG_aabfab26060664908edad6fa7d61bef37}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!get\-C\-Y\-K@{get\-C\-Y\-K}}
+\index{get\-C\-Y\-K@{get\-C\-Y\-K}!Grammar::CNF_CFG@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}}
+\subsubsection[{get\-C\-Y\-K}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-C\-Y\-K\-Table}\& {\bf \-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G\-::get\-C\-Y\-K} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{dc/d05/classGrammar_1_1CNF__CFG_aabfab26060664908edad6fa7d61bef37}
+
 
 \subsection{\-Member \-Data \-Documentation}
 \hypertarget{classGrammar_1_1CNF__CFG_abb38d3a65837a1d8cf85e3b0e7a1cf15}{\index{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G@{\-Grammar\-::\-C\-N\-F\-\_\-\-C\-F\-G}!checked@{checked}}

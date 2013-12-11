@@ -11,9 +11,11 @@
 #include "CFG.h"
 #include "Parser.h"
 #include "TMParser.h"
+#include "ParseTable.h"
 #include "TuringMachine.h"
 #include "LRParser.h"
 #include "PDA.h"
+#include "TMProgram.h"
 
 
 int main( int argc, char* argv[]) {
@@ -97,16 +99,21 @@ int main( int argc, char* argv[]) {
 	//
 	// TM use for development
 
-	TM::TuringMachine t("TM-Files/clear.tm");
-	std::cout << t << std::endl;
+	TM::TMProgram t("TM-Files/clear.tm");
+	TM::TuringMachine s("TM-Files/incr2.tm");
+	TM::TuringMachine r("TM-Files/decr.tm");
 
-	std::vector<TM::TapeSymbol> temp;
+	t.renameStates();
+	std::cout << t << std::endl;
+	/*std::vector<TM::TapeSymbol> temp;
+	temp.push_back(TM::TapeSymbol(0));
+	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(0));
 
 	try {
-		t.simulate(temp);
+		s.simulate(temp);
 		//t.simulate(t.getOutput());
 	}
 	catch (Exception& e) {
@@ -114,7 +121,7 @@ int main( int argc, char* argv[]) {
 	}
 
 
-	std::cout << t << std::endl;
+	std::cout << s << std::endl;*/
 
 	std::cout << "program finished"	 << std::endl;
 

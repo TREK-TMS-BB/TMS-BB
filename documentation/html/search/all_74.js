@@ -5,7 +5,9 @@ var searchData=
   ['tableentry',['TableEntry',['../d0/da6/namespaceGrammar.html#a1d9fbc78aa4b224969964f71642a1e62',1,'Grammar']]],
   ['tape',['Tape',['../d6/d65/namespaceTM.html#a20b31cfe7d86b00db299e72ad48f70af',1,'TM']]],
   ['tape_5f',['tape_',['../dd/d15/classTM_1_1TuringMachine.html#a4c95b19fbea6a3d73b68dea36cd389a0',1,'TM::TuringMachine']]],
-  ['tapesymbol',['TapeSymbol',['../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6',1,'TM']]],
+  ['tapesymbol',['TapeSymbol',['../d8/d62/classTM_1_1TapeSymbol.html',1,'TM']]],
+  ['tapesymbol',['TapeSymbol',['../d8/d62/classTM_1_1TapeSymbol.html#a2766ff5c8be461a1936e422dbc21e266',1,'TM::TapeSymbol::TapeSymbol()'],['../d8/d62/classTM_1_1TapeSymbol.html#a5f3591fae790d4eb2e8e209eb727ac0b',1,'TM::TapeSymbol::TapeSymbol(unsigned int i)'],['../d8/d62/classTM_1_1TapeSymbol.html#abc65d6f09ccdfa19cfbfc14772dd9068',1,'TM::TapeSymbol::TapeSymbol(std::string c)']]],
+  ['tapesymbol_2eh',['TapeSymbol.h',['../d7/d8e/TapeSymbol_8h.html',1,'']]],
   ['terminals',['terminals',['../de/d63/classparser_1_1CFGParser.html#a5709544c0a9981997043f38489f2ddff',1,'parser::CFGParser']]],
   ['terminals_5f',['terminals_',['../dd/dc1/classGrammar_1_1CFG.html#a65298cf1151bb130a382a4858d99a571',1,'Grammar::CFG']]],
   ['text_5f',['text_',['../d4/d67/classException.html#a404e79b557f64d95acfb5dccbb864860',1,'Exception']]],
@@ -18,8 +20,8 @@ var searchData=
   ['tofinalstateacceptance',['toFinalStateAcceptance',['../d1/dc5/classPDA_1_1PDA.html#a6c6b86cde5edba8125fcf633d0a9a916',1,'PDA::PDA']]],
   ['tolatex',['toLaTeX',['../d1/dc5/classPDA_1_1PDA.html#a741e99b5d9e53e32d6808bf83dde96b2',1,'PDA::PDA']]],
   ['transitions',['transitions',['../d7/d1f/classPDA_1_1State.html#abbe5635de165a5a202ba1eb31ee61af1',1,'PDA::State']]],
-  ['turingmachine',['TuringMachine',['../dd/d15/classTM_1_1TuringMachine.html',1,'TM']]],
   ['turingmachine',['TuringMachine',['../dd/d15/classTM_1_1TuringMachine.html#afe0ee742405dc0279765af22666df9d3',1,'TM::TuringMachine::TuringMachine()'],['../dd/d15/classTM_1_1TuringMachine.html#a92026a3ba4e06bfed9abf0ac2b56709a',1,'TM::TuringMachine::TuringMachine(std::string filename)']]],
+  ['turingmachine',['TuringMachine',['../dd/d15/classTM_1_1TuringMachine.html',1,'TM']]],
   ['turingmachine_2eh',['TuringMachine.h',['../d1/d44/TuringMachine_8h.html',1,'']]],
-  ['type',['type',['../d1/dc5/classPDA_1_1PDA.html#a15524b46d2be399f384b0f236ccb38f4',1,'PDA::PDA']]]
+  ['type',['type',['../d1/dc5/classPDA_1_1PDA.html#a15524b46d2be399f384b0f236ccb38f4',1,'PDA::PDA::type()'],['../d6/d65/namespaceTM.html#ac5907d46a678a9a9fe237dce1768dbad',1,'TM::Type()']]]
 ];

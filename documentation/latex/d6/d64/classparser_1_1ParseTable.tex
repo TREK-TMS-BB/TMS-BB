@@ -10,7 +10,7 @@
 \item 
 \hyperlink{classparser_1_1ParseTable_a00ed64dc142ed6ff9418bec52ae3db04}{\-Parse\-Table} ()
 \begin{DoxyCompactList}\small\item\em \-Default constructor. \-Our \hyperlink{classparser_1_1ParseTable}{\-Parse\-Table} will be empty as it has no \-C\-F\-G. \end{DoxyCompactList}\item 
-\hyperlink{classparser_1_1ParseTable_a421c3ed6e27aacf66b2c783b5309bc85}{\-Parse\-Table} (\hyperlink{classGrammar_1_1CFG}{\-Grammar\-::\-C\-F\-G})
+\hyperlink{classparser_1_1ParseTable_a4cab1aeb721c0375dbf426ee2200dee4}{\-Parse\-Table} (\hyperlink{classGrammar_1_1CFG}{\-Grammar\-::\-C\-F\-G}, std\-::string)
 \begin{DoxyCompactList}\small\item\em \-Our \hyperlink{classparser_1_1ParseTable}{\-Parse\-Table} will be constructed using the \-C\-F\-G provided as parameter. \end{DoxyCompactList}\item 
 std\-::pair$<$ \hyperlink{namespaceparser_a7a838229f5b5b20f185dfad9d362dbed}{\-E\-Action}, std\-::string $>$ \hyperlink{classparser_1_1ParseTable_a26500ede234e76d28fcc6bef9198b71a}{operator()} (int, std\-::string) const 
 \begin{DoxyCompactList}\small\item\em \-Returns the contents of the parse table (and what action should happen) depending on the input. \end{DoxyCompactList}\item 
@@ -43,13 +43,14 @@ std\-::map$<$ std\-::string, int $>$ \hyperlink{classparser_1_1ParseTable_a5a5d6
 
 \-Default constructor. \-Our \hyperlink{classparser_1_1ParseTable}{\-Parse\-Table} will be empty as it has no \-C\-F\-G. 
 
-\hypertarget{classparser_1_1ParseTable_a421c3ed6e27aacf66b2c783b5309bc85}{\index{parser\-::\-Parse\-Table@{parser\-::\-Parse\-Table}!\-Parse\-Table@{\-Parse\-Table}}
+\hypertarget{classparser_1_1ParseTable_a4cab1aeb721c0375dbf426ee2200dee4}{\index{parser\-::\-Parse\-Table@{parser\-::\-Parse\-Table}!\-Parse\-Table@{\-Parse\-Table}}
 \index{\-Parse\-Table@{\-Parse\-Table}!parser::ParseTable@{parser\-::\-Parse\-Table}}
 \subsubsection[{\-Parse\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf parser\-::\-Parse\-Table\-::\-Parse\-Table} (
 \begin{DoxyParamCaption}
-\item[{{\bf \-Grammar\-::\-C\-F\-G}}]{}
+\item[{{\bf \-Grammar\-::\-C\-F\-G}}]{, }
+\item[{std\-::string}]{}
 \end{DoxyParamCaption}
-)}}\label{d6/d64/classparser_1_1ParseTable_a421c3ed6e27aacf66b2c783b5309bc85}
+)}}\label{d6/d64/classparser_1_1ParseTable_a4cab1aeb721c0375dbf426ee2200dee4}
 
 
 \-Our \hyperlink{classparser_1_1ParseTable}{\-Parse\-Table} will be constructed using the \-C\-F\-G provided as parameter. 
@@ -57,6 +58,8 @@ std\-::map$<$ std\-::string, int $>$ \hyperlink{classparser_1_1ParseTable_a5a5d6
 
 \begin{DoxyParams}{\-Parameters}
 {\em grammar} & \-The grammar which the \hyperlink{classparser_1_1ParseTable}{\-Parse\-Table} will be based on. \\
+\hline
+{\em ptable\-X\-M\-L} & \-The filename where our parsetable info can be found. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classparser_1_1ParseTable_a9879c15d87bea61cdfbf3e58151e57d3}{\index{parser\-::\-Parse\-Table@{parser\-::\-Parse\-Table}!$\sim$\-Parse\-Table@{$\sim$\-Parse\-Table}}

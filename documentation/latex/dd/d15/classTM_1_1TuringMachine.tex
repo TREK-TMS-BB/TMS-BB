@@ -12,8 +12,10 @@
 \begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
 \hyperlink{classTM_1_1TuringMachine_a92026a3ba4e06bfed9abf0ac2b56709a}{\-Turing\-Machine} (std\-::string filename)
 \begin{DoxyCompactList}\small\item\em \-Construct from .tm file. \end{DoxyCompactList}\item 
-void \hyperlink{classTM_1_1TuringMachine_a72857c5669511dcfca719ddd6422e8f8}{simulate} (std\-::vector$<$ \hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol} $>$ input)
+void \hyperlink{classTM_1_1TuringMachine_a72857c5669511dcfca719ddd6422e8f8}{simulate} (std\-::vector$<$ \hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol} $>$ input)
 \begin{DoxyCompactList}\small\item\em \-Function simulating the \-Turing \-Machine with given string on the stack. \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol} $>$ \hyperlink{classTM_1_1TuringMachine_a83164b2cc501c122fe56808c570bab27}{get\-Output} () const 
+\begin{DoxyCompactList}\small\item\em \-A function returning the data on the tape (ie from 1st non\-Blank symbol to last non\-Blank symbol) \end{DoxyCompactList}\item 
 virtual \hyperlink{classTM_1_1TuringMachine_aa0d38ebf67a34efdc5e404086f936285}{$\sim$\-Turing\-Machine} ()
 \begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Private \-Member \-Functions}
@@ -21,12 +23,14 @@ virtual \hyperlink{classTM_1_1TuringMachine_aa0d38ebf67a34efdc5e404086f936285}{$
 \item 
 void \hyperlink{classTM_1_1TuringMachine_a0aa707581497a4a7a0da06eb2ed867be}{move} (\hyperlink{namespaceTM_a7c40dddb5b66504639e0d378ec13792d}{\-Direction} dir)
 \begin{DoxyCompactList}\small\item\em \-A function moving the head in the direction given, adding a new place on the tape if neccessary. \end{DoxyCompactList}\item 
-\hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol} \hyperlink{classTM_1_1TuringMachine_aa3a5267e700842786eeb59fa96a3007f}{get\-Head} () const 
+\hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol} \hyperlink{classTM_1_1TuringMachine_aa3a5267e700842786eeb59fa96a3007f}{get\-Head} () const 
 \begin{DoxyCompactList}\small\item\em \-A function returning the symbol under the head. \end{DoxyCompactList}\item 
-void \hyperlink{classTM_1_1TuringMachine_a63ec43241d2c34c3c19de91cdac7a2b6}{write\-Head} (\hyperlink{namespaceTM_af53c0529f78dfcdeb19c450abbd44cf6}{\-Tape\-Symbol} input)
+void \hyperlink{classTM_1_1TuringMachine_a63ec43241d2c34c3c19de91cdac7a2b6}{write\-Head} (\hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol} input)
 \begin{DoxyCompactList}\small\item\em \-A function writing given symbol under the head. \end{DoxyCompactList}\item 
-void \hyperlink{classTM_1_1TuringMachine_a37e46074a566b631bd71c24795872c50}{simulate} ()
-\begin{DoxyCompactList}\small\item\em \-A function handling 1 simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{classTM_1_1TuringMachine_a4b31360cb25c328eaef5c5a6aee484b2}{simulate\-Cycle} ()
+\begin{DoxyCompactList}\small\item\em \-A function handling 1 simulation. \end{DoxyCompactList}\item 
+void \hyperlink{classTM_1_1TuringMachine_aef5eb3b9f3c3c3b1b1f499cc45480976}{reset\-Tape} ()
+\begin{DoxyCompactList}\small\item\em \-A function setting the tape to 100 blanks. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Private \-Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -100,6 +104,17 @@ std\-::ostream \& \hyperlink{classTM_1_1TuringMachine_a4edf359a625a3b3114cef725f
 
 \-A function returning the symbol under the head. 
 
+\hypertarget{classTM_1_1TuringMachine_a83164b2cc501c122fe56808c570bab27}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!get\-Output@{get\-Output}}
+\index{get\-Output@{get\-Output}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{get\-Output}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-Tape\-Symbol}$>$ {\bf \-T\-M\-::\-Turing\-Machine\-::get\-Output} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{dd/d15/classTM_1_1TuringMachine_a83164b2cc501c122fe56808c570bab27}
+
+
+\-A function returning the data on the tape (ie from 1st non\-Blank symbol to last non\-Blank symbol) 
+
 \hypertarget{classTM_1_1TuringMachine_a0aa707581497a4a7a0da06eb2ed867be}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!move@{move}}
 \index{move@{move}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
 \subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::move} (
@@ -116,6 +131,17 @@ std\-::ostream \& \hyperlink{classTM_1_1TuringMachine_a4edf359a625a3b3114cef725f
 {\em dir} & the direction in which the head should move \\
 \hline
 \end{DoxyParams}
+\hypertarget{classTM_1_1TuringMachine_aef5eb3b9f3c3c3b1b1f499cc45480976}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!reset\-Tape@{reset\-Tape}}
+\index{reset\-Tape@{reset\-Tape}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{reset\-Tape}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::reset\-Tape} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_aef5eb3b9f3c3c3b1b1f499cc45480976}
+
+
+\-A function setting the tape to 100 blanks. 
+
 \hypertarget{classTM_1_1TuringMachine_a72857c5669511dcfca719ddd6422e8f8}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!simulate@{simulate}}
 \index{simulate@{simulate}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
 \subsubsection[{simulate}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::simulate} (
@@ -127,13 +153,13 @@ std\-::ostream \& \hyperlink{classTM_1_1TuringMachine_a4edf359a625a3b3114cef725f
 
 \-Function simulating the \-Turing \-Machine with given string on the stack. 
 
-@ param input vector with the input to be put on the tape \hypertarget{classTM_1_1TuringMachine_a37e46074a566b631bd71c24795872c50}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!simulate@{simulate}}
-\index{simulate@{simulate}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
-\subsubsection[{simulate}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::simulate} (
+@ param input vector with the input to be put on the tape, input will be handled as integers \hypertarget{classTM_1_1TuringMachine_a4b31360cb25c328eaef5c5a6aee484b2}{\index{\-T\-M\-::\-Turing\-Machine@{\-T\-M\-::\-Turing\-Machine}!simulate\-Cycle@{simulate\-Cycle}}
+\index{simulate\-Cycle@{simulate\-Cycle}!TM::TuringMachine@{\-T\-M\-::\-Turing\-Machine}}
+\subsubsection[{simulate\-Cycle}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-T\-M\-::\-Turing\-Machine\-::simulate\-Cycle} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a37e46074a566b631bd71c24795872c50}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{dd/d15/classTM_1_1TuringMachine_a4b31360cb25c328eaef5c5a6aee484b2}
 
 
 \-A function handling 1 simulation. 
@@ -151,7 +177,7 @@ std\-::ostream \& \hyperlink{classTM_1_1TuringMachine_a4edf359a625a3b3114cef725f
 
 
 \begin{DoxyParams}{\-Parameters}
-{\em input} & \-Tape\-Symbol to be written on the tape \\
+{\em input} & \hyperlink{classTM_1_1TapeSymbol}{\-Tape\-Symbol} to be written on the tape \\
 \hline
 \end{DoxyParams}
 

@@ -127,34 +127,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00067"></a>00067         std::vector&lt;std::string&gt; <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#ac3897ef9932804f1ea544c6fd047ebc9" title="a function return vector of variables on given position (in CYK coordinates)">at</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j) <span class="keyword">const</span>;
 <a name="l00068"></a>00068         <span class="keyword">virtual</span> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a70fd824e2119ffa6604c7b6d69076f28">~CYKTable</a>();
 <a name="l00069"></a>00069 
-<a name="l00070"></a>00070         <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a000e039ebe267650040107125c5247f2">operator&lt;&lt;</a>(std::ostream&amp; out, <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html">CYKTable</a>&amp; c);
+<a name="l00070"></a>00070         <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#acbd425a02e01b610bcf72519cb100026">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html">CYKTable</a>&amp; c);
 <a name="l00071"></a>00071 
 <a name="l00072"></a>00072         std::map&lt;std::string, std::vector&lt;std::string&gt; &gt; <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#ab32d4d2fbe6c2b8f1b31875f4d0eccc2">getRules</a>() <span class="keyword">const</span>;
 <a name="l00073"></a>00073         std::string <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a40d0d067cf70a42c6af67182e42a746f">getStartSymbol</a>() <span class="keyword">const</span>;
 <a name="l00074"></a>00074         <a class="code" href="../../d0/da6/namespaceGrammar.html#ac36a2ef8f0596f29dde458d3d9917e88">Table</a> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#aca64cb5e2763ce0199bf79e89da4def2">getTable</a>() <span class="keyword">const</span>;
-<a name="l00075"></a>00075 <span class="keyword">private</span>:
-<a name="l00076"></a><a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a79b636642dc8abac802e95664bd3deaa">00076</a>         <a class="code" href="../../d0/da6/namespaceGrammar.html#ac36a2ef8f0596f29dde458d3d9917e88">Table</a> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a79b636642dc8abac802e95664bd3deaa">table_</a>; 
-<a name="l00077"></a>00077 
-<a name="l00078"></a><a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a1c47661ce63b36f95287d455fc8a15be">00078</a>         std::map&lt;std::string, std::vector&lt;std::string&gt; &gt; <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a1c47661ce63b36f95287d455fc8a15be" title="Table in which the information is stored.">rules_</a>; <span class="comment">// map with rules used to create table</span>
-<a name="l00079"></a>00079 
-<a name="l00080"></a><a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a058a0ca85dc07b1d0e590d90ef728ef2">00080</a>         std::string <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a058a0ca85dc07b1d0e590d90ef728ef2">startSymbol_</a>;
-<a name="l00081"></a>00081 
-<a name="l00083"></a>00083         <span class="comment">//Used in constructor and operator()</span>
-<a name="l00084"></a>00084         <span class="keywordtype">void</span> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a11d6b68f810b625495c0640b80d6ac47" title="Function creating table for given string.">createTable</a>(std::string w);
-<a name="l00085"></a>00085 
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="keyword">private</span>:
+<a name="l00077"></a><a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a79b636642dc8abac802e95664bd3deaa">00077</a>         <a class="code" href="../../d0/da6/namespaceGrammar.html#ac36a2ef8f0596f29dde458d3d9917e88">Table</a> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a79b636642dc8abac802e95664bd3deaa">table_</a>; 
+<a name="l00078"></a>00078 
+<a name="l00079"></a><a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a1c47661ce63b36f95287d455fc8a15be">00079</a>         std::map&lt;std::string, std::vector&lt;std::string&gt; &gt; <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a1c47661ce63b36f95287d455fc8a15be" title="Table in which the information is stored.">rules_</a>; <span class="comment">// map with rules used to create table</span>
+<a name="l00080"></a>00080 
+<a name="l00081"></a><a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a058a0ca85dc07b1d0e590d90ef728ef2">00081</a>         std::string <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a058a0ca85dc07b1d0e590d90ef728ef2">startSymbol_</a>;
+<a name="l00082"></a>00082 
+<a name="l00084"></a>00084         <span class="comment">//Used in constructor and operator()</span>
+<a name="l00085"></a>00085         <span class="keywordtype">void</span> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#a11d6b68f810b625495c0640b80d6ac47" title="Function creating table for given string.">createTable</a>(std::string w);
 <a name="l00086"></a>00086 
-<a name="l00088"></a>00088 
-<a name="l00092"></a>00092         <span class="keywordtype">void</span> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#afea9a140c464a1b05c8a66a75895baf8" title="Function adding a new variable to given position in table.">add</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j, std::string var);
-<a name="l00093"></a>00093 
-<a name="l00095"></a>00095         <span class="comment">/*</span>
-<a name="l00096"></a>00096 <span class="comment">         * used in the constructor</span>
-<a name="l00097"></a>00097 <span class="comment">         */</span>
-<a name="l00106"></a>00106         std::vector&lt;std::pair&lt;std::string, std::string&gt; &gt; <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#af3c9d56ad80f9a7ecc36ae139d7a495b" title="Function calculating all possible pairs of variables between 2 positions in the table.">calculateCombinations</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j);
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108 };
-<a name="l00109"></a>00109 } <span class="comment">/* namespace Grammar */</span>
-<a name="l00110"></a>00110 
-<a name="l00111"></a>00111 <span class="preprocessor">#endif </span><span class="comment">/* CYKTABLE_H_ */</span>
+<a name="l00087"></a>00087 
+<a name="l00089"></a>00089 
+<a name="l00093"></a>00093         <span class="keywordtype">void</span> <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#afea9a140c464a1b05c8a66a75895baf8" title="Function adding a new variable to given position in table.">add</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j, std::string var);
+<a name="l00094"></a>00094 
+<a name="l00096"></a>00096         <span class="comment">/*</span>
+<a name="l00097"></a>00097 <span class="comment">         * used in the constructor</span>
+<a name="l00098"></a>00098 <span class="comment">         */</span>
+<a name="l00107"></a>00107         std::vector&lt;std::pair&lt;std::string, std::string&gt; &gt; <a class="code" href="../../dc/d7d/classGrammar_1_1CYKTable.html#af3c9d56ad80f9a7ecc36ae139d7a495b" title="Function calculating all possible pairs of variables between 2 positions in the table.">calculateCombinations</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 };
+<a name="l00110"></a>00110 } <span class="comment">/* namespace Grammar */</span>
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="preprocessor">#endif </span><span class="comment">/* CYKTABLE_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -173,7 +174,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 16:01:21 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 11 2013 10:44:46 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

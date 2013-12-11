@@ -17,6 +17,8 @@ TuringMachine::TuringMachine() {
 
 TuringMachine::TuringMachine(std::string filename) {
 	parser::TMParser tmp(filename) ;
+	std::cout << "parsed file" << std::endl;
+	std::cout << tmp.getStates().size()<< std::endl;
 	for (int i = 0; i < tmp.getStates().size();i++) {
 		states_.push_back(tmp.getStates().at(i));
 	}
@@ -55,6 +57,8 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 
 	head_ = tape_.begin();
 
+	std::cout << "Start simulating: " << std::endl;
+
 	while (true) {
 		this->simulateCycle();
 		if (curState_ == "halt") {
@@ -64,6 +68,16 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 			std::string error = "SIMULATION CAME IN ERROR STATE, SIMULATION STOPPED: IN STATE " + curState_;
 			throw(Exception(error));
 		}
+		for (Tape::iterator it = tape_.begin(); it<tape_.end(); it++) {
+			if (it == head_) {
+				std::cout << ">";
+			}
+			std::cout << *it ;
+			std::cout << "  ";
+		}
+		std::cout << std::endl;
+
+
 	}
 
 }

@@ -118,20 +118,24 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#afe0ee742405dc0279765af22666df9d3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a92026a3ba4e06bfed9abf0ac2b56709a">TuringMachine</a> (std::string filename)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from .tm file.  <a href="#a92026a3ba4e06bfed9abf0ac2b56709a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a72857c5669511dcfca719ddd6422e8f8">simulate</a> (std::vector&lt; <a class="el" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">TapeSymbol</a> &gt; input)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a72857c5669511dcfca719ddd6422e8f8">simulate</a> (std::vector&lt; <a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a> &gt; input)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Function simulating the Turing Machine with given string on the stack.  <a href="#a72857c5669511dcfca719ddd6422e8f8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a83164b2cc501c122fe56808c570bab27">getOutput</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function returning the data on the tape (ie from 1st nonBlank symbol to last nonBlank symbol)  <a href="#a83164b2cc501c122fe56808c570bab27"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aa0d38ebf67a34efdc5e404086f936285">~TuringMachine</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#aa0d38ebf67a34efdc5e404086f936285"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a0aa707581497a4a7a0da06eb2ed867be">move</a> (<a class="el" href="../../d6/d65/namespaceTM.html#a7c40dddb5b66504639e0d378ec13792d">Direction</a> dir)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function moving the head in the direction given, adding a new place on the tape if neccessary.  <a href="#a0aa707581497a4a7a0da06eb2ed867be"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">TapeSymbol</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aa3a5267e700842786eeb59fa96a3007f">getHead</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aa3a5267e700842786eeb59fa96a3007f">getHead</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function returning the symbol under the head.  <a href="#aa3a5267e700842786eeb59fa96a3007f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a63ec43241d2c34c3c19de91cdac7a2b6">writeHead</a> (<a class="el" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">TapeSymbol</a> input)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a63ec43241d2c34c3c19de91cdac7a2b6">writeHead</a> (<a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a> input)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function writing given symbol under the head.  <a href="#a63ec43241d2c34c3c19de91cdac7a2b6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a37e46074a566b631bd71c24795872c50">simulate</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function handling 1 simulation.  <a href="#a37e46074a566b631bd71c24795872c50"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a4b31360cb25c328eaef5c5a6aee484b2">simulateCycle</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function handling 1 simulation.  <a href="#a4b31360cb25c328eaef5c5a6aee484b2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aef5eb3b9f3c3c3b1b1f499cc45480976">resetTape</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function setting the tape to 100 blanks.  <a href="#aef5eb3b9f3c3c3b1b1f499cc45480976"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Tape::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a16c476c503a878de6f354339a283ca3b">head_</a></td></tr>
@@ -216,7 +220,7 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">TapeSymbol</a> <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aa3a5267e700842786eeb59fa96a3007f">TM::TuringMachine::getHead</a> </td>
+          <td class="memname"><a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a> <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aa3a5267e700842786eeb59fa96a3007f">TM::TuringMachine::getHead</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [private]</code></td>
@@ -226,6 +230,24 @@ Friends</h2></td></tr>
 <div class="memdoc">
 
 <p>A function returning the symbol under the head. </p>
+
+</div>
+</div>
+<a class="anchor" id="a83164b2cc501c122fe56808c570bab27"></a><!-- doxytag: member="TM::TuringMachine::getOutput" ref="a83164b2cc501c122fe56808c570bab27" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a>&gt; <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a83164b2cc501c122fe56808c570bab27">TM::TuringMachine::getOutput</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A function returning the data on the tape (ie from 1st nonBlank symbol to last nonBlank symbol) </p>
 
 </div>
 </div>
@@ -254,6 +276,24 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aef5eb3b9f3c3c3b1b1f499cc45480976"></a><!-- doxytag: member="TM::TuringMachine::resetTape" ref="aef5eb3b9f3c3c3b1b1f499cc45480976" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#aef5eb3b9f3c3c3b1b1f499cc45480976">TM::TuringMachine::resetTape</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A function setting the tape to 100 blanks. </p>
+
+</div>
+</div>
 <a class="anchor" id="a72857c5669511dcfca719ddd6422e8f8"></a><!-- doxytag: member="TM::TuringMachine::simulate" ref="a72857c5669511dcfca719ddd6422e8f8" args="(std::vector&lt; TapeSymbol &gt; input)" -->
 <div class="memitem">
 <div class="memproto">
@@ -261,7 +301,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a72857c5669511dcfca719ddd6422e8f8">TM::TuringMachine::simulate</a> </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">TapeSymbol</a> &gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a> &gt;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td></td>
         </tr>
@@ -270,16 +310,16 @@ Friends</h2></td></tr>
 <div class="memdoc">
 
 <p>Function simulating the Turing Machine with given string on the stack. </p>
-<p>@ param input vector with the input to be put on the tape </p>
+<p>@ param input vector with the input to be put on the tape, input will be handled as integers </p>
 
 </div>
 </div>
-<a class="anchor" id="a37e46074a566b631bd71c24795872c50"></a><!-- doxytag: member="TM::TuringMachine::simulate" ref="a37e46074a566b631bd71c24795872c50" args="()" -->
+<a class="anchor" id="a4b31360cb25c328eaef5c5a6aee484b2"></a><!-- doxytag: member="TM::TuringMachine::simulateCycle" ref="a4b31360cb25c328eaef5c5a6aee484b2" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a72857c5669511dcfca719ddd6422e8f8">TM::TuringMachine::simulate</a> </td>
+          <td class="memname">void <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a4b31360cb25c328eaef5c5a6aee484b2">TM::TuringMachine::simulateCycle</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [private]</code></td>
@@ -299,7 +339,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="../../dd/d15/classTM_1_1TuringMachine.html#a63ec43241d2c34c3c19de91cdac7a2b6">TM::TuringMachine::writeHead</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/d65/namespaceTM.html#af53c0529f78dfcdeb19c450abbd44cf6">TapeSymbol</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a>&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td><code> [private]</code></td>
         </tr>
@@ -310,7 +350,7 @@ Friends</h2></td></tr>
 <p>A function writing given symbol under the head. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>TapeSymbol to be written on the tape </td></tr>
+    <tr><td class="paramname">input</td><td><a class="el" href="../../d8/d62/classTM_1_1TapeSymbol.html">TapeSymbol</a> to be written on the tape </td></tr>
   </table>
   </dd>
 </dl>
@@ -442,7 +482,7 @@ Friends</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 16:01:22 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 11 2013 10:44:49 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

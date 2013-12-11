@@ -125,8 +125,8 @@ Inheritance diagram for parser::LRParser:</div>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d50/classparser_1_1LRParser.html#a47746b2d23e724d5149a51971a92cf7e">LRParser</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="../../d6/d50/classparser_1_1LRParser.html">LRParser</a>. This won't be able to do anything as it has no parse table.  <a href="#a47746b2d23e724d5149a51971a92cf7e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d50/classparser_1_1LRParser.html#a275c85831be080f6befe55be32e624ca">LRParser</a> (<a class="el" href="../../dd/dc1/classGrammar_1_1CFG.html">Grammar::CFG</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The CFG defines the CFL. The parse table will be generated from this grammar.  <a href="#a275c85831be080f6befe55be32e624ca"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d50/classparser_1_1LRParser.html#a8eb7c9bcb89383c73da20e01ee60e169">LRParser</a> (<a class="el" href="../../dd/dc1/classGrammar_1_1CFG.html">Grammar::CFG</a>, std::string)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The CFG defines the CFL. The parse table will be generated from this grammar.  <a href="#a8eb7c9bcb89383c73da20e01ee60e169"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d50/classparser_1_1LRParser.html#a14376046af5b5d818b6e46902d765b0d">LRParser</a> (<a class="el" href="../../d6/d64/classparser_1_1ParseTable.html">ParseTable</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameter <a class="el" href="../../d6/d64/classparser_1_1ParseTable.html">ParseTable</a> will be directly used.  <a href="#a14376046af5b5d818b6e46902d765b0d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d50/classparser_1_1LRParser.html#ab2152a22b9f4df294863ea2ecb5bea2a">parse</a> (std::string)</td></tr>
@@ -172,7 +172,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a275c85831be080f6befe55be32e624ca"></a><!-- doxytag: member="parser::LRParser::LRParser" ref="a275c85831be080f6befe55be32e624ca" args="(Grammar::CFG)" -->
+<a class="anchor" id="a8eb7c9bcb89383c73da20e01ee60e169"></a><!-- doxytag: member="parser::LRParser::LRParser" ref="a8eb7c9bcb89383c73da20e01ee60e169" args="(Grammar::CFG, std::string)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -180,8 +180,18 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="../../d6/d50/classparser_1_1LRParser.html#a47746b2d23e724d5149a51971a92cf7e">parser::LRParser::LRParser</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dd/dc1/classGrammar_1_1CFG.html">Grammar::CFG</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -318,6 +328,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns true if the input string was accepted. False if it wasn't. </dd></dl>
 
 </div>
 </div>
@@ -470,7 +481,7 @@ Friends</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 16:01:21 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 11 2013 10:44:48 for STARK VMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

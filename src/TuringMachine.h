@@ -33,7 +33,7 @@ public:
 	/**
 	 * @ param input vector with the input to be put on the tape, input will be handled as integers
 	 */
-	void simulate(std::vector<TapeSymbol> input);
+	void simulate(std::vector<TapeSymbol> input );
 
 
 	//! function printing the tape and the productions
