@@ -80,25 +80,25 @@ int main(int argc, char **argv) {
 		std::cout << "\t test unsuccessful" <<std::endl;
 	}*/
 
-//	try {
-//	CFG grammar("XML-Files/LR1-2.xml");
-//	ParseTable t(grammar, "XML-Files/LR1-2-ptable.xml");
-//	parser::LRParser lrp(grammar, "XML-Files/LR1-2-ptable.xml");
-//
-//	std::string input = "zzzz";
-//	if (lrp.parse(input)) {
-//		std::cout << "Inputstring \"" << input << "\" has been accepted!" << std::endl;
-//	}
-//	else {
-//		std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
-//	}
-//
-//	std::cout << "END OF PROGRAM" << std::endl;
-//	}
-//	catch(Exception &e)
-//	{
-//		std::cerr << e.what() << std::endl;
-//	}
+	try {
+	CFG grammar(argv[1]);
+	ParseTable t(grammar, argv[2]);
+	parser::LRParser lrp(grammar, argv[2]);
+
+	std::string input = argv[3];
+	if (lrp.parse(input)) {
+		std::cout << "Inputstring \"" << input << "\" has been accepted!" << std::endl;
+	}
+	else {
+		std::cout << "Inputstring \"" << input << "\" has not been accepted!" << std::endl;
+	}
+
+	std::cout << "END OF PROGRAM" << std::endl;
+	}
+	catch(Exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
 //	::testing::InitGoogleTest(&argc, argv);
 //	return RUN_ALL_TESTS();
@@ -203,31 +203,31 @@ int main(int argc, char **argv) {
 		std::cout << e.what() << std::endl;
 	}
 */
-	std::cout << "===================" << std::endl;
-	std::cout << "RUNNING toCNF DEMO" << std::endl;
-	std::cout << "===================" << std::endl << std::endl;
-	std::vector<std::string> v;
-	v.push_back("A");
-	v.push_back("B");
-	v.push_back("C");
-	std::vector<std::string> t;
-	t.push_back("x");
-	t.push_back("y");
-	std::map<std::string, std::vector<std::string> > r;
-	r["A"].push_back("BxCBy");
-	r["A"].push_back("ByCx");
-	r["B"].push_back("xCxx");
-	r["C"].push_back("yxy");
-	CFG testcfg2(v, t, r, "A" );
-	std::cout << "Original cfg:" << std::endl;
-	std::cout << testcfg2 << std::endl;
-	testcfg2.toCNF();
-	std::cout << "Cfg nu in CNF:" << std::endl;
-	std::cout << testcfg2 << std::endl;
-	CFG testcfg("./XML-Files/cfg.xml");
-	testcfg.toCNF();
-	std::cout << "CNF: from input file cfg.xml" << std::endl;
-	std::cout << testcfg;
+//	std::cout << "===================" << std::endl;
+//	std::cout << "RUNNING toCNF DEMO" << std::endl;
+//	std::cout << "===================" << std::endl << std::endl;
+//	std::vector<std::string> v;
+//	v.push_back("A");
+//	v.push_back("B");
+//	v.push_back("C");
+//	std::vector<std::string> t;
+//	t.push_back("x");
+//	t.push_back("y");
+//	std::map<std::string, std::vector<std::string> > r;
+//	r["A"].push_back("BxCBy");
+//	r["A"].push_back("ByCx");
+//	r["B"].push_back("xCxx");
+//	r["C"].push_back("yxy");
+//	CFG testcfg2(v, t, r, "A" );
+//	std::cout << "Original cfg:" << std::endl;
+//	std::cout << testcfg2 << std::endl;
+//	testcfg2.toCNF();
+//	std::cout << "Cfg nu in CNF:" << std::endl;
+//	std::cout << testcfg2 << std::endl;
+//	CFG testcfg("./XML-Files/cfg.xml");
+//	testcfg.toCNF();
+//	std::cout << "CNF: from input file cfg.xml" << std::endl;
+//	std::cout << testcfg;
 
 
 

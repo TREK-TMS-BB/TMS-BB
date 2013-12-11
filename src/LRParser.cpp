@@ -59,7 +59,19 @@ std::pair<EAction, std::string> LRParser::processSymbol() {
 	}
 
 	// Determine our token (this is the top of the stack)
-	int token = std::stoi(stack_.top());
+	int token = 0;
+	try {
+		if (std::isdigit(stack_.top().at(0))) {
+			token = std::stoi(stack_.top());
+		}
+		else {
+			throw Exception(stack_.top() + " was not a valid token.");
+		}
+	}
+	catch(Exception& e) {
+		std::cout << e.what() << std::endl;
+		exit(1);
+	}
 
 	// Get our parsetable entry
 	std::pair<EAction, std::string> action = p_table_(token, symbol);
@@ -104,11 +116,11 @@ bool LRParser::handleReduction(std::string rule) {
 		}
 		else {
 			throw Exception(stack_.top() + " was not a valid token.");
-			exit(1);
 		}
 	}
 	catch(Exception& e) {
 		std::cout << e.what() << std::endl;
+		exit(1);
 	}
 	// First we push our head on the stack.
 	stack_.push(head);
