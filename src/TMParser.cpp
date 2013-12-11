@@ -39,7 +39,7 @@ TMParser::TMParser(std::string file) {
 				// Check for Productions
 				found = line.find("PRODUCTIONS {");
 				if (found != std::string::npos) {
-//					// We found the productions.
+					// We found the productions.
 					getline(fs, line);
 					while(line == "" || line.at(0) != '}') {
 						if (line == "") {
@@ -174,19 +174,25 @@ void TMParser::parseStates(std::string line, std::size_t found) {
 			// This is where we'll read our states.
 			std::string::iterator it2 = it;
 			TM::StateName state = "";
-			while (*it2 != ',' && *it2 != '}') {
+			int counter = 0;
+			while (*it2 != ',' && *it2 != '}' && *it2 != ' ') {
 				state += *it2;
 				it2++;
+				counter++;
 			}
+			it += counter-1;
+			std::cout << state << std::endl;
 			states_.push_back(state);
 			break;
 		}
 	}
+
+	std::cout << "jajaj" << std::endl;
 }
 
 void TMParser::parseInitInput(std::string line, std::size_t found) {
 	std::string::iterator it;
-	std::string initInput = "";		//TODO make a vector of TapeSymbols
+	std::string initInput = "";
 	for (it = line.begin() + found + 18; it != line.end(); it++) {
 		if (*it != ' ' && *it != '#') {
 			initInput += *it;
