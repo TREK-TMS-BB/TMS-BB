@@ -1,0 +1,101 @@
+<?xml version="b.a" ?>
+<parseTable>
+    <!-- b -->
+    <row>
+        <a entry="shift 2"/>
+        <b entry="shift 3"/>
+        <s entry=""/>
+        <p entry=""/>
+        <EOS entry=""/>
+        <I entry="5"/>
+        <E entry="4"/>
+    </row>
+
+    <!-- 2 -->
+    <row>
+        <a entry="I->a"/>
+        <b entry="I->a"/>
+        <s entry="I->a"/>
+        <p entry="I->a"/>
+        <EOS entry="I->a"/>
+        <I entry=""/>
+        <E entry=""/>
+    </row>
+
+    <!-- 3 -->
+    <row>
+        <a entry="I->b"/>
+        <b entry="I->b"/>
+        <s entry="I->b"/>
+        <p entry="I->b"/>
+        <EOS entry="I->b"/>
+        <I entry=""/>
+        <E entry=""/>
+    </row>
+
+    <!-- 4 -->
+    <row>
+        <a entry=""/>
+        <b entry=""/>
+        <s entry="shift 7"/>
+        <p entry="shift 6"/>
+        <EOS entry="accest"/>
+        <I entry=""/>
+        <E entry=""/>
+    </row>
+
+    <!-- 5 -->
+    <row>
+        <a entry="E->I"/>
+        <b entry="E->I"/>
+        <s entry="E->I"/>
+        <p entry="E->I"/>
+        <EOS entry="E->I"/>
+        <I entry=""/>
+        <E entry=""/>
+    </row>
+
+    <!-- 6 -->
+    <row>
+        <a entry="shift 2"/>
+        <b entry="shift 3"/>
+        <s entry=""/>
+        <p entry=""/>
+        <EOS entry=""/>
+        <I entry="8"/>
+        <E entry=""/>
+    </row>
+
+    <!-- 7 -->
+    <row>
+        <a entry="shift 2"/>
+        <b entry="shift 3"/>
+        <s entry=""/>
+        <p entry=""/>
+        <EOS entry=""/>
+        <I entry=""/>
+        <E entry="9"/>
+    </row>
+
+    <!-- 8 -->
+    <row>
+        <a entry="E->EpI"/>
+        <b entry="E->EpI"/>
+        <s entry="E->EpI"/>
+        <p entry="E->EpI"/>
+        <EOS entry="E->EpI"/>
+        <I entry=""/>
+        <E entry=""/>
+    </row>
+
+    <!-- 9 -->
+    <row>
+        <a entry="E->EsI"/>
+        <b entry="E->EsI"/>
+        <s entry="E->EsI"/>
+        <p entry="E->EsI"/>
+        <EOS entry="E->EsI"/>
+        <I entry=""/>
+        <E entry=""/>
+    </row>
+</parseTable>

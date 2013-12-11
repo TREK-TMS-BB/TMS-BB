@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<CFG>
+    <variables>
+        <var>I</var>
+        <var>E</var>
+    </variables>
+    <terminals>
+        <t>a</t>
+        <t>b</t>
+        <t>s</t>    <!-- + -->
+        <t>p</t>    <!-- * -->
+    </terminals>
+    <rules>
+        <r var="E" body="I"/>
+        <r var="E" body="EsI"/>
+        <r var="E" body="EpI"/>
+
+        <r var="I" body="a"/>
+        <r var="I" body="b"/>
+    </rules>
+    <start>E</start>
+</CFG>
