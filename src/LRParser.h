@@ -13,6 +13,7 @@
 #include <utility>
 #include <sstream>
 #include <iostream>
+#include <cctype>
 #include "utilities.h"
 #include "CFG.h"
 #include "ParseTable.h"

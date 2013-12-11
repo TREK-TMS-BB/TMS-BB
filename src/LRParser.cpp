@@ -97,7 +97,19 @@ bool LRParser::handleReduction(std::string rule) {
 		}
 	}
 	// Top of stack should now be another token. We should check in our parsetable what we should do on input of our head.
-	int token = std::stoi(stack_.top());
+	int token = 0;
+	try {
+		if (std::isdigit(stack_.top().at(0))) {
+			token = std::stoi(stack_.top());
+		}
+		else {
+			throw Exception(stack_.top() + " was not a valid token.");
+			exit(1);
+		}
+	}
+	catch(Exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	// First we push our head on the stack.
 	stack_.push(head);
 	// Now we need to check what token we need after our head. (Check our parsetable)
