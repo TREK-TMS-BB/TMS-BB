@@ -106,8 +106,10 @@ int main( int argc, char* argv[]) {
 
 	//TM::renameStates("TM-Files/clear.tm", "TM-Files/clearRen.tm");
 
-	TM::linkFiles("TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/test.tm" );
+	std::vector<std::string> progs = {"TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/incr.tm"};
 
+	//TM::linkFiles("TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/test.tm" );
+	TM::linkFiles(progs, "TM-Files/test.tm");
 	TM::TuringMachine t("TM-Files/test.tm");
 
 

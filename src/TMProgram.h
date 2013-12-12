@@ -29,6 +29,8 @@ private:
 	void renameStates();
 	//! a function linking the program to the next (expecting all names of states to be different)
 	void linkWith(const TMProgram& prog);
+	//! a function linking the program to a vector of programs
+	void linkWith(std::vector<TMProgram>const & progs);
 
 	std::string filename_;					//! the name of the file the program came from
 	std::vector<StateName> states_;			//! vector containing all states

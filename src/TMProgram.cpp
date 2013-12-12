@@ -55,6 +55,28 @@ void TMProgram::linkWith(const TMProgram& prog) {
 	states_.push_back("halt");
 }
 
+void TMProgram::linkWith(std::vector<TMProgram> const& progs) {
+	for (auto p : progs) {
+		// add transition from "halt" to start of next
+		Production link(*(states_.end()-1), TapeSymbol("*"), TapeSymbol("*"), none, p.states_.at(0));
+		productions_.push_back(link);
+		// add all the states
+		for (auto e: p.states_) {
+			states_.push_back(e);
+		}
+		// add all productions
+		for (auto e : p.productions_) {
+			productions_.push_back(e);
+			std::cout << "added production "<< std::get<0>(e) << "with read symbol: " << std::get<1>(e)<<"\n";
+		}
+	}
+	// add halt production:
+	Production endLink(*(states_.end()-1), TapeSymbol("*"), TapeSymbol("*"), none, "halt");
+	productions_.push_back(endLink);
+	states_.push_back("halt");
+
+}
+
 std::ostream& operator<< (std::ostream& out, const TMProgram &program) {
 	out << "INITIAL_INPUT=0 \n"
 			"\n"
