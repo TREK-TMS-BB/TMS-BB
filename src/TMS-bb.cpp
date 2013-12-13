@@ -107,7 +107,7 @@ int main( int argc, char* argv[]) {
 
 	//TM::renameStates("TM-Files/clear.tm", "TM-Files/clearRen.tm");
 
-	BB::BBclear test(1);
+	BB::BBdecr test(1);
 	TM::TMProgram testP = test.createCode();
 	std::ofstream out;
 	out.open("TM-Files/test.tm");
@@ -134,7 +134,7 @@ int main( int argc, char* argv[]) {
 
 	try {
 		t.simulate(temp);
-		//t.simulate(t.getOutput());
+		t.simulate(t.getOutput());
 	}
 	catch (Exception& e) {
 		std::cout << e.what() << std::endl;
