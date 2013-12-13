@@ -25,6 +25,14 @@ namespace utilities {
 	std::string upToLow(std::string);
 	std::string replacestring(std::string, std::string, std::string);
 	std::string nextstring(std::string);
+
+	template < typename T >
+	std::string toString(const T& x) {
+		std::stringstream s;
+		s << x;
+		return s.str();
+	}
+
 }
 
 

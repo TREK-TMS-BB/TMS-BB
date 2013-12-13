@@ -16,6 +16,7 @@
 #include "LRParser.h"
 #include "PDA.h"
 #include "LinkTM.h"
+#include "BareBonesStatement.h"
 
 
 int main( int argc, char* argv[]) {
@@ -106,17 +107,27 @@ int main( int argc, char* argv[]) {
 
 	//TM::renameStates("TM-Files/clear.tm", "TM-Files/clearRen.tm");
 
-	std::vector<std::string> progs = {"TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/incr.tm"};
+	BB::BBclear test(1);
+	TM::TMProgram testP = test.createCode();
+	std::ofstream out;
+	out.open("TM-Files/test.tm");
+	out << testP << std::endl;
+
+	/*std::vector<std::string> progs = {"TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/incr.tm"};
 
 	//TM::linkFiles("TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/test.tm" );
-	TM::linkFiles(progs, "TM-Files/test.tm");
+	TM::linkFiles(progs, "TM-Files/test.tm");*/
 	TM::TuringMachine t("TM-Files/test.tm");
 
 
 	std::cout << t << std::endl;
 	std::vector<TM::TapeSymbol> temp;
 	temp.push_back(TM::TapeSymbol(1));
+	temp.push_back(TM::TapeSymbol(1));
+	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(0));
+	temp.push_back(TM::TapeSymbol(1));
+	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(0));
@@ -131,7 +142,6 @@ int main( int argc, char* argv[]) {
 
 
 	std::cout << t << std::endl;
-
 	std::cout << "program finished"	 << std::endl;
 
 

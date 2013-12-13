@@ -18,6 +18,8 @@ class TMProgram {
 public:
 	TMProgram();
 	TMProgram(std::string filename);
+	TMProgram(	std::vector<StateName> states, std::vector<Production> productions, std::string filename);
+
 	virtual ~TMProgram();
 	std::string getStart();
 	friend std::ostream& operator<<(std::ostream& out,const TMProgram &p);

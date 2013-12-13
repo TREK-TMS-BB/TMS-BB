@@ -1,47 +1,25 @@
 INITIAL_INPUT=0 
 
-STATES = {TM-Files/incr2.tm_gotoVar_0,TM-Files/incr2.tm_gotoVar_halt,TM-Files/incr2.tm_incr_0,TM-Files/incr2.tm_incr_1,TM-Files/incr2.tm_incr_2,TM-Files/incr2.tm_incr_halt,TM-Files/incr2.tm_gotoStart_0,TM-Files/incr2.tm_gotoStart_halt,TM-Files/incr2.tm_halt,TM-Files/decr.tm_s,TM-Files/decr.tm_0,TM-Files/decr.tm_q,TM-Files/decr.tm_a,TM-Files/decr.tm_b,TM-Files/decr.tm_halt,TM-Files/incr.tm_0,TM-Files/incr.tm_a,TM-Files/incr.tm_b,TM-Files/incr.tm_halt,halt} 
+STATES = {0,1,while,true,ds,d0,d1,d2,d3,dend,halt} 
 
 PRODUCTIONS { 
-TM-Files/incr2.tm_gotoVar_0 1 1 r TM-Files/incr2.tm_gotoVar_0 ;
-TM-Files/incr2.tm_gotoVar_0 0 0 r TM-Files/incr2.tm_gotoVar_halt ;
-TM-Files/incr2.tm_gotoVar_halt * * n TM-Files/incr2.tm_incr_0 ;
-TM-Files/incr2.tm_incr_0 1 1 r TM-Files/incr2.tm_incr_1 ;
-TM-Files/incr2.tm_incr_0 0 1 r TM-Files/incr2.tm_incr_2 ;
-TM-Files/incr2.tm_incr_0 _ _ r TM-Files/incr2.tm_incr_halt ;
-TM-Files/incr2.tm_incr_1 1 1 r TM-Files/incr2.tm_incr_1 ;
-TM-Files/incr2.tm_incr_1 0 1 r TM-Files/incr2.tm_incr_2 ;
-TM-Files/incr2.tm_incr_1 _ a r TM-Files/incr2.tm_incr_halt ;
-TM-Files/incr2.tm_incr_2 0 0 r TM-Files/incr2.tm_incr_2 ;
-TM-Files/incr2.tm_incr_2 1 0 r TM-Files/incr2.tm_incr_1 ;
-TM-Files/incr2.tm_incr_2 _ 0 n TM-Files/incr2.tm_incr_halt ;
-TM-Files/incr2.tm_incr_halt * * n TM-Files/incr2.tm_gotoStart_0 ;
-TM-Files/incr2.tm_gotoStart_0 1 1 l TM-Files/incr2.tm_gotoStart_0 ;
-TM-Files/incr2.tm_gotoStart_0 0 0 l TM-Files/incr2.tm_gotoStart_0 ;
-TM-Files/incr2.tm_gotoStart_0 _ _ r TM-Files/incr2.tm_gotoStart_halt ;
-TM-Files/incr2.tm_gotoStart_halt * * n TM-Files/incr2.tm_halt ;
-TM-Files/incr2.tm_halt * * n TM-Files/decr.tm_s ;
-TM-Files/decr.tm_s 1 _ r TM-Files/decr.tm_0 ;
-TM-Files/decr.tm_0 1 1 r TM-Files/decr.tm_0 ;
-TM-Files/decr.tm_0 0 0 r TM-Files/decr.tm_0 ;
-TM-Files/decr.tm_0 _ _ l TM-Files/decr.tm_q ;
-TM-Files/decr.tm_q 1 _ l TM-Files/decr.tm_a ;
-TM-Files/decr.tm_q 0 _ l TM-Files/decr.tm_b ;
-TM-Files/decr.tm_a 1 1 l TM-Files/decr.tm_a ;
-TM-Files/decr.tm_a 0 1 l TM-Files/decr.tm_b ;
-TM-Files/decr.tm_a _ 1 n TM-Files/decr.tm_halt ;
-TM-Files/decr.tm_b 0 0 l TM-Files/decr.tm_b ;
-TM-Files/decr.tm_b 1 0 l TM-Files/decr.tm_a ;
-TM-Files/decr.tm_b _ 0 n TM-Files/decr.tm_halt ;
-TM-Files/decr.tm_halt * * n TM-Files/incr.tm_0 ;
-TM-Files/incr.tm_0 1 1 r TM-Files/incr.tm_a ;
-TM-Files/incr.tm_0 0 1 r TM-Files/incr.tm_b ;
-TM-Files/incr.tm_0 _ _ n TM-Files/incr.tm_halt ;
-TM-Files/incr.tm_a 1 1 r TM-Files/incr.tm_a ;
-TM-Files/incr.tm_a 0 1 r TM-Files/incr.tm_b ;
-TM-Files/incr.tm_a _ 1 n TM-Files/incr.tm_halt ;
-TM-Files/incr.tm_b 0 0 r TM-Files/incr.tm_b ;
-TM-Files/incr.tm_b 1 0 r TM-Files/incr.tm_a ;
-TM-Files/incr.tm_b _ 0 n TM-Files/incr.tm_halt ;
-TM-Files/incr.tm_halt * * n halt ;
+0 1 1 r 0 ;
+0 0 0 r 1 ;
+1 * * n while ;
+while 0 0 n halt ;
+while 1 1 n true ;
+true * * n ds ;
+ds 1 _ r d0 ;
+d0 1 1 r d0 ;
+d0 0 0 r d0 ;
+d0 _ _ l d1 ;
+d1 1 _ l d2 ;
+d1 0 _ l d3 ;
+d2 1 1 l d2 ;
+d2 0 1 l d3 ;
+d2 _ 1 n dend ;
+d3 1 0 l d2 ;
+d3 0 0 l d3 ;
+d3 _ 0 n dend ;
+dend * * n while ;
 }

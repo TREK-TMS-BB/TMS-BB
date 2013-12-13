@@ -19,6 +19,11 @@ TMProgram::TMProgram(std::string filename) : filename_(filename) {
 	productions_ = parse.getProductions();
 }
 
+TMProgram::TMProgram(	std::vector<StateName> states, std::vector<Production> productions, std::string filename) : states_(states), productions_(productions) , filename_(filename){
+
+}
+
+
 std::string TMProgram::getStart() {
 	return states_.at(0);
 }
