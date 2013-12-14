@@ -320,8 +320,99 @@ TM::TMProgram BBdecr::createCode() {
 	TM::TMProgram prog(states,productions, utilities::toString(statementNr_)+"Decr"+utilities::toString(variable_));
 
 	return prog;
+}
+
+BBcopy::BBcopy(int orig, int copy) : BareBonesStatement(), statementNr_(count_), original_(orig), copy_(copy) {
+}
+
+TM::TMProgram BBcopy::createCode() {
+	std::vector<TM::Production> productions;
+	std::vector<TM::StateName> states;
 
 
+	// Goto n
+	int i = 0;
+	for (i = 0; i < original_; i++) {
+		states.push_back(utilities::toString(i));
+		TM::Production temp(utilities::toString(i),TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, utilities::toString(i) );
+		productions.push_back(temp);
+		TM::Production temp2(utilities::toString(i),TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, utilities::toString(i+1) );
+		productions.push_back(temp2);
+	}
+	states.push_back(utilities::toString(i));
+
+	//Copy:
+	/**
+	0 0 0 n wr0			# no more 1s to copy
+	0 1 Y r 1			# overwrite 1 with Y (remembers position)
+	1 1 1 r 1
+	1 0 0 r 1
+	1 B 1 l 2			# write 1
+
+	2 1 1 l 2			# Go back to Y
+	2 0 0 l 3
+	3 1 1 l 3
+	3 Y 1 r 0			# Start again
+
+	wr0 B 0 n halt		# loop over everything untill you meet a Blank (write 0 here)
+	wr0 * * r wr0
+	 */
+
+	TM::StateName s0 = utilities::toString(i+1);
+	TM::StateName s1 = utilities::toString(i+2);
+	TM::StateName s2 = utilities::toString(i+3);
+	TM::StateName s3 = utilities::toString(i+4);
+
+	states.push_back(s0);
+	states.push_back(s1);
+	states.push_back(s2);
+	states.push_back(s3);
+	states.push_back("wr0");
+
+	// link to copy:
+	TM::Production temp(utilities::toString(i), TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, s0 );
+	productions.push_back(temp);
+
+
+	temp = TM::Production (s0,TM::TapeSymbol(0),TM::TapeSymbol(0),TM::none, "wr0" );
+	productions.push_back(temp);
+	temp = TM::Production (s0,TM::TapeSymbol(1),TM::TapeSymbol("Y"),TM::right, s1 );
+	productions.push_back(temp);
+
+	temp = TM::Production (s1,TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, s1 );
+	productions.push_back(temp);
+	temp = TM::Production (s1,TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, s1 );
+	productions.push_back(temp);
+	temp = TM::Production (s1,TM::TapeSymbol(),TM::TapeSymbol(1),TM::left, s2 );
+	productions.push_back(temp);
+
+	temp = TM::Production (s2,TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, s2 );
+	productions.push_back(temp);
+	temp = TM::Production (s2,TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, s2 );
+	productions.push_back(temp);
+	temp = TM::Production (s2,TM::TapeSymbol("Y"),TM::TapeSymbol(1),TM::right, s0 );
+	productions.push_back(temp);
+
+	temp = TM::Production ("wr0",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, "wr0" );
+	productions.push_back(temp);
+	temp = TM::Production ("wr0",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, "wr0" );
+	productions.push_back(temp);
+	temp = TM::Production ("wr0",TM::TapeSymbol(),TM::TapeSymbol(0),TM::none, "goS" );
+	productions.push_back(temp);
+
+	states.push_back("goS");
+
+	temp = TM::Production ("goS",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, "goS" );
+	productions.push_back(temp);
+	temp = TM::Production ("goS",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, "goS" );
+	productions.push_back(temp);
+	temp = TM::Production ("goS",TM::TapeSymbol(),TM::TapeSymbol(),TM::right, "halt" );
+	productions.push_back(temp);
+
+	states.push_back("halt");
+
+	TM::TMProgram prog(states, productions, utilities::toString(statementNr_)+"Copy"+utilities::toString(original_));
+	return prog;
 }
 
 } /* namespace BB */

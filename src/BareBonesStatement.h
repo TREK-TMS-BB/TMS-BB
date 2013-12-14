@@ -65,6 +65,7 @@ public:
 private:
 	const int original_; //! place of variable to be copied
 	const int copy_; 	//! place of the variable to be copied to
+	const int statementNr_; //! the nr of the statement
 };
 
 class BBwhile : public BareBonesStatement {
