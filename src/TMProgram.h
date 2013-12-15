@@ -38,10 +38,6 @@ public:
 	 * @param halt if true halt states is added in the end else it is skipped
 	 */
 	void linkWith(std::vector<TMProgram>const & progs, bool halt = true);
-	//! a function adding a state on the before last place
-	void addState(StateName);
-	//! a function adding a Production
-	void addProduction(Production const &);
 private:
 
 	std::string filename_;					//! the name of the file the program came from

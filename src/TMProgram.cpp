@@ -10,7 +10,7 @@
 namespace TM {
 
 TMProgram::TMProgram() {
-	states_.push_back("S");
+	states_.push_back("Start");
 }
 
 TMProgram::TMProgram(std::string filename) : filename_(filename) {

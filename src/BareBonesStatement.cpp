@@ -129,7 +129,7 @@ TM::TMProgram BBclear::createCode() {
 	productions.push_back(temp);
 	temp = TM::Production("goS",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left,"goS" );
 	productions.push_back(temp);
-	temp = TM::Production("goS",TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none,"halt" );
+	temp = TM::Production("goS",TM::TapeSymbol(),TM::TapeSymbol(),TM::right,"halt" );
 	productions.push_back(temp);
 
 

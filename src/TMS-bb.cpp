@@ -108,9 +108,9 @@ int main( int argc, char* argv[]) {
 	//TM::renameStates("TM-Files/clear.tm", "TM-Files/clearRen.tm");
 
 	parser::BBParser BBp;;
-	BBp.parseBB("BB-Files/fib.bb");
-
-	std::vector<std::shared_ptr<BB::BareBonesStatement>> vect;
+	BB::BareBonesProgram prog = BBp.parseBB("BB-Files/test.bb");
+	prog.createTMFile("TM-Files/test.tm");
+	/*std::vector<std::shared_ptr<BB::BareBonesStatement>> vect;
 	std::shared_ptr<BB::BareBonesStatement> ptr (new BB::BBdecr(1));
 	std::shared_ptr<BB::BareBonesStatement> ptr2 (new BB::BBincr(2));
 
@@ -120,7 +120,7 @@ int main( int argc, char* argv[]) {
 	TM::TMProgram testP = test.createCode();
 	std::ofstream out;
 	out.open("TM-Files/test.tm");
-	out << testP << std::endl;
+	out << testP << std::endl;*/
 
 	/*std::vector<std::string> progs = {"TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/incr.tm"};
 
