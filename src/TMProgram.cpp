@@ -39,7 +39,7 @@ void TMProgram::renameStates() {
 }
 
 
-void TMProgram::linkWith(const TMProgram& prog) {
+void TMProgram::linkWith(const TMProgram& prog, bool halt) {
 
 	// add transition from "halt" to start of 2nd
 
@@ -47,27 +47,52 @@ void TMProgram::linkWith(const TMProgram& prog) {
 	productions_.push_back(link);
 	// add all the states
 	for (auto e: prog.states_) {
-		states_.push_back(e);
+		bool dupl = false;
+		// check for duplicates:
+		for (auto s : states_) {
+			if (s == e) {
+				dupl = true;
+				break;
+			}
+		}
+		if(!dupl) {
+			states_.push_back(e);
+		}
 	}
 	// add all productions
 	for (auto e : prog.productions_) {
 		productions_.push_back(e);
 		std::cout << "added production "<< std::get<0>(e) << "with read symbol: " << std::get<1>(e)<<"\n";
 	}
-	// add halt production:
-	Production endLink(*(prog.states_.end()-1), TapeSymbol("*"), TapeSymbol("*"), none, "halt");
-	productions_.push_back(endLink);
-	states_.push_back("halt");
+	if (halt) {
+		// add halt production:
+		Production endLink(*(prog.states_.end()-1), TapeSymbol("*"), TapeSymbol("*"), none, "halt");
+		productions_.push_back(endLink);
+		states_.push_back("halt");
+	}
 }
 
-void TMProgram::linkWith(std::vector<TMProgram> const& progs) {
+void TMProgram::linkWith(std::vector<TMProgram> const& progs, bool halt ) {
+	if (progs.size() == 0) {
+		return;
+	}
 	for (auto p : progs) {
 		// add transition from "halt" to start of next
 		Production link(*(states_.end()-1), TapeSymbol("*"), TapeSymbol("*"), none, p.states_.at(0));
 		productions_.push_back(link);
 		// add all the states
 		for (auto e: p.states_) {
-			states_.push_back(e);
+			bool dupl = false;
+			// check for duplicates:
+			for (auto s : states_) {
+				if (s == e) {
+					dupl = true;
+					break;
+				}
+			}
+			if(!dupl) {
+				states_.push_back(e);
+			}
 		}
 		// add all productions
 		for (auto e : p.productions_) {
@@ -75,10 +100,14 @@ void TMProgram::linkWith(std::vector<TMProgram> const& progs) {
 			std::cout << "added production "<< std::get<0>(e) << "with read symbol: " << std::get<1>(e)<<"\n";
 		}
 	}
-	// add halt production:
-	Production endLink(*(states_.end()-1), TapeSymbol("*"), TapeSymbol("*"), none, "halt");
-	productions_.push_back(endLink);
-	states_.push_back("halt");
+
+	if (halt)
+	{
+		// add halt production:
+		Production endLink(*(states_.end()-1), TapeSymbol("*"), TapeSymbol("*"), none, "halt");
+		productions_.push_back(endLink);
+		states_.push_back("halt");
+	}
 
 }
 

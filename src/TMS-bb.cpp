@@ -110,8 +110,13 @@ int main( int argc, char* argv[]) {
 	parser::BBParser BBp;;
 	BBp.parseBB("BB-Files/fib.bb");
 
+	std::vector<std::shared_ptr<BB::BareBonesStatement>> vect;
+	std::shared_ptr<BB::BareBonesStatement> ptr (new BB::BBdecr(1));
+	std::shared_ptr<BB::BareBonesStatement> ptr2 (new BB::BBincr(2));
 
-	BB::BBcopy test(0,2);
+	vect.push_back(ptr);
+	vect.push_back(ptr2);
+	BB::BBwhile test(1, vect);
 	TM::TMProgram testP = test.createCode();
 	std::ofstream out;
 	out.open("TM-Files/test.tm");
@@ -135,6 +140,8 @@ int main( int argc, char* argv[]) {
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(0));
+	temp.push_back(TM::TapeSymbol(0));
+
 
 	try {
 		t.simulate(temp);

@@ -181,7 +181,7 @@ TM::TMProgram BBincr::createCode() {
 	states.push_back(utilities::toString(i+3));	// link to gotoStart
 	TM::Production temp(utilities::toString(i),TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, utilities::toString(i+1) );
 	productions.push_back(temp);
-	temp = TM::Production(utilities::toString(i),TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, utilities::toString(i+2) );
+	temp = TM::Production(utilities::toString(i),TM::TapeSymbol(0),TM::TapeSymbol(1),TM::right, utilities::toString(i+2) );
 	productions.push_back(temp);
 	temp = TM::Production(utilities::toString(i),TM::TapeSymbol("_"),TM::TapeSymbol("_"),TM::none, utilities::toString(i+3) );
 	productions.push_back(temp);
@@ -415,16 +415,80 @@ TM::TMProgram BBcopy::createCode() {
 	return prog;
 }
 
-BBwhile::BBwhile(int var, std::vector<std::shared_ptr<BareBonesStatement> > body)
-	: compVar_(var),
-	  statementNr_(count_),
-	  body_(body)
-{}
 
-
-TM::TMProgram BBwhile::createCode() {
-
+BBwhile::BBwhile(int var, std::vector<std::shared_ptr<BareBonesStatement> > body) :
+		BareBonesStatement(), statementNr_(count_), compVar_(var), body_(body) {
 }
 
+TM::TMProgram BBwhile::createCode() {
+	std::vector<TM::Production> productions;
+	std::vector<TM::StateName> states;
 
+
+	// Goto n
+	int i = 0;
+	for (i = 0; i < compVar_; i++) {
+		states.push_back(utilities::toString(i));
+		TM::Production temp(utilities::toString(i),TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, utilities::toString(i) );
+		productions.push_back(temp);
+		TM::Production temp2(utilities::toString(i),TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, utilities::toString(i+1) );
+		productions.push_back(temp2);
+	}
+	states.push_back(utilities::toString(i));
+
+	// while check:
+	states.push_back("while") ;
+	states.push_back("trueStart");
+	states.push_back("true");
+	TM::Production temp(utilities::toString(i),TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, "while" );
+	productions.push_back(temp);
+
+	temp = TM::Production ("while",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::none, "gotoStart" );
+	productions.push_back(temp);
+	temp = TM::Production ("while",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::none, "trueStart" );
+	productions.push_back(temp);
+
+	// goto start before while body
+	temp = TM::Production ("trueStart",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, "trueStart" );
+	productions.push_back(temp);
+	temp = TM::Production ("trueStart",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, "trueStart" );
+	productions.push_back(temp);
+	temp = TM::Production ("trueStart",TM::TapeSymbol(),TM::TapeSymbol(),TM::right, "true" );
+	productions.push_back(temp);
+
+
+	TM::TMProgram prog(states, productions, utilities::toString(statementNr_)+ "_while_"+utilities::toString(compVar_));
+	prog.renameStates();
+
+	std::vector<TM::TMProgram> progs;
+	for (auto a : body_) {
+		TM::TMProgram temp = a->createCode();
+		temp.renameStates();
+		progs.push_back(temp);
+	}
+	prog.linkWith(progs, false);
+
+	states.clear();
+	productions.clear();
+	states.push_back("end");
+
+	temp = TM::Production ("end",TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, utilities::toString(0) );
+	productions.push_back(temp);
+	states.push_back("gotoStart");
+	temp = TM::Production ("gotoStart",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, "gotoStart" );
+	productions.push_back(temp);
+	temp = TM::Production ("gotoStart",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, "gotoStart" );
+	productions.push_back(temp);
+	temp = TM::Production ("gotoStart",TM::TapeSymbol(),TM::TapeSymbol(),TM::right, "halt" );
+	productions.push_back(temp);
+
+	states.push_back("halt");
+	TM::TMProgram end(states, productions,utilities::toString(statementNr_)+ "_while_"+utilities::toString(compVar_) );
+	end.renameStates();
+	prog.linkWith(end);
+
+
+	return prog;
+
+}
 } /* namespace BB */
