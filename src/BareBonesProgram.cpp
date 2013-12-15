@@ -9,10 +9,9 @@
 
 namespace BB {
 
-BareBonesProgram::BareBonesProgram() {
-	// TODO Auto-generated constructor stub
-
-}
+BareBonesProgram::BareBonesProgram(std::vector<std::shared_ptr<BareBonesStatement> > statements)
+	: statements_(statements)
+{}
 
 BareBonesProgram::~BareBonesProgram() {
 	// TODO Auto-generated destructor stub

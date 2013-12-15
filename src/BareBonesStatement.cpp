@@ -415,4 +415,16 @@ TM::TMProgram BBcopy::createCode() {
 	return prog;
 }
 
+BBwhile::BBwhile(int var, std::vector<std::shared_ptr<BareBonesStatement> > body)
+	: compVar_(var),
+	  statementNr_(count_),
+	  body_(body)
+{}
+
+
+TM::TMProgram BBwhile::createCode() {
+
+}
+
+
 } /* namespace BB */

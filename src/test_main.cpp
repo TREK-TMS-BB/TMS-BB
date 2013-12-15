@@ -81,6 +81,10 @@ int main(int argc, char **argv) {
 	}*/
 
 	try {
+	if (argc != 4) {
+		throw Exception("Correct usage: ./program grammar_file parsetable_file inputString");
+	}
+
 	CFG grammar(argv[1]);
 	ParseTable t(grammar, argv[2]);
 	parser::LRParser lrp(grammar, argv[2]);
