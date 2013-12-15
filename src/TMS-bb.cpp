@@ -17,7 +17,7 @@
 #include "PDA.h"
 #include "LinkTM.h"
 #include "BareBonesStatement.h"
-
+#include "BBParser.h"
 
 int main( int argc, char* argv[]) {
 
@@ -106,6 +106,10 @@ int main( int argc, char* argv[]) {
 	//t.renameStates();
 
 	//TM::renameStates("TM-Files/clear.tm", "TM-Files/clearRen.tm");
+
+	parser::BBParser BBp;;
+	BBp.parseBB("BB-Files/fib.bb");
+
 
 	BB::BBcopy test(0,2);
 	TM::TMProgram testP = test.createCode();

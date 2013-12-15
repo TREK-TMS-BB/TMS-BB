@@ -165,7 +165,6 @@ BB::BareBonesProgram BBParser::parseBB(std::string file) {
 						// We are only allowed to push the most outer while.
 						// Else we'll execute some code more than once.
 						if (whileStack_.size() == 1) {
-							std::cout << top.first.size() << " " << top.second << std::endl;
 							statements_.push_back(statement);
 							whileStack_.pop();
 						}
