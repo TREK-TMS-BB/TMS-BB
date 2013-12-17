@@ -38,11 +38,14 @@ public:
 	 * @param halt if true halt states is added in the end else it is skipped
 	 */
 	void linkWith(std::vector<TMProgram>const & progs, bool halt = true);
+	//! A function setting the input of the program
+	void setInput(std::vector<TapeSymbol> input);
 private:
 
 	std::string filename_;					//! the name of the file the program came from
 	std::vector<StateName> states_;			//! vector containing all states
 	std::vector<Production> productions_;	//! vector with all productions
+	std::vector<TapeSymbol> input_;			//! the input to be put on tape
 };
 
 } /* namespace TM */

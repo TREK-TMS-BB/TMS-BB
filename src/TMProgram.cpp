@@ -111,10 +111,18 @@ void TMProgram::linkWith(std::vector<TMProgram> const& progs, bool halt ) {
 
 }
 
+void TMProgram::setInput(std::vector<TapeSymbol> input) {
+	input_.clear();
+	input_.insert(input_.begin(), input.begin(), input.end());
+}
+
 std::ostream& operator<< (std::ostream& out, const TMProgram &program) {
-	out << "INITIAL_INPUT=0 \n"
-			"\n"
-			"STATES = {" ;
+	out << "INITIAL_INPUT=";
+	for (auto e : program.input_) {
+		out << e;
+	}
+	out << "\n\n";
+	out << "STATES = {" ;
 	out << program.states_.at(0);
 	for (int i = 1; i < program.states_.size();i++) {
 		out <<","<< program.states_.at(i);

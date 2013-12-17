@@ -19,12 +19,13 @@ namespace BB {
 
 class BareBonesProgram {
 public:
-	BareBonesProgram(std::vector<std::shared_ptr<BareBonesStatement> >);
+	BareBonesProgram(std::vector<std::shared_ptr<BareBonesStatement> > statements, unsigned int nrVariables);
 	virtual ~BareBonesProgram();
 	//! A function writing the BareBones program in TM language to given file
 	void createTMFile(std::string outputFile);
 private:
 	std::vector<std::shared_ptr<BareBonesStatement> > statements_; //! all statements of the program
+	unsigned int used_variables_; //! the number of variables used in the program
 };
 
 } /* namespace BB */

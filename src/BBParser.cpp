@@ -181,7 +181,7 @@ BB::BareBonesProgram BBParser::parseBB(std::string file) {
 					}
 				}
 			}
-			return BB::BareBonesProgram(statements_	);
+			return BB::BareBonesProgram(statements_	, varMap_.size());
 	}
 	catch (Exception& e) {
 		std::cerr << e.what() << std::endl;
