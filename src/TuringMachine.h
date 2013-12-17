@@ -15,6 +15,7 @@
 #include "TMParser.h"
 #include "TapeSymbol.h"
 #include "Information.h"
+#include "TMProgram.h"
 
 namespace TM {
 
@@ -28,13 +29,19 @@ public:
 	 * @param filename the filename in which the Turing Machine is described
 	 */
 	TuringMachine(std::string filename);
+	//! Construct from TMProgram
+	/**
+	 * @param program the program you want to run
+	 */
+
 
 	//! Function simulating the Turing Machine with given string on the stack
 	/**
 	 * @ param input vector with the input to be put on the tape, input will be handled as integers
 	 */
 	void simulate(std::vector<TapeSymbol> input );
-
+	//! Function simulating the Turing Machine Turing Program
+	void simulate(TMProgram);
 
 	//! function printing the tape and the productions
 	friend std::ostream& operator<< (std::ostream& out, TuringMachine& tm);
@@ -67,6 +74,11 @@ private:
 	 * reads a symbol, writes, moves
 	 */
 	void simulateCycle();
+	//! A function handling 1 simulation (using a TMProgram)
+	/*
+	 * reads a symbol, writes, moves
+	 */
+	void simulateCycle(TMProgram);
 
 	//! A function setting the tape to 100 blanks
 	void resetTape();

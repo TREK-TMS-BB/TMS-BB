@@ -75,8 +75,46 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 			std::cout << "  ";
 		}
 		std::cout << std::endl;
+	}
+}
+void TuringMachine::simulate(TMProgram prog){
+	resetTape();
+	curState_ = states_.at(0);
+	head_ = tape_.begin();
+	int temp = prog.input_.size();
 
+	if (prog.input_.size() > tape_.size()) {
+		// Have to make tape_ of appropriate size
+		for (unsigned int i = tape_.size()-1; i < prog.input_.size(); i++) {
+			tape_.push_back(TapeSymbol());
+		}
+	}
+	// Put all input on the tape
+	for (int i = 0; i< temp; i++) {
+		tape_.at(i) = prog.input_.at(i);
+	}
 
+	head_ = tape_.begin();
+
+	std::cout << "Start simulating: " << std::endl;
+
+	while (true) {
+		this->simulateCycle(prog);
+		if (curState_ == "halt") {
+			break;
+		}
+		else if (curState_ == "error") {
+			std::string error = "SIMULATION CAME IN ERROR STATE, SIMULATION STOPPED: IN STATE " + curState_;
+			throw(Exception(error));
+		}
+		for (Tape::iterator it = tape_.begin(); it<tape_.end(); it++) {
+			if (it == head_) {
+				std::cout << ">";
+			}
+			std::cout << *it ;
+			std::cout << "  ";
+		}
+		std::cout << std::endl;
 	}
 
 }
@@ -210,6 +248,41 @@ void TuringMachine::simulateCycle() {
 		curState_ = "error";
 	}
 }
+
+void TuringMachine::simulateCycle(TMProgram prog) {
+	bool correct = false;
+
+
+	for(auto c : prog.productions_) {
+		if (std::get<0>(c) == curState_) {
+			if ((std::get<1>(c) == getHead()))  {
+			// Found correct transition:
+			writeHead(std::get<2>(c));
+			move(std::get<3>(c));
+			curState_ = std::get<4>(c);
+			correct = true;
+			break;
+			}
+			else if ( std::get<1>(c) == TapeSymbol(utilities::charToString('*'))) {
+				if (std::get<2>(c) == TapeSymbol(utilities::charToString('*'))) {
+					// do nothing to tape
+				}
+				else {
+						writeHead(std::get<2>(c));
+				}
+				move(std::get<3>(c));
+				curState_ = std::get<4>(c);
+				correct = true;
+				break;
+			}
+		}
+	}
+	if (!correct) {
+		std::cout << "CurState = " << curState_ << std::endl;
+		curState_ = "error";
+	}
+}
+
 
 void TuringMachine::resetTape() {
 	tape_.clear();

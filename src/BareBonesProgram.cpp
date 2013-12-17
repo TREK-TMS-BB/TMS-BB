@@ -35,6 +35,7 @@ void BareBonesProgram::createTMFile(std::string output) {
 	prog.linkWith(end, false);
 
 	std::vector<TM::TapeSymbol> input;
+	std::cout << "nr variables = " << used_variables_ << std::endl;
 	for (int i = 0; i < used_variables_; i++) {
 		input.push_back(TM::TapeSymbol(0));
 	}

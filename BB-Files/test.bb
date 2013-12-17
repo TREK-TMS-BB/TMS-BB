@@ -17,7 +17,7 @@ while G not 0 do;
 			incr J;
 			decr H;
 		end;
-		dec F;
+		decr F;
 	end;
 	decr G;
 end;

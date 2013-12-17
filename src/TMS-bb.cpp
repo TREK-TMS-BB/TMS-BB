@@ -128,6 +128,8 @@ int main( int argc, char* argv[]) {
 	TM::linkFiles(progs, "TM-Files/test.tm");*/
 	TM::TuringMachine t("TM-Files/test.tm");
 
+	TM::TMProgram tmp("TM-Files/test.tm");
+
 
 	std::cout << t << std::endl;
 	std::vector<TM::TapeSymbol> temp;
@@ -139,7 +141,7 @@ int main( int argc, char* argv[]) {
 
 
 	try {
-		t.simulate(temp);
+		t.simulate(tmp);
 		//t.simulate(t.getOutput());
 	}
 	catch (Exception& e) {

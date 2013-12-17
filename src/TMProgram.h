@@ -15,6 +15,7 @@
 namespace TM {
 
 class TMProgram {
+	friend class TuringMachine;
 public:
 	TMProgram();
 	TMProgram(std::string filename);
