@@ -118,7 +118,6 @@ BB::BareBonesProgram BBParser::parseBB(std::string file) {
 					found = cleaned_line.find("decr");
 					if (found != std::string::npos) {
 						// We found a decr statement.
-						// We found an incr statement.
 						it = cleaned_line.begin() + found + 5;
 						// Read var
 						int var = readVar(it);
@@ -166,13 +165,24 @@ BB::BareBonesProgram BBParser::parseBB(std::string file) {
 						// Else we'll execute some code more than once.
 						if (whileStack_.size() == 1) {
 							statements_.push_back(statement);
+							std::cout << "stack size = 1" << std::endl;
+							statement->print();
 							whileStack_.pop();
 						}
 						else if (whileStack_.size() > 1) {
 							// Add this while to the parent while body.
 							whileStack_.pop();
 							top = whileStack_.top();
-							top.first.push_back(statement);
+//							statement->print();
+//							for (auto e : top.first) {
+//								e->print();
+//							}
+							whileStack_.top().first.push_back(statement);
+							std::cout << "print top.first" <<std::endl;
+							for (auto e : top.first) {
+								e->print();
+							}
+							std::cout << top.first.size() << std::endl;
 						}
 
 						if (whileStack_.empty()) {

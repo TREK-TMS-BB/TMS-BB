@@ -131,16 +131,11 @@ int main( int argc, char* argv[]) {
 
 	std::cout << t << std::endl;
 	std::vector<TM::TapeSymbol> temp;
-	temp.push_back(TM::TapeSymbol(1));
-	temp.push_back(TM::TapeSymbol(1));
-	temp.push_back(TM::TapeSymbol(1));
-	temp.push_back(TM::TapeSymbol(0));
-	temp.push_back(TM::TapeSymbol(1));
-	temp.push_back(TM::TapeSymbol(1));
-	temp.push_back(TM::TapeSymbol(1));
-	temp.push_back(TM::TapeSymbol(1));
 	temp.push_back(TM::TapeSymbol(0));
 	temp.push_back(TM::TapeSymbol(0));
+	temp.push_back(TM::TapeSymbol(0));
+	temp.push_back(TM::TapeSymbol(0));
+
 
 
 	try {
@@ -152,7 +147,7 @@ int main( int argc, char* argv[]) {
 	}
 
 
-	std::cout << t << std::endl;
+//	std::cout << t << std::endl;
 	std::cout << "program finished"	 << std::endl;
 
 
