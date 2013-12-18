@@ -21,42 +21,48 @@ Parser::~Parser() {
 }
 
 CFGParser::CFGParser(std::string filename) {
-	TiXmlDocument doc;
-	if(!doc.LoadFile(filename.c_str())) {
-		std::cout << doc.ErrorDesc() << std::endl;
-		std::string errorMessage = doc.ErrorDesc();
-		errorMessage += " " + filename;
-		throw(Exception(errorMessage));
+	try {
+		TiXmlDocument doc;
+		if(!doc.LoadFile(filename.c_str())) {
+			std::cout << doc.ErrorDesc() << std::endl;
+			std::string errorMessage = doc.ErrorDesc();
+			errorMessage += " " + filename;
+			throw(Exception(errorMessage));
+		}
+
+		TiXmlElement* CFG = doc.FirstChildElement();
+
+		if(CFG == NULL) {
+			std::cout << "Failed to load file: No root element." << std::endl;
+			doc.Clear();
+			exit(EXIT_FAILURE);
+		}
+
+		for(TiXmlElement* g = CFG->FirstChildElement(); g != NULL; g = g->NextSiblingElement()) {
+			std::string gPart = g->Value();
+			if (gPart == "variables") {
+				parseVariables(g);
+			}
+			else if (gPart == "terminals") {
+				parseTerminals(g);
+			}
+			else if (gPart == "rules") {
+				parseRules(g);
+			}
+			else if (gPart == "start") {
+				parseStart(g);
+			}
+			else {
+				// Invalid CFG
+				doc.Clear();
+				exit(EXIT_FAILURE);
+			}
+		}
 	}
-
-	TiXmlElement* CFG = doc.FirstChildElement();
-
-	if(CFG == NULL) {
-		std::cout << "Failed to load file: No root element." << std::endl;
-		doc.Clear();
-		exit(EXIT_FAILURE);
+	catch (Exception &e) {
+		std::cout << e.what() << std::endl;
+		exit(1);
 	}
-
-    for(TiXmlElement* g = CFG->FirstChildElement(); g != NULL; g = g->NextSiblingElement()) {
-    	std::string gPart = g->Value();
-    	if (gPart == "variables") {
-    		parseVariables(g);
-    	}
-    	else if (gPart == "terminals") {
-    		parseTerminals(g);
-    	}
-    	else if (gPart == "rules") {
-    		parseRules(g);
-    	}
-    	else if (gPart == "start") {
-    		parseStart(g);
-    	}
-    	else {
-    		// Invalid CFG
-    		doc.Clear();
-    		exit(EXIT_FAILURE);
-    	}
-    }
 }
 
 CFGParser::~CFGParser() {

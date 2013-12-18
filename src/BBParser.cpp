@@ -173,10 +173,6 @@ BB::BareBonesProgram BBParser::parseBB(std::string file) {
 							// Add this while to the parent while body.
 							whileStack_.pop();
 							top = whileStack_.top();
-//							statement->print();
-//							for (auto e : top.first) {
-//								e->print();
-//							}
 							whileStack_.top().first.push_back(statement);
 							std::cout << "print top.first" <<std::endl;
 							for (auto e : top.first) {
