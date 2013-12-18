@@ -14,10 +14,12 @@
 #include <iostream>
 #include <tuple>
 #include <algorithm>
+#include <sstream>
 #include "Exception.h"
 #include "TapeSymbol.h"
 #include "Information.h"
 #include "utilities.h"
+#include "TapeSymbol.h"
 
 namespace parser {
 
@@ -34,7 +36,7 @@ public:
 	/**
 	 * @return initial input for the TuringMachine.
 	 */
-	std::string getInitInput() const;
+	std::vector<TM::TapeSymbol> getInitInput() const;
 
 	/**
 	 * @return all states for the TuringMachine.
@@ -50,7 +52,7 @@ public:
 
 private:
 	//! Initial input for the Turing Machine.
-	std::string initInput_;
+	std::vector<TM::TapeSymbol> initInput_;
 
 	//! All states for the Turing Machine.
 	std::vector<TM::StateName> states_;

@@ -203,7 +203,20 @@ void TMParser::parseInitInput(std::string line, std::size_t found) {
 			initInput += *it;
 		}
 		else {
-			initInput_ = initInput;
+			// Create our TapeSymbols
+			for (auto c : initInput) {
+				if (isdigit(c)) {
+					TM::TapeSymbol symbol(c);
+					initInput_.push_back(symbol);
+				}
+				else {
+					std::stringstream ss;
+					ss << c;
+					std::string input = ss.str();
+					TM::TapeSymbol symbol(input);
+					initInput_.push_back(symbol);
+				}
+			}
 			return;
 		}
 	}
@@ -230,7 +243,7 @@ TMParser::~TMParser() {
 	// TODO Auto-generated destructor stub
 }
 
-std::string TMParser::getInitInput() const {
+std::vector<TM::TapeSymbol> TMParser::getInitInput() const {
 	return initInput_;
 }
 
@@ -243,7 +256,10 @@ std::vector<TM::Production> TMParser::getProductions() const {
 }
 
 std::ostream& operator<<(std::ostream& out, TMParser& tmp) {
-	out << "Initial input = " << tmp.initInput_ << std::endl;
+	std::cout << "initInput_ = " << std::endl;
+	for (auto ts : tmp.initInput_) {
+		std::cout << ts << std::endl;
+	}
 	out << "States = { ";
 	for (auto e : tmp.states_) {
 		out << e << " | ";
