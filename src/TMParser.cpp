@@ -27,6 +27,9 @@ TMParser::TMParser(std::string file) {
 					this->parseStates(line, found);
 					continue;
 				}
+				else {
+					throw Exception("STATES not found or was not in format: STATES = {");
+				}
 
 				// Check for Initial Input.
 				found = line.find("INITIAL_INPUT = ");
@@ -34,6 +37,9 @@ TMParser::TMParser(std::string file) {
 					// We found the initInput.
 					this->parseInitInput(line, found);
 					continue;
+				}
+				else {
+					throw Exception("INITIAL_INPUT was not found or was not in format: INITIAL_INPUT =  (note the spaces before and after the '='.");
 				}
 
 				// Check for Productions
@@ -51,6 +57,9 @@ TMParser::TMParser(std::string file) {
 						}
 					}
 				}
+				else {
+					throw Exception("PRODUCTIONS was not found or was not in format: PRODUCTIONS {");
+				}
 			}
 		}
 		else {
@@ -59,6 +68,7 @@ TMParser::TMParser(std::string file) {
 	}
 	catch (Exception& e) {
 		std::cout << e.what() << std::endl;
+		exit(1);
 	}
 }
 
@@ -186,13 +196,10 @@ void TMParser::parseStates(std::string line, std::size_t found) {
 				counter++;
 			}
 			it += counter-1;
-			std::cout << state << std::endl;
 			states_.push_back(state);
 			break;
 		}
 	}
-
-	std::cout << "jajaj" << std::endl;
 }
 
 void TMParser::parseInitInput(std::string line, std::size_t found) {
@@ -227,7 +234,9 @@ void TMParser::iteratorCheck(std::string::iterator& it2, char c) const {
 		// Get our iterator to the next correct spot.
 		it2++;
 		if (*it2 != c) {
-			throw Exception("There is a fault in a production. It will not be added. Are your sure there are spaces between your production parts?");
+			std::stringstream ss;
+			ss << c;
+			throw Exception("There went something wrong when matching an iterator to " + ss.str() + ". Are your sure there are spaces between your production parts?");
 		}
 		else {
 			it2++;
@@ -235,6 +244,7 @@ void TMParser::iteratorCheck(std::string::iterator& it2, char c) const {
 	}
 	catch (Exception& e) {
 		std::cout << e.what() << std::endl;
+		exit(1);
 	}
 }
 
