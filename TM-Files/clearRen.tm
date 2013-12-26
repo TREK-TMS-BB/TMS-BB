@@ -1,6 +1,6 @@
-INITIAL_INPUT=0 
+INITIAL_INPUT = 0 
 
-STATES = {TM-Files/clear.tm_0,TM-Files/clear.tm_true,TM-Files/clear.tm_ds,TM-Files/clear.tm_d0,TM-Files/clear.tm_dq,TM-Files/clear.tm_da,TM-Files/clear.tm_db,TM-Files/clear.tm_end,TM-Files/clear.tm_g0,TM-Files/clear.tm_halt} 
+STATES = { TM-Files/clear.tm_0,TM-Files/clear.tm_true,TM-Files/clear.tm_ds,TM-Files/clear.tm_d0,TM-Files/clear.tm_dq,TM-Files/clear.tm_da,TM-Files/clear.tm_db,TM-Files/clear.tm_end,TM-Files/clear.tm_g0,TM-Files/clear.tm_halt} 
 
 PRODUCTIONS { 
 TM-Files/clear.tm_0 0 0 2 TM-Files/clear.tm_halt ;

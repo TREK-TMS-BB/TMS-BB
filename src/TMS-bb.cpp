@@ -109,7 +109,7 @@ int main( int argc, char* argv[]) {
 
 	parser::BBParser BBp;;
 	BB::BareBonesProgram prog = BBp.parseBB("BB-Files/test.bb");
-//	prog.createTMFile("TM-Files/test.tm");
+	prog.createTMFile("TM-Files/test.tm");
 	/*std::vector<std::shared_ptr<BB::BareBonesStatement>> vect;
 	std::shared_ptr<BB::BareBonesStatement> ptr (new BB::BBdecr(1));
 	std::shared_ptr<BB::BareBonesStatement> ptr2 (new BB::BBincr(2));

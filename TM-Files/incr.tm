@@ -1,6 +1,6 @@
 INITIAL_INPUT=0
 
-STATES = {0,a,b, halt} 
+STATES = { 0,a,b, halt} 
 
 PRODUCTIONS {
 0 1 1 r a ;

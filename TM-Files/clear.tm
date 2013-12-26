@@ -1,6 +1,6 @@
-INITIAL_INPUT=0
+INITIAL_INPUT = 0
 
-STATES = {0,true,ds,d0,dq,da,db,end,g0, halt} 	# you dont have to mention halt
+STATES = { 0,true,ds,d0,dq,da,db,end,g0, halt } 	# you dont have to mention halt
 
 PRODUCTIONS {
 0 0 0 n halt ;           # end of while loop

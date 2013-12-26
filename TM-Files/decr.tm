@@ -1,6 +1,6 @@
 INITIAL_INPUT=0
 
-STATES = {s,0,q,a,b, halt} # you dont have to mention halt
+STATES = { s,0,q,a,b, halt } # you dont have to mention halt
 
 PRODUCTIONS {
 s 1 B r 0 ;      # write a Blank on the 1 we are going to delete

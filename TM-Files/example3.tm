@@ -1,6 +1,6 @@
 INITIAL_INPUT = 00001100		# A string of symbols (letters and numbers)
 
-STATES = { 0, 1, 2, 3, halt} 	# 1st state is considered to be the startState
+STATES = { 0, 1, 2, 3, halt } 	# 1st state is considered to be the startState
 
 PRODUCTIONS {
 0 0 X r 1 ;			# <CURRENT STATE> <READ SYMBOL> <WRITE SYMBOL> <MOVE> <NEXT STATE>
