@@ -330,7 +330,7 @@ TM::TMProgram BBcopy::createCode() {
 	std::vector<TM::StateName> states;
 
 
-	// Goto n
+	// Goto original
 	int i = 0;
 	for (i = 0; i < original_; i++) {
 		states.push_back(utilities::toString(i));
@@ -341,72 +341,161 @@ TM::TMProgram BBcopy::createCode() {
 	}
 	states.push_back(utilities::toString(i));
 
+	int j = 0;
+	// goto copy variable:
+	for (j = 0 ; j < copy_; j++) {
+		states.push_back("gotoCopy" + utilities::toString(j));
+		TM::Production temp("gotoCopy" + utilities::toString(j),TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, "gotoCopy" + utilities::toString(j) );
+		productions.push_back(temp);
+		temp = TM::Production("gotoCopy" + utilities::toString(j),TM::TapeSymbol("Y"),TM::TapeSymbol("Y"),TM::right, "gotoCopy" + utilities::toString(j) );
+		productions.push_back(temp);
+
+		TM::Production temp2("gotoCopy" + utilities::toString(j),TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, "gotoCopy" + utilities::toString(j+1) );
+		productions.push_back(temp2);
+	}
+	states.push_back("gotoCopy" + utilities::toString(j));
+	states.push_back("atCopy");
+	TM::Production temp("gotoCopy" + utilities::toString(j),TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, "atCopy");
+	productions.push_back(temp);
+
+
+	// goto Start:
+	states.push_back("goS1");
+	states.push_back("atS1");
+	temp = TM::Production("goS1",TM::TapeSymbol("Y"),TM::TapeSymbol("Y"),TM::left, "goS1");
+	productions.push_back(temp);
+	temp = TM::Production("goS1",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, "goS1");
+	productions.push_back(temp);
+	temp = TM::Production("goS1",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, "goS1");
+	productions.push_back(temp);
+	temp = TM::Production ("goS1",TM::TapeSymbol(),TM::TapeSymbol(),TM::right, "atS1");
+	productions.push_back(temp);
+
+	states.push_back("goS2");
+	states.push_back("atS2");
+	temp = TM::Production("goS2",TM::TapeSymbol("Y"),TM::TapeSymbol("Y"),TM::left, "goS2");
+	productions.push_back(temp);
+	temp = TM::Production("goS2",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, "goS2");
+	productions.push_back(temp);
+	temp = TM::Production("goS2",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, "goS2");
+	productions.push_back(temp);
+	temp = TM::Production("goS2",TM::TapeSymbol(),TM::TapeSymbol(),TM::right, "atS2");
+	productions.push_back(temp);
+
 	//Copy:
 	/**
-	0 0 0 n wr0			# no more 1s to copy
-	0 1 Y r 1			# overwrite 1 with Y (remembers position)
-	1 1 1 r 1
-	1 0 0 r 1
-	1 B 1 l 2			# write 1
+	0 Y Y r 0			# skip all already used 1s
+	0 0 0 n copyHalt	# no more 1s to copy
+	0 1 Y l goS1			# overwrite 1 with Y (marks it as used)
+	goS1 1 1 l goS1
+	goS1 0 0 l goS1
+	goS1 B B r atS1
+	*/
 
-	2 1 1 l 2			# Go back to Y
-	2 0 0 l 3
-	3 1 1 l 3
-	3 Y 1 r 0			# Start again
+	states.push_back("cp");
+	states.push_back("cpHalt");
+	temp = TM::Production(utilities::toString(i),TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, "cp");
+	productions.push_back(temp);
 
-	wr0 B 0 n halt		# loop over everything untill you meet a Blank (write 0 here)
-	wr0 * * r wr0
+	temp = TM::Production("cp",TM::TapeSymbol("Y"),TM::TapeSymbol("Y"),TM::right, "cp");
+	productions.push_back(temp);
+	temp = TM::Production("cp",TM::TapeSymbol(1),TM::TapeSymbol("Y"),TM::left, "goS1");
+	productions.push_back(temp);
+	temp = TM::Production("cp",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::none, "cpHalt");
+	productions.push_back(temp);
+
+
+	/*
+	atS1 * * n gotoCopy
+	...					# go to Copy
+	*/
+
+	temp = TM::Production("atS1",TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, "gotoCopy0");
+	productions.push_back(temp);
+
+
+	/*
+	atCopy * * n add0
+	# add 1
+	add0 1 1 r add1 ;
+	add0 0 1 r add2 ;
+
+	add1 1 1 r add1 ;
+	add1 0 1 r add1 ;
+	add1 B 1 n addHalt ;
+
+	add2 0 0 r add2 ;
+	add2 1 0 r add1 ;
+	add2 B 0 n addHalt ;
+	*/
+
+	states.push_back("add0");
+	states.push_back("add1");
+	states.push_back("add2");
+	states.push_back("add3");
+	states.push_back("addHalt");
+	temp = TM::Production("atCopy",TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, "add0");
+	productions.push_back(temp);
+
+	temp = TM::Production("add0",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, "add1");
+	productions.push_back(temp);
+	temp = TM::Production("add0",TM::TapeSymbol(0),TM::TapeSymbol(1),TM::right, "add2");
+	productions.push_back(temp);
+
+	temp = TM::Production("add1",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, "add1");
+	productions.push_back(temp);
+	temp = TM::Production("add1",TM::TapeSymbol(0),TM::TapeSymbol(1),TM::right, "add2");
+	productions.push_back(temp);
+	temp = TM::Production("add1",TM::TapeSymbol("Y"),TM::TapeSymbol(1),TM::right, "add3");
+	productions.push_back(temp);
+	temp = TM::Production("add1",TM::TapeSymbol(),TM::TapeSymbol(1),TM::none, "addHalt");
+	productions.push_back(temp);
+
+	temp = TM::Production("add2",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, "add2");
+	productions.push_back(temp);
+	temp = TM::Production("add2",TM::TapeSymbol(1),TM::TapeSymbol(0),TM::right, "add1");
+	productions.push_back(temp);
+	temp = TM::Production("add2",TM::TapeSymbol("Y"),TM::TapeSymbol(0),TM::right, "add3");
+	productions.push_back(temp);
+	temp = TM::Production("add2",TM::TapeSymbol(),TM::TapeSymbol(0),TM::none, "addHalt");
+	productions.push_back(temp);
+
+	temp = TM::Production("add3",TM::TapeSymbol(0),TM::TapeSymbol("Y"),TM::right, "add2");
+	productions.push_back(temp);
+	temp = TM::Production("add3",TM::TapeSymbol(1),TM::TapeSymbol("Y"),TM::right, "add1");
+	productions.push_back(temp);
+	temp = TM::Production("add3",TM::TapeSymbol("Y"),TM::TapeSymbol("Y"),TM::right, "add3");
+	productions.push_back(temp);
+	temp = TM::Production("add3",TM::TapeSymbol(),TM::TapeSymbol("Y"),TM::none, "addHalt");
+	productions.push_back(temp);
+
+
+	/*
+	addHalt * * n goS2
+	...
+	*/
+	temp = TM::Production("addHalt",TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, "goS2");
+	productions.push_back(temp);
+
+	/*
+	# link back to Start
+	atS2 * * 0
+	*/
+	temp = TM::Production("atS2",TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, "0");
+	productions.push_back(temp);
+
+	/*
+	copyHalt * * l wr1
+	wr1 Y 1 l wr1
+	wr1 0 0 n halt
 	 */
-
-	TM::StateName s0 = utilities::toString(i+1);
-	TM::StateName s1 = utilities::toString(i+2);
-	TM::StateName s2 = utilities::toString(i+3);
-	TM::StateName s3 = utilities::toString(i+4);
-
-	states.push_back(s0);
-	states.push_back(s1);
-	states.push_back(s2);
-	states.push_back(s3);
-	states.push_back("wr0");
-
-	// link to copy:
-	TM::Production temp(utilities::toString(i), TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::none, s0 );
+	states.push_back("wr1");
+	temp = TM::Production("cpHalt",TM::TapeSymbol("*"),TM::TapeSymbol("*"),TM::left, "wr1");
 	productions.push_back(temp);
 
-
-	temp = TM::Production (s0,TM::TapeSymbol(0),TM::TapeSymbol(0),TM::none, "wr0" );
+	temp = TM::Production("wr1",TM::TapeSymbol("Y"),TM::TapeSymbol(1),TM::left, "wr1");
 	productions.push_back(temp);
-	temp = TM::Production (s0,TM::TapeSymbol(1),TM::TapeSymbol("Y"),TM::right, s1 );
-	productions.push_back(temp);
-
-	temp = TM::Production (s1,TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, s1 );
-	productions.push_back(temp);
-	temp = TM::Production (s1,TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, s1 );
-	productions.push_back(temp);
-	temp = TM::Production (s1,TM::TapeSymbol(),TM::TapeSymbol(1),TM::left, s2 );
-	productions.push_back(temp);
-
-	temp = TM::Production (s2,TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, s2 );
-	productions.push_back(temp);
-	temp = TM::Production (s2,TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, s2 );
-	productions.push_back(temp);
-	temp = TM::Production (s2,TM::TapeSymbol("Y"),TM::TapeSymbol(1),TM::right, s0 );
-	productions.push_back(temp);
-
-	temp = TM::Production ("wr0",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::right, "wr0" );
-	productions.push_back(temp);
-	temp = TM::Production ("wr0",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::right, "wr0" );
-	productions.push_back(temp);
-	temp = TM::Production ("wr0",TM::TapeSymbol(),TM::TapeSymbol(0),TM::none, "goS" );
-	productions.push_back(temp);
-
-	states.push_back("goS");
-
-	temp = TM::Production ("goS",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, "goS" );
-	productions.push_back(temp);
-	temp = TM::Production ("goS",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, "goS" );
-	productions.push_back(temp);
-	temp = TM::Production ("goS",TM::TapeSymbol(),TM::TapeSymbol(),TM::right, "halt" );
+	temp = TM::Production("wr1",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::none, "halt");
 	productions.push_back(temp);
 
 	states.push_back("halt");

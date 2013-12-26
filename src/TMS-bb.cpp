@@ -108,8 +108,8 @@ int main( int argc, char* argv[]) {
 	//TM::renameStates("TM-Files/clear.tm", "TM-Files/clearRen.tm");
 
 	parser::BBParser BBp;;
-	BB::BareBonesProgram prog = BBp.parseBB("BB-Files/test.bb");
-	prog.createTMFile("TM-Files/test.tm");
+	BB::BareBonesProgram prog = BBp.parseBB("BB-Files/test2.bb");
+	prog.createTMFile("TM-Files/test2.tm");
 	/*std::vector<std::shared_ptr<BB::BareBonesStatement>> vect;
 	std::shared_ptr<BB::BareBonesStatement> ptr (new BB::BBdecr(1));
 	std::shared_ptr<BB::BareBonesStatement> ptr2 (new BB::BBincr(2));
@@ -126,9 +126,9 @@ int main( int argc, char* argv[]) {
 
 	//TM::linkFiles("TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/test.tm" );
 	TM::linkFiles(progs, "TM-Files/test.tm");*/
-	TM::TuringMachine t("TM-Files/test.tm");
+	TM::TuringMachine t("TM-Files/test2.tm");
 
-	TM::TMProgram tmp("TM-Files/test.tm");
+	TM::TMProgram tmp("TM-Files/test2.tm");
 
 
 	std::cout << t << std::endl;
