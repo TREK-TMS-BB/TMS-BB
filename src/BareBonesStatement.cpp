@@ -495,7 +495,15 @@ TM::TMProgram BBcopy::createCode() {
 
 	temp = TM::Production("wr1",TM::TapeSymbol("Y"),TM::TapeSymbol(1),TM::left, "wr1");
 	productions.push_back(temp);
-	temp = TM::Production("wr1",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::none, "halt");
+	temp = TM::Production("wr1",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::none, "goS3");
+	productions.push_back(temp);
+
+	states.push_back("goS3");
+	temp = TM::Production("goS3",TM::TapeSymbol(1),TM::TapeSymbol(1),TM::left, "goS3");
+	productions.push_back(temp);
+	temp = TM::Production("goS3",TM::TapeSymbol(0),TM::TapeSymbol(0),TM::left, "goS3");
+	productions.push_back(temp);
+	temp = TM::Production("goS3",TM::TapeSymbol(),TM::TapeSymbol(),TM::right, "halt");
 	productions.push_back(temp);
 
 	states.push_back("halt");
