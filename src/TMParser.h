@@ -15,6 +15,7 @@
 #include <tuple>
 #include <algorithm>
 #include <sstream>
+#include <cstdlib>
 #include "Exception.h"
 #include "TapeSymbol.h"
 #include "Information.h"

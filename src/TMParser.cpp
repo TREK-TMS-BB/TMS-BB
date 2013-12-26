@@ -11,6 +11,9 @@ namespace parser {
 
 TMParser::TMParser(std::string file) {
 	try {
+		bool states = false;
+		bool initinput = false;
+		bool productions = false;
 		std::ifstream fs;
 		fs.open(file);
 		if (fs.is_open()) {
@@ -25,10 +28,8 @@ TMParser::TMParser(std::string file) {
 				if (found != std::string::npos) {
 					// We found the States.
 					this->parseStates(line, found);
+					states = true;
 					continue;
-				}
-				else {
-					throw Exception("STATES not found or was not in format: STATES = {");
 				}
 
 				// Check for Initial Input.
@@ -36,10 +37,8 @@ TMParser::TMParser(std::string file) {
 				if (found != std::string::npos) {
 					// We found the initInput.
 					this->parseInitInput(line, found);
+					initinput = true;
 					continue;
-				}
-				else {
-					throw Exception("INITIAL_INPUT was not found or was not in format: INITIAL_INPUT =  (note the spaces before and after the '='.");
 				}
 
 				// Check for Productions
@@ -57,13 +56,30 @@ TMParser::TMParser(std::string file) {
 						}
 					}
 				}
-				else {
-					throw Exception("PRODUCTIONS was not found or was not in format: PRODUCTIONS {");
-				}
+				productions = true;
 			}
 		}
 		else {
 			throw Exception("Something went wrong when opening the file.");
+		}
+		// Check if we found all necessary parts of our TM file.
+		if (states && initinput && productions) {
+			// Nothing wrong.
+		}
+		else {
+			std::cout << *this << std::endl;
+			// Throw exception!
+			std::string error = "";
+			if (!states) {
+				error += " states";
+			}
+			if (!initinput) {
+				error += " initinput";
+			}
+			if (!productions) {
+				error += " productions";
+			}
+			throw Exception("There was a problem (or they're missing) in our tm file concerning:" + error);
 		}
 	}
 	catch (Exception& e) {
@@ -173,60 +189,65 @@ void TMParser::parseProduction(std::string line) {
 
 
 void TMParser::parseStates(std::string line, std::size_t found) {
-	std::string::iterator it;
-	for (it = line.begin() + found + 10; it != line.end(); it++) {
-		switch(*it) {
-		case ',':
-			break;
-		case ' ':
-			// Do nothing
-			break;
-		case '}':
-			// We're done parsing.
-			return;
-			break;
-		default:
-			// This is where we'll read our states.
-			std::string::iterator it2 = it;
-			TM::StateName state = "";
-			int counter = 0;
-			while (*it2 != ',' && *it2 != '}' && *it2 != ' ') {
-				state += *it2;
-				it2++;
-				counter++;
+	try {
+		std::string::iterator it;
+		for (it = line.begin() + found + 10; it != line.end(); it++) {
+			switch(*it) {
+			case ',':
+				break;
+			case ' ':
+				// Do nothing
+				break;
+			case '}':
+				// We're done parsing.
+				return;
+				break;
+			default:
+				// This is where we'll read our states.
+				std::string::iterator it2 = it;
+				TM::StateName state = "";
+				int counter = 0;
+				while (*it2 != ',' && *it2 != '}' && *it2 != ' ') {
+					state += *it2;
+					it2++;
+					counter++;
+				}
+				it += counter-1;
+				states_.push_back(state);
+				break;
 			}
-			it += counter-1;
-			states_.push_back(state);
-			break;
 		}
+	}
+	catch (Exception& e) {
+		std::cout << e.what() << std::endl;
 	}
 }
 
 void TMParser::parseInitInput(std::string line, std::size_t found) {
 	std::string::iterator it;
 	std::string initInput = "";
-	for (it = line.begin() + found + 18; it != line.end(); it++) {
+	for (it = line.begin() + found + 16; it != line.end(); it++) {
 		if (*it != ' ' && *it != '#') {
 			initInput += *it;
 		}
+	}
+	// Create our TapeSymbols
+	for (auto c : initInput) {
+		if (isdigit(c)) {
+			int digit = atoi(&c);
+			std::cout << "digit = " << digit << std::endl;
+			TM::TapeSymbol symbol(digit);
+			initInput_.push_back(symbol);
+		}
 		else {
-			// Create our TapeSymbols
-			for (auto c : initInput) {
-				if (isdigit(c)) {
-					TM::TapeSymbol symbol(c);
-					initInput_.push_back(symbol);
-				}
-				else {
-					std::stringstream ss;
-					ss << c;
-					std::string input = ss.str();
-					TM::TapeSymbol symbol(input);
-					initInput_.push_back(symbol);
-				}
-			}
-			return;
+			std::stringstream ss;
+			ss << c;
+			std::string input = ss.str();
+			TM::TapeSymbol symbol(input);
+			initInput_.push_back(symbol);
 		}
 	}
+	return;
 }
 
 void TMParser::iteratorCheck(std::string::iterator& it2, char c) const {

@@ -17,7 +17,7 @@ TMProgram::TMProgram(std::string filename) : filename_(filename) {
 	parser::TMParser parse(filename_);
 	states_ = parse.getStates();
 	productions_ = parse.getProductions();
-	//input_ = parse.getInitInput();
+	input_ = parse.getInitInput();
 }
 
 TMProgram::TMProgram(	std::vector<StateName> states, std::vector<Production> productions, std::string filename) : states_(states), productions_(productions) , filename_(filename){
