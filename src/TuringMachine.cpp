@@ -79,7 +79,7 @@ void TuringMachine::simulate(std::vector<TapeSymbol> input) {
 }
 void TuringMachine::simulate(TMProgram prog){
 	resetTape();
-	curState_ = states_.at(0);
+	curState_ = prog.states_.at(0);
 	head_ = tape_.begin();
 	int temp = prog.input_.size();
 

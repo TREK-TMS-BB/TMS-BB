@@ -126,17 +126,12 @@ int main( int argc, char* argv[]) {
 
 	//TM::linkFiles("TM-Files/incr2.tm","TM-Files/decr.tm", "TM-Files/test.tm" );
 	TM::linkFiles(progs, "TM-Files/test.tm");*/
-	TM::TuringMachine t("TM-Files/test.tm");
+	TM::TuringMachine t;
 
 	TM::TMProgram tmp("TM-Files/test.tm");
 
 
 	std::cout << t << std::endl;
-	std::vector<TM::TapeSymbol> temp;
-	temp.push_back(TM::TapeSymbol(0));
-	temp.push_back(TM::TapeSymbol(0));
-	temp.push_back(TM::TapeSymbol(0));
-	temp.push_back(TM::TapeSymbol(0));
 
 
 
